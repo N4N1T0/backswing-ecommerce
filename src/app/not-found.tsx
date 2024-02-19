@@ -12,18 +12,18 @@ const NotFound = () => {
       <div className='flex flex-1 items-center justify-center'>
         <div className='mx-auto max-w-xl px-4 py-8 text-center'>
           <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
-            We can&apos;t find that page.
+            Lo Sentimos! No pudimos encontrar la página que buscas!
           </h1>
 
           <p className='mt-4 text-gray-500'>
-            Try searching again, or return home to start from the beginning.
+            Puedes Intentar mas tarde o empezar desde la pagina pricipal
           </p>
 
           <a
             href='#'
-            className='mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring'
+            className='mt-6 inline-block rounded bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-secondary transition-colors duration-200 focus:outline-none focus:ring'
           >
-            Go Back Home
+            Pagina Principal
           </a>
         </div>
       </div>
