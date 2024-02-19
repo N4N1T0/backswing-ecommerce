@@ -14,7 +14,7 @@ const Navbar = () => {
           <MobileMenuSheet />
 
           <div className='md:flex md:items-center md:gap-12'>
-            <a className='block text-primary' href='#'>
+            <Link className='block text-primary' href='/'>
               <span className='sr-only'>Home</span>
               <svg className='h-8' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                 <path
@@ -22,7 +22,7 @@ const Navbar = () => {
                   fill='currentColor'
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           <div className='md:flex md:items-center md:gap-12'>
