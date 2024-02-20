@@ -2,18 +2,18 @@ import React from 'react'
 
 const Search = () => {
   return (
-    <div className='relative'>
+    <div className='relative pl-7'>
       <label htmlFor='Search' className='sr-only'> Search </label>
 
       <input
         type='text'
         id='Search'
-        placeholder='Search for...'
+        placeholder='Que Buscas...'
         className='w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm'
       />
 
       <span className='absolute inset-y-0 end-0 grid w-10 place-content-center'>
-        <button type='button' className='text-gray-600 hover:text-gray-700'>
+        <button type='button' className='text-gray-800 hover:text-secondary'>
           <span className='sr-only'>Search</span>
 
           <svg
