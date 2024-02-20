@@ -39,3 +39,5 @@ export const footerItems = [
     route: '/tallas'
   }
 ]
+
+export const tallas = ['xxs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
