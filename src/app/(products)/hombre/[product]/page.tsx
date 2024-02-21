@@ -35,7 +35,7 @@ const ProductPage = ({ params }: { params: { product: string } }) => {
                 </div>
                 <ul className='flex flex-wrap divide-x-2 w-full justify-between items-center'>
                   {tallas.map(talla => (
-                    <li key={talla} className='font-medium px-1 text-lg cursor-pointer hover:text-secondary transition-colors duration-200'>{talla}</li>
+                    <li key={talla} className='font-medium px-1 text-lg cursor-pointer hover:text-gray-600 transition-colors duration-200'>{talla}</li>
                   ))}
                 </ul>
               </div>

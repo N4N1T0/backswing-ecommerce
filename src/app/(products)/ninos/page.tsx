@@ -1,4 +1,9 @@
 import ProductCard from '@/components/products/product-card'
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Niños'
+}
 
 const NinoPage = () => {
   return (
