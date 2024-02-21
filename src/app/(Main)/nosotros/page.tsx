@@ -1,6 +1,6 @@
-import About from '@/components/nosotros/abou'
-import Timeline from './timeline'
-import Contacto from './contacto'
+import About from '@/components/nosotros/about'
+import Timeline from '@/components/nosotros/timeline'
+import Contacto from '@/components/nosotros/contacto'
 
 const NosotrosPage = () => {
   return (
