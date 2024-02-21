@@ -15,28 +15,28 @@ const ProductSlider = () => {
         <div className='flex-wrap hidden md:flex '>
           <div className='w-1/2 p-2 sm:w-1/4'>
             <a href='#'
-              className='block border border-blue-300 hover:border-blue-300'>
+              className='block border border-gray-400 hover:border-gray-400'>
               <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
                 className='object-cover w-full lg:h-20' />
             </a>
           </div>
           <div className='w-1/2 p-2 sm:w-1/4'>
             <a href='#'
-              className='block border border-transparent hover:border-blue-300'>
+              className='block border border-transparent hover:border-gray-400'>
               <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
                 className='object-cover w-full lg:h-20' />
             </a>
           </div>
           <div className='w-1/2 p-2 sm:w-1/4'>
             <a href='#'
-              className='block border border-transparent hover:border-blue-300'>
+              className='block border border-transparent hover:border-gray-400'>
               <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
                 className='object-cover w-full lg:h-20' />
             </a>
           </div>
           <div className='w-1/2 p-2 sm:w-1/4'>
             <a href='#'
-              className='block border border-transparent hover:border-blue-300'>
+              className='block border border-transparent hover:border-gray-400'>
               <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
                 className='object-cover w-full lg:h-20' />
             </a>
