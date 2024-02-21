@@ -6,7 +6,7 @@ import PreFooter from '@/components/shared/pre-footer'
 
 export default function Home() {
   return (
-    <main>
+    <main className='space-y-5'>
       <Hero />
       <SubHero />
       <Collection direction='right' />
