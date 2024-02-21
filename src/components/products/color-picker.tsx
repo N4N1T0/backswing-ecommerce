@@ -8,13 +8,13 @@ const ColorPicker = () => {
           <legend className='sr-only'>Color</legend>
         </fieldset>
 
-        <div className='flex flex-wrap justify-center gap-1'>
+        <div className='flex flex-wrap justify-center gap-5'>
           <div>
             <input type='checkbox' id='ColorSg' className='sr-only' />
 
             <label
               htmlFor='ColorSg'
-              className='block size-4 cursor-pointer rounded-full bg-[#595759]'
+              className='block size-7 cursor-pointer rounded-full bg-[#595759] hover:border-[1px] hover:border-primary '
             >
               <span className='sr-only'> Space Gray </span>
             </label>
@@ -25,7 +25,7 @@ const ColorPicker = () => {
 
             <label
               htmlFor='ColorS'
-              className='block size-4 cursor-pointer rounded-full bg-[#d2d3d4]'
+              className='block size-7 cursor-pointer rounded-full bg-[#d2d3d4] hover:border-[1px] hover:border-primary '
             >
               <span className='sr-only'> Silver </span>
             </label>
@@ -36,7 +36,7 @@ const ColorPicker = () => {
 
             <label
               htmlFor='ColorP'
-              className='block size-4 cursor-pointer rounded-full bg-[#d89f97]'
+              className='block size-7 cursor-pointer rounded-full bg-[#d89f97] hover:border-[1px] hover:border-primary '
             >
               <span className='sr-only'> Pink </span>
             </label>
@@ -47,7 +47,7 @@ const ColorPicker = () => {
 
             <label
               htmlFor='ColorG'
-              className='block size-4 cursor-pointer rounded-full bg-[#afbfab]'
+              className='block size-7 cursor-pointer rounded-full bg-[#afbfab] hover:border-[1px] hover:border-primary '
             >
               <span className='sr-only'> Pink </span>
             </label>
@@ -58,7 +58,7 @@ const ColorPicker = () => {
 
             <label
               htmlFor='ColorSb'
-              className='block size-4 cursor-pointer rounded-full bg-[#91a5bb]'
+              className='block size-7 cursor-pointer rounded-full bg-[#91a5bb] hover:border-[1px] hover:border-primary '
             >
               <span className='sr-only'> Pink </span>
             </label>
@@ -66,7 +66,6 @@ const ColorPicker = () => {
         </div>
       </form>
     </div>
-
   )
 }
 

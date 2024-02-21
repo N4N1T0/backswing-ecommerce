@@ -1,4 +1,5 @@
 import { type CollectionProps } from '@/types'
+import Link from 'next/link'
 
 const Collection = ({ direction }: CollectionProps) => {
   return (
@@ -15,7 +16,7 @@ const Collection = ({ direction }: CollectionProps) => {
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
           <li>
-            <a href='#' className='group block overflow-hidden'>
+            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
               <img
                 src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
                 alt=''
@@ -33,11 +34,11 @@ const Collection = ({ direction }: CollectionProps) => {
                   <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href='#' className='group block overflow-hidden'>
+            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
               <img
                 src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
                 alt=''
@@ -55,11 +56,11 @@ const Collection = ({ direction }: CollectionProps) => {
                   <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href='#' className='group block overflow-hidden'>
+            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
               <img
                 src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
                 alt=''
@@ -77,11 +78,11 @@ const Collection = ({ direction }: CollectionProps) => {
                   <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href='#' className='group block overflow-hidden'>
+            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
               <img
                 src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
                 alt=''
@@ -99,7 +100,7 @@ const Collection = ({ direction }: CollectionProps) => {
                   <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
