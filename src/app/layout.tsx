@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Backswing - Camisetas de Padel',
+    template: '%s  |  Backswing - Camisetas de Padel',
     default: 'Backswing - Camisetas de Padel'
   },
   description: 'Diseños exclusivos de camisetas para los amantes del Padel'
