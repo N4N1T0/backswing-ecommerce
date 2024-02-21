@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <header className='bg-white'>
       <div className='mx-auto max-w-screen-3xl px-4 sm:px-6 lg:px-8'>
-        <div className='flex h-20 items-center justify-between'>
+        <div className='flex h-16 xl:h-20 items-center justify-between'>
 
           {/* Left Section */}
           <div className='flex gap-3'>
