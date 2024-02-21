@@ -12,12 +12,16 @@ export const navItems = [
     route: '/ninos'
   },
   {
+    label: 'Ofertas',
+    route: '/ofertas'
+  },
+  {
     label: 'Nosotros',
     route: '/nosotros'
   },
   {
-    label: 'Ofertas',
-    route: '/ofertas'
+    label: 'Blog',
+    route: '/blog'
   }
 ]
 
