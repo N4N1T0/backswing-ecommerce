@@ -8,7 +8,7 @@ const PromotionDialog = ({ children }: { children: React.ReactNode }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className='overflow-hidden rounded-lg md:grid md:grid-cols-3 max-w-xl w-fit'>
+      <DialogContent className='overflow-hidden rounded-lg md:grid md:grid-cols-3 max-w-xl bg-gray-100 p-0'>
         <img
           alt=''
           src='https://images.unsplash.com/photo-1611510338559-2f463335092c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80'

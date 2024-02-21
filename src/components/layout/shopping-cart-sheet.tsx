@@ -11,11 +11,11 @@ import { ShoppingCart } from 'lucide-react'
 const ShoppingCartSheet = () => {
   return (
     <Sheet>
-      <SheetTrigger className='p-2 hover:bg-secondary rounded-lg transition-colors duration-300'>
+      <SheetTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors duration-300'>
         <span className='sr-only'>Shopping Cart Sheet</span>
         <ShoppingCart />
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className='bg-white'>
         <SheetHeader>
           <SheetTitle>Are you absolutely sure?</SheetTitle>
           <SheetDescription>

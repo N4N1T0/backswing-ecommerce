@@ -5,12 +5,12 @@ const Featured = () => {
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
         <div className='grid grid-cols-1 gap-4 lg:grid-cols-3 xl:grid-cols-4 lg:items-stretch'>
-          <div className='grid place-content-center bg-secondary/50 p-6 sm:p-8'>
+          <div className='grid place-content-center bg-gray-300 p-6 sm:p-8'>
             <div className='mx-auto max-w-md text-center lg:text-left'>
               <header>
                 <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Watches</h2>
 
-                <p className='mt-4 text-gray-500'>
+                <p className='mt-4 text-gray-700'>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas rerum quam amet
                   provident nulla error!
                 </p>
@@ -18,7 +18,7 @@ const Featured = () => {
 
               <a
                 href='#'
-                className='mt-8 inline-block border border-gray-900 bg-gray-900 px-12 py-3 text-sm font-medium text-white transition hover:shadow focus:outline-none focus:ring'
+                className='mt-8 inline-block bg-gray-950 px-12 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-gray-700'
               >
                 Shop All
               </a>

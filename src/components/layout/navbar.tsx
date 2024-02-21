@@ -30,7 +30,7 @@ const Navbar = () => {
                 <ul className='flex items-center gap-6 text-sm'>
                   {navItems.map((item) => (
                     <li key={item.label}>
-                      <Link className='text-gray-700 hover:text-secondary transition-colors' href={item.route}>{item.label}</Link>
+                      <Link className='text-gray-800 hover:text-gray-400 transition-colors duration-200' href={item.route}>{item.label}</Link>
                     </li>
                   ))}
                 </ul>

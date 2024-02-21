@@ -28,7 +28,7 @@ const Footer = () => {
           </Link>
         </div>
 
-        <div className='lg:flex lg:items-end lg:justify-between'>
+        <div className='lg:flex lg:items-end lg:justify-between border-b py-3 border-gray-300'>
           <div>
             <div className='flex justify-center text-primary lg:justify-start'>
               <svg className='h-8' viewBox='0 0 118 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -86,13 +86,13 @@ const Footer = () => {
           >
             {footerItems.map(items => (
               <li key={items.label}>
-                <Link className='text-gray-700 text-sm md:text-base transition-colors duration-200 hover:text-secondary' href={items.route} title={items.label}>{items.label}</Link>
+                <Link className='text-gray-900 text-sm md:text-base transition-colors duration-200 hover:text-gray-500' href={items.route} title={items.label}>{items.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
-        <p className='mt-6 md:mt-12 text-center text-sm text-gray-500 lg:text-right'>
+        <p className='mt-5 text-center text-sm text-gray-600 lg:text-right'>
           Copyright &copy; 2022. All rights reserved.
         </p>
       </div>

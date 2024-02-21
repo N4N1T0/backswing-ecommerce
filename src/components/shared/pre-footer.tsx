@@ -5,7 +5,7 @@ const PreFooter = () => {
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 lg:px-8'>
         <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
-          <div className='bg-primary p-8 md:p-12 lg:px-16 lg:py-24'>
+          <div className='bg-gray-950 p-8 md:p-12 lg:px-16 lg:py-24'>
             <div className='mx-auto max-w-xl text-center'>
               <h2 className='text-xl font-bold text-white md:text-3xl'>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit
@@ -20,7 +20,7 @@ const PreFooter = () => {
               <div className='mt-4 md:mt-8'>
                 <a
                   href='#'
-                  className='inline-block rounded border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400'
+                  className='mt-8 inline-block bg-gray-200 px-12 py-3 text-sm font-medium text-gray-950 transition-colors duration-200 hover:bg-gray-400'
                 >
                   Get Started Today
                 </a>

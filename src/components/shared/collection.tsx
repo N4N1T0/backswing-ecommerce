@@ -24,7 +24,7 @@ const Collection = ({ direction }: CollectionProps) => {
               />
 
               <div className='relative bg-white pt-3'>
-                <h3 className='text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4'>
+                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
                   Basic Tee
                 </h3>
 
@@ -46,7 +46,7 @@ const Collection = ({ direction }: CollectionProps) => {
               />
 
               <div className='relative bg-white pt-3'>
-                <h3 className='text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4'>
+                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
                   Basic Tee
                 </h3>
 
@@ -68,7 +68,7 @@ const Collection = ({ direction }: CollectionProps) => {
               />
 
               <div className='relative bg-white pt-3'>
-                <h3 className='text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4'>
+                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
                   Basic Tee
                 </h3>
 
@@ -90,7 +90,7 @@ const Collection = ({ direction }: CollectionProps) => {
               />
 
               <div className='relative bg-white pt-3'>
-                <h3 className='text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4'>
+                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
                   Basic Tee
                 </h3>
 

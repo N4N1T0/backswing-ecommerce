@@ -9,11 +9,11 @@ const Search = () => {
         type='text'
         id='Search'
         placeholder='Que Buscas...'
-        className='w-full rounded-md border-gray-200 py-2.5 shadow-sm sm:text-sm'
+        className='w-full rounded-md border-gray-400 py-2.5 shadow-sm sm:text-sm'
       />
 
       <span className='absolute inset-y-0 end-0 grid w-10 place-content-center'>
-        <button type='button' className='text-gray-800 hover:text-secondary'>
+        <button type='button' className='text-gray-900 hover:text-secondary'>
           <span className='sr-only'>Search</span>
 
           <svg
