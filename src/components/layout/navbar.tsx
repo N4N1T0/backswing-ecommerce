@@ -25,8 +25,8 @@ const Navbar = () => {
                 </svg>
               </Link>
             </div>
-            <div className='md:flex md:items-center md:gap-12 pl-12'>
-              <nav aria-label='Global' className='hidden md:block'>
+            <div className='hidden md:flex md:items-center md:gap-12 pl-12'>
+              <nav aria-label='Desktop Navbar'>
                 <ul className='flex items-center gap-6 text-sm'>
                   {navItems.map((item) => (
                     <li key={item.label}>

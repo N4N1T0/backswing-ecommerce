@@ -75,24 +75,24 @@ const Footer = () => {
               </svg>
             </div>
 
-            <p className='mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left'>
+            <p className='mx-auto text-sm md:text-base mt-6 max-w-md text-center leading-relaxed text-gray-500 lg:text-left'>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa
               cum itaque neque.
             </p>
           </div>
 
           <ul
-            className='mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12'
+            className='mt-6 md:mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12'
           >
             {footerItems.map(items => (
               <li key={items.label}>
-                <Link className='text-gray-700 transition-colors duration-200 hover:text-secondary' href={items.route} title={items.label}>{items.label}</Link>
+                <Link className='text-gray-700 text-sm md:text-base transition-colors duration-200 hover:text-secondary' href={items.route} title={items.label}>{items.label}</Link>
               </li>
             ))}
           </ul>
         </div>
 
-        <p className='mt-12 text-center text-sm text-gray-500 lg:text-right'>
+        <p className='mt-6 md:mt-12 text-center text-sm text-gray-500 lg:text-right'>
           Copyright &copy; 2022. All rights reserved.
         </p>
       </div>

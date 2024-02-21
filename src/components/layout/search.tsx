@@ -2,14 +2,14 @@ import React from 'react'
 
 const Search = () => {
   return (
-    <div className='relative pl-7'>
+    <div className='relative w-[170px] md:w-[220px]'>
       <label htmlFor='Search' className='sr-only'> Search </label>
 
       <input
         type='text'
         id='Search'
         placeholder='Que Buscas...'
-        className='w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm'
+        className='w-full rounded-md border-gray-200 py-2.5 shadow-sm sm:text-sm'
       />
 
       <span className='absolute inset-y-0 end-0 grid w-10 place-content-center'>
