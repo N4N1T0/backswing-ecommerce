@@ -1,7 +1,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -20,11 +19,8 @@ const ShoppingCartSheet = () => {
       </SheetTrigger>
       <SheetContent className='bg-white justify-between items-center flex flex-col p-5'>
         <SheetHeader>
-          <SheetTitle className='text-lg md:text-2xl font-bold'>Carrito de la Compra
+          <SheetTitle className='text-lg md:text-2xl font-bold uppercase'>Carrito de la Compra
           </SheetTitle>
-          <SheetDescription className='text-center'>
-            Tienes: <span className='font-bold'>2</span> productos en tu carrito.
-          </SheetDescription>
         </SheetHeader>
         <div className='w-full bg-white py-5 overflow-y-scroll overflow-x-hidden'>
           <div className='block my-3 py-3 border-b border-gray-400 md:flex'>
