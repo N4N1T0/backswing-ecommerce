@@ -16,6 +16,10 @@ export const navItems = [
     route: '/ofertas'
   },
   {
+    label: 'Nuevo',
+    route: '/nuevo'
+  },
+  {
     label: 'Nosotros',
     route: '/nosotros'
   },
