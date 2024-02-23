@@ -8,8 +8,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04321A?$big_image_web$',
     gender: 'hombre',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 15,
+      onOffer: true
+    }
+},
   {
     id: 2,
     name: 'Sols Calipso',
@@ -19,7 +22,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04237A-1?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 3,
@@ -30,7 +36,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04232A-1?$big_image_web$',
     gender: 'hombre',
     new: true,
-    featured: false
+    offer: {
+      price: 25,
+      onOffer: true
+    }
   },
   {
     id: 4,
@@ -41,8 +50,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04240A-2?$big_image_web$',
     gender: 'hombre',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
   {
     id: 5,
     name: 'SOL&apos;S CONRAD',
@@ -52,8 +64,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04234A-2?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 25,
+      onOffer: true
+    }
+},
   {
     id: 6,
     name: 'SOL&apos;S CARTER',
@@ -63,7 +78,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03812A-1?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 7,
@@ -74,8 +92,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04241A-1?$big_image_web$',
     gender: 'hombre',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
   {
     id: 8,
     name: 'SOL&apos;S PEGASE',
@@ -85,8 +106,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04242A-1?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 15,
+      onOffer: true
+    }
+},
   {
     id: 9,
     name: 'SOL&apos;S LEGEND',
@@ -96,7 +120,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03981A-1?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 10,
@@ -107,7 +134,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04233A-1?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: false
+    offer: {
+      price: 15,
+      onOffer: true
+    }
   },
   {
     id: 11,
@@ -118,7 +148,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11346A?$big_image_web$',
     gender: 'hombre',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 12,
@@ -129,8 +162,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11362A?$big_image_web$',
     gender: 'hombre',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 15,
+      onOffer: true
+    }
+},
   {
     id: 13,
     name: 'SOL&apos;S REGENT WOMEN',
@@ -140,7 +176,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n01825A?$big_image_web$',
     gender: 'mujer',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 14,
@@ -151,8 +190,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11502A?$big_image_web$',
     gender: 'mujer',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 10,
+      onOffer: true
+    }
+},
    {
     id: 15,
     name: 'SOL&apos;S PEOPLE',
@@ -162,8 +204,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11310A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
   {
     id: 16,
     name: 'SOL&apso;S SPORTY WOMEN',
@@ -173,7 +218,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n01159A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: false
+    offer: {
+      price: 10,
+      onOffer: true
+    }
   },
   {
     id: 17,
@@ -184,7 +232,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11347A?$big_image_web$',
     gender: 'mujer',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 18,
@@ -195,7 +246,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04021A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 19,
@@ -206,7 +260,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04203A-2?$big_image_web$',
     gender: 'mujer',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 20,
@@ -217,7 +274,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03997A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 21,
@@ -228,8 +288,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03999A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 8,
+      onOffer: true
+    }
+},
   {
     id: 22,
     name: 'SOL&apos;S CARTER',
@@ -239,8 +302,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03812A-2?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
    {
     id: 23,
     name: 'SOL&apos;S PLANET LSL',
@@ -250,7 +316,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04241A-2?$big_image_web$',
     gender: 'mujer',
     new: false,
-    featured: false
+    offer: {
+      price: 25,
+      onOffer: true
+    }
   },
   {
     id: 24,
@@ -261,7 +330,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03575A?$big_image_web$',
     gender: 'mujer',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 25,
@@ -272,7 +344,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04238A?$big_image_web$',
     gender: 'ninos',
     new: true,
-    featured: false
+    offer: {
+      price: 15,
+      onOffer: true
+    }
   },
   {
     id: 26,
@@ -283,8 +358,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n04239A?$big_image_web$',
     gender: 'ninos',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
    {
     id: 27,
     name: 'SOL&apos;S PERFECT KIDS',
@@ -294,8 +372,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n02948A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 15,
+      onOffer: true
+    }
+},
   {
     id: 28,
     name: 'SOL&apos;S REGENT KIDS',
@@ -305,7 +386,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11970A-1?$big_image_web$',
     gender: 'ninos',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 29,
@@ -316,7 +400,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n01166A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 30,
@@ -327,8 +414,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11770A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 15,
+      onOffer: true
+    }
+},
   {
     id: 31,
     name: 'SOL&apos;S SUMMER II KIDS',
@@ -338,8 +428,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n11344A-1?$big_image_web$',
     gender: 'ninos',
     new: true,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
   {
     id: 32,
     name: 'SOL&apos;S STELLAR KIDS',
@@ -349,7 +442,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03576A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 33,
@@ -360,7 +456,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03578A?$big_image_web$',
     gender: 'ninos',
     new: true,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
    {
     id: 34,
@@ -371,8 +470,11 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03580A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: true
-  },
+    offer: {
+      price: 0,
+      onOffer: false
+    }
+},
   {
     id: 35,
     name: 'ATF LOU',
@@ -382,7 +484,10 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03274A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: false
+    offer: {
+      price: 0,
+      onOffer: false
+    }
   },
   {
     id: 36,
@@ -393,6 +498,9 @@ export const staticsProducts = [
     image: 'https://s7g3.scene7.com/is/image/soloinvest/n03101A?$big_image_web$',
     gender: 'ninos',
     new: false,
-    featured: true
-  }
+    offer: {
+      price: 20,
+      onOffer: true
+    }
+}
 ]
