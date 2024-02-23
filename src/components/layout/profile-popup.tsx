@@ -1,7 +1,8 @@
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger
+  PopoverTrigger,
+  PopoverClose
 } from '@/components/ui/popover'
 import { User } from 'lucide-react'
 import Link from 'next/link'
@@ -16,7 +17,9 @@ const ProfilePopup = () => {
       <PopoverContent className='bg-white p-5'>
         <ul>
           <li>
-            <Link href='/perfil'>Perfil</Link>
+            <PopoverClose asChild>
+              <Link href='/perfil'>Perfil</Link>
+            </PopoverClose>
           </li>
         </ul>
       </PopoverContent>
