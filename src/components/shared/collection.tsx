@@ -1,107 +1,45 @@
-import { type CollectionProps } from '@/types'
 import Link from 'next/link'
+import { staticsProducts } from '@/contants/static-products'
+import { useEuros, useCapitalize, getRandomProductsCollection } from '@/lib/utils'
 
-const Collection = ({ direction }: CollectionProps) => {
+const Collection = ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
+  const products = getRandomProductsCollection(staticsProducts, colection, 4)
   return (
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
         <header className={`w-full flex flex-col ${direction === 'right' ? 'items-end' : 'items-start'}`}>
-          <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Product Collection</h2>
+          <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Colección para {useCapitalize(colection)}</h2>
 
-          <p className='mt-4 max-w-md text-gray-500'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque praesentium cumque iure
-            dicta incidunt est ipsam, officia dolor fugit natus?
-          </p>
+          {colection === 'hombre'
+            ? <p className='mt-4 max-w-md text-gray-500'>Descubre nuestra selección de camisetas para hombres que aman el pádel y el estilo. Calidad premium y diseño vanguardista garantizados.</p>
+            : <p className='mt-4 max-w-md text-gray-500'>Camisetas de alta calidad y diseño moderno para mujeres apasionadas del pádel y la moda. ¡Estilo impecable en cada partida!</p>
+          }
         </header>
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          <li>
-            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
-              <img
-                src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                alt=''
-                className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
-              />
+          {products.map(product => (
+            <li key={product.id}>
+              <Link href={`/product/${product.id}`} className='group block overflow-hidden'>
+                <img
+                  src={product.image}
+                  alt=''
+                  className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
+                />
 
-              <div className='relative bg-white pt-3'>
-                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
-                  Basic Tee
-                </h3>
+                <div className='relative bg-white pt-3'>
+                  <h3 className='text-gray-700 group-hover:underline group-hover:underline-offset-4 uppercase font-medium'>
+                    {product.name}
+                  </h3>
 
-                <p className='mt-2'>
-                  <span className='sr-only'> Regular Price </span>
+                  <p className='mt-2'>
+                    <span className='sr-only'> Regular Price </span>
 
-                  <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
-                </p>
-              </div>
-            </Link>
-          </li>
-
-          <li>
-            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
-              <img
-                src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                alt=''
-                className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
-              />
-
-              <div className='relative bg-white pt-3'>
-                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
-                  Basic Tee
-                </h3>
-
-                <p className='mt-2'>
-                  <span className='sr-only'> Regular Price </span>
-
-                  <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
-                </p>
-              </div>
-            </Link>
-          </li>
-
-          <li>
-            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
-              <img
-                src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                alt=''
-                className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
-              />
-
-              <div className='relative bg-white pt-3'>
-                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
-                  Basic Tee
-                </h3>
-
-                <p className='mt-2'>
-                  <span className='sr-only'> Regular Price </span>
-
-                  <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
-                </p>
-              </div>
-            </Link>
-          </li>
-
-          <li>
-            <Link href='/hombre/basic-tee' className='group block overflow-hidden'>
-              <img
-                src='https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                alt=''
-                className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
-              />
-
-              <div className='relative bg-white pt-3'>
-                <h3 className='text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4'>
-                  Basic Tee
-                </h3>
-
-                <p className='mt-2'>
-                  <span className='sr-only'> Regular Price </span>
-
-                  <span className='tracking-wider text-gray-900'> £24.00 GBP </span>
-                </p>
-              </div>
-            </Link>
-          </li>
+                    <span className='tracking-wider text-gray-900'> {useEuros.format(product.price)} </span>
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

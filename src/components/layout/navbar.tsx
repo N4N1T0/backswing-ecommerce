@@ -23,7 +23,7 @@ const Navbar = () => {
               <span className='sr-only'>Home</span>
               <Image src={Logo} alt='Logo' priority height={50} width={50} />
             </Link>
-            <div className='hidden md:flex md:items-center md:gap-12 pl-12'>
+            <div className='hidden lg:flex md:items-center md:gap-12 pl-12'>
               <nav aria-label='Desktop Navbar'>
                 <ul className='flex items-center gap-6'>
                   {navItems.map((item) => (

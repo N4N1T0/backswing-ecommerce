@@ -1,6 +1,9 @@
-import React from 'react'
+import { staticsProducts } from '@/contants/static-products'
+import { getRandomProductsNew } from '@/lib/utils'
+import Link from 'next/link'
 
 const Featured = () => {
+  const products = getRandomProductsNew(staticsProducts, 4)
   return (
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -8,104 +11,49 @@ const Featured = () => {
           <div className='grid place-content-center bg-gray-300 p-6 sm:p-8'>
             <div className='mx-auto max-w-md text-center lg:text-left'>
               <header>
-                <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Watches</h2>
+                <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Productos Nuevos</h2>
 
                 <p className='mt-4 text-gray-700'>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas rerum quam amet
-                  provident nulla error!
+                  Explora nuestra nueva colección de sudaderas, gorros y más. Con calidad premium y diseños vanguardistas, cada artículo está diseñado para hombres y mujeres que adoran el pádel y la moda.
                 </p>
               </header>
 
-              <a
-                href='#'
+              <ul>
+
+              </ul>
+
+              <Link
+                href='/nuevo'
                 className='mt-8 inline-block bg-gray-950 px-12 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-gray-700'
               >
-                Shop All
-              </a>
+                Verlos Todos
+              </Link>
             </div>
           </div>
 
           <div className='lg:col-span-2 xl:col-span-3 lg:py-8'>
             <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
-              <li>
-                <a href='#' className='group block'>
-                  <img
-                    src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80'
-                    alt=''
-                    className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
-                  />
+              {products.map((product) => (
+                <li key={product.id}>
+                  <a href='#' className='group block'>
+                    <img
+                      src={product.image}
+                      alt=''
+                      className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
+                    />
 
-                  <div className='mt-3'>
-                    <h3
-                      className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'
-                    >
-                      Simple Watch
-                    </h3>
+                    <div className='mt-3'>
+                      <h3
+                        className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'
+                      >
+                        {product.name}
+                      </h3>
 
-                    <p className='mt-1 text-sm text-gray-700'>$150</p>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href='#' className='group block'>
-                  <img
-                    src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80'
-                    alt=''
-                    className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
-                  />
-
-                  <div className='mt-3'>
-                    <h3
-                      className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'
-                    >
-                      Simple Watch
-                    </h3>
-
-                    <p className='mt-1 text-sm text-gray-700'>$150</p>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href='#' className='group block'>
-                  <img
-                    src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80'
-                    alt=''
-                    className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
-                  />
-
-                  <div className='mt-3'>
-                    <h3
-                      className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'
-                    >
-                      Simple Watch
-                    </h3>
-
-                    <p className='mt-1 text-sm text-gray-700'>$150</p>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href='#' className='group block'>
-                  <img
-                    src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1598&q=80'
-                    alt=''
-                    className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
-                  />
-
-                  <div className='mt-3'>
-                    <h3
-                      className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'
-                    >
-                      Simple Watch
-                    </h3>
-
-                    <p className='mt-1 text-sm text-gray-700'>$150</p>
-                  </div>
-                </a>
-              </li>
+                      <p className='mt-1 text-sm text-gray-700'>{product.price}</p>
+                    </div>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
