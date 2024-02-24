@@ -44,3 +44,7 @@ export const getRandomProductsNew = (staticsProducts: StaticProductsTypes[], num
   const randomProducts = shuffledProducts.slice(0, numberOfProducts)
   return randomProducts
 }
+
+export const getSingleProduct = (staticsProducts: StaticProductsTypes[], ProductId: number): StaticProductsTypes => {
+  return staticsProducts.find(product => product.id === ProductId)!
+}

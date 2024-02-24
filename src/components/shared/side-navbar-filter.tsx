@@ -1,17 +1,24 @@
+'use client'
+
+import { pathnameCrumbs } from '@/lib/utils'
+import { usePathname } from 'next/navigation'
+
 const SideNavbarFilter = () => {
+  const pathname = usePathname()
+  const crumbs = pathnameCrumbs(pathname)
+
   return (
     <div>
       <ul className='flex flex-col space-y-2'>
         <li>
-          <strong className='block text-xs font-medium uppercase text-gray-400'> General </strong>
-
-          <ul className='mt-2 space-y-1'>
+          <strong className='block text-xs font-medium uppercase text-gray-400'> Diseños de {crumbs[0].name} </strong>
+          <ul className='mt-2 space-y-1 uppercase'>
             <li>
               <a
                 href='#'
                 className='block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700'
               >
-                Profile
+                Rtp Apparel Vision
               </a>
             </li>
 
@@ -20,7 +27,7 @@ const SideNavbarFilter = () => {
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Team
+                Sols Calipso
               </a>
             </li>
 
@@ -29,7 +36,7 @@ const SideNavbarFilter = () => {
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Projects
+                SOLS CONSTELLATION
               </a>
             </li>
 
@@ -38,7 +45,7 @@ const SideNavbarFilter = () => {
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Meetings
+                SOLS COOPER
               </a>
             </li>
 
@@ -47,76 +54,48 @@ const SideNavbarFilter = () => {
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Calendar
+                SOLS CONRAD
               </a>
             </li>
-          </ul>
-        </li>
-
-        <li>
-          <strong className='block text-xs font-medium uppercase text-gray-400'> Support </strong>
-
-          <ul className='mt-2 space-y-1'>
             <li>
               <a
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Update
+                SOLS CARTER
               </a>
             </li>
-
             <li>
               <a
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Help
+                SOLS PLANET LSL
               </a>
             </li>
-
             <li>
               <a
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Settings
+                SOLS PEGASE
               </a>
             </li>
-          </ul>
-        </li>
-
-        <li>
-          <strong className='block text-xs font-medium uppercase text-gray-400'> Profile </strong>
-
-          <ul className='mt-2 space-y-1'>
             <li>
               <a
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Details
+                SOLS LEGEND
               </a>
             </li>
-
             <li>
               <a
                 href='#'
                 className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
               >
-                Subscription
+                SOLS RE CRUSADER
               </a>
-            </li>
-
-            <li>
-              <form action='#'>
-                <button
-                  type='submit'
-                  className='block w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700'
-                >
-                  Logout
-                </button>
-              </form>
             </li>
           </ul>
         </li>

@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
 
   return (
     <nav aria-label='Breadcrumb'>
-      <ol className='flex items-center gap-1 text-sm text-gray-800'>
+      <ul className='flex items-center gap-1 text-sm text-gray-800'>
         <li>
           <Link href='/' className='block transition hover:text-secondary'>
             <span className='sr-only'> Home </span>
@@ -54,7 +54,7 @@ const Breadcrumbs = () => {
             </li>
             {index === crumbs.length - 1
               ? <></>
-              : <li>
+              : <li key={`${crumb.name}-${index}-Arrow`}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='h-4 w-4'
@@ -71,7 +71,7 @@ const Breadcrumbs = () => {
           </>
         ))}
 
-      </ol>
+      </ul>
     </nav>
   )
 }

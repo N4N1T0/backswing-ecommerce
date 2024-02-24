@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 
 const Quantity = () => {
   return (
@@ -15,6 +15,7 @@ const Quantity = () => {
             type='number'
             id='Quantity'
             value='1'
+            onChange={() => { }}
             className='h-10 w-16 rounded border-secondary/50 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
           />
 

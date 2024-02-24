@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { staticsProducts } from '@/contants/static-products'
 import { useEuros, useCapitalize, getRandomProductsCollection } from '@/lib/utils'
+import Image from 'next/image'
 
 const Collection = ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
   const products = getRandomProductsCollection(staticsProducts, colection, 4)
@@ -18,11 +19,14 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
           {products.map(product => (
-            <li key={product.id}>
-              <Link href={`/product/${product.id}`} className='group block overflow-hidden'>
-                <img
+            <li key={product.id} className='relative'>
+              {product.offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Oferta </p>}
+              <Link href={`/${product.gender}/${product.id}`} className='group block overflow-hidden'>
+                <Image
                   src={product.image}
-                  alt=''
+                  alt={product.name}
+                  width={350}
+                  height={450}
                   className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
                 />
 

@@ -1,46 +1,40 @@
-'use client'
+import Image from 'next/image'
 
-import { useState } from 'react'
-
-const ProductSlider = () => {
-  const [slide, setSlide] = useState('')
-
+const ProductSlider = ({ image, name }: { image: string, name: string }) => {
   return (
-    <div className='w-full px-4 md:w-1/2 '>
-      <div className='sticky top-0 z-50 overflow-hidden '>
-        <div className='relative mb-6 lg:mb-10 lg:h-2/4 '>
-          <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
-            className='object-cover w-full lg:h-full' />
+    <div className='w-full px-4 md:w-1/2'>
+      <div className='relative mb-4 lg:mb-8'>
+        <Image src={image} alt={name} height={1000} width={1000} priority
+          className='object-cover aspect-square h-auto w-auto' />
+      </div>
+      <div className='flex-wrap flex'>
+        <div className='w-1/2 p-2 sm:w-1/4'>
+          <a href='#'
+            className='block border hover:border-gray-400'>
+            <Image src={image} alt={name} height={200} width={200}
+              className='object-cover aspect-square h-auto w-auto' />
+          </a>
         </div>
-        <div className='flex-wrap hidden md:flex '>
-          <div className='w-1/2 p-2 sm:w-1/4'>
-            <a href='#'
-              className='block border border-gray-400 hover:border-gray-400'>
-              <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
-                className='object-cover w-full lg:h-20' />
-            </a>
-          </div>
-          <div className='w-1/2 p-2 sm:w-1/4'>
-            <a href='#'
-              className='block border border-transparent hover:border-gray-400'>
-              <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
-                className='object-cover w-full lg:h-20' />
-            </a>
-          </div>
-          <div className='w-1/2 p-2 sm:w-1/4'>
-            <a href='#'
-              className='block border border-transparent hover:border-gray-400'>
-              <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
-                className='object-cover w-full lg:h-20' />
-            </a>
-          </div>
-          <div className='w-1/2 p-2 sm:w-1/4'>
-            <a href='#'
-              className='block border border-transparent hover:border-gray-400'>
-              <img src='https://i.postimg.cc/PqYpFTfy/pexels-melvin-buezo-2529148.jpg' alt=''
-                className='object-cover w-full lg:h-20' />
-            </a>
-          </div>
+        <div className='w-1/2 p-2 sm:w-1/4'>
+          <a href='#'
+            className='block border border-transparent hover:border-gray-400'>
+            <Image src={image} alt={name} height={200} width={200}
+              className='object-cover aspect-square h-auto w-auto' />
+          </a>
+        </div>
+        <div className='w-1/2 p-2 sm:w-1/4'>
+          <a href='#'
+            className='block border border-transparent hover:border-gray-400'>
+            <Image src={image} alt={name} height={200} width={200}
+              className='object-cover aspect-square h-auto w-auto' />
+          </a>
+        </div>
+        <div className='w-1/2 p-2 sm:w-1/4'>
+          <a href='#'
+            className='block border border-transparent hover:border-gray-400'>
+            <Image src={image} alt={name} height={200} width={200}
+              className='object-cover aspect-square h-auto w-auto' />
+          </a>
         </div>
       </div>
     </div>

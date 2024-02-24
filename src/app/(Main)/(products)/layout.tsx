@@ -9,7 +9,7 @@ export default function ProductsLayout({
 }>) {
   return (
     <main className='max-w-screen-3xl mx-auto p-3 md:p-10 grid grid-cols-5 gap-4 relative'>
-      <aside className='col-span-1 space-y-10 hidden md:block top-4 h-full md:sticky'>
+      <aside className='col-span-1 space-y-10 hidden md:block top-4 h-fit md:sticky'>
         <Breadcrumbs />
         <SideNavbarFilter />
       </aside>

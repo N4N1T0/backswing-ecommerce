@@ -1,5 +1,6 @@
 import { staticsProducts } from '@/contants/static-products'
-import { getRandomProductsNew } from '@/lib/utils'
+import { getRandomProductsNew, useEuros } from '@/lib/utils'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Featured = () => {
@@ -34,11 +35,14 @@ const Featured = () => {
           <div className='lg:col-span-2 xl:col-span-3 lg:py-8'>
             <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
               {products.map((product) => (
-                <li key={product.id}>
-                  <a href='#' className='group block'>
-                    <img
+                <li key={product.id} className='relative'>
+                  {product.new && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Nuevo </p>}
+                  <Link href={`/${product.gender}/${product.id}`} className='group block'>
+                    <Image
                       src={product.image}
-                      alt=''
+                      alt={product.name}
+                      width={500}
+                      height={500}
                       className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
                     />
 
@@ -49,9 +53,9 @@ const Featured = () => {
                         {product.name}
                       </h3>
 
-                      <p className='mt-1 text-sm text-gray-700'>{product.price}</p>
+                      <p className='mt-1 text-sm text-gray-700'>{useEuros.format(product.price)}</p>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
