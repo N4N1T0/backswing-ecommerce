@@ -9,9 +9,9 @@ export default function Home() {
     <main className='space-y-5'>
       <Hero />
       <SubHero />
-      <Collection direction='right' />
+      <Collection direction='right' colection='mujer' />
       <Featured />
-      <Collection direction='left' />
+      <Collection direction='left' colection='hombre' />
       <PreFooter />
     </main>
   )
