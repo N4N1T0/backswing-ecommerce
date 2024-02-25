@@ -3,6 +3,7 @@
 import { pathnameCrumbs } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import React from 'react'
 
 const Breadcrumbs = () => {
   const pathname = usePathname()
@@ -46,15 +47,14 @@ const Breadcrumbs = () => {
           </svg>
         </li>
         {crumbs.map((crumb, index) => (
-          <>
-            <li key={`${crumb.name}-${index}`}>
+          <React.Fragment key={`${crumb.name}-${index}`}>
+            <li>
               <Link href={crumb.href} className='block transition hover:text-secondary'>
                 {crumb.name}
               </Link>
             </li>
-            {index === crumbs.length - 1
-              ? <></>
-              : <li key={`${crumb.name}-${index}-Arrow`}>
+            {index !== crumbs.length - 1 && (
+              <li key={`${crumb.name}-${index}-Arrow`}>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='h-4 w-4'
@@ -67,8 +67,9 @@ const Breadcrumbs = () => {
                     clipRule='evenodd'
                   />
                 </svg>
-              </li>}
-          </>
+              </li>
+            )}
+          </React.Fragment>
         ))}
 
       </ul>
