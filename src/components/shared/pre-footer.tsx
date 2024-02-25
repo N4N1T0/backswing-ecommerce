@@ -31,7 +31,7 @@ const PreFooter = () => {
             </div>
           </div>
           {medioAmbiente.map(item => (
-            <Image key={`image-${item.label}`} src={item.image} alt={item.label} />
+            <Image key={`image-${item.label}`} src={item.image} alt={item.label} title={item.label} className='w-auto h-auto' />
           ))}
         </div>
       </div>

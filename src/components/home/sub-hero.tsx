@@ -15,7 +15,7 @@ const SubHero = () => {
                 <Image
                   src={product.image}
                   alt={product.description}
-                  className='aspect-square object-cover transition-transform duration-300 group-hover:scale-110'
+                  className='aspect-square object-cover transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
                   width={1000}
                   height={1000}
                   priority

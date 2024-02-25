@@ -41,9 +41,10 @@ const Featured = () => {
                     <Image
                       src={product.image}
                       alt={product.name}
+                      title={product.name}
                       width={500}
                       height={500}
-                      className='aspect-square w-full object-cover ransition duration-500 group-hover:opacity-70'
+                      className='aspect-square w-full object-cover transition-opacity duration-300 ease-out group-hover:opacity-70 h-auto'
                     />
 
                     <div className='mt-3'>

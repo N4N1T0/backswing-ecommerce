@@ -25,9 +25,10 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
                 <Image
                   src={product.image}
                   alt={product.name}
+                  title={product.name}
                   width={350}
                   height={450}
-                  className='h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]'
+                  className='h-[350px] w-full object-cover transition-transform ease-out duration-300 group-hover:scale-105 sm:h-[450px]'
                 />
 
                 <div className='relative bg-white pt-3'>
