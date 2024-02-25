@@ -26,5 +26,10 @@
         "@typescript-eslint/space-before-function-paren": "off",
         "jsx-quotes": ["error", "prefer-single"],
         "@typescript-eslint/indent": "off"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }

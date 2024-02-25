@@ -35,7 +35,7 @@ const CarouselContext = React.createContext<CarouselContextProps | null>(null)
 function useCarousel() {
   const context = React.useContext(CarouselContext)
 
-  if (!context) {
+  if (context == null) {
     throw new Error('useCarousel must be used within a <Carousel />')
   }
 
@@ -69,7 +69,7 @@ const Carousel = React.forwardRef<
     const [canScrollNext, setCanScrollNext] = React.useState(false)
 
     const onSelect = React.useCallback((api: CarouselApi) => {
-      if (!api) {
+      if (api == null) {
         return
       }
 
@@ -99,7 +99,7 @@ const Carousel = React.forwardRef<
     )
 
     React.useEffect(() => {
-      if (!api || !setApi) {
+      if ((api == null) || (setApi == null)) {
         return
       }
 
@@ -107,7 +107,7 @@ const Carousel = React.forwardRef<
     }, [api, setApi])
 
     React.useEffect(() => {
-      if (!api) {
+      if (api == null) {
         return
       }
 
@@ -127,6 +127,7 @@ const Carousel = React.forwardRef<
           api,
           opts,
           orientation:
+            // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
             orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
           scrollPrev,
           scrollNext,
