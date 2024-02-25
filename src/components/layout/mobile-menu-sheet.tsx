@@ -18,7 +18,7 @@ import LogoMobile from '@/assets/logos/e9094108-15ea-477b-900e-7ef4183ac717.png'
 const MobileMenuSheet = () => {
   return (
     <Sheet>
-      <SheetTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors duration-300 block md:hidden'>
+      <SheetTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors duration-300 block md:hidden ease-out'>
         <span className='sr-only'>Mobile Menu Sheet</span>
         <Menu />
       </SheetTrigger>

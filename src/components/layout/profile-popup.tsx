@@ -10,7 +10,7 @@ import Link from 'next/link'
 const ProfilePopup = () => {
   return (
     <Popover>
-      <PopoverTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors duration-300'>
+      <PopoverTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors ease-out duration-300'>
         <span className='sr-only'>Profile Popup</span>
         <User />
       </PopoverTrigger>
