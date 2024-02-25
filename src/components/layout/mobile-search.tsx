@@ -9,7 +9,7 @@ import Search from './search'
 const MobileSearch = () => {
   return (
     <Popover>
-      <PopoverTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors ease-out duration-300'>
+      <PopoverTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors ease-out duration-300 block md:hidden'>
         <span className='sr-only'>Search Popup</span>
         <SearchIcon size={20} />
       </PopoverTrigger>
