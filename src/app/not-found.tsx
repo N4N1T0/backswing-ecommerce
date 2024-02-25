@@ -20,7 +20,7 @@ const NotFound = () => {
                 Lo Sentimos</h1>
               <h2 className='mb-8 text-2xl font-semibold text-gray-700 lg:text-4xl'>No pudimos encontrar la Pagina Solicitada</h2>
               <p className='mb-8 text-xl text-gray-700'>
-                Sorry! we are unable to find the page that you are looking for...
+                Puedes volver a la pagina principal o intentarlo de nuevo. <br /> <span className='uppercase font-bold'>Sigue el Partido</span>
               </p>
               <div className='flex flex-wrap items-center justify-start'>
                 <Link href='/'
