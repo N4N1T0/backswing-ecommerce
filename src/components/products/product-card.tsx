@@ -3,21 +3,25 @@ import { type StaticProductsTypes } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import WishlistHeart from './wishlist-heart'
 
 const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: string }) => {
   const { name, id, image, price, offer, new: isNew } = product
 
   return (
-    <Link href={`/${route}/${id}`} className='group block'>
-      <div className='relative h-[300px] sm:h-[400px] overflow-hidden'>
-        <Image src={image} alt={name} title={name} fill className='aspect-square object-cover transition-transform duration-300 group-hover:scale-110' />
+    <div className='block'>
+      <Link href={`/${route}/${id}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
+        <Image src={image} alt={name} title={name} fill className='aspect-square object-cover transition-transform ease-out duration-300 group-hover:scale-110 h-auto w-auto' />
         {isNew && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Nuevo </p>}
-      </div>
+      </Link>
 
       <div className='relative pt-3'>
-        <h3 className='text-gray-900 group-hover:underline group-hover:underline-offset-4 uppercase'>
-          {name}
-        </h3>
+        <div className='w-full flex justify-between items-center'>
+          <h3 className='text-gray-950 font-medium uppercase'>
+            {name}
+          </h3>
+          <WishlistHeart product={product} />
+        </div>
 
         {/* Colors */}
         <div className='mt-1.5 flex gap-1'>
@@ -86,7 +90,7 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
           {offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100'>Oferta</p>}
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 

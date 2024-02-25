@@ -24,6 +24,10 @@ export const useCapitalize = (word: string) => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
+export const removeFromCart = (cart: StaticProductsTypes[], itemToRemove: number) => {
+    return cart.filter(item => item.id !== itemToRemove)
+}
+
 export const getRandomProductsCollection = (staticsProducts: StaticProductsTypes[], colection: string, numberOfProducts: number): StaticProductsTypes[] => {
   const filteredProducts = staticsProducts.filter(product => product.gender === colection)
   const shuffledProducts = filteredProducts.sort(() => Math.random() - 0.5)

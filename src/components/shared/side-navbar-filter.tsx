@@ -16,7 +16,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700'
+                className='block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 ease-out'
               >
                 Rtp Apparel Vision
               </a>
@@ -25,7 +25,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 Sols Calipso
               </a>
@@ -34,7 +34,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS CONSTELLATION
               </a>
@@ -43,7 +43,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS COOPER
               </a>
@@ -52,7 +52,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS CONRAD
               </a>
@@ -60,7 +60,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS CARTER
               </a>
@@ -68,7 +68,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS PLANET LSL
               </a>
@@ -76,7 +76,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS PEGASE
               </a>
@@ -84,7 +84,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS LEGEND
               </a>
@@ -92,7 +92,7 @@ const SideNavbarFilter = () => {
             <li>
               <a
                 href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
               >
                 SOLS RE CRUSADER
               </a>

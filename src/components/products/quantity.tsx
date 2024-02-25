@@ -1,6 +1,19 @@
 'use client'
 
-const Quantity = () => {
+import useShoppingCart from '@/stores/shopping-cart-store'
+import { type StaticProductsTypes } from '@/types'
+import { useState } from 'react'
+
+const Quantity = ({ product }: { product: StaticProductsTypes }) => {
+  const [, setCount] = useShoppingCart()
+  const [adding, setAdding] = useState(false)
+
+  const addToCart = (product: StaticProductsTypes) => {
+    setAdding(true)
+    setCount(prev => [...prev, product])
+    setTimeout(() => { setAdding(false) }, 2000)
+  }
+
   return (
     <div className='w-full my-8 flex justify-between items-center h-10'>
       <div>
@@ -25,8 +38,9 @@ const Quantity = () => {
         </div>
       </div>
       <button
+        onClick={() => { addToCart(product) }}
         className='w-fit flex items-center justify-center px-4 py-2 bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-200'>
-        Add to Cart
+        {adding ? 'Agregando...' : 'Agregar'}
       </button>
     </div>
   )

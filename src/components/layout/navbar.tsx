@@ -21,7 +21,7 @@ const Navbar = () => {
             <MobileMenuSheet />
             <Link className='flex justify-center items-center' href='/'>
               <span className='sr-only'>Home</span>
-              <Image src={Logo} alt='Logo' priority height={50} width={50} />
+              <Image src={Logo} alt='Logo' title='Logo' priority height={50} width={50} />
             </Link>
             <div className='hidden lg:flex md:items-center md:gap-12 pl-12'>
               <nav aria-label='Desktop Navbar'>

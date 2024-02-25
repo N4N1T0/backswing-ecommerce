@@ -14,11 +14,11 @@ const ProfilePopup = () => {
         <span className='sr-only'>Profile Popup</span>
         <User />
       </PopoverTrigger>
-      <PopoverContent className='bg-white p-5'>
+      <PopoverContent className='bg-white p-5 w-fit'>
         <ul>
           <li>
             <PopoverClose asChild>
-              <Link href='/perfil'>Perfil</Link>
+              <Link href='/perfil' className='block rounded-lg px-5 py-2 font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'>Perfil de Usuario</Link>
             </PopoverClose>
           </li>
         </ul>

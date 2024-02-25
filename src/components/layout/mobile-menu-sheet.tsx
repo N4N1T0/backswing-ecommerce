@@ -25,7 +25,7 @@ const MobileMenuSheet = () => {
       <SheetContent side='left' className='bg-white py-5'>
         <SheetHeader className='my-10'>
           <SheetTitle>
-            <Image src={LogoMobile} alt='Mobile Logo' className='w-full h-auto' />
+            <Image src={LogoMobile} alt='Mobile Logo' title='Mobile Logo' className='w-full h-auto' />
           </SheetTitle>
         </SheetHeader>
         <nav aria-label='Mobile Navbar' className='mb-5'>
