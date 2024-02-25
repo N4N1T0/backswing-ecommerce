@@ -20,20 +20,7 @@ const withLocalStoragePersistor = <T = StaticProductsTypes[]>(): StatePersistor<
 const useShoppingCart = createStore({
   key: '@app/shopping-cart',
   initial: [
-    {
-      id: 1,
-      name: 'Rtp Apparel Vision',
-      price: 20,
-      description: 'Camiseta de Hombre 100% Pretratada',
-      material: 'Punto Liso 150',
-      image: 'https://s7g3.scene7.com/is/image/soloinvest/n04321A?$big_image_web$',
-      gender: 'hombre',
-      new: true,
-      offer: {
-        price: 15,
-        onOffer: true
-      }
-    }
+
   ],
   persistor: withLocalStoragePersistor()
 })
