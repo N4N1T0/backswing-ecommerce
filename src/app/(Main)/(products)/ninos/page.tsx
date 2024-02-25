@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const NinoPage = () => {
   const products = getRandomProductsCollection(staticsProducts, 'ninos', 12)
   return (
-    <section id='niños colection' className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8'>
+    <section id='niños colection' className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
       {products.map((product) => (
         <ProductCard key={product.id} product={product} route='ninos' />
       ))}
