@@ -8,7 +8,8 @@ import { getSingleProduct, useEuros } from '@/lib/utils'
 import Link from 'next/link'
 
 const ProductPage = ({ params }: { params: { product: string } }) => {
-  const { name, description, material, offer, image, price } = getSingleProduct(staticsProducts, Number(params.product))
+  const productInfo = getSingleProduct(staticsProducts, Number(params.product))
+  const { name, description, material, offer, image, price } = productInfo
 
   return (
     <section className='overflow-hidden'>
@@ -46,7 +47,7 @@ const ProductPage = ({ params }: { params: { product: string } }) => {
               </div>
             </div>
             <AccordionProducts />
-            <Quantity />
+            <Quantity product={productInfo} />
           </div>
         </div>
       </div>
