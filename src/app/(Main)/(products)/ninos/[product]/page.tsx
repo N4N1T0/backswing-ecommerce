@@ -8,7 +8,7 @@ import { getSingleProduct, useEuros } from '@/lib/utils'
 import Link from 'next/link'
 
 const ProductPage = ({ params }: { params: { product: string } }) => {
-  const productInfo = getSingleProduct(staticsProducts, Number(params.product))
+  const productInfo = getSingleProduct(staticsProducts, params.product)
   const { name, description, material, offer, image, price } = productInfo
 
   return (
