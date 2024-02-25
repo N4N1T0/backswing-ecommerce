@@ -17,7 +17,7 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
 
       <div className='relative pt-3'>
         <div className='w-full flex justify-between items-center'>
-          <h3 className='text-gray-950 font-medium uppercase'>
+          <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
             {name}
           </h3>
           <WishlistHeart product={product} />

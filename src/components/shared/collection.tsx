@@ -12,8 +12,8 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
           <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>Colección para {useCapitalize(colection)}</h2>
 
           {colection === 'hombre'
-            ? <p className='mt-4 max-w-md text-gray-500'>Descubre nuestra selección de camisetas para hombres que aman el pádel y el estilo. Calidad premium y diseño vanguardista garantizados.</p>
-            : <p className='mt-4 max-w-md text-gray-500'>Camisetas de alta calidad y diseño moderno para mujeres apasionadas del pádel y la moda. ¡Estilo impecable en cada partida!</p>
+            ? <p className={`${direction === 'right' ? 'text-right' : 'text-left'} mt-4 max-w-md text-gray-500`}>Descubre nuestra selección de camisetas para hombres que aman el pádel y el estilo. Calidad premium y diseño vanguardista garantizados.</p>
+            : <p className={`${direction === 'right' ? 'text-right' : 'text-left'} mt-4 max-w-md text-gray-500`}>Camisetas de alta calidad y diseño moderno para mujeres apasionadas del pádel y la moda. ¡Estilo impecable en cada partida!</p>
           }
         </header>
 

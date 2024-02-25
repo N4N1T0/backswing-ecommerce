@@ -31,10 +31,10 @@ const SearchPage = async ({
   return (
     <main className='max-w-screen-3xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10'>
       <div>
-        <h1 className='text-4xl font-semibold leading-9 text-gray-800 my-3 md:text-left'>Pagina de Busqueda</h1>
+        <h1 className='text-2xl md:text-4xl font-semibold leading-9 text-gray-800 my-3 text-center md:text-left'>Pagina de Busqueda</h1>
         {(searchValue.length > 0)
           ? (
-            <p className='mb-4'>
+            <p className='mb-4 text-center md:text-left'>
               {products?.count === 0
                 ? 'No hay productos que coincidan con '
                 : `Mostrando ${products?.count} ${resultsText} para `}

@@ -29,7 +29,7 @@ const Wishlist = () => {
             <li key={item.id}>
               <div className='w-52'>
                 <div className='relative w-full h-52'>
-                  <Image src={item.image} alt={item.name} title={item.name} fill className='z-0 w-auto h-auto' />
+                  <Image src={item.image} alt={item.name} title={item.name} fill className='z-0 w-auto h-auto object-cover aspect-square' />
                   <button aria-label='remove from wishlist' onClick={() => { setCount(prev => removeFromCart(prev, item.id)) }} className='top-4 right-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 absolute  p-1.5 bg-gray-800 text-white hover:text-gray-400'>
                     <X />
                   </button>

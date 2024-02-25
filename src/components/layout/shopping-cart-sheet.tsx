@@ -20,7 +20,7 @@ const ShoppingCartSheet = () => {
 
   return (
     <Sheet>
-      <SheetTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors duration-300 ease-out relative'>
+      <SheetTrigger className='p-2 py-4 hover:bg-gray-300 rounded-lg transition-colors duration-300 ease-out relative'>
         <span className='sr-only'>Shopping Cart Sheet</span>
         {count.length !== 0 && (
           <span className='absolute top-0 right-0 flex h-5 w-5'>

@@ -7,7 +7,7 @@ const PreFooter = () => {
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 lg:px-8'>
         <div className='grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4'>
-          <div className='bg-gray-950 p-6 2xl:p-14 mx-auto max-w-xl text-left space-y-5 flex justify-center items-center flex-col'>
+          <div className='bg-gray-950 p-6 2xl:p-14 mx-auto max-w-xl space-y-5 flex justify-center items-center flex-col text-center'>
             <h2 className='text-2xl font-bold text-white 2xl:text-3xl'>
               Compromiso con el medio Ambiente
             </h2>

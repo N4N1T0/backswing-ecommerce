@@ -11,7 +11,6 @@ import {
 import { navItems } from '@/contants'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
-import Search from './search'
 import Image from 'next/image'
 import LogoMobile from '@/assets/logos/e9094108-15ea-477b-900e-7ef4183ac717.png'
 
@@ -29,7 +28,7 @@ const MobileMenuSheet = () => {
           </SheetTitle>
         </SheetHeader>
         <nav aria-label='Mobile Navbar' className='mb-5'>
-          <ul className='flex flex-col mt-10 items-center gap-6 text-sm'>
+          <ul className='flex flex-col mt-10 items-center gap-6 text-lg font-medium'>
             {navItems.map((item) => (
               <li key={item.label}>
                 <SheetClose asChild>
@@ -37,9 +36,6 @@ const MobileMenuSheet = () => {
                 </SheetClose>
               </li>
             ))}
-            <li>
-              <Search />
-            </li>
           </ul>
         </nav>
       </SheetContent>

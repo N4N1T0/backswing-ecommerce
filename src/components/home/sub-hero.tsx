@@ -16,8 +16,8 @@ const SubHero = () => {
                   src={product.image}
                   alt={product.description}
                   className='aspect-square object-cover transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
-                  width={1000}
-                  height={1000}
+                  width={index === 4 ? 1000 : 400}
+                  height={index === 4 ? 1000 : 400}
                   priority
                 />
                 <h3 className='text-xl text-gray-100 uppercase font-semibold bg-gray-900 px-3 py-2 absolute bottom-3 left-3'>{product.name}</h3>
