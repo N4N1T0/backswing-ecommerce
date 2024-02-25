@@ -5,14 +5,14 @@ import ShoppingCartSheet from './shopping-cart-sheet'
 import MobileMenuSheet from './mobile-menu-sheet'
 import Search from './search'
 import Announcement from './annoucement'
+import ProfilePopup from './profile-popup'
 
 import { navItems } from '@/contants'
 import Logo from '@/assets/logos/82f78b35-02e0-4783-aa65-b1b40b34ed51.png'
-import ProfilePopup from './profile-popup'
 
-const Navbar = () => {
+const Navbar = async () => {
   return (
-    <header className='bg-white'>
+    <header className='bg-white' id='navbar'>
       <div className='mx-auto max-w-screen-3xl px-4 sm:px-6 lg:px-8'>
         <div className='flex h-16 xl:h-20 items-center justify-between'>
 

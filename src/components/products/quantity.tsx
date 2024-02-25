@@ -11,7 +11,7 @@ const Quantity = ({ product }: { product: StaticProductsTypes }) => {
   const addToCart = (product: StaticProductsTypes) => {
     setAdding(true)
     setCount(prev => [...prev, product])
-    setTimeout(() => { setAdding(false) }, 2000)
+    setTimeout(() => { setAdding(false) }, 1500)
   }
 
   return (
@@ -40,7 +40,7 @@ const Quantity = ({ product }: { product: StaticProductsTypes }) => {
       <button
         onClick={() => { addToCart(product) }}
         className='w-fit flex items-center justify-center px-4 py-2 bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-200'>
-        {adding ? 'Agregando...' : 'Agregar'}
+        {adding ? 'Agregando...' : 'Agregar al Carrito'}
       </button>
     </div>
   )
