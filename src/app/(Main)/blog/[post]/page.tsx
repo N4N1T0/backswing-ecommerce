@@ -19,7 +19,7 @@ const BlogPost = ({ params }: { params: { post: string } }) => {
           </a>
         </div>
 
-        <Image src={BlogPostPic} alt='' className='w-full object-cover lg:rounded' />
+        <Image src={BlogPostPic} alt='Una reunion de negocios de nuestro equipo' title='Una reunion de negocios de nuestro equipo' className='w-full object-cover lg:rounded' />
       </div>
 
       <div className='flex flex-col lg:flex-row lg:space-x-12'>

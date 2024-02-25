@@ -15,9 +15,7 @@ const About = () => {
                 </h1>
               </div>
               <p className='px-4 mb-10 text-base leading-7 text-gray-500'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit
-                amet.
+                Nosotros, como agencia de diseño y creación de productos para pádel, somos deportistas dedicados a deportistas. Con nuestra experiencia en el juego, entendemos la calidad y visión necesarias para cada producto.
               </p>
               <div className='flex flex-wrap items-center'>
                 <div className='w-full px-4 mb-6 sm:w-1/2 md:w-1/2 lg:mb-6'>
@@ -86,7 +84,7 @@ const About = () => {
           </div>
           <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 relative'>
             <Image src={AboutPic} alt='Una reunion del equipo de backswing' title='Una reunion del equipo de backswing'
-              fill />
+              fill className='h-auto w-auto' />
           </div>
         </div>
       </div>

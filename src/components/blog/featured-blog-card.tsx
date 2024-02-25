@@ -5,7 +5,7 @@ import Image from 'next/image'
 const FeaturedBlogCard = () => {
   return (
     <Link href='/blog/12345' className='relative flex items-center justify-center group overflow-hidden'>
-      <Image src={FeaturedBlogCardPic} alt='chair' className='group-hover:scale-105 transition-transform duration-200' />
+      <Image src={FeaturedBlogCardPic} alt='chair' title='chair' className='group-hover:scale-105 transition-transform duration-200' />
       <div className='absolute inset-0 bg-gray-900/50' />
       <div className='absolute top-0 flex flex-col h-full items-center justify-between py-10 z-50 gap-3'>
         <div className='flex items-center justify-center flex-col h-full'>

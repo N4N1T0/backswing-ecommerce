@@ -6,7 +6,7 @@ const BlogCard = () => {
   return (
     <article>
       <div className='relative'>
-        <Image src={BlogCardPic} alt='stairs' />
+        <Image src={BlogCardPic} alt='stairs' title='stairs' />
         <div className='bg-white absolute top-0 left-0'>
           <p className='text-base leading-4 py-3 px-5 text-gray-800'>News</p>
         </div>
