@@ -5,10 +5,17 @@ import { AccordionContent, Accordion, AccordionItem, AccordionTrigger } from '..
 import { removeFromCart, useEuros } from '@/lib/utils'
 import { X } from 'lucide-react'
 import useWishlist from '@/stores/wishlist-store'
-import Link from 'next/link'
+import useShoppingCart from '@/stores/shopping-cart-store'
+import { type StaticProductsTypes } from '@/types'
 
 const Wishlist = () => {
   const [count, setCount] = useWishlist()
+  const [, setShopping] = useShoppingCart()
+
+  const addToCart = (product: StaticProductsTypes) => {
+    setShopping(prev => [...prev, product])
+    setCount(prev => removeFromCart(prev, product.id))
+  }
 
   return (
     <section id='wishlist' className='space-y-5 md:space-y-10'>
@@ -17,8 +24,6 @@ const Wishlist = () => {
         {count.length === 0
           ? <div className='space-y-3'>
             <p className='text-center uppercase'>No hay productos en tu lista de deseos</p>
-            <Link href='/ofertas' className='bg-gray-900 text-gray-100 hover:bg-gray-600 transition-colors duration-200 ease-out block px-3 py-1 w-fit'>Productos de Ofertas</Link>
-            <Link href='/nuevo' className='bg-gray-900 text-gray-100 hover:bg-gray-600 transition-colors duration-200 ease-out block px-3 py-1 w-fit'>Productos Nuevos</Link>
           </div>
           : count.map((item) => (
             <li key={item.id}>
@@ -42,7 +47,7 @@ const Wishlist = () => {
                           }
                         </li>
                         <li>
-                          <button className='w-full py-2 bg-gray-950 text-gray-100 hover:bg-gray-700 transition-colors duration-200'>Agregar al Carrito</button>
+                          <button onClick={() => { addToCart(item) }} className='w-full py-2 bg-gray-950 text-gray-100 hover:bg-gray-700 transition-colors duration-200'>Agregar al Carrito</button>
                         </li>
                       </ul>
                     </AccordionContent>
