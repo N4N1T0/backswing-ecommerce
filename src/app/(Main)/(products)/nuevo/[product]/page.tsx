@@ -5,7 +5,17 @@ import Quantity from '@/components/products/quantity'
 import { tallas } from '@/contants'
 import { staticsProducts } from '@/contants/static-products'
 import { getSingleProduct, useEuros } from '@/lib/utils'
+import { type Metadata } from 'next'
 import Link from 'next/link'
+
+export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
+  const productInfo = getSingleProduct(staticsProducts, params.product)
+
+  return {
+    title: productInfo.name,
+    description: productInfo.description
+  }
+}
 
 const ProductPage = ({ params }: { params: { product: string } }) => {
   const productInfo = getSingleProduct(staticsProducts, params.product)

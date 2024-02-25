@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import BlogPostPic from '@/assets/parker-burchfield-tvG4WvjgsEY-unsplash.webp'
 import FeaturedBlogCard from '@/components/blog/featured-blog-card'
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog Post Mockup'
+}
 
 const BlogPost = ({ params }: { params: { post: string } }) => {
   return (

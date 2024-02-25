@@ -1,5 +1,10 @@
 import OrdersSummary from '@/components/profile/orders-summary'
 import Wishlist from '@/components/profile/wishlist'
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Perfil de Usuario'
+}
 
 const ProfilePage = () => {
   return (

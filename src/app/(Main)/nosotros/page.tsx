@@ -1,6 +1,11 @@
 import About from '@/components/nosotros/about'
 import Timeline from '@/components/nosotros/timeline'
 import Contacto from '@/components/nosotros/contacto'
+import { type Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Nosotros'
+}
 
 const NosotrosPage = () => {
   return (
