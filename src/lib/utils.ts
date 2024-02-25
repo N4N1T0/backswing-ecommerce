@@ -24,7 +24,7 @@ export const useCapitalize = (word: string) => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
-export const removeFromCart = (cart: StaticProductsTypes[], itemToRemove: number) => {
+export const removeFromCart = (cart: StaticProductsTypes[], itemToRemove: string) => {
     return cart.filter(item => item.id !== itemToRemove)
 }
 
@@ -49,6 +49,6 @@ export const getRandomProductsNew = (staticsProducts: StaticProductsTypes[], num
   return randomProducts
 }
 
-export const getSingleProduct = (staticsProducts: StaticProductsTypes[], ProductId: number): StaticProductsTypes => {
+export const getSingleProduct = (staticsProducts: StaticProductsTypes[], ProductId: string): StaticProductsTypes => {
   return staticsProducts.find(product => product.id === ProductId)!
 }

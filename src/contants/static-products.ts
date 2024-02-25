@@ -1,6 +1,6 @@
 export const staticsProducts = [
   {
-    id: 1,
+    id: '1',
     name: 'Rtp Apparel Vision',
     price: 20,
     description: 'Camiseta de Hombre 100% Pretratada',
@@ -14,7 +14,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 2,
+    id: '2',
     name: 'Sols Calipso',
     price: 20,
     description: 'Sudadera de hombre con Cremallera y Capucha',
@@ -28,7 +28,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 3,
+    id: '3',
     name: 'SOLS CONSTELLATION',
     price: 30,
     description: 'SUDADERA CON CAPUCHA',
@@ -42,7 +42,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 4,
+    id: '4',
     name: 'SOLS COOPER',
     price: 30,
     description: 'SUDADERA UNISEX CON CREMALLERA',
@@ -56,7 +56,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 5,
+    id: '5',
     name: 'SOLS CONRAD',
     price: 30,
     description: 'SUDADERA UNISEX CUELLO ALTO CON CREMALLERA 1/4',
@@ -70,7 +70,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 6,
+    id: '6',
     name: 'SOLS CARTER',
     price: 30,
     description: 'SUDADERA UNISEX CON CREMALLERA Y CAPUCHA',
@@ -84,7 +84,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 7,
+    id: '7',
     name: 'SOLS PLANET LSL',
     price: 20,
     description: 'POLO UNISEX MANGA LARGA',
@@ -98,7 +98,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 8,
+    id: '8',
     name: 'SOLS PEGASE',
     price: 20,
     description: 'POLO UNISEX',
@@ -112,7 +112,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 9,
+    id: '9',
     name: 'SOLS LEGEND',
     price: 20,
     description: 'CAMISETA UNISEX',
@@ -126,7 +126,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 10,
+    id: '10',
     name: 'SOLS RE CRUSADER',
     price: 20,
     description: 'CAMISETA UNISEX CUELLO REDONDO',
@@ -140,7 +140,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 11,
+    id: '11',
     name: 'SOLS PERFECT MEN',
     price: 20,
     description: 'POLO HOMBRE MANGA CORTA',
@@ -154,7 +154,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 12,
+    id: '12',
     name: 'SOLS SPRING II',
     price: 20,
     description: 'POLO HOMBRE',
@@ -168,7 +168,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 13,
+    id: '13',
     name: 'SOLS REGENT WOMEN',
     price: 20,
     description: 'CAMISETA DE MUJER CUELLO REDONDO',
@@ -182,7 +182,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 14,
+    id: '14',
     name: 'SOLS Imperial WOMEN',
     price: 15,
     description: 'CAMISETA MUJER CUELLO REDONDO',
@@ -196,7 +196,7 @@ export const staticsProducts = [
     }
 },
    {
-    id: 15,
+    id: '15',
     name: 'SOLS PEOPLE',
     price: 15,
     description: 'POLO PIQUÉ MUJER',
@@ -210,7 +210,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 16,
+    id: '16',
     name: 'SOLS SPORTY WOMEN',
     price: 15,
     description: 'CAMISETA DE MUJER MANGAS RAGLÁN',
@@ -224,7 +224,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 17,
+    id: '17',
     name: 'SOLS PERFECT WOMEN',
     price: 20,
     description: 'POLO MUJER MANGA CORTA',
@@ -238,7 +238,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 18,
+    id: '18',
     name: 'SOLS STREAM BW WOMEN',
     price: 25,
     description: 'CHALECO LIGERO PARA MUJER',
@@ -252,7 +252,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 19,
+    id: '19',
     name: 'SOLS TUNER',
     price: 15,
     description: 'CAMISETA UNISEX',
@@ -266,7 +266,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 20,
+    id: '20',
     name: 'SOLS BUCKET TWILL',
     price: 10,
     description: 'SOMBRERO DE PESCADOR UNISEX',
@@ -280,7 +280,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 21,
+    id: '21',
     name: 'SOLS BUCKET NYLON',
     price: 10,
     description: 'SOMBRERO DE PESCADOR UNISEX DE NYLON',
@@ -294,7 +294,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 22,
+    id: '22',
     name: 'SOLS CARTER',
     price: 30,
     description: 'SUDADERA UNISEX CON CREMALLERA Y CAPUCHA',
@@ -308,7 +308,7 @@ export const staticsProducts = [
     }
 },
    {
-    id: 23,
+    id: '23',
     name: 'SOLS PLANET LSL',
     price: 25,
     description: 'POLO UNISEX MANGA LARGA',
@@ -322,7 +322,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 24,
+    id: '24',
     name: 'SOLS PLANET WOMEN',
     price: 20,
     description: 'POLO MUJER',
@@ -336,7 +336,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 25,
+    id: '25',
     name: 'SOLS CONDOR KIDS',
     price: 20,
     description: 'SUDADERA NIÑO CON CAPUCHA',
@@ -350,7 +350,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 26,
+    id: '26',
     name: 'SOLS COLUMBIA KIDS',
     price: 25,
     description: 'SUDADERA NIÑO',
@@ -364,7 +364,7 @@ export const staticsProducts = [
     }
 },
    {
-    id: 27,
+    id: '27',
     name: 'SOLS PERFECT KIDS',
     price: 20,
     description: 'POLO DE NIÑO',
@@ -378,7 +378,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 28,
+    id: '28',
     name: 'SOLS REGENT KIDS',
     price: 15,
     description: 'CAMISETA NIÑO CUELLO REDONDO',
@@ -392,7 +392,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 29,
+    id: '29',
     name: 'SOLS SPORTY KIDS',
     price: 20,
     description: 'CAMISETA NIÑOS MANGAS RAGLÁN',
@@ -406,7 +406,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 30,
+    id: '30',
     name: 'SOLS Imperial KIDS',
     price: 20,
     description: 'CAMISETA NIÑO CUELLO REDONDO',
@@ -420,7 +420,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 31,
+    id: '31',
     name: 'SOLS SUMMER II KIDS',
     price: 25,
     description: 'POLO DE NIÑO',
@@ -434,7 +434,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 32,
+    id: '32',
     name: 'SOLS STELLAR KIDS',
     price: 20,
     description: 'SUDADERA NIÑO CON CAPUCHA',
@@ -448,7 +448,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 33,
+    id: '33',
     name: 'SOLS PIONEER KIDS',
     price: 25,
     description: 'CAMISETA NIÑO AJUSTADA DE PUNTO LISO Y CUELLO REDONDO',
@@ -462,7 +462,7 @@ export const staticsProducts = [
     }
   },
    {
-    id: 34,
+    id: '34',
     name: 'SOLS CRUSADER KIDS',
     price: 20,
     description: 'CAMISETA DE HOMBRE AJUSTADA DE CUELLO REDONDO',
@@ -476,7 +476,7 @@ export const staticsProducts = [
     }
 },
   {
-    id: 35,
+    id: '35',
     name: 'ATF LOU',
     price: 20,
     description: 'CAMISETA NIÑO CUELLO REDONDO MADE IN FRANCE',
@@ -490,7 +490,7 @@ export const staticsProducts = [
     }
   },
   {
-    id: 36,
+    id: '36',
     name: 'SOLS MATELOT LSL KIDS',
     price: 25,
     description: 'CAMISETA RAYADA DE MANGA LARGA DE NIÑO',
