@@ -48,10 +48,12 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-
-        <p className='mt-5 text-center text-sm text-gray-700 lg:text-right'>
-          Copyright &copy; 2022. All rights reserved.
-        </p>
+        <div className='flex flex-col-reverse gap-1 md:gap-0 md:flex-row justify-between items-center w-full mt-5 text-sm text-gray-700'>
+          <p>Desarrollado con <span className='animate-pulse text-red-600 text-base'>&hearts;</span> y creado por <a href='https://doctortecnologico.com/' target='_blank' rel='noreferrer noopener nofollow' className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline '>Doctect World</a></p>
+          <p>
+            Copyright &copy; 2022. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   )

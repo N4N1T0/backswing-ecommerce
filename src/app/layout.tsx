@@ -1,16 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { BackswingMetatags } from '@/components/layout/metatags-seo'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: {
-    template: '%s  |  Backswing - Camisetas de Padel',
-    default: 'Backswing - Camisetas de Padel'
-  },
-  description: 'Diseños exclusivos de camisetas para los amantes del Padel'
-}
+export const metadata: Metadata = BackswingMetatags
 
 export default function RootLayout({
   children
