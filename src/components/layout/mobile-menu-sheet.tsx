@@ -12,7 +12,7 @@ import { navItems } from '@/contants'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import LogoMobile from '@/assets/logos/e9094108-15ea-477b-900e-7ef4183ac717.png'
+import LogoMobile from '@/assets/e9094108-15ea-477b-900e-7ef4183ac717.png'
 
 const MobileMenuSheet = () => {
   return (

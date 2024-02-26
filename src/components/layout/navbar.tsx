@@ -8,7 +8,7 @@ import Announcement from './annoucement'
 import ProfilePopup from './profile-popup'
 
 import { navItems } from '@/contants'
-import Logo from '@/assets/logos/82f78b35-02e0-4783-aa65-b1b40b34ed51.png'
+import Logo from '@/assets/82f78b35-02e0-4783-aa65-b1b40b34ed51.png'
 import MobileSearch from './mobile-search'
 
 const Navbar = async () => {

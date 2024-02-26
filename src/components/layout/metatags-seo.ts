@@ -10,6 +10,7 @@ export const BackswingMetatags: Metadata = {
   generator: 'Next.js',
   applicationName: 'Next.js',
   referrer: 'origin-when-cross-origin',
+  manifest: '/manifest.json',
   keywords: [
   'camisetas Marbella',
   'diseños de camisetas',
