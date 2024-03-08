@@ -1,6 +1,5 @@
 import ProductCard from '@/components/products/product-card'
 import { type Metadata } from 'next'
-import { staticsProducts } from '@/contants/static-products'
 import { getRandomProductsCollection } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -8,7 +7,7 @@ export const metadata: Metadata = {
 }
 
 const HombrePage = () => {
-  const products = getRandomProductsCollection(staticsProducts, 'hombre', 12)
+  const products = getRandomProductsCollection('hombre', 12)
   return (
     <section id='hombre colection' className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
       {products.map((product) => (

@@ -3,13 +3,12 @@ import ColorPicker from '@/components/products/color-picker'
 import ProductSlider from '@/components/products/product-slider'
 import Quantity from '@/components/products/quantity'
 import { tallas } from '@/contants'
-import { staticsProducts } from '@/contants/static-products'
 import { getSingleProduct, useEuros } from '@/lib/utils'
 import { type Metadata } from 'next'
 import Link from 'next/link'
 
-export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
-  const productInfo = getSingleProduct(staticsProducts, params.product)
+export async function generateMetadata ({ params }: { params: { product: string } }): Promise<Metadata> {
+  const productInfo = getSingleProduct(params.product)
 
   return {
     title: productInfo.name,
@@ -18,7 +17,7 @@ export async function generateMetadata({ params }: { params: { product: string }
 }
 
 const ProductPage = ({ params }: { params: { product: string } }) => {
-  const productInfo = getSingleProduct(staticsProducts, params.product)
+  const productInfo = getSingleProduct(params.product)
   const { name, description, material, offer, image, price } = productInfo
 
   return (
@@ -27,7 +26,7 @@ const ProductPage = ({ params }: { params: { product: string } }) => {
         <div className='flex flex-wrap'>
           <ProductSlider image={image} name={name} />
           <div className='w-full px-4 md:w-1/2'>
-            <div className='mb-8 '>
+            <div className='mb-8 border-b'>
               <h2 className='max-w-xl mt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
                 {name}</h2>
               <h3 className='font-light uppercase'>{description}</h3>
@@ -55,9 +54,9 @@ const ProductPage = ({ params }: { params: { product: string } }) => {
                   ))}
                 </ul>
               </div>
+              <Quantity product={productInfo} />
             </div>
             <AccordionProducts />
-            <Quantity product={productInfo} />
           </div>
         </div>
       </div>

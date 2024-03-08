@@ -1,10 +1,9 @@
-import { staticsProducts } from '@/contants/static-products'
-import { getRandomProductsNew, useEuros } from '@/lib/utils'
+import { getRandomProductsNew, urlizeNames, useEuros } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const Featured = () => {
-  const products = getRandomProductsNew(staticsProducts, 4)
+  const products = getRandomProductsNew(4)
   return (
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -37,7 +36,7 @@ const Featured = () => {
               {products.map((product) => (
                 <li key={product.id} className='relative'>
                   {product.new && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Nuevo </p>}
-                  <Link href={`/${product.gender}/${product.id}`} className='group block'>
+                  <Link href={`/${product.gender}/${urlizeNames(product.name)}`} className='group block'>
                     <Image
                       src={product.image}
                       alt={product.name}

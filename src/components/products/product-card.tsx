@@ -1,4 +1,4 @@
-import { useEuros } from '@/lib/utils'
+import { urlizeNames, useEuros } from '@/lib/utils'
 import { type StaticProductsTypes } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
 
   return (
     <div className='block'>
-      <Link href={`/${route}/${id}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
+      <Link href={`/${route}/${urlizeNames(name)}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
         <Image src={image} alt={name} title={name} fill className='aspect-square object-cover transition-transform ease-out duration-300 group-hover:scale-110 h-auto w-auto' />
         {isNew && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Nuevo </p>}
       </Link>

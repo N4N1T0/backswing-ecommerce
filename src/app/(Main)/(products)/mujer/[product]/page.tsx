@@ -8,8 +8,8 @@ import { getSingleProduct, useEuros } from '@/lib/utils'
 import { type Metadata } from 'next'
 import Link from 'next/link'
 
-export async function generateMetadata({ params }: { params: { product: string } }): Promise<Metadata> {
-  const productInfo = getSingleProduct(staticsProducts, params.product)
+export async function generateMetadata ({ params }: { params: { product: string } }): Promise<Metadata> {
+  const productInfo = getSingleProduct(params.product)
 
   return {
     title: productInfo.name,
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { product: string }
 }
 
 const ProductPage = ({ params }: { params: { product: string } }) => {
-  const productInfo = getSingleProduct(staticsProducts, params.product)
+  const productInfo = getSingleProduct(params.product)
   const { name, description, material, offer, image, price } = productInfo
 
   return (

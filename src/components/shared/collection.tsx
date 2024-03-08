@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import { staticsProducts } from '@/contants/static-products'
-import { useEuros, useCapitalize, getRandomProductsCollection } from '@/lib/utils'
+import { useEuros, useCapitalize, getRandomProductsCollection, urlizeNames } from '@/lib/utils'
 import Image from 'next/image'
 
 const Collection = ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
-  const products = getRandomProductsCollection(staticsProducts, colection, 4)
+  const products = getRandomProductsCollection(colection, 4)
   return (
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -21,7 +20,7 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
           {products.map(product => (
             <li key={product.id} className='relative'>
               {product.offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Oferta </p>}
-              <Link href={`/${product.gender}/${product.id}`} className='group block overflow-hidden'>
+              <Link href={`/${product.gender}/${urlizeNames(product.name)}`} className='group block overflow-hidden'>
                 <Image
                   src={product.image}
                   alt={product.name}

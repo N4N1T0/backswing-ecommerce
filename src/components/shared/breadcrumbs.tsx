@@ -1,6 +1,6 @@
 'use client'
 
-import { pathnameCrumbs } from '@/lib/utils'
+import { desUrlizeNames, pathnameCrumbs } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
     <nav aria-label='Breadcrumb'>
       <ul className='flex items-center gap-1 text-sm text-gray-800'>
         <li>
-          <Link href='/' className='block transition hover:text-secondary'>
+          <Link href='/' className='block transition hover:text-gray-500'>
             <span className='sr-only'> Home </span>
 
             <svg
@@ -49,8 +49,8 @@ const Breadcrumbs = () => {
         {crumbs.map((crumb, index) => (
           <React.Fragment key={`${crumb.name}-${index}`}>
             <li>
-              <Link href={crumb.href} className='block transition hover:text-secondary'>
-                {crumb.name}
+              <Link href={crumb.href} className='block transition hover:text-gray-500'>
+                {index === crumbs.length - 1 ? desUrlizeNames(crumb.name) : crumb.name}
               </Link>
             </li>
             {index !== crumbs.length - 1 && (
