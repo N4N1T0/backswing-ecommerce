@@ -11,8 +11,8 @@ const PromotionDialog = ({ children }: { children: React.ReactNode }) => {
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className='flex bg-white text-center'>
-        <div className='w-full px-4 mb-10 md:w-1/2 md:mb-0 relative text-center'>
-          <Image src={PromotionPic} alt='Un niño juagndo padel' title='Llevate un descuento para tu camiseta o la de tu hijo' fill className='w-auto h-auto' />
+        <div className='w-full px-4 mb-10 md:w-1/2 md:mb-0 relative text-center hidden md:block'>
+          <Image src={PromotionPic} alt='Un niño jugando padel' title='Llevate un descuento para tu camiseta o la de tu hijo' fill className='w-auto h-auto' />
         </div>
         <form className='w-full px-4 md:w-1/2 '>
           <h2 className='mb-4 text-3xl font-bold text-gray-950'>
