@@ -3,7 +3,7 @@
 import ErrorPic from '@/assets/opollo-photography-vl5Cw1PmPQY-unsplash.webp'
 import Image from 'next/image'
 
-export default function Error({
+export default function Error ({
   error,
   reset
 }: {
@@ -17,7 +17,7 @@ export default function Error({
           <div className='w-full px-2 lg:px-4 lg:w-2/4 lg:py-0 py-7'>
             <div className='text-center lg:text-left'>
               <h1
-                className='inline-block mb-8 font-semibold text-gray-800 text-6xl lg:text-8xl bg-red-500'>
+                className='inline-block mb-8 font-semibold text-red-500 text-6xl lg:text-8xl'>
                 Error del Servidor</h1>
               <p className='mb-8 text-xl text-gray-700'>
                 {(error.digest != null) || error.message} <br /> <span className='uppercase font-bold'>Sigue el Partido</span>
