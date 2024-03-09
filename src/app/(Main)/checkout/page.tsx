@@ -10,9 +10,9 @@ const Checkout = () => {
 
   const total = count.map(item => {
     if (item.offer.onOffer) {
-      return item.offer.price
+      return item.offer.price * item.quantity
     } else {
-      return item.price
+      return item.price * item.quantity
     }
   }
   ).reduce((a, b) => a + b, 0)
@@ -120,15 +120,15 @@ const Checkout = () => {
               <div className='flex items-center gap-2 mb-4 '>
                 <a href='#'>
                   <Image src='https://i.postimg.cc/g22HQhX0/70599-visa-curved-icon.png' alt='Visa' height={56} width={84}
-                    className='object-cover' />
+                    className='object-cover w-auto h-auto' />
                 </a>
                 <a href='#'>
                   <Image src='https://i.postimg.cc/HW38JkkG/38602-mastercard-curved-icon.png' alt='Mastercard' height={56} width={84}
-                    className='object-cover' />
+                    className='object-cover w-auto h-auto' />
                 </a>
                 <a href='#'>
                   <Image src='https://i.postimg.cc/HL57j0V3/38605-paypal-straight-icon.png' alt='Paypal' height={56} width={84}
-                    className='object-cover' />
+                    className='object-cover w-auto h-auto' />
                 </a>
               </div>
               <div className='flex items-center justify-between '>
