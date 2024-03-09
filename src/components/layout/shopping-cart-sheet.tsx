@@ -9,7 +9,7 @@ import {
   SheetFooter,
   SheetClose
 } from '@/components/ui/sheet'
-import { removeFromCart } from '@/lib/utils'
+import { removeFromCart, useEuros } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
@@ -17,6 +17,15 @@ import Link from 'next/link'
 
 const ShoppingCartSheet = () => {
   const [count, setCount] = useShoppingCart()
+
+  const total = count.map(item => {
+    if (item.offer.onOffer) {
+      return item.offer.price * item.quantity
+    } else {
+      return item.price * item.quantity
+    }
+  }
+  ).reduce((a, b) => a + b, 0)
 
   return (
     <Sheet>
@@ -47,7 +56,7 @@ const ShoppingCartSheet = () => {
                 </div>
                 <div className='flex-1 px-4 space-y-1 flex flex-col items-center md:items-start'>
                   <h2 className='text-lg font-bold text-gray-900'>{item.name}</h2>
-                  <p className='text-sm text-gray-600 '> Quantity: 4</p>
+                  <p className='text-sm text-gray-600 '> Quantity: {item.quantity}</p>
                   <p className='text-lg font-bold text-gray-900'>{item.price}</p>
                   <button
                     onClick={() => { setCount(prev => removeFromCart(prev, item.id)) }}
@@ -59,10 +68,11 @@ const ShoppingCartSheet = () => {
         <SheetFooter className='flex flex-col items-center'>
           <div className='gap-5 text-sm md:text-base text-gray-700 flex'>
             <p>Subtotal</p>
-            <p>$400.00</p>
+            <p>{useEuros.format(total)}</p>
           </div>
           <SheetClose asChild>
             <Link href='/checkout'
+              target='_blank'
               className='w-fit mt-3 py-2 px-3 text-base md:text-lg font-medium bg-gray-950 rounded-md text-gray-50 hover:bg-gray-700 transition-colors duration-200'>Checkout</Link>
           </SheetClose>
           <SheetClose className='text-gray-700 hover:underline mt-3 text-sm md:text-base'>Seguir Comprando

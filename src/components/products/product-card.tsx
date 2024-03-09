@@ -4,9 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import WishlistHeart from './wishlist-heart'
+import ColorPicker from './color-picker'
 
 const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: string }) => {
-  const { name, id, image, price, offer, new: isNew } = product
+  const { name, image, price, offer, new: isNew, gender } = product
 
   return (
     <div className='block'>
@@ -24,60 +25,7 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
         </div>
 
         {/* Colors */}
-        <div className='mt-1.5 flex gap-1'>
-          <form>
-            <fieldset>
-              <legend className='sr-only'>Color</legend>
-            </fieldset>
-            <div className='flex flex-wrap justify-center gap-2'>
-              <div>
-                <input type='checkbox' id='ColorSg' className='sr-only' />
-                <label
-                  htmlFor='ColorSg'
-                  className='block w-4 h-4 cursor-pointer rounded-full bg-[#595759]'
-                >
-                  <span className='sr-only'> Space Gray </span>
-                </label>
-              </div>
-              <div>
-                <input type='checkbox' id='ColorS' className='sr-only' />
-                <label
-                  htmlFor='ColorS'
-                  className='block h-4 w-4 cursor-pointer rounded-full bg-[#d2d3d4]'
-                >
-                  <span className='sr-only'> Silver </span>
-                </label>
-              </div>
-              <div>
-                <input type='checkbox' id='ColorP' className='sr-only' />
-                <label
-                  htmlFor='ColorP'
-                  className='block h-4 w-4 cursor-pointer rounded-full bg-[#d89f97]'
-                >
-                  <span className='sr-only'> Pink </span>
-                </label>
-              </div>
-              <div>
-                <input type='checkbox' id='ColorG' className='sr-only' />
-                <label
-                  htmlFor='ColorG'
-                  className='block h-4 w-4 cursor-pointer rounded-full bg-[#afbfab]'
-                >
-                  <span className='sr-only'> Pink </span>
-                </label>
-              </div>
-              <div>
-                <input type='checkbox' id='ColorSb' className='sr-only' />
-                <label
-                  htmlFor='ColorSb'
-                  className='block h-4 w-4 cursor-pointer rounded-full bg-[#91a5bb]'
-                >
-                  <span className='sr-only'> Pink </span>
-                </label>
-              </div>
-            </div>
-          </form>
-        </div>
+        <ColorPicker gender={gender} product='camisetas' isProductCard />
 
         <div className='mt-1.5 flex items-center justify-between text-gray-900'>
           <p className='tracking-wide font-medium'>
