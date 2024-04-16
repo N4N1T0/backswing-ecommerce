@@ -11,7 +11,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '2',
@@ -25,7 +26,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '3',
@@ -39,7 +41,8 @@ export const staticsProducts = [
     offer: {
       price: 25,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '4',
@@ -53,7 +56,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '5',
@@ -67,7 +71,8 @@ export const staticsProducts = [
     offer: {
       price: 25,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '6',
@@ -81,7 +86,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '7',
@@ -95,7 +101,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '8',
@@ -109,7 +116,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '9',
@@ -123,7 +131,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '10',
@@ -137,7 +146,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '11',
@@ -151,7 +161,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '12',
@@ -165,7 +176,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '13',
@@ -179,7 +191,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '14',
@@ -193,7 +206,8 @@ export const staticsProducts = [
     offer: {
       price: 10,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
    {
     id: '15',
@@ -207,7 +221,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '16',
@@ -221,7 +236,8 @@ export const staticsProducts = [
     offer: {
       price: 10,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '17',
@@ -235,7 +251,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '18',
@@ -249,7 +266,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '19',
@@ -263,7 +281,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '20',
@@ -277,7 +296,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '21',
@@ -291,7 +311,8 @@ export const staticsProducts = [
     offer: {
       price: 8,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '22',
@@ -305,7 +326,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
    {
     id: '23',
@@ -319,7 +341,8 @@ export const staticsProducts = [
     offer: {
       price: 25,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '24',
@@ -333,7 +356,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '25',
@@ -347,7 +371,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '26',
@@ -361,7 +386,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
    {
     id: '27',
@@ -375,7 +401,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '28',
@@ -389,7 +416,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '29',
@@ -403,7 +431,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '30',
@@ -417,7 +446,8 @@ export const staticsProducts = [
     offer: {
       price: 15,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '31',
@@ -431,7 +461,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '32',
@@ -445,7 +476,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '33',
@@ -459,7 +491,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
    {
     id: '34',
@@ -473,7 +506,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
 },
   {
     id: '35',
@@ -487,7 +521,8 @@ export const staticsProducts = [
     offer: {
       price: 0,
       onOffer: false
-    }
+    },
+    category: 'camisetas'
   },
   {
     id: '36',
@@ -501,6 +536,7 @@ export const staticsProducts = [
     offer: {
       price: 20,
       onOffer: true
-    }
+    },
+    category: 'camisetas'
 }
 ]

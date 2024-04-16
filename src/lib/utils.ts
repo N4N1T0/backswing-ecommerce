@@ -49,6 +49,8 @@ export const getRandomProductsCollection = (colection: string, numberOfProducts:
   return randomProducts
 }
 
+// TODO Make a function that returns the prodcuts for categories
+
 export const getRandomProductsFeatured = (numberOfProducts: number): StaticProductsTypes[] => {
   const filteredProducts = staticsProducts.filter(product => product.offer.onOffer) as StaticProductsTypes[]
   const shuffledProducts = filteredProducts.sort(() => Math.random() - 0.5)
