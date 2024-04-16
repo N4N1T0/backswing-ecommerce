@@ -71,3 +71,84 @@ export const medioAmbiente = [
     image: Peta
   }
 ]
+
+export const sidebarAccordion = [
+  {
+    label: 'Hombre',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/hombre/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/hombre/sudaderas'
+      }
+    ]
+  },
+  {
+    label: 'Mujer',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/mujer/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/mujer/sudaderas'
+      }
+    ]
+  },
+  {
+    label: 'Ninos',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/ninos/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/ninos/sudaderas'
+      }
+    ]
+  },
+  {
+    label: 'Ofertas',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/ofertas/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/ofertas/sudaderas'
+      }
+    ]
+  },
+  {
+    label: 'Nuevo',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/nuevo/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/nuevo/sudaderas'
+      }
+    ]
+  },
+  {
+    label: 'Personalizar',
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/personalizar/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/personalizar/sudaderas'
+      }
+    ]
+  }
+]

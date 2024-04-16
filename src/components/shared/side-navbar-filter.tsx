@@ -1,106 +1,35 @@
 'use client'
 
-import { pathnameCrumbs } from '@/lib/utils'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
+} from '@/components/ui/accordion'
+import { sidebarAccordion } from '@/contants'
+import { accordionPathname } from '@/lib/utils'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const SideNavbarFilter = () => {
   const pathname = usePathname()
-  const crumbs = pathnameCrumbs(pathname)
+  const accordionPath = accordionPathname(pathname, sidebarAccordion.map(accordion => accordion.label))
 
   return (
-    <div>
-      <ul className='flex flex-col space-y-2'>
-        <li>
-          <strong className='block text-xs font-medium uppercase text-gray-400'> Diseños de {crumbs[0].name} </strong>
-          <ul className='mt-2 space-y-1 uppercase'>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 ease-out'
-              >
-                Rtp Apparel Vision
-              </a>
-            </li>
-
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                Sols Calipso
-              </a>
-            </li>
-
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS CONSTELLATION
-              </a>
-            </li>
-
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS COOPER
-              </a>
-            </li>
-
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS CONRAD
-              </a>
-            </li>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS CARTER
-              </a>
-            </li>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS PLANET LSL
-              </a>
-            </li>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS PEGASE
-              </a>
-            </li>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS LEGEND
-              </a>
-            </li>
-            <li>
-              <a
-                href='#'
-                className='block rounded-lg px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-200 hover:text-gray-800 ease-out'
-              >
-                SOLS RE CRUSADER
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <Accordion type='multiple' className='pr-5' defaultValue={accordionPath}>
+      {sidebarAccordion.map(accordion => (
+        <AccordionItem value={accordion.label} key={accordion.label}>
+          <AccordionTrigger>{accordion.label === 'Ninos' ? 'Niños' : accordion.label}</AccordionTrigger>
+          <AccordionContent className='space-y-2'>
+            {accordion.products.map(product => (
+              <li key={product.label} className='list-none ml-5 hover:text-gray-500 duration-200 transition-colors'>
+                <Link href={product.route}>{product.label}</Link>
+              </li>
+            ))}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
   )
 }
 

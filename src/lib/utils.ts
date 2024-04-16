@@ -7,6 +7,11 @@ export const cn = (...inputs: ClassValue[]) => {
   return twMerge(clsx(inputs))
 }
 
+export const accordionPathname = (pathname: string, labels: string[]) => {
+  const crumbs = pathname.split('/').filter(Boolean)
+  return labels.filter(label => label === useCapitalize(crumbs[0]))
+}
+
 export const pathnameCrumbs = (pathname: string) => {
   const crumbs = pathname.split('/').filter(Boolean)
   if (crumbs.length === 0) return []
