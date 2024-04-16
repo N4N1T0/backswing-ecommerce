@@ -6,13 +6,13 @@ import { removeFromCart, useEuros } from '@/lib/utils'
 import { X } from 'lucide-react'
 import useWishlist from '@/stores/wishlist-store'
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { type StaticProductsTypes } from '@/types'
+import { type CartItem } from '@/types'
 
 const Wishlist = () => {
   const [count, setCount] = useWishlist()
   const [, setShopping] = useShoppingCart()
 
-  const addToCart = (product: StaticProductsTypes) => {
+  const addToCart = (product: CartItem) => {
     setShopping(prev => [...prev, product])
     setCount(prev => removeFromCart(prev, product.id))
   }

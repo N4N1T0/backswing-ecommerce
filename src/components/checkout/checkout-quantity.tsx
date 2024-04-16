@@ -4,23 +4,22 @@ import useShoppingCart from '@/stores/shopping-cart-store'
 import { type CartItem } from '@/types'
 import { useState } from 'react'
 
-const Quantity = ({ product }: { product: CartItem }) => {
+const CheckoutQuantity = ({ product }: { product: CartItem }) => {
   const [, setCount] = useShoppingCart()
-  const [adding, setAdding] = useState(false)
-  const [quantity, setQuantity] = useState(1)
-
-  const addToCart = (product: CartItem) => {
-    setAdding(true)
-    setTimeout(() => { setAdding(false) }, 1500)
-    setTimeout(() => { setCount(prev => [...prev, { ...product, quantity }]) }, 1500)
-  }
+  const [quantity, setQuantity] = useState(product.quantity)
 
   const plusQuantity = () => {
+    setCount(prev =>
+      prev.map(item => item.id === product.id ? { ...item, quantity: quantity + 1 } : item)
+    )
     setQuantity(prev => prev + 1)
   }
 
   const minusQuantity = () => {
     if (quantity === 1) return
+    setCount(prev =>
+      prev.map(item => item.id === product.id ? { ...item, quantity: quantity - 1 } : item)
+    )
     setQuantity(prev => prev - 1)
   }
 
@@ -47,13 +46,8 @@ const Quantity = ({ product }: { product: CartItem }) => {
           </button>
         </div>
       </div>
-      <button
-        onClick={() => { addToCart(product) }}
-        className='w-fit flex items-center justify-center px-4 py-2 bg-gray-950 text-white hover:bg-gray-700 transition-colors duration-200'>
-        {adding ? 'Agregando...' : 'Agregar al Carrito'}
-      </button>
     </div>
   )
 }
 
-export default Quantity
+export default CheckoutQuantity
