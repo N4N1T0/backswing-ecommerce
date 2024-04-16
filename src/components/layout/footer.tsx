@@ -32,7 +32,7 @@ const Footer = () => {
 
         <div className='lg:flex lg:items-end lg:justify-between border-b py-3 border-gray-300'>
           <div>
-            <Image src={LogoMobile} alt='Mobile Logo' title='Mobile Logo' width={200} height={10} className='aspect-video h-20 object-fill' />
+            <Image src={LogoMobile} alt='Mobile Logo' title='Mobile Logo' width={200} height={10} className='aspect-video object-fill' />
             <p className='mx-auto text-sm md:text-base max-w-md text-center leading-relaxed text-gray-600 lg:text-left'>
               agencia de diseño y creación de productos para pádel, somos deportistas dedicados a deportistas.
             </p>

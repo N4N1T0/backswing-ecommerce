@@ -84,7 +84,7 @@ const About = () => {
           </div>
           <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 relative'>
             <Image src={AboutPic} alt='Una reunion del equipo de backswing' title='Una reunion del equipo de backswing'
-              fill className='h-auto w-auto' />
+              fill className='h-auto w-auto' sizes='(100vw - 2rem)' />
           </div>
         </div>
       </div>

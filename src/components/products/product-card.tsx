@@ -12,7 +12,14 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
   return (
     <div className='block'>
       <Link href={`/${route}/${urlizeNames(name)}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
-        <Image src={image} alt={name} title={name} fill className='aspect-square object-cover transition-transform ease-out duration-300 group-hover:scale-110 h-auto w-auto' />
+        <Image
+          src={image}
+          alt={name}
+          title={name}
+          fill
+          priority
+          sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
+          className='aspect-square object-cover transition-transform ease-out duration-300 group-hover:scale-110 h-auto w-auto' />
         {isNew && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Nuevo </p>}
       </Link>
 

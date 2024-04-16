@@ -27,7 +27,7 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
                   title={product.name}
                   width={350}
                   height={450}
-                  className='h-[350px] w-full object-cover transition-transform ease-out duration-300 group-hover:scale-105 sm:h-[450px]'
+                  className='w-full h-auto object-cover transition-transform ease-out duration-300 group-hover:scale-105'
                 />
 
                 <div className='relative bg-white pt-3'>

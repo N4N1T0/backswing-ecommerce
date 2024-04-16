@@ -5,23 +5,23 @@ import Oeko from '@/assets/eye-for-ebony-OWi1sIWiCAI-unsplash.webp'
 export const navItems = [
   {
     label: 'Hombre',
-    route: '/hombre'
+    route: '/hombre/camisetas'
   },
   {
     label: 'Mujer',
-    route: '/mujer'
+    route: '/mujer/camisetas'
   },
   {
     label: 'Niños',
-    route: '/ninos'
+    route: '/ninos/camisetas'
   },
   {
     label: 'Ofertas',
-    route: '/ofertas'
+    route: '/ofertas/camisetas'
   },
   {
     label: 'Nuevo',
-    route: '/nuevo'
+    route: '/nuevo/camisetas'
   },
   {
     label: 'Nosotros',
