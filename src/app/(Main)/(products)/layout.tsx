@@ -2,7 +2,7 @@ import Breadcrumbs from '@/components/shared/breadcrumbs'
 import NavbarFilterSheet from '@/components/shared/navbar-filter-sheet'
 import SideNavbarFilter from '@/components/shared/side-navbar-filter'
 
-export default function ProductsLayout({
+export default function ProductsLayout ({
   children
 }: Readonly<{
   children: React.ReactNode

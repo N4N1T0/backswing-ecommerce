@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 const AccordionProducts = () => {
   return (
-    <Accordion type='multiple' defaultValue={['descripcion', 'composition']}>
+    <Accordion type='multiple' defaultValue={['descripcion']}>
       <AccordionItem value='descripcion' className='border-secondary/50'>
         <AccordionTrigger className='font-bold text-lg uppercase'>descripcion</AccordionTrigger>
         <AccordionContent>
@@ -52,22 +52,6 @@ const AccordionProducts = () => {
             </li>
             <li>
               <Image src='https://s7g3.scene7.com/is/image/soloinvest/DO_NOT_DRYCLEAN?fmt=png-alpha&amp;hei=44' alt='No lavar en seco' title='No usar en seco' width={50} height={50} />
-            </li>
-          </ul>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value='Compromiso' className='border-secondary/50'>
-        <AccordionTrigger className='font-bold text-lg uppercase'>Compromiso</AccordionTrigger>
-        <AccordionContent>
-          <ul className='flex items-center gap-5'>
-            <li>
-              <Image src='https://s7g3.scene7.com/is/image/soloinvest/certification_organic_blended?fmt=png-alpha' alt='Organic Blended' width={100} height={100} title='El contenido de fibra/material es organico' />
-            </li>
-            <li>
-              <Image src='https://s7g3.scene7.com/is/image/soloinvest/certification_peta?fmt=png-alpha' alt='PETA Aproved' width={100} height={100} title='Articulo fabricado con alternativas vegenas' />
-            </li>
-            <li>
-              <Image src='https://s7g3.scene7.com/is/image/soloinvest/certification_oekotex_5?fmt=png-alpha' alt='Standard 100' width={100} height={100} title='Calidad garantizada de producto seguro' />
             </li>
           </ul>
         </AccordionContent>
