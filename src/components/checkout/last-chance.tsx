@@ -2,14 +2,14 @@
 
 import { useEuros } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { type StaticProductsTypes, type CartItem } from '@/types'
+import { type StaticProductsTypes } from '@/types'
 import Image from 'next/image'
 import CountDown from './countdown'
 
 const LastChance = ({ products }: { products: StaticProductsTypes[] }) => {
   const [, setCount] = useShoppingCart()
 
-  const addToCart = (product: CartItem) => {
+  const addToCart = (product: StaticProductsTypes) => {
     setTimeout(() => { setCount(prev => [...prev, product]) }, 1500)
   }
 

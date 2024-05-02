@@ -1,15 +1,15 @@
 'use client'
 
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { type CartItem } from '@/types'
+import { type StaticProductsTypes } from '@/types'
 import { useState } from 'react'
 
-const Quantity = ({ product }: { product: CartItem }) => {
+const Quantity = ({ product }: { product: StaticProductsTypes }) => {
   const [, setCount] = useShoppingCart()
   const [adding, setAdding] = useState(false)
   const [quantity, setQuantity] = useState(1)
 
-  const addToCart = (product: CartItem) => {
+  const addToCart = (product: StaticProductsTypes) => {
     setAdding(true)
     setTimeout(() => { setAdding(false) }, 1500)
     setTimeout(() => { setCount(prev => [...prev, { ...product, quantity }]) }, 1500)

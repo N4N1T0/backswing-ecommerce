@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { type CartItem, type StaticProductsTypes } from '@/types'
+import { type StaticProductsTypes } from '@/types'
 import { staticsProducts } from '@/contants/static-products'
 
 export const cn = (...inputs: ClassValue[]) => {
@@ -38,7 +38,7 @@ export const useCapitalize = (word: string) => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
-export const removeFromCart = (cart: CartItem[], itemToRemove: string): CartItem[] | [] => {
+export const removeFromCart = (cart: StaticProductsTypes[], itemToRemove: string): StaticProductsTypes[] | [] => {
     return cart.filter(item => item.id !== itemToRemove)
 }
 

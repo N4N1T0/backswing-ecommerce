@@ -1,8 +1,8 @@
-import { type CartItem } from '@/types'
+import { type StaticProductsTypes } from '@/types'
 import { createStore } from 'swr-global-state'
 import type { StatePersistor, StateKey } from 'swr-global-state'
 
-const withLocalStoragePersistor = <T = CartItem[]> (): StatePersistor<T> => ({
+const withLocalStoragePersistor = <T = StaticProductsTypes[]> (): StatePersistor<T> => ({
   onSet (key: StateKey, data: T) {
     const stringifyData = JSON.stringify(data)
     window.localStorage.setItem(String(key), stringifyData)

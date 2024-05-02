@@ -12,11 +12,8 @@ export interface StaticProductsTypes {
       onOffer: boolean
     }
     category: string
+    quantity: number
   }
-
-export interface CartItem extends StaticProductsTypes {
-  quantity: number
-}
 
   export interface ColorPickerTypes {
     gender: 'mujer' | 'hombre' | 'ninos'
