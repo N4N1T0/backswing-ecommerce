@@ -39,7 +39,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: StaticProductsTypes }
             <ModelPicker image={model} name={name} setModel={setModel} />
             <ColorPicker gender={gender} product='camisetas' />
             <ProductsTallas name={name} />
-            <Quantity product={{ quantity: 0, ...productInfo }} />
+            <Quantity product={productInfo} />
           </div>
           <AccordionProducts />
         </div>
