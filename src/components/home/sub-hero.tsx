@@ -10,7 +10,7 @@ const SubHero = () => {
         <ul className='mt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {products.map((product, index) => (
             <li key={product.name} className={`${index === 4 ? 'lg:col-span-2 lg:row-span-2 lg:row-start-1 lg:col-start-1' : ''} group relative block overflow-hidden`}>
-              <Link href={`/${product.gender}/${urlizeNames(product.name)}`}>
+              <Link href={`/${product.gender}/${product.category}/${urlizeNames(product.name)}`}>
                 <Image
                   src={product.image}
                   alt={product.description}

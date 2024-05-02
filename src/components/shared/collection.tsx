@@ -20,7 +20,7 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
           {products.map(product => (
             <li key={product.id} className='relative'>
               {product.offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Oferta </p>}
-              <Link href={`/${product.gender}/${urlizeNames(product.name)}`} className='group block overflow-hidden'>
+              <Link href={`/${product.gender}/${product.category}/${urlizeNames(product.name)}`} className='group block overflow-hidden'>
                 <Image
                   src={product.image}
                   alt={product.name}
