@@ -1,9 +1,11 @@
 import Link from 'next/link'
-import { useEuros, useCapitalize, getRandomProductsCollection, urlizeNames } from '@/lib/utils'
+import { useEuros, useCapitalize } from '@/lib/utils'
 import Image from 'next/image'
+import { getProductsByGender } from '@/lib/queries'
 
-const Collection = ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
-  const products = getRandomProductsCollection(colection, 4)
+const Collection = async ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
+  const products = await getProductsByGender(colection)
+
   return (
     <section>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -17,33 +19,36 @@ const Collection = ({ direction, colection }: { direction: 'right' | 'left', col
         </header>
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          {products.map(product => (
-            <li key={product.id} className='relative'>
-              {product.offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'> Oferta </p>}
-              <Link href={`/${product.gender}/${product.category}/${urlizeNames(product.name)}`} className='group block overflow-hidden'>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  title={product.name}
-                  width={350}
-                  height={450}
-                  className='w-full h-auto object-cover transition-transform ease-out duration-300 group-hover:scale-105'
-                />
+          {products.nodes.map(product => {
+            const { id, name, image, price, productCategories } = product
 
-                <div className='relative bg-white pt-3'>
-                  <h3 className='text-gray-700 group-hover:underline group-hover:underline-offset-4 uppercase font-medium'>
-                    {product.name}
-                  </h3>
+            return (
+              <li key={product.id} className='relative'>
+                <Link href={`/${colection}/${productCategories.nodes[0].name.toLocaleLowerCase()}/${id}`} className='group block overflow-hidden'>
+                  <Image
+                    src={image.sourceUrl}
+                    alt={name}
+                    title={name}
+                    width={350}
+                    height={450}
+                    className='w-full h-auto object-cover transition-transform ease-out duration-300 group-hover:scale-105'
+                  />
 
-                  <p className='mt-2'>
-                    <span className='sr-only'> Regular Price </span>
+                  <div className='relative bg-white pt-3'>
+                    <h3 className='text-gray-700 group-hover:underline group-hover:underline-offset-4 uppercase font-medium'>
+                      {product.name}
+                    </h3>
 
-                    <span className='tracking-wider text-gray-900'> {useEuros.format(product.price)} </span>
-                  </p>
-                </div>
-              </Link>
-            </li>
-          ))}
+                    <p className='mt-2'>
+                      <span className='sr-only'> Regular Price </span>
+
+                      <span className='tracking-wider text-gray-900'> {useEuros.format(Number(price.replace(/,00&nbsp;€/g, '')))} </span>
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

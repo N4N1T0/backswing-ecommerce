@@ -50,7 +50,7 @@ const Breadcrumbs = () => {
           <React.Fragment key={`${crumb.name}-${index}`}>
             <li>
               <Link href={crumb.href} className='block transition hover:text-gray-500'>
-                {index === crumbs.length - 1 ? desUrlizeNames(crumb.name) : crumb.name}
+                {index === crumbs.length - 1 ? desUrlizeNames(crumb.name as string) : crumb.name}
               </Link>
             </li>
             {index !== crumbs.length - 1 && (
