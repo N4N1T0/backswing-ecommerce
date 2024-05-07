@@ -4,7 +4,8 @@ import { type Metadata } from 'next'
 
 export async function generateMetadata ({ params }: { params: { category: string } }): Promise<Metadata> {
   return {
-    title: `Ofertas - ${params.category}`
+    title: `Ofertas - ${params.category}`,
+    description: `Diseños en ofertas de ${params.category} para los amantes del Padel`
   }
 }
 

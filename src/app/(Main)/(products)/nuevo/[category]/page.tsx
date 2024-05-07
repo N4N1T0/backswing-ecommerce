@@ -4,7 +4,8 @@ import { getRandomProductsNew } from '@/lib/utils'
 
 export async function generateMetadata ({ params }: { params: { category: string } }): Promise<Metadata> {
   return {
-    title: `Nuevos - ${params.category}`
+    title: `Nuevos - ${params.category}`,
+    description: `Diseños nuevos de ${params.category} para los amantes del Padel`
   }
 }
 

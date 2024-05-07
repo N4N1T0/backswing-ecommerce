@@ -1,3 +1,4 @@
+// TODO Eliminar despues de subir todos los productos
 export interface StaticProductsTypes {
     id: string
     name: string
@@ -15,35 +16,91 @@ export interface StaticProductsTypes {
     quantity: number
   }
 
-  export interface ColorPickerTypes {
-    gender: 'mujer' | 'hombre' | 'ninos'
-    product: string
-    isProductCard?: boolean
-  }
-
 export interface WPPosts {
   posts: {
-    nodes: Post[]
+    nodes: WPPost[]
   }
 }
 
 export interface WPPost {
-  post: Post
-}
-
-export interface Post {
+  post: {
      title: string
       content: string
       excerpt: string
       id: string
       date: string
       slug: string
-      featuredImage: FeaturedImages
+      featuredImage: {
+        node: {
+          mediaItemUrl: string
+          altText: string
+        }
+      }
+  }
 }
 
-export interface FeaturedImages {
-  node: {
-    mediaItemUrl: string
-    altText: string
+export interface WPProduct {
+    id: string
+    image: {
+      sourceUrl: string
+    }
+    name: string
+    price: string
+    date: string
+    onSale: boolean
+    content: string
+    variations: Variations
+    productCategories: Categories
+    attributes: Attributes
+    upsell: Related
+}
+
+export interface CartItem {
+    id: string
+    talla: string
+    model: Variations['nodes'][0]
+    parsedPrice: string
+    parsedName: string
+    quantity: number
+}
+
+export interface Variations {
+  nodes: Array<{
+    image: {
+      sourceUrl: string
+    }
+    name: string
+  }>
+}
+
+export interface Categories {
+  nodes: Array<{
+    name: string
+  }>
+}
+
+export interface Attributes {
+  nodes: Array<{
+    options: string[]
+  }>
+}
+
+export interface Related {
+  nodes: Array<{
+    name: string
+    id: string
+    variations: Variations
+  }>
+}
+
+export interface Collection {
+  nodes: Array<{
+  id: string
+  name: string
+  image: {
+    sourceUrl: string
   }
+  price: string
+  productCategories: Categories
+}>
 }
