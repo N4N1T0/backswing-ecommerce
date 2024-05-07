@@ -1,8 +1,8 @@
-import { type StaticProductsTypes } from '@/types'
+import { type WPProduct } from '@/types'
 import { createStore } from 'swr-global-state'
 import type { StatePersistor, StateKey } from 'swr-global-state'
 
-const withLocalStoragePersistor = <T = StaticProductsTypes[]> (): StatePersistor<T> => ({
+const withLocalStoragePersistor = <T = WPProduct[]> (): StatePersistor<T> => ({
   onSet (key: StateKey, data: T) {
     const stringifyData = JSON.stringify(data)
     window.localStorage.setItem(String(key), stringifyData)

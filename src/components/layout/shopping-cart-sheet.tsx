@@ -9,7 +9,7 @@ import {
   SheetFooter,
   SheetClose
 } from '@/components/ui/sheet'
-import { removeFromCart, useEuros } from '@/lib/utils'
+import { removeFromCart, extractModelFromName, extractHexColorFromName, calculateTotal, useEuros } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
@@ -18,14 +18,7 @@ import Link from 'next/link'
 const ShoppingCartSheet = () => {
   const [count, setCount] = useShoppingCart()
 
-  const total = count.map(item => {
-    if (item.offer.onOffer) {
-      return item.offer.price * item.quantity
-    } else {
-      return item.price * item.quantity
-    }
-  }
-  ).reduce((a, b) => a + b, 0)
+  const total = calculateTotal(count)
 
   return (
     <Sheet>
@@ -48,17 +41,19 @@ const ShoppingCartSheet = () => {
           ? (
             <div className='w-full bg-white py-5 overflow-y-scroll overflow-x-hidden'>
               {count.map((item) => (
-                <div key={`shoping-cart-${item.name}`} className='block my-3 py-3 border-b border-gray-400 md:flex'>
+                <div key={`shoping-cart-${item.parsedName}`} className='block my-3 py-3 border-b border-gray-400 md:flex'>
                   <div className='w-full flex-1 aspect-square object-center'>
-                    <Image src={item.image} alt={item.name}
+                    <Image src={item.model.image.sourceUrl} alt={item.parsedName}
                       width={100}
                       height={100}
                       className='object-cover w-full h-full' />
                   </div>
                   <div className='flex-1 px-4 space-y-1 flex flex-col items-center md:items-start'>
-                    <h2 className='text-lg font-bold text-gray-900'>{item.name}</h2>
+                    <h2 className='text-lg font-bold text-gray-900'>{item.parsedName}</h2>
                     <p className='text-sm text-gray-600 '> Cantidad: {item.quantity}</p>
-                    <p className='text-lg font-bold text-gray-900'>{item.offer.onOffer ? useEuros.format(item.offer.price) : useEuros.format(item.price)}</p>
+                    <p className='text-sm text-gray-600 '> Modelo: {extractModelFromName(item.model.name)}</p>
+                    <p className='text-sm text-gray-600 flex justify-center items-center'> Color: <span style={{ backgroundColor: extractHexColorFromName(item.model.name)! }} className='inline-block w-4 h-4 rounded-full ml-2'></span></p>
+                    <p className='text-sm text-gray-600 '> Talla: {item.talla}</p>
                     <button
                       onClick={() => { setCount(prev => removeFromCart(prev, item.id)) }}
                       className='px-3 py-1 font-medium text-center text-gray-900 border border-gray-900 hover:bg-gray-900 hover:text-gray-100'>Quitar</button>
