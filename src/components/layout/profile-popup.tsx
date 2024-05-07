@@ -15,7 +15,6 @@ import { createCostumer } from '@/lib/queries'
 const ProfilePopup = async () => {
   const session = await auth()
   const user = await createCostumer(session?.user?.email, session?.user?.name)
-  console.log('🚀 ~ ProfilePopup ~ user:', user)
 
   return (
     <Popover>
