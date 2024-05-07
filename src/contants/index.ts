@@ -5,31 +5,38 @@ import Oeko from '@/assets/eye-for-ebony-OWi1sIWiCAI-unsplash.webp'
 export const navItems = [
   {
     label: 'Hombre',
-    route: '/hombre/camisetas'
+    route: '/hombre/camisetas',
+    commingSoon: false
   },
   {
     label: 'Mujer',
-    route: '/mujer/camisetas'
+    route: '/mujer/camisetas',
+    commingSoon: false
   },
   {
     label: 'Niños',
-    route: '/ninos/camisetas'
+    route: '/ninos/camisetas',
+    commingSoon: false
   },
   {
     label: 'Ofertas',
-    route: '/ofertas/camisetas'
+    route: '/ofertas/camisetas',
+    commingSoon: true
   },
   {
     label: 'Nuevo',
-    route: '/nuevo/camisetas'
+    route: '/nuevo/camisetas',
+    commingSoon: true
   },
   {
     label: 'Nosotros',
-    route: '/nosotros'
+    route: '/nosotros',
+    commingSoon: false
   },
   {
     label: 'Blog',
-    route: '/blog'
+    route: '/blog',
+    commingSoon: false
   }
 ]
 
@@ -41,10 +48,6 @@ export const footerItems = [
   {
     label: 'Politica de privacidad',
     route: '/politica-privacidad'
-  },
-  {
-    label: 'Aviso legal',
-    route: '/aviso-legal'
   },
   {
     label: 'Tabla de Tallas',
@@ -75,6 +78,7 @@ export const medioAmbiente = [
 export const sidebarAccordion = [
   {
     label: 'Hombre',
+    commingSoon: false,
     products: [
       {
         label: 'Camisetas',
@@ -88,6 +92,7 @@ export const sidebarAccordion = [
   },
   {
     label: 'Mujer',
+    commingSoon: false,
     products: [
       {
         label: 'Camisetas',
@@ -101,6 +106,7 @@ export const sidebarAccordion = [
   },
   {
     label: 'Ninos',
+    commingSoon: false,
     products: [
       {
         label: 'Camisetas',
@@ -114,6 +120,7 @@ export const sidebarAccordion = [
   },
   {
     label: 'Ofertas',
+    commingSoon: true,
     products: [
       {
         label: 'Camisetas',
@@ -127,6 +134,7 @@ export const sidebarAccordion = [
   },
   {
     label: 'Nuevo',
+    commingSoon: true,
     products: [
       {
         label: 'Camisetas',
@@ -140,6 +148,7 @@ export const sidebarAccordion = [
   },
   {
     label: 'Personalizar',
+    commingSoon: true,
     products: [
       {
         label: 'Camisetas',

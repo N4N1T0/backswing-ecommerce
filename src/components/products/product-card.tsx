@@ -1,21 +1,29 @@
-import { urlizeNames, useEuros } from '@/lib/utils'
-import { type StaticProductsTypes } from '@/types'
+import { parseProductContent } from '@/lib/utils'
+import { type WPProduct } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import WishlistHeart from './wishlist-heart'
 import ColorPicker from './color-picker'
 
-const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: string }) => {
-  const { name, image, price, offer, new: isNew, gender } = product
+const ProductCard = ({ product, route }: { product: WPProduct, route: string }) => {
+  const {
+    parsedName,
+    isNew,
+    parsedPrice,
+    colors,
+    image,
+    id,
+    onSale
+  } = parseProductContent(product)
 
   return (
     <div className='block'>
-      <Link href={`/${route}/${urlizeNames(name)}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
+      <Link href={`/${route}/${id}`} className='relative h-[300px] sm:h-[400px] overflow-hidden block group'>
         <Image
-          src={image}
-          alt={name}
-          title={name}
+          src={image.sourceUrl}
+          alt={parsedName}
+          title={parsedName}
           fill
           priority
           sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
@@ -26,23 +34,20 @@ const ProductCard = ({ product, route }: { product: StaticProductsTypes, route: 
       <div className='relative pt-3'>
         <div className='w-full flex justify-between items-center'>
           <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
-            {name}
+            {parsedName}
           </h3>
           <WishlistHeart product={product} />
         </div>
 
         {/* Colors */}
-        <ColorPicker gender={gender} product='camisetas' isProductCard />
+        <ColorPicker colors={colors} isProductCard />
 
         <div className='mt-1.5 flex items-center justify-between text-gray-900'>
           <p className='tracking-wide font-medium'>
-            {offer.onOffer
-              ? <><span className='line-through text-xs uppercase tracking-wide font-normal'>{useEuros.format(price)}</span>{' '}{useEuros.format(offer.price)}</>
-              : useEuros.format(price)
-            }
+            {parsedPrice}
           </p>
 
-          {offer.onOffer && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100'>Oferta</p>}
+          {onSale && <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100'>Oferta</p>}
         </div>
       </div>
     </div>
