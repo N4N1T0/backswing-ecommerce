@@ -312,3 +312,103 @@ export const getProductsByGender = async (gender: string) => {
     throw new Error('Failed to fetch post data.')
   }
 }
+
+export const getProductsByFeatured = async () => {
+  const ProductsByFeaturedQuery = gql`
+  query MyQuery {
+  products(where: {featured: true}) {
+    nodes {
+      id
+      image {
+        sourceUrl
+        date
+      }
+      name
+      onSale
+      ... on VariableProduct {
+        id
+        name
+        content
+        price
+        variations(first: 30) {
+          nodes {
+            image {
+              sourceUrl
+            }
+            name
+          }
+        }
+        productCategories {
+          nodes {
+            name
+          }
+        }
+        attributes {
+          nodes {
+            options
+          }
+        }
+      }
+    }
+  }
+}
+  `
+
+  try {
+    const products: any = await graphQLClient.request(ProductsByFeaturedQuery)
+    return products.products.nodes as WPProduct[]
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    throw new Error('Failed to fetch post data.')
+  }
+}
+
+export const getProductsByOferts = async () => {
+  const ProductsByOfertQuery = gql`
+  query MyQuery {
+  products(where: {onSale: true}) {
+    nodes {
+      id
+      image {
+        sourceUrl
+        date
+      }
+      name
+      onSale
+      ... on VariableProduct {
+        id
+        name
+        content
+        price
+        variations(first: 30) {
+          nodes {
+            image {
+              sourceUrl
+            }
+            name
+          }
+        }
+        productCategories {
+          nodes {
+            name
+          }
+        }
+        attributes {
+          nodes {
+            options
+          }
+        }
+      }
+    }
+  }
+}
+  `
+
+  try {
+    const products: any = await graphQLClient.request(ProductsByOfertQuery)
+    return products.products.nodes as WPProduct[]
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    throw new Error('Failed to fetch post data.')
+  }
+}

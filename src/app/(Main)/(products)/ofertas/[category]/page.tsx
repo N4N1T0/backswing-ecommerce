@@ -1,5 +1,5 @@
 import ProductCard from '@/components/products/product-card'
-import { getRandomProductsFeatured } from '@/lib/utils'
+import { getProductsByOferts } from '@/lib/queries'
 import { type Metadata } from 'next'
 
 export async function generateMetadata ({ params }: { params: { category: string } }): Promise<Metadata> {
@@ -9,8 +9,8 @@ export async function generateMetadata ({ params }: { params: { category: string
   }
 }
 
-const OfertasPage = ({ params }: { params: { category: string } }) => {
-  const products = getRandomProductsFeatured(12)
+const OfertasPage = async ({ params }: { params: { category: string } }) => {
+  const products = await getProductsByOferts()
 
   return (
     <section id={`ofertas ${params.category} colection`} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
