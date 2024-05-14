@@ -2,20 +2,11 @@
 
 import Image from 'next/image'
 import { AccordionContent, Accordion, AccordionItem, AccordionTrigger } from '../ui/accordion'
-import { removeFromCart, useEuros } from '@/lib/utils'
-import { X } from 'lucide-react'
 import useWishlist from '@/stores/wishlist-store'
-import useShoppingCart from '@/stores/shopping-cart-store'
-import { type StaticProductsTypes } from '@/types'
+import WishlistHeart from '../products/wishlist-heart'
 
 const Wishlist = () => {
-  const [count, setCount] = useWishlist()
-  const [, setShopping] = useShoppingCart()
-
-  const addToCart = (product: StaticProductsTypes) => {
-    setShopping(prev => [...prev, product])
-    setCount(prev => removeFromCart(prev, product.id))
-  }
+  const [count] = useWishlist()
 
   return (
     <section id='wishlist' className='space-y-5 md:space-y-10'>
@@ -29,10 +20,8 @@ const Wishlist = () => {
             <li key={item.id}>
               <div className='w-52'>
                 <div className='relative w-full h-52'>
-                  <Image src={item.image} alt={item.name} title={item.name} fill className='z-0 w-auto h-auto object-cover aspect-square' />
-                  <button aria-label='remove from wishlist' onClick={() => { setCount(prev => removeFromCart(prev, item.id)) }} className='top-4 right-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 absolute  p-1.5 bg-gray-800 text-white hover:text-gray-400'>
-                    <X />
-                  </button>
+                  <Image src={item.image.sourceUrl} alt={item.name} title={item.name} fill className='z-0 w-auto h-auto object-cover aspect-square' />
+                  <WishlistHeart product={item} />
                 </div>
                 <Accordion type='single' collapsible className='w-full space-y-3'>
                   <AccordionItem value='item-1'>
@@ -40,15 +29,6 @@ const Wishlist = () => {
                     <AccordionContent className='w-full'>
                       <ul className='w-full space-y-2 text-left'>
                         <li>{item.name}</li>
-                        <li>
-                          {item.offer.onOffer
-                            ? <><span className='line-through text-xs uppercase tracking-wide font-normal'>{useEuros.format(item.price)}</span>{' '}{useEuros.format(item.offer.price)}</>
-                            : useEuros.format(item.price)
-                          }
-                        </li>
-                        <li>
-                          <button onClick={() => { addToCart(item) }} className='w-full py-2 bg-gray-950 text-gray-100 hover:bg-gray-700 transition-colors duration-200'>Agregar al Carrito</button>
-                        </li>
                       </ul>
                     </AccordionContent>
                   </AccordionItem>
