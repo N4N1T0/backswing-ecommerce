@@ -1,6 +1,6 @@
 import ProductCard from '@/components/products/product-card'
 import { orama } from '@/lib/orama'
-import { type StaticProductsTypes } from '@/types'
+import { type WPProduct } from '@/types'
 import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ const SearchPage = async ({
   }
 
   const resultsText = products.count > 1 ? 'results' : 'result'
-  const docs = products.hits.map((hit: any) => hit.document) as StaticProductsTypes[]
+  const docs = products.hits.map((hit: any) => hit.document) as WPProduct[]
 
   return (
     <main className='max-w-screen-3xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10'>
@@ -47,7 +47,7 @@ const SearchPage = async ({
         ? (
           <section id='search products' className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
             {docs?.map(item => (
-              <ProductCard key={item.id} product={item} route={item.gender} />
+              <ProductCard key={item.id} product={item} route={item.name} />
             ))}
           </section>
         )
