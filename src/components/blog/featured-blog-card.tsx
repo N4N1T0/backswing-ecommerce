@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { type Post } from '@/types'
+import { type WPPost } from '@/types'
 
-const FeaturedBlogCard = ({ post }: { post: Post }) => {
+const FeaturedBlogCard = ({ post }: { post: WPPost['post'] }) => {
   const { title, excerpt, featuredImage: { node: { mediaItemUrl, altText } } } = post
   return (
     <Link href='/blog/12345' className='relative flex items-center justify-center group overflow-hidden w-full h-[300px]'>

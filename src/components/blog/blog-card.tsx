@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { type Post } from '@/types'
+import { type WPPost } from '@/types'
 
-const BlogCard = ({ post }: { post: Post }) => {
+const BlogCard = ({ post }: { post: WPPost['post'] }) => {
   const { title, excerpt, date, id, featuredImage: { node: { mediaItemUrl, altText } } } = post
 
   return (

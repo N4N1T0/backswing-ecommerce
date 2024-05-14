@@ -23,7 +23,7 @@ const PreFooter = () => {
 
             <div className='mt-4 md:mt-8'>
               <Link
-                href='/ofertas'
+                href='/hombre/camisetas'
                 className='mt-8 inline-block bg-gray-100 px-12 py-3 text-sm font-medium text-gray-950 transition-colors duration-200 hover:bg-gray-400'
               >
                 Comprar ahora

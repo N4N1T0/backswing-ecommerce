@@ -35,7 +35,7 @@ const BlogPost = async ({ params }: { params: { post: string } }) => {
         </div>
 
         <div className='w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm space-y-10'>
-          {relatedPosts.map((post) => (
+          {relatedPosts.map(({ post }) => (
             <FeaturedBlogCard post={post} key={post.id} />
           ))}
         </div>

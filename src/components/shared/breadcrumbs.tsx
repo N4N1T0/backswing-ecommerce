@@ -1,6 +1,6 @@
 'use client'
 
-import { desUrlizeNames, pathnameCrumbs } from '@/lib/utils'
+import { pathnameCrumbs } from '@/lib/utils'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
@@ -50,7 +50,6 @@ const Breadcrumbs = () => {
           <React.Fragment key={`${crumb.name}-${index}`}>
             <li>
               <Link href={crumb.href} className='block transition hover:text-gray-500'>
-                {index === crumbs.length - 1 ? desUrlizeNames(crumb.name as string) : crumb.name}
               </Link>
             </li>
             {index !== crumbs.length - 1 && (

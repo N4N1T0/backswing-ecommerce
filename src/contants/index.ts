@@ -19,13 +19,13 @@ export const navItems = [
     commingSoon: false
   },
   {
-    label: 'Ofertas',
-    route: '/ofertas/camisetas',
-    commingSoon: true
-  },
-  {
     label: 'Nuevo',
     route: '/nuevo/camisetas',
+    commingSoon: false
+  },
+  {
+    label: 'Ofertas',
+    route: '/ofertas/camisetas',
     commingSoon: true
   },
   {
@@ -119,6 +119,20 @@ export const sidebarAccordion = [
     ]
   },
   {
+    label: 'Nuevo',
+    commingSoon: false,
+    products: [
+      {
+        label: 'Camisetas',
+        route: '/nuevo/camisetas'
+      },
+      {
+        label: 'Sudaderas',
+        route: '/nuevo/sudaderas'
+      }
+    ]
+  },
+  {
     label: 'Ofertas',
     commingSoon: true,
     products: [
@@ -129,20 +143,6 @@ export const sidebarAccordion = [
       {
         label: 'Sudaderas',
         route: '/ofertas/sudaderas'
-      }
-    ]
-  },
-  {
-    label: 'Nuevo',
-    commingSoon: true,
-    products: [
-      {
-        label: 'Camisetas',
-        route: '/nuevo/camisetas'
-      },
-      {
-        label: 'Sudaderas',
-        route: '/nuevo/sudaderas'
       }
     ]
   },

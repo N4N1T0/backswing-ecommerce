@@ -62,6 +62,7 @@ export interface CartItem {
     parsedPrice: string
     parsedName: string
     quantity: number
+    description: string
 }
 
 export interface Variations {
@@ -103,4 +104,14 @@ export interface Collection {
   price: string
   productCategories: Categories
 }>
+}
+
+export interface User {
+  nodes: Costumer[]
+}
+
+export interface Costumer {
+    email: string
+    id: string
+    username: string
 }

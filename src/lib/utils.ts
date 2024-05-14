@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import { type WPProduct, type StaticProductsTypes, type CartItem } from '@/types'
 import { staticsProducts } from '@/contants/static-products'
 import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
+import { type StaticImageData } from 'next/image'
 
 /**
  * Generates a tailwind class string by merging the provided inputs using `clsx` and `twMerge`.
@@ -53,6 +54,7 @@ export const pathnameCrumbs = (pathname: string): any[] => {
   }))
 }
 
+// TODO add Output Type
 /**
  * Parses the content of a WPProduct object and returns an object with the parsed data.
  *
@@ -86,9 +88,9 @@ export const parseProductContent = (product: WPProduct) => {
 
   // Parse Categories
   // Get the names of the categories
-  const category = productCategories.nodes[0].name
-  const gender = productCategories.nodes[1].name
-  const design = productCategories.nodes[2].name
+  const category = productCategories.nodes.find(node => node.name === 'Sudaderas' || node.name === 'Camisetas')?.name
+
+  const gender = productCategories.nodes.find(node => node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos')?.name
 
   // Parse Attributes
   // Get the options of the attributes
@@ -113,13 +115,26 @@ export const parseProductContent = (product: WPProduct) => {
     parsedPrice,
     category,
     gender,
-    design,
     colors,
     image,
     id,
     onSale,
     related
   }
+}
+
+/**
+ * Generates a random number between 1 and the specified maximum number (exclusive).
+ *
+ * @param {number} max - The maximum number (exclusive) for the random number generation.
+ * @return {string} A string representation of the generated random number.
+ */
+export const getRandomNumber = (max: number): string => {
+  // Generate a random number between 1 and the maximum number (exclusive)
+  const random = Math.floor(Math.random() * (max - 2)) + 1
+
+  // Return the generated random number as a string
+  return random.toString()
 }
 
 /**
@@ -151,8 +166,6 @@ export const checkNew = (date: string): boolean => {
  * @return {number} The index of the color if found, -1 if not found.
  */
 export const findColorIndex = (color: string, variations: WPProduct['variations']): number => {
-  console.log('🚀 ~ findColorIndex ~ variations:', variations)
-  console.log('🚀 ~ findColorIndex ~ color:', color)
   // Loop through variations nodes
   for (let i = 0; i < variations.nodes.length; i++) {
     // Check if the name contains the color
@@ -177,7 +190,16 @@ export const urlizeNames = (name: string): string => {
   return name.toLowerCase().split(' ').join('-')
 }
 
-export const getImageForModel = (productName: string) => {
+/**
+ * Returns an image component based on the product name.
+ *
+ * The function works by splitting the product name into words and taking the last word.
+ * Then it uses a switch statement to map the last word to the corresponding image component.
+ *
+ * @param {string} productName - The name of the product.
+ * @return {StaticImageData} The image component for the product if it exists, null otherwise.
+ */
+export const getImageForModel = (productName: string): StaticImageData | null => {
   const modelName = productName.split(' ').pop()
   switch (modelName) {
     case 'A':

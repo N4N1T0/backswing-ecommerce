@@ -11,7 +11,7 @@ const ProductsTallas = ({ setTalla, selectedTalla }: { setTalla: React.Dispatch<
         <Link href='/tallas' rel='noopener noreferrer' target='_blank' className='underline hover:text-gray-600 text-gray-900 transition-colors duration-200'>Guia de Tallas</Link>
       </div>
 
-      <fieldset className='flex flex-wrap justify-start items-center gap-4'>
+      <fieldset className='flex flex-nowrap justify-start items-center gap-4'>
         {tallas.map(talla => (
           <label
             key={talla}

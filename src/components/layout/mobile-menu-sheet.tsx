@@ -30,10 +30,12 @@ const MobileMenuSheet = () => {
         <nav aria-label='Mobile Navbar' className='mb-5'>
           <ul className='flex flex-col mt-10 items-center gap-6 text-lg font-medium'>
             {navItems.map((item) => (
-              <li key={item.label}>
-                <SheetClose asChild className='relative'>
-                  <Link className={`text-gray-800 hover:text-gray-400 transition-colors duration-200 ${item.commingSoon && 'opacity-50 pointer-events-none'}`} href={item.route}>{item.label}</Link>
-                  {item.commingSoon && <span className='absolute -top-2 -right-1 text-xs text-white bg-red-500 rounded-full px-1.5 py-0.5'>soon</span>}
+              <li key={item.label} className='relative'>
+                <SheetClose asChild>
+                  <>
+                    <Link className={`text-gray-800 hover:text-gray-400 transition-colors duration-200 ${item.commingSoon && 'opacity-50 pointer-events-none'}`} href={item.route}>{item.label}</Link>
+                    {item.commingSoon && <span className='absolute -top-2 -right-1 text-xs text-white bg-red-500 rounded-full px-1.5 py-0.5'>soon</span>}
+                  </>
                 </SheetClose>
               </li>
             ))}

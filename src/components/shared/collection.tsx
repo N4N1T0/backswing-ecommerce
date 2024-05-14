@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useEuros, useCapitalize } from '@/lib/utils'
 import Image from 'next/image'
-import { getProductsByGender } from '@/lib/queries'
+import { getProductsByCategories } from '@/lib/queries'
 
 const Collection = async ({ direction, colection }: { direction: 'right' | 'left', colection: 'hombre' | 'mujer' | 'niño' }) => {
-  const products = await getProductsByGender(colection)
+  const products = await getProductsByCategories(colection, 'camisetas')
 
   return (
     <section>
@@ -19,11 +19,11 @@ const Collection = async ({ direction, colection }: { direction: 'right' | 'left
         </header>
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          {products.nodes.map(product => {
+          {products.slice(0, 4).map(product => {
             const { id, name, image, price, productCategories } = product
 
             return (
-              <li key={product.id} className='relative'>
+              <li key={product.id} className='relative aspect-square'>
                 <Link href={`/${colection}/${productCategories.nodes[0].name.toLocaleLowerCase()}/${id}`} className='group block overflow-hidden'>
                   <Image
                     src={image.sourceUrl}
@@ -31,7 +31,7 @@ const Collection = async ({ direction, colection }: { direction: 'right' | 'left
                     title={name}
                     width={350}
                     height={450}
-                    className='w-full h-auto object-cover transition-transform ease-out duration-300 group-hover:scale-105'
+                    className='w-full h-auto object-cover transition-transform ease-out duration-300 group-hover:scale-105 aspect-square'
                   />
 
                   <div className='relative bg-white pt-3'>

@@ -3,6 +3,7 @@ import BlogCard from '@/components/blog/blog-card'
 
 const BlogFeed = async () => {
   const allPosts = await getAllPosts()
+
   return (
     <div className='2xl:mx-auto w-full xl:px-12 sm:px-6 px-3 py-10'>
       <h1 className='lg:text-4xl text-3xl font-semibold leading-9 text-gray-800'>Articulos Recientes</h1>

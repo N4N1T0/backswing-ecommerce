@@ -1,7 +1,8 @@
 import {
   Sheet,
   SheetContent,
-  SheetTrigger
+  SheetTrigger,
+  SheetClose
 } from '@/components/ui/sheet'
 import SideNavbarFilter from './side-navbar-filter'
 
@@ -10,7 +11,9 @@ const NavbarFilterSheet = () => {
     <Sheet>
       <SheetTrigger className='w-full backdrop:text-center border-[1px] border-secondary text-secondary bg-white hover:bg-secondary hover:text-white transition-colors duration-200 py-3'>Filtros</SheetTrigger>
       <SheetContent side='left' className='bg-white'>
-        <SideNavbarFilter />
+        <SheetClose asChild>
+          <SideNavbarFilter />
+        </SheetClose>
       </SheetContent>
     </Sheet>
 

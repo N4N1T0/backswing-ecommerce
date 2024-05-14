@@ -8,12 +8,10 @@ import { Heart } from 'lucide-react'
 const WishlistHeart = ({ product }: { product: WPProduct }) => {
   const [count, setCount] = useWishlist()
   const isWishlisted = count.some(obj => obj.id === product.id)
-  console.log('🚀 ~ WishlistHeart ~ isWishlisted:', isWishlisted)
 
   const handleWishlist = (isWishlisted: boolean, id: string, product: WPProduct) => {
     if (isWishlisted) {
       setCount(prev => removeFromWishlist(prev, id))
-      console.log('🚀 ~ handleWishlist ~ isWishlisted:', isWishlisted)
     } else {
       setCount(prev => [...prev, product])
     }

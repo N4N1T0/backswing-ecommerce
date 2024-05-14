@@ -10,7 +10,7 @@ export async function generateMetadata ({ params }: { params: { category: string
 }
 
 const NuevoPage = async ({ params }: { params: { category: string } }) => {
-  const products = await getProductsByFeatured()
+  const products = await getProductsByFeatured(params.category)
 
   return (
     <section id={`nuevo ${params.category} colection`} className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>

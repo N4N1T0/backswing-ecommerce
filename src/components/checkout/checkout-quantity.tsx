@@ -1,10 +1,10 @@
 'use client'
 
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { type StaticProductsTypes } from '@/types'
+import { type CartItem } from '@/types'
 import { useState } from 'react'
 
-const CheckoutQuantity = ({ product }: { product: StaticProductsTypes }) => {
+const CheckoutQuantity = ({ product }: { product: CartItem }) => {
   const [, setCount] = useShoppingCart()
   const [quantity, setQuantity] = useState(product.quantity)
 

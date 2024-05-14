@@ -24,8 +24,6 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
     related
   } = parseProductContent(productInfo)
 
-  console.log(related)
-
   const [talla, seTalla] = useState('m')
   const [model, setModel] = useState(variations.nodes)
   const [index, setIndex] = useState(0)
@@ -36,6 +34,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
     model: model[index + 1],
     parsedPrice,
     parsedName,
+    description,
     quantity: 1
   }
 
@@ -48,7 +47,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
           <Image src={model[index].image.sourceUrl} alt={model[index].name} height={1000} width={1000} priority title={model[index].name}
             className='object-cover aspect-square h-auto w-auto' />
         </div>
-        <div className='w-full px-4 md:w-1/2 sticky top-4 h-fit'>
+        <div className='w-full px-4 md:w-1/2 sticky top-4 h-fit mt-3 md:mt-0'>
           <div className='mb-8 border-b'>
             <h2 className='flex justify-between items-center w-fullmt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
               {parsedName} {!isNew && <Link href='/nuevo' className='text-xs tracking-wide bg-gray-900 py-1 px-3 text-gray-100 hover:bg-gray-700 duration-200 transition-colors hidden md:block'>nuevo</Link>}</h2>
