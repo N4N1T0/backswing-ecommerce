@@ -130,7 +130,7 @@ export const getRelatedPost = async (id: string): Promise<WPPost[]> => {
  * @param {string | null | undefined} username - The username of the customer.
  * @return {Promise<any>} A promise that resolves to the created customer or the existing customer if already present.
  */
-export const createCostumer = async (email: string | null | undefined, username: string | null | undefined): Promise<Costumer | User> => {
+export const createCostumer = async (email: string | null | undefined, username: string | null | undefined): Promise<Costumer> => {
   const existingCostumer = await getCostumerByEmail(email)
 
   const createCostumerQuery = gql`
@@ -152,7 +152,7 @@ export const createCostumer = async (email: string | null | undefined, username:
   if (existingCostumer.length === 0) {
     try {
       const user: any = await graphQLClient.request(createCostumerQuery, variables)
-      return user as User
+      return user.nodes[0] as Costumer
     } catch (error) {
       console.error('Error fetching post:', error)
       throw new Error('Failed to fetch post data.')
