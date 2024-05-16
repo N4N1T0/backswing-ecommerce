@@ -55,6 +55,8 @@ export interface WPProduct {
     upsell: Related
 }
 
+export interface StaticWPProducts extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {}
+
 export interface CartItem {
     id: string
     talla: string

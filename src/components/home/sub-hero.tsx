@@ -1,15 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getProductsByQuantity } from '@/lib/queries'
-import { parseProductContent } from '@/lib/utils'
+import { parseStaticProductContent } from '@/lib/utils'
+import { subHeroStaticProducts as products } from '@/contants/static-products'
 
 // This is a functional component that fetches the latest 5 products from the API and renders them in a grid.
 // The component is a section with the id 'sub-hero'.
 // It uses Tailwind CSS classes to style the layout.
-const SubHero = async () => {
-  // Fetch the latest 5 products from the API.
-  const products = await getProductsByQuantity(5)
-
+const SubHero = () => {
   // Render the product grid.
   return (
     <section id='sub-hero'>
@@ -25,9 +22,8 @@ const SubHero = async () => {
               gender,
               id,
               image,
-              description,
               parsedName
-            } = parseProductContent(product)
+            } = parseStaticProductContent(product)
 
             // Render a grid item with a link to the product page.
             return (
@@ -37,8 +33,8 @@ const SubHero = async () => {
                   {/* Render the product image. */}
                   <Image
                     src={image.sourceUrl}
-                    alt={description}
-                    className='aspect-square object-cover transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
+                    alt={parsedName}
+                    className='aspect-square object-center transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
                     width={index === 4 ? 1000 : 400}
                     height={index === 4 ? 1000 : 400}
                     priority

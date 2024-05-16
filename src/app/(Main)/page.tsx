@@ -4,7 +4,9 @@ import SubHero from '@/components/home/sub-hero'
 import Collection from '@/components/shared/collection'
 import PreFooter from '@/components/shared/pre-footer'
 
-export default function Home() {
+export default function Home () {
+  // TODO make Static Page
+  // TODO Prefetch Routes
   return (
     <main className='space-y-5'>
       <Hero />

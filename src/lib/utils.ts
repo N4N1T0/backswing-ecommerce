@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { type WPProduct, type StaticProductsTypes, type CartItem } from '@/types'
-import { staticsProducts } from '@/contants/static-products'
+import { type WPProduct, type CartItem, type StaticWPProducts } from '@/types'
 import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
 import { type StaticImageData } from 'next/image'
 
@@ -80,7 +79,7 @@ export const parseProductContent = (product: WPProduct) => {
 
   // Parse New
   // Check if the date is within the last 7 days
-  const isNew = checkNew(date)
+  const isNew = date === undefined ? false : checkNew(date)
 
   // Parse Price
   // Replace '&nbsp;' with a whitespace
@@ -120,6 +119,48 @@ export const parseProductContent = (product: WPProduct) => {
     id,
     onSale,
     related
+  }
+}
+
+// TODO add Output Type
+/**
+ * Parses the content of a StaticWPProducts object and returns an object with the parsed data.
+ *
+ * @param {StaticWPProducts} product - The StaticWPProducts object to be parsed.
+ * @return {Object} An object with the parsed data.
+ */
+export const parseStaticProductContent = (product: StaticWPProducts) => {
+  // Destructure the product object
+  const { name, productCategories, price, date, image, id, onSale } = product
+
+  // Parse Name
+  // Replace 'model' followed by a whitespace and a word with an empty string
+  const parsedName = name.replace(/\bmodel\s\w/gi, '')
+
+  // Parse New
+  // Check if the date is within the last 7 days
+  const isNew = date === undefined ? false : checkNew(date)
+
+  // Parse Price
+  // Replace '&nbsp;' with a whitespace
+  const parsedPrice = price.replace(/&nbsp;/g, ' ')
+
+  // Parse Categories
+  // Get the names of the categories
+  const category = productCategories.nodes.find(node => node.name === 'Sudaderas' || node.name === 'Camisetas')?.name
+
+  const gender = productCategories.nodes.find(node => node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos')?.name
+
+  // Return the parsed data
+  return {
+    parsedName,
+    isNew,
+    parsedPrice,
+    category,
+    gender,
+    image,
+    id,
+    onSale
   }
 }
 
@@ -257,32 +298,3 @@ export const removeFromCart = (cart: CartItem[], itemToRemove: string): CartItem
 export const removeFromWishlist = (count: WPProduct[], id: string) => {
     return count.filter(item => item.id !== id)
   }
-
-// TODO Eliminar despues de subir todos los productos
-export const getRandomProductsCollection = (colection: string, numberOfProducts: number): StaticProductsTypes[] => {
-  const filteredProducts = staticsProducts.filter(product => product.gender === colection) as StaticProductsTypes[]
-  const shuffledProducts = filteredProducts.sort(() => Math.random() - 0.5)
-  const randomProducts = shuffledProducts.slice(0, numberOfProducts)
-  return randomProducts
-}
-
-// TODO Eliminar despues de subir todos los productos
-export const getRandomProductsFeatured = (numberOfProducts: number): StaticProductsTypes[] => {
-  const filteredProducts = staticsProducts.filter(product => product.offer.onOffer) as StaticProductsTypes[]
-  const shuffledProducts = filteredProducts.sort(() => Math.random() - 0.5)
-  const randomProducts = shuffledProducts.slice(0, numberOfProducts)
-  return randomProducts
-}
-
-// TODO Eliminar despues de subir todos los productos
-export const getRandomProductsNew = (numberOfProducts: number): StaticProductsTypes[] => {
-  const filteredProducts = staticsProducts.filter(product => product.new) as StaticProductsTypes[]
-  const shuffledProducts = filteredProducts.sort(() => Math.random() - 0.5)
-  const randomProducts = shuffledProducts.slice(0, numberOfProducts)
-  return randomProducts
-}
-
-// TODO Eliminar despues de subir todos los productos
-export const getSingleProduct = (name: string): StaticProductsTypes => {
-  return staticsProducts.find(product => product.name.toLowerCase() === desUrlizeNames(name))! as StaticProductsTypes
-}
