@@ -1,6 +1,12 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { type WPProduct, type CartItem, type StaticWPProducts } from '@/types'
+import {
+  type WPProduct,
+  type CartItem,
+  type StaticWPProducts,
+  type ParsedConstent,
+  type ParsedStaticProduct
+} from '@/types'
 import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
 import { type StaticImageData } from 'next/image'
 
@@ -53,14 +59,13 @@ export const pathnameCrumbs = (pathname: string): any[] => {
   }))
 }
 
-// TODO add Output Type
 /**
  * Parses the content of a WPProduct object and returns an object with the parsed data.
  *
  * @param {WPProduct} product - The WPProduct object to be parsed.
  * @return {Object} An object with the parsed data.
  */
-export const parseProductContent = (product: WPProduct) => {
+export const parseProductContent = (product: WPProduct): ParsedConstent => {
   // Destructure the product object
   const { name, variations, productCategories, price, date, content, attributes, image, id, onSale, upsell: notRelated } = product
 
@@ -122,14 +127,13 @@ export const parseProductContent = (product: WPProduct) => {
   }
 }
 
-// TODO add Output Type
 /**
  * Parses the content of a StaticWPProducts object and returns an object with the parsed data.
  *
  * @param {StaticWPProducts} product - The StaticWPProducts object to be parsed.
  * @return {Object} An object with the parsed data.
  */
-export const parseStaticProductContent = (product: StaticWPProducts) => {
+export const parseStaticProductContent = (product: StaticWPProducts): ParsedStaticProduct => {
   // Destructure the product object
   const { name, productCategories, price, date, image, id, onSale } = product
 
@@ -162,20 +166,6 @@ export const parseStaticProductContent = (product: StaticWPProducts) => {
     id,
     onSale
   }
-}
-
-/**
- * Generates a random number between 1 and the specified maximum number (exclusive).
- *
- * @param {number} max - The maximum number (exclusive) for the random number generation.
- * @return {string} A string representation of the generated random number.
- */
-export const getRandomNumber = (max: number): string => {
-  // Generate a random number between 1 and the maximum number (exclusive)
-  const random = Math.floor(Math.random() * (max - 2)) + 1
-
-  // Return the generated random number as a string
-  return random.toString()
 }
 
 /**
@@ -219,19 +209,6 @@ export const findColorIndex = (color: string, variations: WPProduct['variations'
 }
 
 /**
- * URLizes a given string by converting all spaces to hyphens
- * and converting the string to lowercase.
- *
- * @param {string} name - The string to URLize.
- * @return {string} The URLized string.
- */
-export const urlizeNames = (name: string): string => {
-  // Convert the string to lowercase and replace all spaces with hyphens
-  // using the split() and join() methods.
-  return name.toLowerCase().split(' ').join('-')
-}
-
-/**
  * Returns an image component based on the product name.
  *
  * The function works by splitting the product name into words and taking the last word.
@@ -256,16 +233,10 @@ export const getImageForModel = (productName: string): StaticImageData | null =>
   }
 }
 
-// TODO Eliminar despues de subir todos los productos
 export const useEuros = Intl.NumberFormat('es-ES', {
   style: 'currency',
   currency: 'EUR'
 })
-
-// TODO Eliminar despues de subir todos los productos
-export const desUrlizeNames = (name: string) => {
-  return name.split('-').join(' ')
-}
 
 export const useCapitalize = (word: string) => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
