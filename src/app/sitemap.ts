@@ -1,15 +1,24 @@
 import { type MetadataRoute } from 'next'
-import { staticsProducts } from '@/contants/static-products'
+import { getProductsIds } from '@/lib/queries'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const productsPage = staticsProducts.map(product => (
+export default async function sitemap({
+  id
+}: {
+  id: string
+}): Promise<MetadataRoute.Sitemap> {
+  const products = await getProductsIds()
+  const productsPage = products.map(product => {
+    const category = product.productCategories.nodes.find(node => node.name === 'Sudaderas' || node.name === 'Camisetas')?.name
+    const gender = product.productCategories.nodes.find(node => node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos')?.name
+    return (
     {
-      url: `${process.env.SITE_URL}/${product.id}`,
+      url: `${process.env.SITE_URL}/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${product.id}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8
     }
-  ))
+  )
+  })
 
   const staticPages: MetadataRoute.Sitemap = [
     {
