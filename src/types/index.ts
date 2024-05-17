@@ -117,3 +117,23 @@ export interface Costumer {
     id: string
     username: string
 }
+
+export interface ParsedConstent {
+  description: string
+    material: string
+    parsedName: string
+    variations: Variations
+    isNew: boolean
+    parsedPrice: string
+    category: string | undefined
+    gender: string | undefined
+    colors: string[]
+    image: {
+      sourceUrl: string
+    }
+    id: string
+    onSale: boolean
+    related: Related | null
+}
+
+export interface ParsedStaticProduct extends Omit<ParsedConstent, 'description' | 'material' | 'variations' | 'colors' | 'related' > {}
