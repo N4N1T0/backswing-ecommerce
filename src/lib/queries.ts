@@ -1,6 +1,5 @@
 import { type WPPosts, type WPPost, type WPProduct, type Collection, type User, type Costumer } from '@/types'
 import { request, gql, GraphQLClient } from 'graphql-request'
-import { getRandomNumber } from './utils'
 
 const graphqlUrl = process.env.WP_GRAPHQL_URL
 const graphqlToken = process.env.WORDPRESS_AUTH_REFRESH_TOKEN
@@ -187,65 +186,6 @@ export const getCostumerByEmail = async (email: string | null | undefined): Prom
   try {
     const user: any = await graphQLClient.request(CostumerByEMailQuery, variables)
     return user.customers.nodes as User['nodes']
-  } catch (error) {
-    console.error('Error fetching post:', error)
-    throw new Error('Failed to fetch post data.')
-  }
-}
-
-/**
- * Retrieves a list of products based on the given quantity.
- *
- * @param {number} quantity - The number of products to retrieve.
- * @return {Promise<WPProduct[]>} A promise that resolves to an array of WPProduct objects representing the products.
- * @throws {Error} If there is an error fetching the products.
- */
-export const getProductsByQuantity = async (quantity: number): Promise<WPProduct[]> => {
-  const ProductsByQuantityQuery = gql`
-    query MyQuery($first: Int, $after: String) {
-  products(first: $first, after: $after, where: { tagIn: "model-d" }) {
-    nodes {
-      id
-      image {
-        sourceUrl
-        date
-      }
-      name
-      onSale
-      ... on VariableProduct {
-        id
-        name
-        content
-        price
-        variations(first: 30) {
-          nodes {
-            image {
-              sourceUrl
-            }
-            name
-          }
-        }
-        productCategories {
-          nodes {
-            name
-          }
-        }
-        attributes {
-          nodes {
-            options
-          }
-        }
-      }
-    }
-  }
-}
-  `
-
-  const variable = { first: quantity, after: getRandomNumber(40) }
-
-  try {
-    const products: any = await graphQLClient.request(ProductsByQuantityQuery, variable)
-    return products.products.nodes as WPProduct[]
   } catch (error) {
     console.error('Error fetching post:', error)
     throw new Error('Failed to fetch post data.')
@@ -530,6 +470,39 @@ export const getProductsByOferts = async (): Promise<WPProduct[]> => {
 
   try {
     const products: any = await graphQLClient.request(ProductsByOfertQuery)
+    return products.products.nodes as WPProduct[]
+  } catch (error) {
+    console.error('Error fetching post:', error)
+    throw new Error('Failed to fetch post data.')
+  }
+}
+
+/**
+ * Retrieves a list of product IDs along with their categories.
+ *
+ * @return {Promise<WPProduct[]>} A promise that resolves to an array of WPProduct objects containing the product IDs.
+ */
+export const getProductsIds = async (): Promise<WPProduct[]> => {
+  const ProductsIdsQuery = gql`
+    query MyQuery {
+    products(first: 200) {
+      nodes {
+        id
+        ... on VariableProduct {
+          id
+          productCategories {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+  `
+
+  try {
+    const products: any = await graphQLClient.request(ProductsIdsQuery)
     return products.products.nodes as WPProduct[]
   } catch (error) {
     console.error('Error fetching post:', error)
