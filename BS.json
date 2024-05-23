@@ -1,2396 +1,2192 @@
 [
-        {
-          "id": "cHJvZHVjdDo1NTY5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-22-scaled.webp",
-            "date": "2024-05-14T11:00:40"
-          },
-          "name": "Camisetas Niños First Day Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "First Day"
-              },
-              {
-                "name": "Ninos"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1NTE4",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Blanco-Front-21-scaled.webp",
-            "date": "2024-05-14T10:38:09"
-          },
-          "name": "Camisetas Niños Love Padel Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Love Padel"
-              },
-              {
-                "name": "Ninos"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1NDY3",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-20-scaled.webp",
-            "date": "2024-05-14T10:27:15"
-          },
-          "name": "Camisetas Niños Locomotive Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Locomotive"
-              },
-              {
-                "name": "Ninos"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1NDM2",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-19-scaled.webp",
-            "date": "2024-05-14T10:15:35"
-          },
-          "name": "Camisetas Niños Mirones Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mirones"
-              },
-              {
-                "name": "Ninos"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1MzY0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Azul-Front-8-scaled.webp",
-            "date": "2024-05-14T10:04:14"
-          },
-          "name": "Camisetas Niños Strong & Furius Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Strong & Furius"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1Mjc1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-17-scaled.webp",
-            "date": "2024-05-14T09:49:01"
-          },
-          "name": "Camiseta Mujer Timing Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Timing"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1MTkx",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Naranja-Front-9-scaled.webp",
-            "date": "2024-05-14T09:31:10"
-          },
-          "name": "Camiseta Mujer Teenagers Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1MTAz",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Marron-Front-9-scaled.webp",
-            "date": "2024-05-14T00:33:22"
-          },
-          "name": "Camiseta Mujer Strong & Furius Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Strong & Furius"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0OTg2",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-14-scaled.webp",
-            "date": "2024-05-14T00:12:45"
-          },
-          "name": "Camiseta Mujer No Age Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "No Age"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0ODU0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Verde-Front-6-scaled.webp",
-            "date": "2024-05-13T23:54:03"
-          },
-          "name": "Camiseta Mujer Mirones Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Mirones"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0Nzc0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Violeta-Front-6-scaled.webp",
-            "date": "2024-05-13T23:41:43"
-          },
-          "name": "Camiseta Mujer Love Padel Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Love Padel"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0NjQw",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/20-24.jpg",
-            "date": "2024-05-13T23:02:22"
-          },
-          "name": "Camisetas Hombre Fashion Girl Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Fashion Girl"
-              },
-              {
-                "name": "Hombre"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0NTY2",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-35.jpg",
-            "date": "2024-05-13T22:51:18"
-          },
-          "name": "Camisetas Hombre Locomotive Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Locomotive"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0NDI3",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-34.jpg",
-            "date": "2024-05-13T22:42:52"
-          },
-          "name": "Camisetas Hombre Juegas Conmigo Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Juegas Conmigo"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0Mzcw",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-33.jpg",
-            "date": "2024-05-13T22:26:26"
-          },
-          "name": "Camisetas Hombre Timing Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Timing"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0MjM3",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/2-32.jpg",
-            "date": "2024-05-13T22:07:56"
-          },
-          "name": "Camisetas Hombre No Age Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "No Age"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0MTQ5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/22-19.jpg",
-            "date": "2024-05-13T21:53:29"
-          },
-          "name": "Camisetas Hombre Teenagers Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0MDE5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-30.jpg",
-            "date": "2024-05-13T21:42:04"
-          },
-          "name": "Sudaderas Unisex Fashion Girl Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Fashion Girl"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozODQz",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/2-29.jpg",
-            "date": "2024-05-13T21:28:57"
-          },
-          "name": "Sudaderas Unisex Locomotive Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Locomotive"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozNzA0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-28.jpg",
-            "date": "2024-05-13T21:16:03"
-          },
-          "name": "Sudaderas Unisex Juegas Conmigo Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Juegas Conmigo"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozNTc5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/24-9.jpg",
-            "date": "2024-05-13T21:06:39"
-          },
-          "name": "Sudaderas Unisex Timing Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              },
-              {
-                "name": "Timing"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozNTAw",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-26.jpg",
-            "date": "2024-05-13T20:55:03"
-          },
-          "name": "Sudaderas Unisex No Age Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "No Age"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozMzQ4",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/26-7.jpg",
-            "date": "2024-05-13T20:40:19"
-          },
-          "name": "Sudaderas Unisex Teenagers Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozMTg1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-24.jpg",
-            "date": "2024-05-13T20:03:11"
-          },
-          "name": "Sudaderas Unisex Mirones Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mirones"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozMTEx",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-23.jpg",
-            "date": "2024-05-13T19:46:49"
-          },
-          "name": "Sudaderas Niños Fashion Girl Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Fashion Girl"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDozMDM4",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-22.jpg",
-            "date": "2024-05-13T19:37:25"
-          },
-          "name": "Sudaderas Niños Locomotive Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Locomotive"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyOTQx",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/11-22.jpg",
-            "date": "2024-05-13T19:30:58"
-          },
-          "name": "Sudaderas Niños Juegas Conmigo Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Juegas Conmigo"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyOTAy",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-20.jpg",
-            "date": "2024-05-13T19:21:10"
-          },
-          "name": "Sudaderas Niños Strong & Furius Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Strong & Furius"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyODI1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-19.jpg",
-            "date": "2024-05-13T18:52:46"
-          },
-          "name": "Sudaderas Niños Love Padel Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Love Padel"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyNzU5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-18.jpg",
-            "date": "2024-05-13T18:47:12"
-          },
-          "name": "Sudaderas Niños First Day  Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "First Day"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyNjQ5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-17.jpg",
-            "date": "2024-05-07T10:37:49"
-          },
-          "name": "Sudaderas Niños Timing  Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              },
-              {
-                "name": "Timing"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyNjAw",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-16.jpg",
-            "date": "2024-05-07T10:28:41"
-          },
-          "name": "Sudaderas Niños No Age Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyNTM1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-15.jpg",
-            "date": "2024-05-07T10:18:08"
-          },
-          "name": "Sudaderas Niños Teenagers Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyNDc1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-14.jpg",
-            "date": "2024-05-07T10:06:07"
-          },
-          "name": "Sudaderas Niños Mirones Model D",
-          "onSale": false,
-          "price": "25,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Mirones"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#F8DBE0",
-                  "#D00F2C",
-                  "#FF681F",
-                  "#97D5EA",
-                  "#C7C4BD",
-                  "#000000"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyMjc5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/10-5.jpg",
-            "date": "2024-05-07T09:43:09"
-          },
-          "name": "Sudaderas Unisex Strong & Furius Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Strong & Furius"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyMjAx",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-10.jpg",
-            "date": "2024-05-07T09:28:24"
-          },
-          "name": "Sudaderas Unisex Love Padel Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Love Padel"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoyMDUz",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/26-2.jpg",
-            "date": "2024-05-07T08:17:06"
-          },
-          "name": "Sudaderas Unisex First Day Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "First Day"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxOTQ2",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/17-3.jpg",
-            "date": "2024-05-07T08:57:34"
-          },
-          "name": "Sudaderas Unisex Locomotive Model D",
-          "onSale": false,
-          "price": "30,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Locomotive"
-              },
-              {
-                "name": "Mujer"
-              },
-              {
-                "name": "Sudaderas"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#96E3C1",
-                  "#97D5EA",
-                  "#FC4813",
-                  "#E4E935",
-                  "#DDF0EA",
-                  "#D5BA8B",
-                  "#F0E87D",
-                  "#C1C1C1",
-                  "#9C9AB0",
-                  "#FFD37C",
-                  "#FFDEDC",
-                  "#010101"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxNzg5",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-11-scaled.webp",
-            "date": "2024-05-06T19:36:11"
-          },
-          "name": "Camisetas Niños Juegas Conmigo Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Juegas Conmigo"
-              },
-              {
-                "name": "Ninos"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxNzQ1",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-10-scaled.webp",
-            "date": "2024-05-06T19:24:24"
-          },
-          "name": "Camisetas Niños No Age Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "No Age"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxNzAx",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Blanco-Front-9-scaled.webp",
-            "date": "2024-05-06T19:12:49"
-          },
-          "name": "Camisetas Niños Teenages Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Teenages"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxNjI0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Azul-Front-4-scaled.webp",
-            "date": "2024-05-06T15:28:46"
-          },
-          "name": "Camisetas Niños Timing Model D",
-          "onSale": false,
-          "price": "15,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Ninos"
-              },
-              {
-                "name": "Timing"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#969590",
-                  "#FFBBD8",
-                  "#76BFE8"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxMjky",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/18-5.jpg",
-            "date": "2024-05-06T15:12:08"
-          },
-          "name": "Camisetas Hombre Mirones Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Mirones"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxMTg4",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/20-4.jpg",
-            "date": "2024-05-06T14:22:26"
-          },
-          "name": "Camisetas Hombre Strong & Furius Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Strong & Furius"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDoxMDc0",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-3.jpg",
-            "date": "2024-05-06T14:06:29"
-          },
-          "name": "Camisetas Hombre Love Padel Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Hombre"
-              },
-              {
-                "name": "Love Padel"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo5MTg=",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-2.jpg",
-            "date": "2024-05-06T13:04:46"
-          },
-          "name": "Camisetas Hombre First Day Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "First Day"
-              },
-              {
-                "name": "Hombre"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#FFFFFF",
-                  "#000000",
-                  "#02B0B1",
-                  "#525930",
-                  "#F8999F",
-                  "#9C5F67",
-                  "#9EC7E7",
-                  "#61799F",
-                  "#BFA58C",
-                  "#FDCA31"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo4MjQ=",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-5-scaled.webp",
-            "date": "2024-05-05T22:34:53"
-          },
-          "name": "Camiseta Mujer Locomotive Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Locomotive"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo3MTk=",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-4-scaled.webp",
-            "date": "2024-05-05T22:03:43"
-          },
-          "name": "Camiseta Mujer Juegas Conmigo Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Fashion Girl"
-              },
-              {
-                "name": "Juegas Conmigo"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo1ODM=",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Naranja-Front-2-scaled.webp",
-            "date": "2024-05-05T21:39:50"
-          },
-          "name": "Camiseta Mujer First Day Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "First Day"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        },
-        {
-          "id": "cHJvZHVjdDo0NDY=",
-          "image": {
-            "sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-2-scaled.webp",
-            "date": "2024-05-03T14:47:12"
-          },
-          "name": "Camiseta Mujer Fashion Girl Model D",
-          "onSale": false,
-          "price": "20,00&nbsp;€",
-          "productCategories": {
-            "nodes": [
-              {
-                "name": "Camisetas"
-              },
-              {
-                "name": "Fashion Girl"
-              },
-              {
-                "name": "Mujer"
-              }
-            ]
-          },
-          "attributes": {
-            "nodes": [
-              {
-                "options": [
-                  "#F8F8F8",
-                  "#000000",
-                  "#DDDEE0",
-                  "#FFC100",
-                  "#FD96A7",
-                  "#9F6269",
-                  "#501B81",
-                  "#75BEE7",
-                  "#00C4D3",
-                  "#009B52"
-                ]
-              },
-              {
-                "options": [
-                  "Front",
-                  "Back"
-                ]
-              }
-            ]
-          },
-          "content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
-        }
-      ]
+	{
+		"id": "cHJvZHVjdDo1NTY5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-22-scaled.webp",
+			"date": "2024-05-14T11:00:40"
+		},
+		"name": "Camisetas Niños First Day Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1NTE4",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Blanco-Front-21-scaled.webp",
+			"date": "2024-05-14T10:38:09"
+		},
+		"name": "Camisetas Niños Love Padel Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Love Padel"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1NDY3",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-20-scaled.webp",
+			"date": "2024-05-14T10:27:15"
+		},
+		"name": "Camisetas Niños Locomotive Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Locomotive"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1NDM2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-19-scaled.webp",
+			"date": "2024-05-14T10:15:35"
+		},
+		"name": "Camisetas Niños Mirones Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mirones"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1MzY0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Azul-Front-8-scaled.webp",
+			"date": "2024-05-14T10:04:14"
+		},
+		"name": "Camisetas Niños Strong & Furius Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Strong & Furius"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1Mjc1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-17-scaled.webp",
+			"date": "2024-05-14T09:49:01"
+		},
+		"name": "Camiseta Mujer Timing Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Timing"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1MTkx",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Naranja-Front-9-scaled.webp",
+			"date": "2024-05-14T09:31:10"
+		},
+		"name": "Camiseta Mujer Teenagers Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1MTAz",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Marron-Front-9-scaled.webp",
+			"date": "2024-05-14T00:33:22"
+		},
+		"name": "Camiseta Mujer Strong & Furius Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Strong & Furius"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0OTg2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-14-scaled.webp",
+			"date": "2024-05-14T00:12:45"
+		},
+		"name": "Camiseta Mujer No Age Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "No Age"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0ODU0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Verde-Front-6-scaled.webp",
+			"date": "2024-05-13T23:54:03"
+		},
+		"name": "Camiseta Mujer Mirones Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Mirones"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0Nzc0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Violeta-Front-6-scaled.webp",
+			"date": "2024-05-13T23:41:43"
+		},
+		"name": "Camiseta Mujer Love Padel Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Love Padel"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0NjQw",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/20-24.jpg",
+			"date": "2024-05-13T23:02:22"
+		},
+		"name": "Camisetas Hombre Fashion Girl Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Fashion Girl"
+				},
+				{
+					"name": "Hombre"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0NTY2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-35.jpg",
+			"date": "2024-05-13T22:51:18"
+		},
+		"name": "Camisetas Hombre Locomotive Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Locomotive"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0NDI3",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-34.jpg",
+			"date": "2024-05-13T22:42:52"
+		},
+		"name": "Camisetas Hombre Juegas Conmigo Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Juegas Conmigo"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0Mzcw",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-33.jpg",
+			"date": "2024-05-13T22:26:26"
+		},
+		"name": "Camisetas Hombre Timing Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Timing"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0MjM3",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/2-32.jpg",
+			"date": "2024-05-13T22:07:56"
+		},
+		"name": "Camisetas Hombre No Age Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "No Age"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0MTQ5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/22-19.jpg",
+			"date": "2024-05-13T21:53:29"
+		},
+		"name": "Camisetas Hombre Teenagers Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0MDE5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-30.jpg",
+			"date": "2024-05-13T21:42:04"
+		},
+		"name": "Sudaderas Unisex Fashion Girl Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Fashion Girl"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozODQz",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/2-29.jpg",
+			"date": "2024-05-13T21:28:57"
+		},
+		"name": "Sudaderas Unisex Locomotive Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Locomotive"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozNzA0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-28.jpg",
+			"date": "2024-05-13T21:16:03"
+		},
+		"name": "Sudaderas Unisex Juegas Conmigo Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Juegas Conmigo"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozNTc5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/24-9.jpg",
+			"date": "2024-05-13T21:06:39"
+		},
+		"name": "Sudaderas Unisex Timing Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				},
+				{
+					"name": "Timing"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozNTAw",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-26.jpg",
+			"date": "2024-05-13T20:55:03"
+		},
+		"name": "Sudaderas Unisex No Age Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "No Age"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozMzQ4",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/26-7.jpg",
+			"date": "2024-05-13T20:40:19"
+		},
+		"name": "Sudaderas Unisex Teenagers Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozMTg1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-24.jpg",
+			"date": "2024-05-13T20:03:11"
+		},
+		"name": "Sudaderas Unisex Mirones Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mirones"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozMTEx",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/8-23.jpg",
+			"date": "2024-05-13T19:46:49"
+		},
+		"name": "Sudaderas Niños Fashion Girl Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Fashion Girl"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDozMDM4",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-22.jpg",
+			"date": "2024-05-13T19:37:25"
+		},
+		"name": "Sudaderas Niños Locomotive Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Locomotive"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyOTQx",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/11-22.jpg",
+			"date": "2024-05-13T19:30:58"
+		},
+		"name": "Sudaderas Niños Juegas Conmigo Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Juegas Conmigo"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyOTAy",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-20.jpg",
+			"date": "2024-05-13T19:21:10"
+		},
+		"name": "Sudaderas Niños Strong & Furius Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Strong & Furius"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyODI1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-19.jpg",
+			"date": "2024-05-13T18:52:46"
+		},
+		"name": "Sudaderas Niños Love Padel Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Love Padel"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyNzU5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-18.jpg",
+			"date": "2024-05-13T18:47:12"
+		},
+		"name": "Sudaderas Niños First Day  Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyNjQ5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-17.jpg",
+			"date": "2024-05-07T10:37:49"
+		},
+		"name": "Sudaderas Niños Timing  Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				},
+				{
+					"name": "Timing"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyNjAw",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-16.jpg",
+			"date": "2024-05-07T10:28:41"
+		},
+		"name": "Sudaderas Niños No Age Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyNTM1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-15.jpg",
+			"date": "2024-05-07T10:18:08"
+		},
+		"name": "Sudaderas Niños Teenagers Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyNDc1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/13-14.jpg",
+			"date": "2024-05-07T10:06:07"
+		},
+		"name": "Sudaderas Niños Mirones Model D",
+		"onSale": false,
+		"price": "25,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Mirones"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#F8DBE0",
+						"#D00F2C",
+						"#FF681F",
+						"#97D5EA",
+						"#C7C4BD",
+						"#000000"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudaderas de Niños con capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyMjc5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/10-5.jpg",
+			"date": "2024-05-07T09:43:09"
+		},
+		"name": "Sudaderas Unisex Strong & Furius Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Strong & Furius"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyMjAx",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/4-10.jpg",
+			"date": "2024-05-07T09:28:24"
+		},
+		"name": "Sudaderas Unisex Love Padel Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Love Padel"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoyMDUz",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/26-2.jpg",
+			"date": "2024-05-07T08:17:06"
+		},
+		"name": "Sudaderas Unisex First Day Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxOTQ2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/17-3.jpg",
+			"date": "2024-05-07T08:57:34"
+		},
+		"name": "Sudaderas Unisex Locomotive Model D",
+		"onSale": false,
+		"price": "30,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Locomotive"
+				},
+				{
+					"name": "Mujer"
+				},
+				{
+					"name": "Sudaderas"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#96E3C1",
+						"#97D5EA",
+						"#FC4813",
+						"#E4E935",
+						"#DDF0EA",
+						"#D5BA8B",
+						"#F0E87D",
+						"#C1C1C1",
+						"#9C9AB0",
+						"#FFD37C",
+						"#FFDEDC",
+						"#010101"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Sudadera Unisex con Capucha | French Terry 300</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxNzg5",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-11-scaled.webp",
+			"date": "2024-05-06T19:36:11"
+		},
+		"name": "Camisetas Niños Juegas Conmigo Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Juegas Conmigo"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxNzQ1",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-10-scaled.webp",
+			"date": "2024-05-06T19:24:24"
+		},
+		"name": "Camisetas Niños No Age Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "No Age"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxNzAx",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Blanco-Front-9-scaled.webp",
+			"date": "2024-05-06T19:12:49"
+		},
+		"name": "Camisetas Niños Teenages Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Teenages"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxNjI0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Azul-Front-4-scaled.webp",
+			"date": "2024-05-06T15:28:46"
+		},
+		"name": "Camisetas Niños Timing Model D",
+		"onSale": false,
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Ninos"
+				},
+				{
+					"name": "Timing"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxMjky",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/18-5.jpg",
+			"date": "2024-05-06T15:12:08"
+		},
+		"name": "Camisetas Hombre Mirones Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Mirones"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxMTg4",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/20-4.jpg",
+			"date": "2024-05-06T14:22:26"
+		},
+		"name": "Camisetas Hombre Strong & Furius Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Strong & Furius"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDoxMDc0",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/15-3.jpg",
+			"date": "2024-05-06T14:06:29"
+		},
+		"name": "Camisetas Hombre Love Padel Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Hombre"
+				},
+				{
+					"name": "Love Padel"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo5MTg=",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/6-2.jpg",
+			"date": "2024-05-06T13:04:46"
+		},
+		"name": "Camisetas Hombre First Day Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Hombre"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#FFFFFF",
+						"#000000",
+						"#02B0B1",
+						"#525930",
+						"#F8999F",
+						"#9C5F67",
+						"#9EC7E7",
+						"#61799F",
+						"#BFA58C",
+						"#FDCA31"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta de Hombre cuello redondo | Jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo4MjQ=",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Gris-Front-5-scaled.webp",
+			"date": "2024-05-05T22:34:53"
+		},
+		"name": "Camiseta Mujer Locomotive Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Locomotive"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo3MTk=",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Negro-Front-4-scaled.webp",
+			"date": "2024-05-05T22:03:43"
+		},
+		"name": "Camiseta Mujer Juegas Conmigo Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Fashion Girl"
+				},
+				{
+					"name": "Juegas Conmigo"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo1ODM=",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Naranja-Front-2-scaled.webp",
+			"date": "2024-05-05T21:39:50"
+		},
+		"name": "Camiseta Mujer First Day Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo0NDY=",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-2-scaled.webp",
+			"date": "2024-05-03T14:47:12"
+		},
+		"name": "Camiseta Mujer Fashion Girl Model D",
+		"onSale": false,
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Fashion Girl"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		},
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	}
+]
