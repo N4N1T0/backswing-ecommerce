@@ -8,19 +8,17 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = BackswingMetatags
 
 export const viewport: Viewport = {
-  themeColor: '#000000'
+	themeColor: '#000000',
 }
 
 export default function RootLayout({
-  children
+	children,
 }: Readonly<{
-  children: React.ReactNode
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang='es'>
-      <body className={`${inter.className}`}>
-        {children}
-      </body>
-    </html>
-  )
+	return (
+		<html lang='es'>
+			<body className={`${inter.className}`}>{children}</body>
+		</html>
+	)
 }
