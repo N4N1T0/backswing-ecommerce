@@ -280,10 +280,10 @@ export const extractModelFromName = (productName: string): string | null => {
 	return match != null ? match[0] : null // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
-export const extractHexColorFromName = (productName: string): string | null => {
+export const extractHexColorFromName = (productName: string): string => {
 	const regex = /#[0-9A-Fa-f]{6}\b/ // Expresión regular para encontrar un código de color hexadecimal de 6 dígitos
 	const match = productName.match(regex)
-	return match != null ? match[0] : null // Devuelve la coincidencia si se encuentra, de lo contrario, null
+	return match != null ? match[0] : '#ffffff' // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
 export const calculateTotal = (count: CartItem[]) => {
