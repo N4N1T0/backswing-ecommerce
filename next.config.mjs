@@ -1,22 +1,6 @@
 /** @type {import('next').NextConfig} */
-import nextPwa from '@ducanh2912/next-pwa'
-
-const withPWA = nextPwa({
-  dest: "public",
-  cacheOnFrontendNav: true,
-  aggressiveFrontEndNavCaching: true,
-  reloadOnOnline: true,
-  swcMinify: true,
-  disable: process.env.NODE_ENV === 'development',
-  workboxOptions: {
-    disableDevLogs: true,
-  }
-});
 
 const nextConfig = {
-  experimental: {
-    nextScriptWorkers: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -35,4 +19,4 @@ const nextConfig = {
   },
 };
 
-export default withPWA(nextConfig);
+export default nextConfig;
