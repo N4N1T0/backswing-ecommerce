@@ -5,11 +5,11 @@ import { getPostById, getRelatedPost } from '@/lib/queries'
 import SocialShareButton from '@/components/blog/social-links'
 
 export async function generateMetadata(
-	{ params }: { params: { product: string } },
+	{ params }: { params: { post: string } },
 	parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	// fetch data
-	const blogInfo = await getPostById(params.product)
+	const blogInfo = await getPostById(params.post)
 	const previousImages = (await parent).openGraph?.images || []
 
 	return {
