@@ -1,8 +1,11 @@
 import type { MetadataRoute } from 'next'
-import { getProductsIds } from '@/lib/queries'
+import { getProductsIds, getAllPosts } from '@/lib/queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+	// fetch data
 	const products = await getProductsIds()
+	const blogs = await getAllPosts()
+
 	const productsPage = products.map((product) => {
 		const category = product.productCategories.nodes.find(
 			(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
@@ -19,6 +22,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			}/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${
 				product.id
 			}`,
+			lastModified: new Date(),
+			changeFrequency: 'weekly',
+			priority: 0.8,
+		}
+	})
+
+	const blogPage = blogs.map((post) => {
+		return {
+			url: `${process.env.SITE_URL}/blog/${post.id}`,
 			lastModified: new Date(),
 			changeFrequency: 'weekly',
 			priority: 0.8,
@@ -84,5 +96,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 	// const blogPages: MetadataRoute.Sitemap = []
 
-	return [...productsPage, ...staticPages] as MetadataRoute.Sitemap
+	return [...productsPage, ...staticPages, ...blogPage] as MetadataRoute.Sitemap
 }
