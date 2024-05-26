@@ -1,11 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getProductsIds } from '@/lib/queries'
 
-export default async function sitemap({
-	id,
-}: {
-	id: string
-}): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const products = await getProductsIds()
 	const productsPage = products.map((product) => {
 		const category = product.productCategories.nodes.find(
