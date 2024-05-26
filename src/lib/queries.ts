@@ -239,19 +239,6 @@ export const getProductsByCategories = async (
           name
           content
           price
-          variations(first: 30) {
-            nodes {
-              image {
-                sourceUrl
-              }
-              name
-            }
-          }
-          productCategories {
-            nodes {
-              name
-            }
-          }
           attributes {
             nodes {
               options

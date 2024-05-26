@@ -107,16 +107,29 @@ export const parseProductContent = (product: WPProduct): ParsedConstent => {
 	// Replace '&nbsp;' with a whitespace
 	const parsedPrice = price.replace(/&nbsp;/g, ' ')
 
-	// Parse Categories
-	// Get the names of the categories
-	const category = productCategories.nodes.find(
-		(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
-	)?.name
+	// Parse Categorieslet category = '';
+	let category = ''
+	let gender = ''
 
-	const gender = productCategories.nodes.find(
-		(node) =>
-			node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos',
-	)?.name
+	if (
+		productCategories !== undefined &&
+		productCategories.nodes !== undefined
+	) {
+		category =
+			productCategories.nodes.find(
+				(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
+			)?.name || ''
+
+		gender =
+			productCategories.nodes.find(
+				(node) =>
+					node.name === 'Mujer' ||
+					node.name === 'Hombre' ||
+					node.name === 'Ninos',
+			)?.name || ''
+	}
+
+	// Get the names of the categories
 
 	// Parse Attributes
 	// Get the options of the attributes

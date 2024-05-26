@@ -34,4 +34,8 @@ const NinoPage = async ({ params }: { params: { category: string } }) => {
 	)
 }
 
+export async function generateStaticParams() {
+	return [{ category: 'camisetas' }, { category: 'sudaderas' }]
+}
+
 export default NinoPage
