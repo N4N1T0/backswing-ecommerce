@@ -3,6 +3,12 @@ import type { Metadata } from 'next'
 import { getProductsByCategories } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 
+export const dynamic = 'force-static'
+
+export async function generateStaticParams() {
+	return [{ category: 'camisetas' }, { category: 'sudaderas' }]
+}
+
 export async function generateMetadata({
 	params,
 }: { params: { category: string } }): Promise<Metadata> {
@@ -32,10 +38,6 @@ const HombrePage = async ({ params }: { params: { category: string } }) => {
 			))}
 		</section>
 	)
-}
-
-export async function generateStaticParams() {
-	return [{ category: 'camisetas' }, { category: 'sudaderas' }]
 }
 
 export default HombrePage

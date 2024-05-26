@@ -260,8 +260,8 @@ export const getProductsByCategories = async (
 		)
 		return products.products.nodes as WPProduct[]
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		throw new Error('Failed to fetch post data.')
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
 	}
 }
 
@@ -333,8 +333,8 @@ export const getSingleProductById = async (id: string): Promise<WPProduct> => {
 		const product: any = await graphQLClient.request(ProductByIdQuery, variable)
 		return product.product as WPProduct
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		throw new Error('Failed to fetch post data.')
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
 	}
 }
 
@@ -396,8 +396,8 @@ export const getProductsByFeatured = async (
 		)
 		return products.products.nodes as WPProduct[]
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		throw new Error('Failed to fetch post data.')
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
 	}
 }
 
@@ -453,8 +453,8 @@ export const getProductsByOferts = async (): Promise<WPProduct[]> => {
 		const products: any = await graphQLClient.request(ProductsByOfertQuery)
 		return products.products.nodes as WPProduct[]
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		throw new Error('Failed to fetch post data.')
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
 	}
 }
 
@@ -487,7 +487,7 @@ export const getProductsIds = async (): Promise<WPProduct[]> => {
 		const products: any = await graphQLClient.request(ProductsIdsQuery)
 		return products.products.nodes as WPProduct[]
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		throw new Error('Failed to fetch post data.')
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
 	}
 }

@@ -2,6 +2,12 @@ import ProductCard from '@/components/products/product-card'
 import type { Metadata } from 'next'
 import { getProductsByFeatured } from '@/lib/queries'
 
+export const dynamic = 'force-static'
+
+export async function generateStaticParams() {
+	return [{ category: 'camisetas' }, { category: 'sudaderas' }]
+}
+
 export async function generateMetadata({
 	params,
 }: { params: { category: string } }): Promise<Metadata> {
@@ -28,10 +34,6 @@ const NuevoPage = async ({ params }: { params: { category: string } }) => {
 			))}
 		</section>
 	)
-}
-
-export async function generateStaticParams() {
-	return [{ category: 'camisetas' }, { category: 'sudaderas' }]
 }
 
 export default NuevoPage
