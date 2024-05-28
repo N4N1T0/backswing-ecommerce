@@ -41,7 +41,7 @@ const PersonalizationPage = () => {
 					))}
 				</fieldset>
 				<hr />
-				<div className='flex justify-between items-center'>
+				<div className='flex justify-between items-center flex-col md:flex-row text-center gap-y-5'>
 					<p>
 						una vez que hayas escogido el{' '}
 						<span className='font-bold'>tipo</span> y el{' '}

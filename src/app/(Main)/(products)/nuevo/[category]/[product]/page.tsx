@@ -2,8 +2,6 @@ import ProductPageClient from '@/components/products/product-page'
 import { getSingleProductById } from '@/lib/queries'
 import type { Metadata, ResolvingMetadata } from 'next'
 
-export const runtime = 'edge'
-
 export async function generateMetadata(
 	{ params }: { params: { product: string } },
 	parent: ResolvingMetadata,
