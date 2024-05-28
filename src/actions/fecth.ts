@@ -1,6 +1,6 @@
 'use server'
 
-import { getProductsByCategories } from '@/lib/queries'
+import { getPersonalizedProducts } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 import { redirect } from 'next/navigation'
 
@@ -17,10 +17,13 @@ export const getPersonalizationProduct = async (formData: FormData) => {
 
 	const genderCategory = model[1] === 'Unisex' ? 'Hombre' : model[1]
 
-	const products = await getProductsByCategories(model[0], genderCategory)
+	const products = await getPersonalizedProducts(
+		model[0].trim(),
+		genderCategory,
+	)
 	filteredProducts = products.filter((product) =>
 		product.productCategories.nodes.some(
-			(category) => category.name === design,
+			(category) => category.name === design.trim(),
 		),
 	)[0]
 

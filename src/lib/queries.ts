@@ -491,3 +491,42 @@ export const getProductsIds = async (): Promise<WPProduct[]> => {
 		throw new Error('Failed to fetch products data.')
 	}
 }
+
+export const getPersonalizedProducts = async (
+	categories: string | string[],
+	gender: string,
+): Promise<WPProduct[]> => {
+	const PersonalizedProductsQuery = gql`
+    query MyQuery($categoryIn: [String], $gender: String) {
+    products(
+      where: {categoryIn: $categoryIn, tagIn: "model-d", category: $gender}
+      first: 20
+    ) {
+      nodes {
+        ... on VariableProduct {
+          productCategories {
+            nodes {
+              name
+            }
+          }
+          id
+        }
+      }
+    }
+  }
+  `
+
+	const variables = { categoryIn: categories, gender }
+
+	try {
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		const products: any = await graphQLClient.request(
+			PersonalizedProductsQuery,
+			variables,
+		)
+		return products.products.nodes as WPProduct[]
+	} catch (error) {
+		console.error('Error fetching products:', error)
+		throw new Error('Failed to fetch products data.')
+	}
+}
