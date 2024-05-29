@@ -294,20 +294,13 @@ export const getSingleProductById = async (id: string): Promise<WPProduct> => {
       }
       content
     }
-    productCategories {
-      nodes {
-        name
-      }
-    }
-    attributes {
+    attributes(first: 1) {
       nodes {
         options
       }
     }
     upsell {
       nodes {
-        name
-        id
         ... on VariableProduct {
           id
           name
@@ -315,10 +308,9 @@ export const getSingleProductById = async (id: string): Promise<WPProduct> => {
         nodes {
           image {
             sourceUrl
+              }
+            }
           }
-          name
-        }
-      }
         }
       }
     }
@@ -492,6 +484,14 @@ export const getProductsIds = async (): Promise<WPProduct[]> => {
 	}
 }
 
+/**
+ * Retrieves a list of products based on the given categories and gender.
+ *
+ * @param {string | string[]} categories - An array of categories to filter the products by. If a single category is passed, it will be converted to an array.
+ * @param {string} gender - The gender category to filter the products by.
+ * @return {Promise<WPProduct[]>} A promise that resolves to an array of WPProduct objects representing the personalized products.
+ * @throws {Error} If there is an error fetching the products data.
+ */
 export const getPersonalizedProducts = async (
 	categories: string | string[],
 	gender: string,
@@ -516,9 +516,18 @@ export const getPersonalizedProducts = async (
   }
   `
 
-	const variables = { categoryIn: categories, gender }
+	// We need to convert the single category to an array, because the GraphQL API expects an array of categories.
+	const variables = {
+		categoryIn: Array.isArray(categories) ? categories : [categories],
+		gender,
+	}
 
 	try {
+		// We execute the GraphQL query, passing the variables as arguments.
+		// The result of the query is an object with a property `products`, which contains an array of nodes, each representing a product.
+		// For each node, we get the product categories and the product ID.
+		// We return the array of nodes as an array of WPProduct objects.
+		// We use the "bmk-noExplicitAny" rule to suppress a warning, because the type of the `products` property is inferred to be "any" instead of "WPProduct[]".
 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		const products: any = await graphQLClient.request(
 			PersonalizedProductsQuery,

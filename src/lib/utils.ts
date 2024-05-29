@@ -71,7 +71,6 @@ export const pathnameCrumbs = (
  * @return {Object} An object with the parsed data.
  */
 export const parseProductContent = (product: WPProduct): ParsedConstent => {
-	// Destructure the product object
 	const {
 		name,
 		variations,
@@ -87,62 +86,38 @@ export const parseProductContent = (product: WPProduct): ParsedConstent => {
 	} = product
 
 	// Parse content
-	// Remove HTML tags from the content
-	const textWithoutTags = content.replace(/<[^>]*>/g, '')
-	// Split the content by '|' and get the first part as the description
-	const parts = textWithoutTags.split('|')
-	const description = parts[0].trim()
-	// If there is a second part, trim it, otherwise assign an empty string
-	const material = parts[1].length > 0 ? parts[1].trim() : ''
+	const parts = content
+		.replace(/<[^>]*>/g, '')
+		.split('|')
+		.map((part) => part.trim())
+	const description = parts[0] || ''
+	const material = parts[1] || ''
 
 	// Parse Name
-	// Replace 'model' followed by a whitespace and a word with an empty string
 	const parsedName = name.replace(/\bmodel\s\w/gi, '')
 
 	// Parse New
-	// Check if the date is within the last 7 days
-	const isNew = date === undefined ? false : checkNew(date)
+	const isNew = date ? checkNew(date) : false
 
 	// Parse Price
-	// Replace '&nbsp;' with a whitespace
 	const parsedPrice = price.replace(/&nbsp;/g, ' ')
 
-	// Parse Categorieslet category = '';
-	let category = ''
-	let gender = ''
-
-	if (
-		productCategories !== undefined &&
-		productCategories.nodes !== undefined
-	) {
-		category =
-			productCategories.nodes.find(
-				(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
-			)?.name || ''
-
-		gender =
-			productCategories.nodes.find(
-				(node) =>
-					node.name === 'Mujer' ||
-					node.name === 'Hombre' ||
-					node.name === 'Ninos',
-			)?.name || ''
-	}
-
-	// Get the names of the categories
+	// Parse Categories
+	const categories = productCategories?.nodes || []
+	const category =
+		categories.find((node) => ['Sudaderas', 'Camisetas'].includes(node.name))
+			?.name || ''
+	const gender =
+		categories.find((node) => ['Mujer', 'Hombre', 'Ninos'].includes(node.name))
+			?.name || ''
 
 	// Parse Attributes
-	// Get the options of the attributes
-	const colors = attributes.nodes[0].options
+	const colors = attributes.nodes[0]?.options || []
 
-	let related = null
-
-	if (notRelated !== undefined) {
-		related = {
-			nodes: [...notRelated.nodes, { name, id, variations }],
-		}
-	}
 	// Parse Related
+	const related = notRelated
+		? { nodes: [...notRelated.nodes, { name, id, variations }] }
+		: null
 
 	// Return the parsed data
 	return {
