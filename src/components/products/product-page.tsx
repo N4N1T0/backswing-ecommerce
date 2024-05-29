@@ -1,16 +1,29 @@
 'use client'
 
-import ModelPicker from '@/components/products/model-picker'
-import ColorPicker from '@/components/products/color-picker'
 import ProductsTallas from '@/components/products/products-tallas'
 import Quantity from '@/components/products/quantity'
 import AccordionProducts from '@/components/products/acordion-products'
 
 import type { WPProduct } from '@/types'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import React, { useMemo, useState } from 'react'
 import { parseProductContent } from '@/lib/utils'
+
+const ColorPicker = dynamic(
+	() => import('@/components/products/color-picker'),
+	{
+		ssr: false,
+	},
+)
+
+const ModelPicker = dynamic(
+	() => import('@/components/products/model-picker'),
+	{
+		ssr: false,
+	},
+)
 
 const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 	const {
@@ -22,7 +35,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 		parsedPrice,
 		colors,
 		related,
-	} = parseProductContent(productInfo)
+	} = useMemo(() => parseProductContent(productInfo), [productInfo])
 
 	const [talla, seTalla] = useState('m')
 	const [model, setModel] = useState(variations.nodes)

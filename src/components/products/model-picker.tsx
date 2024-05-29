@@ -1,3 +1,5 @@
+'use client'
+
 import { getImageForModel } from '@/lib/utils'
 import type { Variations, Related } from '@/types'
 import Image from 'next/image'

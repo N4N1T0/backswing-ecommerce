@@ -1,6 +1,6 @@
+import React from 'react'
 import { tallas } from '@/contants'
 import Link from 'next/link'
-import type React from 'react'
 
 const ProductsTallas = ({
 	setTalla,
@@ -55,4 +55,4 @@ const ProductsTallas = ({
 	)
 }
 
-export default ProductsTallas
+export default React.memo(ProductsTallas)
