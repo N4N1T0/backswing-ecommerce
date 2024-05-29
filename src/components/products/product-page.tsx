@@ -9,7 +9,7 @@ import AccordionProducts from '@/components/products/acordion-products'
 import type { WPProduct } from '@/types'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { parseProductContent } from '@/lib/utils'
 
 const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
@@ -28,15 +28,18 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 	const [model, setModel] = useState(variations.nodes)
 	const [index, setIndex] = useState(0)
 
-	const cartItem = {
-		id: productInfo.id,
-		talla,
-		model: model[index + 1],
-		parsedPrice,
-		parsedName,
-		description,
-		quantity: 1,
-	}
+	const cartItem = useMemo(
+		() => ({
+			id: productInfo.id,
+			talla,
+			model: model[index + 1],
+			parsedPrice,
+			parsedName,
+			description,
+			quantity: 1,
+		}),
+		[talla, model, index, parsedPrice, parsedName, description, productInfo.id],
+	)
 
 	return (
 		<section className='relative' id={parsedName}>
@@ -49,7 +52,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 						width={1000}
 						priority
 						title={model[index + 1].name}
-						className='object-cover aspect-square h-auto w-auto'
+						className='object-center aspect-square h-auto w-auto'
 					/>
 					<Image
 						src={model[index].image.sourceUrl}
@@ -58,12 +61,12 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 						width={1000}
 						priority
 						title={model[index].name}
-						className='object-cover aspect-square h-auto w-auto'
+						className='object-center aspect-square h-auto w-auto'
 					/>
 				</div>
 				<div className='w-full px-4 md:w-1/2 sticky top-4 h-fit mt-3 md:mt-0'>
 					<div className='mb-8 border-b'>
-						<h2 className='flex justify-between items-center w-fullmt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
+						<h2 className='flex justify-between items-start w-fullmt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
 							{parsedName}{' '}
 							{!isNew && (
 								<Link
@@ -95,4 +98,4 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 	)
 }
 
-export default ProductPageClient
+export default React.memo(ProductPageClient)

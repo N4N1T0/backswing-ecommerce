@@ -1,3 +1,4 @@
+import React from 'react'
 import {
 	Accordion,
 	AccordionContent,
@@ -99,4 +100,4 @@ const AccordionProducts = () => {
 	)
 }
 
-export default AccordionProducts
+export default React.memo(AccordionProducts)
