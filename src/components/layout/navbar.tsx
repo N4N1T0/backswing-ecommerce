@@ -19,7 +19,11 @@ const Navbar = async () => {
 					{/* Left Section */}
 					<div className='flex gap-3'>
 						<MobileMenuSheet />
-						<Link className='flex justify-center items-center' href='/'>
+						<Link
+							className='flex justify-center items-center'
+							href='/'
+							prefetch
+						>
 							<span className='sr-only'>Home</span>
 							<Image
 								src={Logo}
@@ -37,6 +41,7 @@ const Navbar = async () => {
 									{navItems.map((item) => (
 										<li key={item.label} className='relative'>
 											<Link
+												prefetch
 												className={`text-gray-800 hover:text-gray-400 transition-colors duration-200 ${
 													item.commingSoon &&
 													'opacity-50 pointer-events-none cursor-not-allowed'

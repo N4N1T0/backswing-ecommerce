@@ -14,7 +14,7 @@ const SubmitButton = () => {
 		>
 			{pending && <Spinner />}
 			<button type='submit' className='uppercase'>
-				Personalizar
+				<span className='py-2'>{pending ? 'Buscando...' : 'Personalizar'}</span>
 			</button>
 		</div>
 	)

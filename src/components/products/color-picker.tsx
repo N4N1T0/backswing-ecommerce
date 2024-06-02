@@ -14,16 +14,17 @@ const ColorPicker = ({
 	setColor?: React.Dispatch<React.SetStateAction<number>>
 	isProductCard?: boolean
 }) => {
-	const handelColorSelect = (color: string) => {
-		if (variations !== undefined) {
-			const index = findColorIndex(color, variations)
-			if (setColor !== undefined) setColor(index)
+	const handleColorSelect = (color: string) => {
+		if (!variations) return
+		const index = findColorIndex(color, variations)
+		if (index !== -1 && setColor) {
+			setColor(index)
 		}
 	}
 
 	if (isProductCard) {
 		return (
-			<form className='mt-3 mb-5 space-y-5'>
+			<div className='mt-3 mb-5 space-y-5'>
 				<fieldset
 					className='flex flex-wrap justify-start items-center gap-1'
 					disabled
@@ -48,11 +49,12 @@ const ColorPicker = ({
 						</label>
 					))}
 				</fieldset>
-			</form>
+			</div>
 		)
 	}
+
 	return (
-		<form className='mt-3 mb-5 space-y-5'>
+		<div className='mt-3 mb-5 space-y-5'>
 			<h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
 				{colors.length} Colores
 			</h5>
@@ -69,19 +71,19 @@ const ColorPicker = ({
 						<input
 							type='radio'
 							id={color}
-							defaultValue={color}
+							value={color}
 							aria-label={color}
 							name='color-selection'
 							className='sr-only'
-							onClick={() => {
-								handelColorSelect(color)
+							onChange={() => {
+								handleColorSelect(color)
 							}}
 						/>
 						<span className='sr-only'>{color}</span>
 					</label>
 				))}
 			</fieldset>
-		</form>
+		</div>
 	)
 }
 
