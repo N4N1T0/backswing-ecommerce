@@ -85,41 +85,30 @@ export const parseProductContent = (product: WPProduct): ParsedConstent => {
 		upsell: notRelated,
 	} = product
 
-	// Parse content
-	const parts = content
-		.replace(/<[^>]*>/g, '')
-		.split('|')
-		.map((part) => part.trim())
-	const description = parts[0] || ''
-	const material = parts[1] || ''
+	const matches = content.match(/<[^>]+>|[^|]+/g) || []
+	const description = matches[0]?.replace(/<[^>]+>/g, '') || ''
+	const material = matches[1]?.replace(/<[^>]+>/g, '') || ''
 
-	// Parse Name
 	const parsedName = name.replace(/\bmodel\s\w/gi, '')
 
-	// Parse New
 	const isNew = date ? checkNew(date) : false
 
-	// Parse Price
 	const parsedPrice = price.replace(/&nbsp;/g, ' ')
 
-	// Parse Categories
 	const categories = productCategories?.nodes || []
 	const category =
-		categories.find((node) => ['Sudaderas', 'Camisetas'].includes(node.name))
+		categories.find(({ name }) => ['Sudaderas', 'Camisetas'].includes(name))
 			?.name || ''
 	const gender =
-		categories.find((node) => ['Mujer', 'Hombre', 'Ninos'].includes(node.name))
+		categories.find(({ name }) => ['Mujer', 'Hombre', 'Ninos'].includes(name))
 			?.name || ''
 
-	// Parse Attributes
 	const colors = attributes.nodes[0]?.options || []
 
-	// Parse Related
 	const related = notRelated
 		? { nodes: [...notRelated.nodes, { name, id, variations }] }
 		: null
 
-	// Return the parsed data
 	return {
 		description,
 		material,
@@ -217,40 +206,37 @@ export const findColorIndex = (
 	color: string,
 	variations: WPProduct['variations'],
 ): number => {
-	// Loop through variations nodes
+	// Create a Map to store the indices of each color
+	const colorIndicesMap = new Map<string, number>()
+
+	// Loop through variations nodes and store the indices in the Map
 	for (let i = 0; i < variations.nodes.length; i++) {
-		// Check if the name contains the color
-		if (variations.nodes[i].name.includes(color)) {
-			return i // Return the index if found
-		}
+		const variationName = variations.nodes[i].name
+		colorIndicesMap.set(variationName, i)
 	}
-	// Return -1 if color is not found
-	return -1
+
+	// Return the index of the color if found, -1 if not found
+	return colorIndicesMap.get(color) ?? -1
 }
 
 /**
  * Returns an image component based on the product name.
  *
- * The function works by splitting the product name into words and taking the last word.
- * Then it uses a switch statement to map the last word to the corresponding image component.
+ * The function uses a Map to store the image components for each model name.
+ * Then it uses the last word of the product name to look up the image component.
  *
  * @param {string} productName - The name of the product.
  * @return {StaticImageData} The image component for the product if it exists, null otherwise.
  */
 export const getImageForModel = (productName: string): StaticImageData => {
-	const modelName = productName.split(' ').pop()
-	switch (modelName) {
-		case 'A':
-			return ModelA
-		case 'E':
-			return ModelE
-		case 'D':
-			return ModelD
-		case 'C':
-			return ModelC
-		default:
-			return ModelA
-	}
+	const modelName = productName.split(' ').pop() || ''
+	const modelMap = new Map<string, StaticImageData>([
+		['A', ModelA],
+		['E', ModelE],
+		['D', ModelD],
+		['C', ModelC],
+	])
+	return modelMap.get(modelName) || ModelA
 }
 
 export const useEuros = Intl.NumberFormat('es-ES', {

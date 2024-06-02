@@ -2,6 +2,8 @@ import Breadcrumbs from '@/components/shared/breadcrumbs'
 import NavbarFilterSheet from '@/components/shared/navbar-filter-sheet'
 import SideNavbarFilter from '@/components/shared/side-navbar-filter'
 
+export const fetchCache = 'default-cache'
+
 export default function ProductsLayout({
 	children,
 }: Readonly<{

@@ -54,6 +54,7 @@ const Collection = ({
 						return (
 							<li key={product.id} className='relative'>
 								<Link
+									prefetch
 									href={`/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${id}`}
 									className='group block overflow-hidden'
 								>
