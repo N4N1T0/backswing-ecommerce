@@ -52,7 +52,7 @@ const Collection = ({
 							parseStaticProductContent(product)
 
 						return (
-							<li key={product.id} className='relative aspect-square'>
+							<li key={product.id} className='relative'>
 								<Link
 									href={`/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${id}`}
 									className='group block overflow-hidden'
