@@ -14,7 +14,6 @@ const ProductCard = React.memo(
 		return (
 			<div className='block'>
 				<Link
-					prefetch
 					href={`/${route}/${id}`}
 					className='relative h-[300px] sm:h-[400px] overflow-hidden block group'
 				>

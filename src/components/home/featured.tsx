@@ -49,7 +49,6 @@ const Featured = () => {
 							{/* The link to view all products in the featured collection.
               It's styled with a hover effect that changes the background color. */}
 							<Link
-								prefetch
 								href='/nuevo/sudaderas'
 								className='mt-8 inline-block bg-gray-950 px-12 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-gray-700'
 							>

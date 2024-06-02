@@ -32,7 +32,6 @@ const SubHero = () => {
 							>
 								{/* Link to the product page. */}
 								<Link
-									prefetch
 									href={`/${gender?.toLowerCase()}/${category?.toLowerCase()}/${id}`}
 								>
 									{/* Render the product image. */}
