@@ -206,37 +206,40 @@ export const findColorIndex = (
 	color: string,
 	variations: WPProduct['variations'],
 ): number => {
-	// Create a Map to store the indices of each color
-	const colorIndicesMap = new Map<string, number>()
-
-	// Loop through variations nodes and store the indices in the Map
+	// Loop through variations nodes
 	for (let i = 0; i < variations.nodes.length; i++) {
-		const variationName = variations.nodes[i].name
-		colorIndicesMap.set(variationName, i)
+		// Check if the name contains the color
+		if (variations.nodes[i].name.includes(color)) {
+			return i // Return the index if found
+		}
 	}
-
-	// Return the index of the color if found, -1 if not found
-	return colorIndicesMap.get(color) ?? -1
+	// Return -1 if color is not found
+	return -1
 }
 
 /**
  * Returns an image component based on the product name.
  *
- * The function uses a Map to store the image components for each model name.
- * Then it uses the last word of the product name to look up the image component.
+ * The function works by splitting the product name into words and taking the last word.
+ * Then it uses a switch statement to map the last word to the corresponding image component.
  *
  * @param {string} productName - The name of the product.
  * @return {StaticImageData} The image component for the product if it exists, null otherwise.
  */
 export const getImageForModel = (productName: string): StaticImageData => {
-	const modelName = productName.split(' ').pop() || ''
-	const modelMap = new Map<string, StaticImageData>([
-		['A', ModelA],
-		['E', ModelE],
-		['D', ModelD],
-		['C', ModelC],
-	])
-	return modelMap.get(modelName) || ModelA
+	const modelName = productName.split(' ').pop()
+	switch (modelName) {
+		case 'A':
+			return ModelA
+		case 'E':
+			return ModelE
+		case 'D':
+			return ModelD
+		case 'C':
+			return ModelC
+		default:
+			return ModelA
+	}
 }
 
 export const useEuros = Intl.NumberFormat('es-ES', {
