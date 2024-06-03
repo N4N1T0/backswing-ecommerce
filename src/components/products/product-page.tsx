@@ -132,6 +132,8 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 						height={700}
 						width={700}
 						priority
+						placeholder='blur'
+						blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
 						title={model[index + 1].name}
 						className='object-center aspect-square h-auto w-auto'
 					/>
@@ -141,6 +143,8 @@ const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
 						height={700}
 						width={700}
 						priority
+						placeholder='blur'
+						blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
 						title={model[index].name}
 						className='object-center aspect-square h-auto w-auto'
 					/>
