@@ -8,10 +8,13 @@ import {
 
 const Collection = ({
 	direction,
-	colection,
-}: { direction: 'right' | 'left'; colection: 'hombre' | 'mujer' | 'niño' }) => {
+	collection,
+}: {
+	direction: 'right' | 'left'
+	collection: 'hombre' | 'mujer' | 'niño'
+}) => {
 	const products =
-		colection === 'hombre'
+		collection === 'hombre'
 			? collectionMenStaticProducts
 			: collectionWomenStaticProducts
 
@@ -24,10 +27,10 @@ const Collection = ({
 					}`}
 				>
 					<h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>
-						{useCapitalize(colection)}
+						{useCapitalize(collection)}
 					</h2>
 
-					{colection === 'hombre' ? (
+					{collection === 'hombre' ? (
 						<p
 							className={`${
 								direction === 'right' ? 'text-right' : 'text-left'

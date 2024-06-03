@@ -399,10 +399,12 @@ export const getProductsByFeatured = async (
  * @return {Promise<WPProduct[]>} A promise that resolves to an array of WPProduct objects representing the products on sale.
  * @throws {Error} If there is an error fetching the products.
  */
-export const getProductsByOferts = async (): Promise<WPProduct[]> => {
+export const getProductsByOffers = async (
+	categories = 'camisetas',
+): Promise<WPProduct[]> => {
 	const ProductsByOfertQuery = gql`
-  query MyQuery {
-  products(where: {onSale: true} first: 20) {
+  query MyQuery($categoryIn: [String]) {
+  products(where: {onSale: true, categoryIn: $categoryIn } first: 20) {
     nodes {
       id
       image {
@@ -439,10 +441,14 @@ export const getProductsByOferts = async (): Promise<WPProduct[]> => {
   }
 }
   `
+	const variables = { categoryIn: categories }
 
 	try {
 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-		const products: any = await graphQLClient.request(ProductsByOfertQuery)
+		const products: any = await graphQLClient.request(
+			ProductsByOfertQuery,
+			variables,
+		)
 		return products.products.nodes as WPProduct[]
 	} catch (error) {
 		console.error('Error fetching products:', error)
