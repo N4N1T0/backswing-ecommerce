@@ -1,10 +1,16 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Twitter, Facebook, Linkedin } from 'lucide-react'
 
 const SocialShareButton = ({ title }: { title: string }) => {
-	const encodedUrl = window.location.href
+	const [encodedUrl, setEncodedUrl] = useState('')
 	const encodedTitle = encodeURIComponent(title)
+
+	useEffect(() => {
+		// Ensure this code runs only on the client side
+		setEncodedUrl(window.location.href)
+	}, [])
 
 	const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`
 	const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
