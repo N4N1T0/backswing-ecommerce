@@ -1,6 +1,18 @@
 import ProductPageClient from '@/components/products/product-page'
-import { getSingleProductById } from '@/lib/queries'
+import { getProductsByCategories, getSingleProductById } from '@/lib/queries'
+import type { WPProduct } from '@/types'
 import type { Metadata, ResolvingMetadata } from 'next'
+
+export const dynamic = 'force-static'
+
+export async function generateStaticParams() {
+	const products: WPProduct[] = await getProductsByCategories(
+		'sudaderas',
+		'ninos',
+	)
+
+	return products.map((product) => ({ product: product.id }))
+}
 
 export async function generateMetadata(
 	{ params }: { params: { product: string } },

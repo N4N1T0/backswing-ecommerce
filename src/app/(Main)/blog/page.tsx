@@ -1,6 +1,8 @@
 import BlogFeed from '@/components/blog/blog-feed'
 import type { Metadata } from 'next'
 
+export const dynamic = 'force-static'
+
 export const metadata: Metadata = {
 	title: 'Blog',
 }

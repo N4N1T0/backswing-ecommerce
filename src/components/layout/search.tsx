@@ -10,7 +10,7 @@ const Search = () => {
 	const router = useRouter()
 
 	return (
-		<div className='relative w-[170px] md:w-[220px]'>
+		<div className='relative w-[170px] md:w-[250px]'>
 			<label htmlFor='Search' className='sr-only'>
 				{' '}
 				Search{' '}
@@ -28,7 +28,7 @@ const Search = () => {
 						router.push(`/search/?q=${encodeURIComponent(search)}`)
 					}
 				}}
-				className='w-full rounded-md border-gray-400 py-2.5 shadow-sm sm:text-sm'
+				className='w-full rounded-md border-gray-400 py-2.5 shadow-sm sm:text-sm bg-neutral-100 p-10'
 			/>
 
 			<Link

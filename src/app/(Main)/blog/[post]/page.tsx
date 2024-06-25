@@ -1,8 +1,17 @@
 import Image from 'next/image'
 import FeaturedBlogCard from '@/components/blog/featured-blog-card'
 import type { Metadata, ResolvingMetadata } from 'next'
-import { getPostById, getRelatedPost } from '@/lib/queries'
+import { getAllPosts, getPostById, getRelatedPost } from '@/lib/queries'
 import SocialShareButton from '@/components/blog/social-links'
+import type { WPPost } from '@/types'
+
+export const dynamic = 'force-static'
+
+export async function generateStaticParams() {
+	const allPosts: WPPost[] = await getAllPosts()
+
+	return allPosts.map((post) => ({ post: post.id }))
+}
 
 export async function generateMetadata(
 	{ params }: { params: { post: string } },
