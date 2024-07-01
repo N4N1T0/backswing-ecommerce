@@ -1,15 +1,27 @@
+// Components Imports
 import ProductCard from '@/components/products/product-card'
+
+// Types Imports
 import type { Metadata } from 'next'
-import { getProductsByCategories } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 
+// Queries Imports
+import { getProductsByCategories } from '@/lib/queries'
+
+// Force Static Page
 export const dynamic = 'force-static'
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Mujer - Camisetas',
 	description: 'Diseños de camisetas para mujer amantes del Padel',
 }
 
+/**
+ * Renders a section displaying a collection of women's t-shirts.
+ *
+ * @return {Promise<JSX.Element>} A section containing a grid of ProductCard components.
+ */
 const MujerCamisetasPage = async () => {
 	const products: WPProduct[] = await getProductsByCategories(
 		'camisetas',

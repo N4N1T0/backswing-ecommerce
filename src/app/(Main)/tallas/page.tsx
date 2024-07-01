@@ -1,11 +1,20 @@
+// Next.js Imports
 import type { Metadata } from 'next'
 
+// Force Static Page
 export const dynamic = 'force-static'
+
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Tabla de Tallas',
 }
 
-const TallasPage = () => {
+/**
+ * Renders a page displaying a table of sizes for men, women, and children.
+ *
+ * @return {JSX.Element} The JSX element representing the page.
+ */
+const TallasPage = (): JSX.Element => {
 	return (
 		<main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
 			<h1 className='text-3xl text-center uppercase'>Tabla de Tallas</h1>

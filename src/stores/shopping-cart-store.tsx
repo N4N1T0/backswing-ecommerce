@@ -1,4 +1,7 @@
+// Types Imports
 import type { CartItem } from '@/types'
+
+// Package Imports
 import { createStore } from 'swr-global-state'
 import type { StatePersistor, StateKey } from 'swr-global-state'
 

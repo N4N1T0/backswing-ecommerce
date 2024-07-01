@@ -1,4 +1,9 @@
-const Hero = () => {
+/**
+ * Renders the hero section with information about the agency and its products.
+ *
+ * @return {JSX.Element} The hero section JSX element.
+ */
+const Hero = (): JSX.Element => {
 	return (
 		<section id='hero' className='w-full'>
 			<div className='w-full px-4 py-8 sm:px-6 lg:px-8'>

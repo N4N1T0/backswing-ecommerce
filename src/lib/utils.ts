@@ -1,5 +1,8 @@
+// Package Imports
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+
+// Types Imports
 import type {
 	WPProduct,
 	CartItem,
@@ -7,8 +10,10 @@ import type {
 	ParsedConstent,
 	ParsedStaticProduct,
 } from '@/types'
-import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
 import type { StaticImageData } from 'next/image'
+
+// Assets Imports
+import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
 
 /**
  * Generates a tailwind class string by merging the provided inputs using `clsx` and `twMerge`.
@@ -247,22 +252,46 @@ export const useEuros = Intl.NumberFormat('es-ES', {
 	currency: 'EUR',
 })
 
-export const useCapitalize = (word: string) => {
+/**
+ * Capitalizes the first letter of a given word and converts the rest of the letters to lowercase.
+ *
+ * @param {string} word - The word to be capitalized.
+ * @return {string} The capitalized word.
+ */
+export const useCapitalize = (word: string): string => {
 	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
+/**
+ * Extracts the model name from a given product name.
+ *
+ * @param {string} productName - The name of the product.
+ * @return {string | null} The model name if found, otherwise null.
+ */
 export const extractModelFromName = (productName: string): string | null => {
 	const regex = /Model [A-Za-z]/ // Expresión regular para encontrar "Model" seguido de una letra
 	const match = productName.match(regex)
 	return match != null ? match[0] : null // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
+/**
+ * Extracts a hexadecimal color code from a given product name.
+ *
+ * @param {string} productName - The name of the product.
+ * @return {string} The hexadecimal color code found in the product name, or '#ffffff' if no match is found.
+ */
 export const extractHexColorFromName = (productName: string): string => {
 	const regex = /#[0-9A-Fa-f]{6}\b/ // Expresión regular para encontrar un código de color hexadecimal de 6 dígitos
 	const match = productName.match(regex)
 	return match != null ? match[0] : '#ffffff' // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
+/**
+ * Calculates the total price of a list of cart items.
+ *
+ * @param {CartItem[]} count - An array of cart items.
+ * @return {number} The total price of all cart items.
+ */
 export const calculateTotal = (count: CartItem[]) => {
 	return count
 		.map((item) => {
@@ -273,6 +302,13 @@ export const calculateTotal = (count: CartItem[]) => {
 		.reduce((a, b) => a + b, 0)
 }
 
+/**
+ * Removes an item from the cart based on its ID.
+ *
+ * @param {CartItem[]} cart - The current cart.
+ * @param {string} itemToRemove - The ID of the item to remove.
+ * @return {CartItem[] | []} - The updated cart with the item removed, or an empty array if the item was not found.
+ */
 export const removeFromCart = (
 	cart: CartItem[],
 	itemToRemove: string,
@@ -280,6 +316,16 @@ export const removeFromCart = (
 	return cart.filter((item) => item.id !== itemToRemove)
 }
 
-export const removeFromWishlist = (count: WPProduct[], id: string) => {
+/**
+ * Removes an item from the wishlist based on its ID.
+ *
+ * @param {WPProduct[]} count - The current wishlist.
+ * @param {string} id - The ID of the item to remove.
+ * @return {WPProduct[]} - The updated wishlist with the item removed.
+ */
+export const removeFromWishlist = (
+	count: WPProduct[],
+	id: string,
+): WPProduct[] => {
 	return count.filter((item) => item.id !== id)
 }

@@ -1,12 +1,22 @@
+// UI Imports
 import {
 	Popover,
 	PopoverContent,
 	PopoverTrigger,
 } from '@/components/ui/popover'
-import { SearchIcon } from 'lucide-react'
-import Search from './search'
 
-const MobileSearch = () => {
+// Assets Imports
+import { SearchIcon } from 'lucide-react'
+
+// Component Imports
+import Search from '@/components/layout/search'
+
+/**
+ * Renders a mobile search component.
+ *
+ * @return {JSX.Element} The mobile search component.
+ */
+const MobileSearch = (): JSX.Element => {
 	return (
 		<Popover>
 			<PopoverTrigger className='p-2 hover:bg-gray-300 rounded-lg transition-colors ease-out duration-300 block md:hidden'>

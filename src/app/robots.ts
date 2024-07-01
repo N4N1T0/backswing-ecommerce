@@ -1,5 +1,11 @@
+// Next.js Imports
 import type { MetadataRoute } from 'next'
 
+/**
+ * Returns the robots configuration for search engine crawlers.
+ *
+ * @return {MetadataRoute.Robots} The robots configuration object.
+ */
 export default function robots(): MetadataRoute.Robots {
 	return {
 		rules: [

@@ -1,6 +1,12 @@
-import PromotionDialog from '../shared/promotion-dialog'
+// Component Imports
+import PromotionDialog from '@/components/shared/promotion-dialog'
 
-const Announcement = () => {
+/**
+ * Renders the Announcement component with a discount message and a PromotionDialog for subscribing to the newsletter.
+ *
+ * @return {JSX.Element} The rendered Announcement component.
+ */
+const Announcement = (): JSX.Element => {
 	return (
 		<div className='bg-gray-950 px-4 py-3 text-white'>
 			<p className='text-center text-sm font-medium'>

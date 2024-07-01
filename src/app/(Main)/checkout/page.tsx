@@ -1,13 +1,22 @@
+// Components Imports
 import Checkout from '@/components/checkout/checkout'
 import CheckoutTable from '@/components/checkout/checkout-table'
 import LastChance from '@/components/checkout/last-chance'
+
+// Types Imports
 import type { Metadata } from 'next'
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Checkout',
 }
 
-const CheckoutPage = () => {
+/**
+ * Renders the CheckoutPage component, which displays the checkout section of the website.
+ *
+ * @return {JSX.Element} The rendered CheckoutPage component.
+ */
+const CheckoutPage = (): JSX.Element => {
 	return (
 		<section className='py-24'>
 			<div className='px-4 py-6 mx-auto max-w-7xl lg:py-4 md:px-6'>

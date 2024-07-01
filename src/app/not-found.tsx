@@ -1,14 +1,22 @@
+// Next.js Imports
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import React from 'react'
-import NotFoundPic from '@/assets/todd-trapani-sI-p_NLBNr0-unsplash.webp'
 import Image from 'next/image'
 
+// Assets Imports
+import NotFoundPic from '@/assets/todd-trapani-sI-p_NLBNr0-unsplash.webp'
+
+// Metadata
 export const metadata: Metadata = {
 	title: 'No Encontrado',
 }
 
-const NotFound = () => {
+/**
+ * Renders a not found page with a message and a link to the main page.
+ *
+ * @return {JSX.Element} The JSX element representing the not found page.
+ */
+const NotFound = (): JSX.Element => {
 	return (
 		<main className='flex items-center h-screen font-poppins overflow-hidden'>
 			<div className=' max-w-screen-2xl px-1 mx-auto lg:px-6 '>

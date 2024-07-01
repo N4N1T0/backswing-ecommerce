@@ -1,3 +1,4 @@
+// Next.js Imports
 import type { Metadata } from 'next'
 
 export const BackswingMetatags: Metadata = {

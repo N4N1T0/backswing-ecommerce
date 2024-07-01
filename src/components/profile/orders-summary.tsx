@@ -1,12 +1,22 @@
+// TODO: Add Orders Summary Dynamic to the User Profile
+
+// UI Imports
 import {
 	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
 } from '@/components/ui/accordion'
+
+// Assets Imports
 import { Check } from 'lucide-react'
 
-const OrdersSummary = () => {
+/**
+ * Renders the Orders Summary section with a list of purchases and order details.
+ *
+ * @return {JSX.Element} The JSX element representing the Orders Summary section.
+ */
+const OrdersSummary = (): JSX.Element => {
 	return (
 		<section id='ordenes' className='space-y-5 md:space-y-10'>
 			<h2 className='text-4xl font-semibold leading-9 text-gray-800 my-5 md:text-left text-center'>

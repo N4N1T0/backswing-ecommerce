@@ -1,15 +1,24 @@
 'use client'
 
-import ErrorPic from '@/assets/opollo-photography-vl5Cw1PmPQY-unsplash.webp'
+// Next.js Imports
 import Image from 'next/image'
+import Link from 'next/link'
 
+// Assets Imports
+import ErrorPic from '@/assets/opollo-photography-vl5Cw1PmPQY-unsplash.webp'
+
+/**
+ * Renders a site error page with the given error message.
+ *
+ * @param {Object} props - The component props.
+ * @param {Error & { digest?: string }} props.error - The error object containing the error message and optional digest.
+ * @return {JSX.Element} The JSX element representing the site error page.
+ */
 export default function SiteError({
 	error,
-	reset,
 }: {
 	error: Error & { digest?: string }
-	reset: () => void
-}) {
+}): JSX.Element {
 	return (
 		<main className='flex items-center h-screen font-poppins overflow-hidden'>
 			<div className=' max-w-screen-2xl px-1 mx-auto lg:px-6 '>
@@ -24,15 +33,12 @@ export default function SiteError({
 								<span className='uppercase font-bold'>Sigue el Partido</span>
 							</p>
 							<div className='flex flex-wrap items-center justify-start'>
-								<button
-									type='reset'
-									onClick={() => {
-										reset()
-									}}
+								<Link
+									href='/'
 									className='w-full px-8 py-4 mb-8 mr-0 text-base font-medium text-gray-100 uppercase bg-gray-950 lg:w-auto hover:bg-gray-700 lg:mb-0 lg:mr-4 md:w-full transition-colors duration-200'
 								>
 									Pagina Principal
-								</button>
+								</Link>
 							</div>
 						</div>
 					</div>

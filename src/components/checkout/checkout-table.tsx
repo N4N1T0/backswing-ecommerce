@@ -1,18 +1,30 @@
 'use client'
 
+// Next Imports
 import Image from 'next/image'
-import React from 'react'
-import CheckoutQuantity from './checkout-quantity'
-import useShoppingCart from '@/stores/shopping-cart-store'
 import Link from 'next/link'
+
+// Components Imports
+import CheckoutQuantity from '@/components/checkout/checkout-quantity'
+
+// Stores Imports
+import useShoppingCart from '@/stores/shopping-cart-store'
+
+// Utils Imports
 import { calculateTotal, useEuros } from '@/lib/utils'
 
-const CheckoutTable = () => {
+/**
+ * Renders the checkout table with product details, quantities, and total.
+ *
+ * @return {JSX.Element} The JSX element representing the checkout table.
+ */
+const CheckoutTable = (): JSX.Element => {
 	const [count] = useShoppingCart()
 	const total = calculateTotal(count)
 
 	return (
 		<div className='p-6 mb-8 border bg-gray-100 border-gray-300'>
+			{/* Table header */}
 			<div className='flex-wrap items-center hidden mb-6 -mx-4 md:flex md:mb-8'>
 				<div className='w-full px-4 mb-6 md:w-4/6 lg:w-6/12 md:mb-0'>
 					<h2 className='font-bold text-gray-700'>Nombre del Producto</h2>
@@ -27,7 +39,10 @@ const CheckoutTable = () => {
 					<h2 className='font-bold text-gray-700'> Subtotal</h2>
 				</div>
 			</div>
+
+			{/* Table body */}
 			<div className='py-4 mb-8 border-t border-b border-gray-200'>
+				{/* Display message if there are no products */}
 				{count.length === 0 ? (
 					<div className='w-full flex justify-between items-center'>
 						<h3>No hay productos</h3>
@@ -50,8 +65,9 @@ const CheckoutTable = () => {
 						</p>
 					</div>
 				) : (
+					// Display product details, quantities, and subtotals
 					count.map((item) => {
-						const { id, parsedName, parsedPrice, model, description } = item
+						const { id, parsedName, model, description } = item
 
 						return (
 							<div

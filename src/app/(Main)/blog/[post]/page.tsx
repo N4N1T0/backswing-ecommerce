@@ -1,18 +1,38 @@
+// Next.js Imports
 import Image from 'next/image'
-import FeaturedBlogCard from '@/components/blog/featured-blog-card'
 import type { Metadata, ResolvingMetadata } from 'next'
-import { getAllPosts, getPostById, getRelatedPost } from '@/lib/queries'
+
+// Components Imports
+import FeaturedBlogCard from '@/components/blog/featured-blog-card'
 import SocialShareButton from '@/components/blog/social-links'
+
+// Queries Imports
+import { getAllPosts, getPostById, getRelatedPost } from '@/lib/queries'
+
+// Types Imports
 import type { WPPost } from '@/types'
 
+// Force Static Page
 export const dynamic = 'force-static'
 
-export async function generateStaticParams() {
+/**
+ * Asynchronously generates static parameters for all posts.
+ *
+ * @return {Promise<{post: string}[]>} An array of objects containing the post ID.
+ */
+export async function generateStaticParams(): Promise<{ post: string }[]> {
 	const allPosts: WPPost[] = await getAllPosts()
 
 	return allPosts.map((post) => ({ post: post.id }))
 }
 
+/**
+ * Asynchronously generates metadata for a post based on the provided parameters.
+ *
+ * @param {{ post: string }} params - The parameters containing the post ID.
+ * @param {ResolvingMetadata} parent - The parent metadata for resolving.
+ * @return {Promise<Metadata>} The metadata object containing title, description, and openGraph images.
+ */
 export async function generateMetadata(
 	{ params }: { params: { post: string } },
 	parent: ResolvingMetadata,
@@ -30,7 +50,16 @@ export async function generateMetadata(
 	}
 }
 
-const BlogPost = async ({ params }: { params: { post: string } }) => {
+/**
+ * Renders a blog post with its related posts and social share buttons.
+ *
+ * @param {Object} params - An object containing the post ID.
+ * @param {string} params.post - The ID of the blog post to render.
+ * @return {Promise<JSX.Element>} The rendered blog post with related posts and social share buttons.
+ */
+const BlogPost = async ({
+	params,
+}: { params: { post: string } }): Promise<JSX.Element> => {
 	const post = await getPostById(params.post)
 	const relatedPosts = await getRelatedPost(params.post)
 	const {

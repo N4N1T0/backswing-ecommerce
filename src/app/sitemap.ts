@@ -1,11 +1,20 @@
+// Next.js Imports
 import type { MetadataRoute } from 'next'
+
+// Queries Imports
 import { getProductsIds, getAllPosts } from '@/lib/queries'
 
+/**
+ * Generates the sitemap for the website including products, blogs, and static pages.
+ *
+ * @return {Promise<MetadataRoute.Sitemap>} The generated sitemap for the website.
+ */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	// fetch data
 	const products = await getProductsIds()
 	const blogs = await getAllPosts()
 
+	// Dynamic Products Pages
 	const productsPage = products.map((product) => {
 		const category = product.productCategories.nodes.find(
 			(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
@@ -28,6 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}
 	})
 
+	// Blog Pages
 	const blogPage = blogs.map((post) => {
 		return {
 			url: `${process.env.SITE_URL}/blog/${post.id}`,
@@ -37,6 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}
 	})
 
+	// Static Pages
 	const staticPages: MetadataRoute.Sitemap = [
 		{
 			url: `${process.env.SITE_URL}/`,
@@ -95,6 +106,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	]
 
 	// const blogPages: MetadataRoute.Sitemap = []
-
 	return [...productsPage, ...staticPages, ...blogPage] as MetadataRoute.Sitemap
 }
