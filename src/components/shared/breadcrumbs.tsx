@@ -1,21 +1,35 @@
 'use client'
 
+// Utils Imports
 import { pathnameCrumbs } from '@/lib/utils'
+
+// Next.js Imports
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+// React Imports
 import React from 'react'
 
-const Breadcrumbs = () => {
+/**
+ * Renders a breadcrumb navigation component.
+ *
+ * @return {JSX.Element} The breadcrumb navigation component.
+ */
+const Breadcrumbs = (): JSX.Element => {
+	// Get the current pathname from Next.js's usePathname hook
 	const pathname = usePathname()
+	// Generate the breadcrumbs based on the current pathname
 	const crumbs = pathnameCrumbs(pathname)
 
 	return (
 		<nav aria-label='Breadcrumb'>
+			{/* Render the breadcrumb navigation as an unordered list */}
 			<ul className='flex items-center gap-1 text-sm text-gray-800'>
+				{/* Render the home link */}
 				<li>
 					<Link href='/' className='block transition hover:text-gray-500'>
 						<span className='sr-only'> Home </span>
-
+						{/* Render the home icon */}
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							className='h-4 w-4'
@@ -33,6 +47,7 @@ const Breadcrumbs = () => {
 						</svg>
 					</Link>
 				</li>
+				{/* Render the arrow icon */}
 				<li>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
@@ -48,16 +63,20 @@ const Breadcrumbs = () => {
 						/>
 					</svg>
 				</li>
+				{/* Render each breadcrumb item */}
 				{crumbs.map((crumb, index) => (
 					<React.Fragment key={`${crumb.name}-${index}`}>
 						<li>
+							{/* Render the breadcrumb link */}
 							<Link
 								href={crumb.href}
 								className='block transition hover:text-gray-500'
 							>
+								{/* Render the breadcrumb name */}
 								{crumb.name}
 							</Link>
 						</li>
+						{/* Render the arrow icon if we're not on the last item */}
 						{index !== crumbs.length - 1 && (
 							<li key={`${crumb.name}-${index}-Arrow`}>
 								<svg
