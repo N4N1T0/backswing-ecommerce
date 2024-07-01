@@ -309,6 +309,7 @@ export const getSingleProductById = async (id: string): Promise<WPProduct> => {
           image {
             sourceUrl
               }
+            name
             }
           }
         }
