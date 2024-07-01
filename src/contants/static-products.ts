@@ -1,3 +1,4 @@
+// Assets Imports
 import {
 	CamisetaMujer,
 	CamisetaHombre,
@@ -16,6 +17,7 @@ import {
 	FashionGirl,
 } from '@/assets/personalization/index'
 
+// Static Products for the Hero
 export const subHeroStaticProducts = [
 	{
 		id: 'cHJvZHVjdDo0NjQw',
@@ -139,6 +141,7 @@ export const subHeroStaticProducts = [
 	},
 ]
 
+// Static Products for the Men Collection
 export const collectionMenStaticProducts = [
 	{
 		id: 'cHJvZHVjdDo0NjQw',
@@ -238,6 +241,7 @@ export const collectionMenStaticProducts = [
 	},
 ]
 
+// Static Products for the Women Collection
 export const collectionWomenStaticProducts = [
 	{
 		id: 'cHJvZHVjdDo1Mjc1',
@@ -337,6 +341,7 @@ export const collectionWomenStaticProducts = [
 	},
 ]
 
+// New Products
 export const newProducts = [
 	{
 		id: 'cHJvZHVjdDo0MDE5',
@@ -448,6 +453,7 @@ export const newProducts = [
 	},
 ]
 
+// Personalization
 export const personalizationProducts = {
 	categories: [
 		{

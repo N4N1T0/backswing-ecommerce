@@ -1,4 +1,7 @@
+// Types Imports
 import type { WPPost, WPProduct, User, Costumer } from '@/types'
+
+// GraphQL Imports
 import { gql, GraphQLClient } from 'graphql-request'
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>

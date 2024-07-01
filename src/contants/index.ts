@@ -1,7 +1,9 @@
+// Assets Imports
 import Peta from '@/assets/camilo-fierro-z7rcwqCi77s-unsplash.webp'
 import OrganicBlend from '@/assets/trisha-downing-pyud8ZaVq4I-unsplash.webp'
 import Oeko from '@/assets/eye-for-ebony-OWi1sIWiCAI-unsplash.webp'
 
+// Items for the Navbar
 export const navItems = [
 	{
 		label: 'Hombre',
@@ -40,6 +42,7 @@ export const navItems = [
 	},
 ]
 
+// Items for the Footer
 export const footerItems = [
 	{
 		label: 'Termino & Condiciones',
@@ -55,8 +58,10 @@ export const footerItems = [
 	},
 ]
 
+// Tallas for the Product Page
 export const tallas = ['xxs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
 
+// Items for the PreFooter
 export const medioAmbiente = [
 	{
 		label: 'OEKO-TEX 5',
@@ -78,6 +83,7 @@ export const medioAmbiente = [
 	},
 ]
 
+// Items for the Sidebar in the Products Layout
 export const sidebarAccordion = [
 	{
 		label: 'Hombre',

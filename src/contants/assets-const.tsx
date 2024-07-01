@@ -1,5 +1,7 @@
+// Next.js Imports
 import Image from 'next/image'
 
+// Social Media for the Footer
 export const socialMedia = [
 	{
 		label: 'Facebook',
@@ -54,6 +56,7 @@ export const socialMedia = [
 	},
 ]
 
+// Contacts for the Nosotros Page
 export const contactsAssets = [
 	{
 		label: 'Email',
@@ -76,6 +79,7 @@ export const contactsAssets = [
 	},
 ]
 
+// Accordion for the Product Page
 export const accordionProductsItems = [
 	{
 		id: 'descripcion',
