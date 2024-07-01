@@ -1,12 +1,22 @@
-import { footerItems } from '@/contants'
+// Next.js Imports
 import Link from 'next/link'
-import LogoMobile from '@/assets/e9094108-15ea-477b-900e-7ef4183ac717.png'
 import Image from 'next/image'
 
-const Footer = () => {
+// Assets Imports
+import { footerItems } from '@/contants'
+import LogoMobile from '@/assets/e9094108-15ea-477b-900e-7ef4183ac717.png'
+
+/**
+ * Renders the footer component of the application.
+ *
+ * @return {JSX.Element} The rendered footer component.
+ */
+const Footer = (): JSX.Element => {
 	return (
+		// Main Footer container
 		<footer className='bg-gray-200'>
 			<div className='relative mx-auto max-w-screen-3xl px-4 py-10 sm:px-6 lg:px-8 lg:pt-12'>
+				{/* Back to top button */}
 				<div className='absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8'>
 					<Link
 						className='inline-block rounded-full bg-gray-900 p-2 text-white hover:bg-gray-700 sm:p-3 lg:p-4 transition-colors ease-out duration-200'
@@ -33,6 +43,7 @@ const Footer = () => {
 
 				<div className='lg:flex lg:items-end lg:justify-between border-b py-3 border-gray-300'>
 					<div>
+						{/* Mobile Logo */}
 						<Image
 							src={LogoMobile}
 							alt='Mobile Logo'
@@ -42,12 +53,13 @@ const Footer = () => {
 							className='aspect-video object-fill'
 						/>
 						<p className='mx-auto text-sm md:text-base max-w-md text-center leading-relaxed text-gray-600 lg:text-left'>
-							agencia de diseño y creación de productos para pádel, somos
+							Agencia de diseño y creación de productos para pádel, somos
 							deportistas dedicados a deportistas.
 						</p>
 					</div>
 
 					<ul className='mt-6 md:mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12'>
+						{/* Footer Menu */}
 						{footerItems.map((items) => (
 							<li key={items.label}>
 								<Link

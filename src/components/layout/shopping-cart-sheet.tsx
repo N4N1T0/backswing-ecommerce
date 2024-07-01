@@ -1,5 +1,6 @@
 'use client'
 
+// Ui Imports
 import {
 	Sheet,
 	SheetContent,
@@ -16,19 +17,36 @@ import {
 	calculateTotal,
 	useEuros,
 } from '@/lib/utils'
+
+// Stores Imports
 import useShoppingCart from '@/stores/shopping-cart-store'
+
+// Assets Imports
 import { ShoppingCart } from 'lucide-react'
+
+// Next.js Imports
 import Image from 'next/image'
 import Link from 'next/link'
 
-const ShoppingCartSheet = () => {
+/**
+ * Renders the Shopping Cart Sheet component with dynamic content based on the items in the shopping cart.
+ *
+ * @return {JSX.Element} The JSX element representing the Shopping Cart Sheet.
+ */
+const ShoppingCartSheet = (): JSX.Element => {
+	// Use the useShoppingCart hook to get the shopping cart items
 	const [count, setCount] = useShoppingCart()
+
+	// Calculate the total amount of the items in the shopping cart
 	const total = calculateTotal(count)
 
+	// Render the Shopping Cart Sheet component
 	return (
 		<Sheet>
+			{/* Sheet Trigger */}
 			<SheetTrigger className='p-2 py-4 hover:bg-gray-300 rounded-lg transition-colors duration-300 ease-out relative'>
 				<span className='sr-only'>Shopping Cart Sheet</span>
+				{/* Display the number of items in the shopping cart */}
 				{count.length !== 0 && (
 					<span className='absolute top-0 right-0 flex h-5 w-5'>
 						<span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-950 opacity-25' />
@@ -39,12 +57,17 @@ const ShoppingCartSheet = () => {
 				)}
 				<ShoppingCart />
 			</SheetTrigger>
+
+			{/* Sheet Content */}
 			<SheetContent className='bg-white justify-between items-center flex flex-col p-5'>
+				{/* Sheet Header */}
 				<SheetHeader>
 					<SheetTitle className='text-lg md:text-2xl font-bold uppercase'>
 						Carrito de la Compra
 					</SheetTitle>
 				</SheetHeader>
+
+				{/* Display the items in the shopping cart */}
 				{count.length !== 0 ? (
 					<div className='w-full bg-white py-5 overflow-y-scroll overflow-x-hidden'>
 						{count.map((item) => (
@@ -52,6 +75,7 @@ const ShoppingCartSheet = () => {
 								key={`shoping-cart-${item.parsedName}`}
 								className='block my-3 py-3 border-b border-gray-400 md:flex'
 							>
+								{/* Display the item's image */}
 								<div className='w-full flex-1 aspect-square object-center'>
 									<Image
 										src={item.model.image.sourceUrl}
@@ -61,6 +85,8 @@ const ShoppingCartSheet = () => {
 										className='object-cover w-full h-full'
 									/>
 								</div>
+
+								{/* Display the item's details */}
 								<div className='flex-1 px-4 space-y-1 flex flex-col items-center md:items-start'>
 									<h2 className='text-lg font-bold text-gray-900'>
 										{item.parsedName}
@@ -86,6 +112,7 @@ const ShoppingCartSheet = () => {
 										/>
 									</p>
 									<p className='text-sm text-gray-600 '> Talla: {item.talla}</p>
+									{/* Remove the item from the shopping cart */}
 									<button
 										type='button'
 										onClick={() => {
@@ -104,12 +131,16 @@ const ShoppingCartSheet = () => {
 						No hay productos en el carrito
 					</p>
 				)}
+
+				{/* Display the total amount */}
 				{count.length !== 0 && (
 					<SheetFooter className='flex flex-col items-center'>
 						<div className='gap-5 text-sm md:text-base text-gray-700 flex'>
 							<p>Subtotal</p>
 							<p className='font-bold'>{useEuros.format(total)}</p>
 						</div>
+
+						{/* Display the checkout button */}
 						<SheetClose asChild>
 							<Link
 								href='/checkout'
@@ -119,6 +150,8 @@ const ShoppingCartSheet = () => {
 								Checkout
 							</Link>
 						</SheetClose>
+
+						{/* Display the continue shopping button */}
 						<SheetClose className='text-gray-700 hover:underline mt-3 text-sm md:text-base'>
 							Seguir Comprando
 						</SheetClose>
