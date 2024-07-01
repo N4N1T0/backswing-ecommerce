@@ -1,8 +1,16 @@
 'use client'
 
+// React Imports
 import { useFormStatus } from 'react-dom'
+
+// UI Imports
 import Spinner from '@/components/ui/spinner'
 
+/**
+ * Renders the SubmitButton component based on the pending status.
+ *
+ * @return {JSX.Element} The rendered SubmitButton component.
+ */
 const SubmitButton = () => {
 	const { pending } = useFormStatus()
 	return (
