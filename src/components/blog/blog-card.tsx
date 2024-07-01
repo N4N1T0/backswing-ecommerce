@@ -1,8 +1,18 @@
+// Next.js Imports
 import Image from 'next/image'
 import Link from 'next/link'
+
+// Type Imports
 import type { WPPost } from '@/types'
 
-const BlogCard = ({ post }: { post: WPPost }) => {
+/**
+ * Renders a blog card component with title, excerpt, date, and featured image.
+ *
+ * @param {WPPost} post - The post object containing title, excerpt, date, id, and featured image details.
+ * @return {JSX.Element} The JSX element representing the blog card.
+ */
+const BlogCard = ({ post }: { post: WPPost }): JSX.Element => {
+	// Destructure the necessary post properties
 	const {
 		title,
 		excerpt,
@@ -15,8 +25,10 @@ const BlogCard = ({ post }: { post: WPPost }) => {
 
 	return (
 		<article>
+			{/* Card image */}
 			<div className='relative h-[300px] w-full'>
 				<Image src={mediaItemUrl} alt={altText} title={altText} fill />
+				{/* Card date */}
 				<div className='bg-white absolute top-0 left-0'>
 					<p className='text-base leading-4 py-3 px-5 text-gray-800'>
 						{Intl.DateTimeFormat('es-ES', { dateStyle: 'short' }).format(
@@ -25,19 +37,24 @@ const BlogCard = ({ post }: { post: WPPost }) => {
 					</p>
 				</div>
 			</div>
+			{/* Card title */}
 			<h1 className='text-xl md:text-2xl font-semibold leading-7 mt-5 text-gray-800 text-center w-full'>
 				{title}
 			</h1>
+			{/* Card excerpt */}
 			<p className='text-sm md:text-base leading-normal mt-4 text-gray-600'>
 				{excerpt.replace(/(<([^>]+)>)/gi, '')}
 			</p>
+			{/* Card link */}
 			<Link
 				href={`/blog/${id}`}
 				className='focus:outline-none flex items-center justify-between w-full md:w-60 mt-6 transition-colors duration-200 bg-gray-900 p-4 hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700'
 			>
+				{/* Link text */}
 				<p className='text-sm md:text-base font-medium leading-2 md:leading-4 text-white'>
 					Leer Mas
 				</p>
+				{/* Link icon */}
 				<svg
 					width='20'
 					height='20'

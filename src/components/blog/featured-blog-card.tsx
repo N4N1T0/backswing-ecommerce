@@ -1,8 +1,18 @@
+// Next.js Imports
 import Link from 'next/link'
 import Image from 'next/image'
+
+// Type Imports
 import type { WPPost } from '@/types'
 
-const FeaturedBlogCard = ({ post }: { post: WPPost }) => {
+/**
+ * Renders a featured blog card component with a title, excerpt, and featured image.
+ *
+ * @param {Object} props - The component props.
+ * @param {WPPost} props.post - The post object containing the title, excerpt, and featured image details.
+ * @return {JSX.Element} The JSX element representing the featured blog card.
+ */
+const FeaturedBlogCard = ({ post }: { post: WPPost }): JSX.Element => {
 	const {
 		title,
 		excerpt,

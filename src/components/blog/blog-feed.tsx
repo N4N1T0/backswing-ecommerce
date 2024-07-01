@@ -1,7 +1,15 @@
-import { getAllPosts } from '@/lib/queries'
+// Components Imports
 import BlogCard from '@/components/blog/blog-card'
 
-const BlogFeed = async () => {
+// Queries Imports
+import { getAllPosts } from '@/lib/queries'
+
+/**
+ * Renders a blog feed component that displays the latest blog posts.
+ *
+ * @return {Promise<JSX.Element>} The rendered blog feed component.
+ */
+const BlogFeed = async (): Promise<JSX.Element> => {
 	const allPosts = await getAllPosts()
 
 	return (
