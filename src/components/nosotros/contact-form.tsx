@@ -1,6 +1,12 @@
+// React Imports
 import React from 'react'
 
-const ContactForm = () => {
+/**
+ * Renders a contact form component.
+ *
+ * @return {JSX.Element} The contact form component.
+ */
+const ContactForm = (): JSX.Element => {
 	return (
 		<form action='' className='p-6 bg-gray-200'>
 			<label className='block font-bold text-gray-800 uppercase mb-6'>

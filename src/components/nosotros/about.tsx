@@ -1,7 +1,15 @@
+// Assets Imports
 import AboutPic from '@/assets/pexels-the-coach-space-2977565.webp'
+
+// Next.js Imports
 import Image from 'next/image'
 
-const About = () => {
+/**
+ * Renders the About section of the component.
+ *
+ * @return {JSX.Element} The JSX element representing the About section.
+ */
+const About = (): JSX.Element => {
 	return (
 		<section className='py-10 lg:py-20' id='about'>
 			<div className='max-w-8xl py-4 mx-auto lg:py-6 md:px-6'>
