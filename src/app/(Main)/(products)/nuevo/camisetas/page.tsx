@@ -1,16 +1,28 @@
+// Components Imports
 import ProductCard from '@/components/products/product-card'
+
+// Types Imports
 import type { Metadata } from 'next'
-import { getProductsByFeatured } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 
+// Queries Imports
+import { getProductsByFeatured } from '@/lib/queries'
+
+// Force Static Page
 export const dynamic = 'force-static'
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Nuevo - Camisetas',
 	description: 'Diseños de camisetas para mujer amantes del Padel',
 }
 
-const NuevoCamisetasPage = async () => {
+/**
+ * Renders a page displaying a collection of new t-shirts, fetched by calling getProductsByFeatured.
+ *
+ * @return {Promise<JSX.Element>} A section element containing a grid of ProductCard components for the new t-shirts.
+ */
+const NuevoCamisetasPage = async (): Promise<JSX.Element> => {
 	const products: WPProduct[] = await getProductsByFeatured()
 
 	return (

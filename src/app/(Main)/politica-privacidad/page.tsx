@@ -1,11 +1,25 @@
+// Components Imports
 import type { Metadata } from 'next'
 
+// Force Static Page
 export const dynamic = 'force-static'
+
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Politica de privacida',
 }
 
-const PoliticaPage = () => {
+/**
+ * Renders the PoliticaPage component, which displays the Privacy Policy of the website.
+ * The component includes sections such as the Identidad del responsable, Principios aplicados en el tratamiento de datos,
+ * Obtención de datos personales, Tus derechos, Finalidad del tratamiento de datos personales, Seguridad de los datos personales,
+ * Contenido de otros sitios web, Política de Cookies, Legitimación para el tratamiento de datos, Categorías de datos personales,
+ * Conservación de datos personales, Destinatarios de datos personales, Navegación Web, Exactitud y veracidad de los datos personales,
+ * Aceptación y consentimiento, Revocabilidad, Cambios en la Política de Privacidad.
+ *
+ * @return {JSX.Element} The rendered PoliticaPage component.
+ */
+const PoliticaPage = (): JSX.Element => {
 	return (
 		<main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
 			<h1 className='text-3xl text-center uppercase'>

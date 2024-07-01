@@ -23,7 +23,6 @@ import Link from 'next/link'
 
 const ShoppingCartSheet = () => {
 	const [count, setCount] = useShoppingCart()
-
 	const total = calculateTotal(count)
 
 	return (

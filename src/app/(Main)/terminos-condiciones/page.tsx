@@ -1,11 +1,20 @@
+// Next.js Imports
 import type { Metadata } from 'next'
 
+// Force Static Page
 export const dynamic = 'force-static'
+
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Terminos y Condiciones',
 }
 
-const Terminos = () => {
+/**
+ * Renders the Terms and Conditions page with relevant information about product acquisition, user requirements, licenses, unauthorized use, ownership, refund policy, fraud prevention, and privacy.
+ *
+ * @return {JSX.Element} The Terms and Conditions page JSX element
+ */
+const Terminos = (): JSX.Element => {
 	return (
 		<main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
 			<h1 className='text-3xl text-center uppercase'>

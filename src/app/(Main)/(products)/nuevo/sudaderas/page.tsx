@@ -1,15 +1,27 @@
+// Components Imports
 import ProductCard from '@/components/products/product-card'
+
+// Types Imports
 import type { Metadata } from 'next'
-import { getProductsByFeatured } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 
+// Queries Imports
+import { getProductsByFeatured } from '@/lib/queries'
+
+// Force Static Page
 export const dynamic = 'force-static'
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Nuevo - Sudaderas',
 	description: 'Diseños de sudaderas para hombres amantes del Padel',
 }
 
+/**
+ * Fetches and displays a collection of new sweatshirts for men who love Padel.
+ *
+ * @return {Promise<JSX.Element>} A section element containing a grid of ProductCard components for the new sweatshirts.
+ */
 const NuevosSudaderasPage = async () => {
 	const products: WPProduct[] = await getProductsByFeatured('sudaderas')
 

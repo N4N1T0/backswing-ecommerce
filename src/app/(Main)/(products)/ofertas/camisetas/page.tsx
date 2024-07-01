@@ -1,16 +1,28 @@
+// Components Imports
 import ProductCard from '@/components/products/product-card'
+
+// Types Imports
 import type { Metadata } from 'next'
-import { getProductsByOffers } from '@/lib/queries'
 import type { WPProduct } from '@/types'
 
+// Queries Imports
+import { getProductsByOffers } from '@/lib/queries'
+
+// Force Static Page
 export const dynamic = 'force-static'
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Ofertas - Camisetas',
 	description: 'Diseños de camisetas para mujer amantes del Padel',
 }
 
-const OffersCamisetasPage = async () => {
+/**
+ * Renders the Offers Camisetas Page asynchronously.
+ *
+ * @return {Promise<JSX.Element>} A section element containing a grid of ProductCard components for the offers on camisetas.
+ */
+const OffersCamisetasPage = async (): Promise<JSX.Element> => {
 	const products: WPProduct[] = await getProductsByOffers()
 
 	return (
