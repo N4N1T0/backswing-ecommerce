@@ -1,13 +1,24 @@
+// React Imports
 import React from 'react'
+
+// Data Imports
 import { tallas } from '@/contants'
 
+/**
+ * Renders a fieldset with labels for different tallas options.
+ *
+ * @param {React.Dispatch<React.SetStateAction<string>>} setTalla - Function to set the selected talla.
+ * @param {string} props.selectedTalla - The currently selected talla.
+ * @return {JSX.Element} The fieldset with labels for tallas options.
+ */
 const ProductsTallas = ({
 	setTalla,
 	selectedTalla,
 }: {
 	setTalla: React.Dispatch<React.SetStateAction<string>>
 	selectedTalla: string
-}) => {
+}): JSX.Element => {
+	// Function to handle the change of the selected talla
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setTalla(e.target.value)
 	}
@@ -17,6 +28,7 @@ const ProductsTallas = ({
 			<legend className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
 				8 Tallas
 			</legend>
+			{/* Render a label for each talla */}
 			{tallas.map((talla) => (
 				<label
 					key={talla}
@@ -37,6 +49,7 @@ const ProductsTallas = ({
 						className='sr-only'
 						checked={selectedTalla === talla}
 					/>
+					{/* Display the talla name */}
 					{talla}
 				</label>
 			))}

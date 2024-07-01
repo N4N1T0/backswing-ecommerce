@@ -11,7 +11,7 @@ import Spinner from '@/components/ui/spinner'
  *
  * @return {JSX.Element} The rendered SubmitButton component.
  */
-const SubmitButton = () => {
+const SubmitButton = (): JSX.Element => {
 	const { pending } = useFormStatus()
 	return (
 		<div
