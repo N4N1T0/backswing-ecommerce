@@ -1,5 +1,6 @@
-// Assets Imports
-import { MailCheck, PackageCheck, ShieldCheck, Shirt } from 'lucide-react'
+// Data Import
+import { timeline } from '@/contants/assets-const'
+import Image from 'next/image'
 
 /**
  * Renders the timeline section with detailed steps of the process.
@@ -31,20 +32,32 @@ const Timeline = (): JSX.Element => {
 				</div>
 			</div>
 			{/* Timeline sections */}
-			<div className='flex flex-col justify-center '>
-				<div className='w-full px-4 mx-auto lg:max-w-5xl '>
-					{/* Timeline container */}
-					<div className='relative'>
-						<div className='absolute hidden w-1 h-full transform -translate-x-1/2 bg-gray-400 lg:block left-1/2' />
-						<div className='space-y-2 lg:space-y-4'>
-							{/* Timeline section */}
-							<div>
-								{/* Left section */}
-								{/* Repeat for each section */}
+			<div className='w-full px-4 mx-auto lg:max-w-7xl '>
+				{/* Timeline section */}
+				<ol className='items-center sm:flex'>
+					{timeline.map((item) => (
+						<li className='relative mb-6 sm:mb-0' key={item.title}>
+							<div className='flex items-center'>
+								<div className='z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0'>
+									{/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+									<div dangerouslySetInnerHTML={{ __html: item.image }} />
+								</div>
+								<div className='hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700' />
 							</div>
-						</div>
-					</div>
-				</div>
+							<div className='mt-3 sm:pe-8'>
+								<h3 className='text-lg font-semibold text-gray-900 dark:text-white'>
+									{item.title}
+								</h3>
+								<time className='block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>
+									{item.time}
+								</time>
+								<p className='text-base font-normal text-gray-500 dark:text-gray-400'>
+									{item.description}
+								</p>
+							</div>
+						</li>
+					))}
+				</ol>
 			</div>
 		</section>
 	)
