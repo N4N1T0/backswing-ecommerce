@@ -33,7 +33,7 @@ const ProductCard = React.memo(
 				{/* Link to the product page */}
 				<Link
 					href={`/${route}/${id}`}
-					className='relative h-[300px] sm:h-[400px] overflow-hidden block group'
+					className='relative h-[250px] sm:h-[400px] overflow-hidden block group'
 				>
 					{/* Display the product image */}
 					<Image

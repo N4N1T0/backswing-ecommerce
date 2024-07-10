@@ -63,3 +63,9 @@ Protected. Please contact the repository owner for more information.
 For questions or support, you can reach me at:
 - GitHub: [N4N1T0](https://github.com/N4N1T0)
 - Email: [adrian.alvarezalonso1991@gmail.com](mailto:adrian.alvarezalonso1991@gmail.com)
+
+## TODO
+[X] Home Pictures Resize
+[] Speed up Personalizar
+[] Login with Email and Password
+[] Nosotros Page Info

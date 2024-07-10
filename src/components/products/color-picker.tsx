@@ -48,13 +48,15 @@ const ColorPicker = ({
 			)}
 
 			{/* Color picker fieldset */}
-			<fieldset className='flex flex-wrap justify-start items-center gap-4'>
+			<fieldset
+				className={`${isProductCard ? 'gap-2' : 'gap-4'} flex flex-wrap justify-start items-center`}
+			>
 				{/* Renders each color option */}
 				{colors.map((color) => (
 					<label
 						key={color}
 						htmlFor={color}
-						className='block size-7 cursor-pointer rounded-full border-[2px] hover:border-gray-700 has-[:checked]:border-gray-900'
+						className={`${isProductCard ? 'size-5 border-[1px] cursor-none' : 'size-7 cursor-pointer hover:border-gray-700 has-[:checked]:border-gray-900 border-[2px]'} rounded-full block`}
 						style={{ backgroundColor: color }}
 						title={color}
 					>
