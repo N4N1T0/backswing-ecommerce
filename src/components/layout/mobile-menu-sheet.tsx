@@ -41,12 +41,7 @@ const MobileMenuSheet = (): JSX.Element => {
 				<SheetHeader className='my-10'>
 					<SheetTitle>
 						{/* Mobile logo */}
-						<Image
-							src={LogoMobile}
-							alt='Mobile Logo'
-							title='Mobile Logo'
-							className='w-full h-auto'
-						/>
+						<Image src={LogoMobile} alt='Mobile Logo' title='Mobile Logo' />
 					</SheetTitle>
 				</SheetHeader>
 				{/* Navigation menu of the mobile menu sheet */}

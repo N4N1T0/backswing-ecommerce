@@ -32,7 +32,7 @@ const PersonalizationPage = (): JSX.Element => {
 	return (
 		<section id='personalizar'>
 			{/* Page Title */}
-			<h1 className='text-3xl font-bold my-3'>Personaliza tu Producto</h1>
+			<h1 className='text-4xl font-bold my-3'>Personaliza tu Producto</h1>
 			{/* Personalization Form */}
 			<form
 				action={getPersonalizationProduct}
@@ -40,7 +40,9 @@ const PersonalizationPage = (): JSX.Element => {
 			>
 				{/* Product Types */}
 				<fieldset className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
-					<legend className='mb-3 text-lg'>Choose a type</legend>
+					<legend className='mb-3 text-2xl border-b border-gray-400'>
+						Escoge un Modelo
+					</legend>
 					{personalizationProducts.categories.map((product) => (
 						<PersonalizationCard key={product.value} product={product} />
 					))}
@@ -48,7 +50,9 @@ const PersonalizationPage = (): JSX.Element => {
 				<hr />
 				{/* Designs */}
 				<fieldset className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
-					<legend className='mb-3 text-lg'>Choose a design</legend>
+					<legend className='mb-3 text-2xl border-b border-gray-400'>
+						Escoge un Diseño
+					</legend>
 					{personalizationProducts.diseños.map((product) => (
 						<PersonalizationCard
 							key={product.value}

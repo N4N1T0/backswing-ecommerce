@@ -30,11 +30,12 @@ const OffersCamisetasPage = async (): Promise<JSX.Element> => {
 			id='ofertas camisetas collection'
 			className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'
 		>
-			{products.map((product) => (
+			{products.map((product, index) => (
 				<ProductCard
 					key={product.id}
 					product={product}
-					route='ofertas/camisetas'
+					route='hombre/camisetas'
+					priority={index}
 				/>
 			))}
 		</section>

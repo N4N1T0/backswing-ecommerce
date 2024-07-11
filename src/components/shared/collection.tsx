@@ -34,7 +34,7 @@ const Collection = ({
 			: collectionWomenStaticProducts
 
 	return (
-		<section>
+		<section id={`${collection}-collection`}>
 			<div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
 				{/* Header section with title and description */}
 				<header
@@ -78,7 +78,7 @@ const Collection = ({
 								{/* Link to the product page */}
 								<Link
 									href={`/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${id}`}
-									className='group block overflow-hidden'
+									className='group block overflow-hidden bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white'
 								>
 									{/* Product image */}
 									<Image
@@ -87,7 +87,8 @@ const Collection = ({
 										title={parsedName}
 										width={350}
 										height={450}
-										className='w-full h-auto object-center transition-transform ease-out duration-300 group-hover:scale-105 aspect-square'
+										loading='lazy'
+										className='w-full h-auto object-contain transition-transform ease-out duration-300 group-hover:scale-105 aspect-square'
 									/>
 
 									{/* Product details */}

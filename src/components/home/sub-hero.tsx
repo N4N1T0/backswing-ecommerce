@@ -30,7 +30,7 @@ const SubHero = (): JSX.Element => (
 								index === 4
 									? 'lg:col-span-2 lg:row-span-2 lg:row-start-1 lg:col-start-1'
 									: ''
-							} group relative block overflow-hidden`}
+							} group relative block overflow-hidden bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white`}
 						>
 							<Link
 								href={`/${gender?.toLowerCase()}/${category?.toLowerCase()}/${id}`}
@@ -38,7 +38,7 @@ const SubHero = (): JSX.Element => (
 								<Image
 									src={image.sourceUrl}
 									alt={parsedName}
-									className='aspect-square object-center transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
+									className='aspect-square object-contain transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
 									width={index === 4 ? 1000 : 400}
 									height={index === 4 ? 1000 : 400}
 									priority

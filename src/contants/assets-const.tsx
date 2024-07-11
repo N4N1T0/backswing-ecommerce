@@ -158,3 +158,77 @@ export const accordionProductsItems = [
 		),
 	},
 ]
+
+// Timeline for the Nosotros Page
+export const timeline = [
+	{
+		title: 'Recibimos el Pedido',
+		time: '1 dias',
+		description:
+			'Recibimos una notificacion de orden con su pedido a nuestras oficinas',
+		image:
+			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-check"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><path d="m16 19 2 2 4-4"/></svg>',
+	},
+	{
+		title: 'Creamos el Diseño',
+		time: '2 dias',
+		description:
+			'Realizamos el Diseño de su pedido y lo enviamos para su impresión digital',
+		image:
+			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shirt"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>',
+	},
+	{
+		title: 'Confeccionamos el Paquete',
+		time: '1 dias',
+		description: 'Creamos el empaquetamiento y lo entregamos al transportista',
+		image:
+			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-check"><path d="m16 16 2 2 4-4"/><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"/><path d="m7.5 4.27 9 5.15"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>',
+	},
+	{
+		title: 'Seguridad de Envio',
+		time: '1-2 dias',
+		description:
+			'Solo trabajamos con las mejoras empresas de envio de paquetes',
+		image:
+			'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>',
+	},
+]
+
+// About Stats for the Nosotros Page
+export const aboutStats = [
+	{
+		title: '2097',
+		subTitle: 'Projects and Plans',
+		svg: `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' className='w-10 h-10' fill='currentColor' viewBox='0 0 16 16'>
+            <title>Projects and Plans</title>
+            <path d='M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z' />
+            <path d='M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z' />
+          </svg>`,
+	},
+	{
+		title: '3,590',
+		subTitle: 'Helped people',
+		svg: `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' className='w-10 h-10' fill='currentColor' viewBox='0 0 16 16'>
+            <title>Helped people</title>
+            <path d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' />
+            <path fillRule='evenodd' d='M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z' />
+            <path d='M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z' />
+          </svg>`,
+	},
+	{
+		title: '74',
+		subTitle: 'Volunteer',
+		svg: `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' className='w-10 h-10' fill='currentColor' viewBox='0 0 16 16'>
+            <title>Volunteer</title>
+            <path d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z' />
+          </svg>`,
+	},
+	{
+		title: '100',
+		subTitle: 'Timing',
+		svg: `<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' className='w-10 h-10' fill='currentColor' viewBox='0 0 16 16'>
+            <title>Timing</title>
+            <path d='M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z' />
+          </svg>`,
+	},
+]

@@ -53,25 +53,29 @@ const Featured = (): JSX.Element => {
 									parseStaticProductContent(product)
 
 								return (
-									<li key={product.id} className='relative'>
-										<Link href={`/sudaderas/${id}`} className='group block'>
+									<li key={product.id} className='relative group'>
+										<Link
+											href={`/sudaderas/${id}`}
+											className='flex justify-center items-center bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white'
+										>
 											<Image
 												src={image.sourceUrl}
 												alt={parsedName}
 												title={parsedName}
 												width={500}
 												height={500}
-												className='aspect-square w-full object-center transition-opacity duration-300 ease-out group-hover:opacity-70 h-auto'
+												loading='lazy'
+												className='aspect-square w-full object-scale-down h-auto'
 											/>
-											<div className='mt-3'>
-												<h3 className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'>
-													{parsedName}
-												</h3>
-												<p className='mt-1 text-sm text-gray-700'>
-													{parsedPrice}
-												</p>
-											</div>
 										</Link>
+										<div className='mt-3'>
+											<h3 className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'>
+												{parsedName}
+											</h3>
+											<p className='mt-1 text-sm text-gray-700'>
+												{parsedPrice}
+											</p>
+										</div>
 									</li>
 								)
 							})}

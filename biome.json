@@ -14,7 +14,7 @@
 			"jsxQuoteStyle": "single",
 			"quoteProperties": "preserve",
 			"semicolons": "asNeeded",
-			"trailingComma": "all",
+			"trailingCommas": "all",
 			"quoteStyle": "single"
 		}
 	},

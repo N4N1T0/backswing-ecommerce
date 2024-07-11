@@ -38,7 +38,7 @@ const ContactForm = (): JSX.Element => {
 					htmlFor='mensaje'
 					className='block mb-2 font-bold text-gray-800 uppercase'
 				>
-					Message
+					Mensage
 				</label>
 				<textarea
 					placeholder='Describe your problem'
