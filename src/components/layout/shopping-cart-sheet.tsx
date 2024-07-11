@@ -62,7 +62,7 @@ const ShoppingCartSheet = (): JSX.Element => {
 			<SheetContent className='bg-white justify-between items-center flex flex-col p-5'>
 				{/* Sheet Header */}
 				<SheetHeader>
-					<SheetTitle className='text-lg md:text-2xl font-bold uppercase'>
+					<SheetTitle className='text-lg md:text-2xl font-bold uppercase mt-5 md:mt-0'>
 						Carrito de la Compra
 					</SheetTitle>
 				</SheetHeader>
@@ -73,7 +73,7 @@ const ShoppingCartSheet = (): JSX.Element => {
 						{count.map((item) => (
 							<div
 								key={`shoping-cart-${item.parsedName}`}
-								className='block my-3 py-3 border-b border-gray-400 md:flex'
+								className='my-3 py-3 border-b border-gray-400 flex'
 							>
 								{/* Display the item's image */}
 								<div className='w-full flex-1 aspect-square object-center'>
@@ -87,19 +87,19 @@ const ShoppingCartSheet = (): JSX.Element => {
 								</div>
 
 								{/* Display the item's details */}
-								<div className='flex-1 px-4 space-y-1 flex flex-col items-center md:items-start'>
-									<h2 className='text-lg font-bold text-gray-900'>
+								<div className='flex-1 px-4 space-y-1 flex flex-col items-start'>
+									<h2 className='text-sm md:text-lg font-bold text-gray-900'>
 										{item.parsedName}
 									</h2>
-									<p className='text-sm text-gray-600 '>
+									<p className='text-xs md:text-sm text-gray-600 '>
 										{' '}
 										Cantidad: {item.quantity}
 									</p>
-									<p className='text-sm text-gray-600 '>
+									<p className='text-xs md:text-sm text-gray-600 '>
 										{' '}
 										Modelo: {extractModelFromName(item.model.name)}
 									</p>
-									<p className='text-sm text-gray-600 flex justify-center items-center'>
+									<p className='text-xs md:text-sm text-gray-600 flex justify-center items-center'>
 										{' '}
 										Color:{' '}
 										<span
@@ -118,7 +118,7 @@ const ShoppingCartSheet = (): JSX.Element => {
 										onClick={() => {
 											setCount((prev) => removeFromCart(prev, item.id))
 										}}
-										className='px-3 py-1 font-medium text-center text-gray-900 border border-gray-900 hover:bg-gray-900 hover:text-gray-100'
+										className='text-sm md:text-base px-3 py-1 font-medium text-center text-gray-900 border border-gray-900 hover:bg-gray-900 hover:text-gray-100'
 									>
 										Quitar
 									</button>
@@ -134,8 +134,8 @@ const ShoppingCartSheet = (): JSX.Element => {
 
 				{/* Display the total amount */}
 				{count.length !== 0 && (
-					<SheetFooter className='flex flex-col items-center'>
-						<div className='gap-5 text-sm md:text-base text-gray-700 flex'>
+					<SheetFooter className='flex flex-row md:flex-col gap-5 md:gap-0 items-center justify-center'>
+						<div className='gap-3 text-sm md:text-base text-gray-700 flex'>
 							<p>Subtotal</p>
 							<p className='font-bold'>{useEuros.format(total)}</p>
 						</div>
@@ -145,14 +145,14 @@ const ShoppingCartSheet = (): JSX.Element => {
 							<Link
 								href='/checkout'
 								target='_blank'
-								className='w-fit mt-3 py-2 px-3 text-base md:text-lg font-medium bg-gray-950 rounded-md text-gray-50 hover:bg-gray-700 transition-colors duration-200'
+								className='w-fit mt-0 md:mt-3 py-2 px-3 text-base md:text-lg font-medium bg-gray-950 rounded-md text-gray-50 hover:bg-gray-700 transition-colors duration-200'
 							>
 								Checkout
 							</Link>
 						</SheetClose>
 
 						{/* Display the continue shopping button */}
-						<SheetClose className='text-gray-700 hover:underline mt-3 text-sm md:text-base'>
+						<SheetClose className='text-gray-700 hover:underline mt-3 text-sm md:text-base hidden md:block'>
 							Seguir Comprando
 						</SheetClose>
 					</SheetFooter>
