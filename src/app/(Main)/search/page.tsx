@@ -74,13 +74,14 @@ const SearchPage = async ({
 					id='search products'
 					className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'
 				>
-					{docs?.map((item) => {
+					{docs?.map((item, index) => {
 						const { gender, category } = parseProductContent(item)
 						return (
 							<ProductCard
 								key={item.id}
 								product={item}
 								route={`${gender?.toLowerCase()}/${category?.toLowerCase()}`}
+								priority={index}
 							/>
 						)
 					})}
