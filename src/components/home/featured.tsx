@@ -64,6 +64,7 @@ const Featured = (): JSX.Element => {
 												title={parsedName}
 												width={500}
 												height={500}
+												loading='lazy'
 												className='aspect-square w-full object-scale-down h-auto'
 											/>
 										</Link>

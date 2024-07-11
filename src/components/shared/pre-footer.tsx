@@ -12,7 +12,7 @@ import Link from 'next/link'
  */
 const PreFooter = (): JSX.Element => {
 	return (
-		<section>
+		<section id='pre-footer'>
 			{/* Container for the PreFooter section */}
 			<div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 lg:px-8'>
 				{/* Grid for the PreFooter items */}
@@ -55,7 +55,8 @@ const PreFooter = (): JSX.Element => {
 							src={item.image}
 							alt={item.label}
 							title={item.label}
-							className='w-auto h-auto'
+							loading='lazy'
+							className='w-full h-auto'
 						/>
 					))}
 				</div>

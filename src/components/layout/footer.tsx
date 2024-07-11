@@ -50,7 +50,7 @@ const Footer = (): JSX.Element => {
 							title='Mobile Logo'
 							width={200}
 							height={10}
-							className='aspect-video object-fill'
+							loading='lazy'
 						/>
 						<p className='mx-auto text-sm md:text-base max-w-md text-center leading-relaxed text-gray-600 lg:text-left'>
 							Agencia de diseño y creación de productos para pádel, somos

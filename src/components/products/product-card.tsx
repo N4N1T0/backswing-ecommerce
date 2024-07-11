@@ -22,7 +22,11 @@ import ColorPicker from '@/components/products/color-picker'
  * @param {string} route - Route for the product.
  */
 const ProductCard = React.memo(
-	({ product, route }: { product: WPProduct; route: string }) => {
+	({
+		product,
+		route,
+		priority,
+	}: { product: WPProduct; route: string; priority: number }) => {
 		// Extract relevant data from the product object
 		const { parsedName, isNew, parsedPrice, colors, image, id, onSale } =
 			parseProductContent(product)
@@ -41,7 +45,8 @@ const ProductCard = React.memo(
 						alt={parsedName}
 						title={parsedName}
 						fill
-						priority
+						priority={priority <= 8}
+						loading={priority <= 8 ? 'eager' : 'lazy'}
 						sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
 						className={`aspect-square object-center transition-transform ease-out duration-300 group-hover:scale-110 h-auto w-auto ${
 							isNew ? 'relative' : ''
