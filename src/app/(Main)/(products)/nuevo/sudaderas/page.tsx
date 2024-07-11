@@ -22,7 +22,7 @@ export const metadata: Metadata = {
  *
  * @return {Promise<JSX.Element>} A section element containing a grid of ProductCard components for the new sweatshirts.
  */
-const NuevosSudaderasPage = async () => {
+const NuevosSudaderasPage = async (): Promise<JSX.Element> => {
 	const products: WPProduct[] = await getProductsByFeatured('sudaderas')
 
 	return (

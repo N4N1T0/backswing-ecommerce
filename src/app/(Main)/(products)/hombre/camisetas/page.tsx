@@ -26,7 +26,7 @@ export const metadata: Metadata = {
  *
  * @return {JSX.Element} A section containing a grid of ProductCard components.
  */
-const HombreCamisetasPage = async () => {
+const HombreCamisetasPage = async (): Promise<JSX.Element> => {
 	const products: WPProduct[] = await getProductsByCategories(
 		'camisetas',
 		'hombre',
