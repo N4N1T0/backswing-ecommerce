@@ -2,30 +2,10 @@
 import ProductPageClient from '@/components/products/product-page'
 
 // Queries Imports
-import { getProductsByCategories, getSingleProductById } from '@/lib/queries'
-
-// Types Imports
-import type { WPProduct } from '@/types'
+import { getSingleProductById } from '@/lib/queries'
 
 // Next.js Imports
 import type { Metadata, ResolvingMetadata } from 'next'
-
-// Force Static Page
-export const dynamic = 'force-static'
-
-/**
- * Retrieves static parameters for the products of a specific category and gender.
- *
- * @return {Promise<{ product: string }[]>} An array of objects containing the product IDs.
- */
-export async function generateStaticParams(): Promise<{ product: string }[]> {
-	const products: WPProduct[] = await getProductsByCategories(
-		'sudaderas',
-		'hombre',
-	)
-
-	return products.map((product) => ({ product: product.id }))
-}
 
 /**
  * Generates the metadata for a specific product.

@@ -8,9 +8,6 @@ import type { WPProduct } from '@/types'
 // Queries Imports
 import { getProductsByFeatured } from '@/lib/queries'
 
-// Force Static Page
-export const dynamic = 'force-static'
-
 // Metadata for the page
 export const metadata: Metadata = {
 	title: 'Nuevo - Sudaderas',

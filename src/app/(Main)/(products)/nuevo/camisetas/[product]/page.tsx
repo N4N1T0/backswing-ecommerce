@@ -10,20 +10,6 @@ import { getProductsByFeatured, getSingleProductById } from '@/lib/queries'
 // Next.js Imports
 import type { Metadata, ResolvingMetadata } from 'next'
 
-// Force Static Page
-export const dynamic = 'force-static'
-
-/**
- * Generates static parameters for the given products.
- *
- * @return {Promise<{ product: string }[]>} An array of objects containing the product IDs.
- */
-export async function generateStaticParams(): Promise<{ product: string }[]> {
-	const products: WPProduct[] = await getProductsByFeatured()
-
-	return products.map((product) => ({ product: product.id }))
-}
-
 /**
  * Generates metadata for a product based on the provided parameters.
  *

@@ -4,9 +4,6 @@ import BlogFeed from '@/components/blog/blog-feed'
 // Types Imports
 import type { Metadata } from 'next'
 
-// Force Static Page
-export const dynamic = 'force-static'
-
 // Metadata for the page
 export const metadata: Metadata = {
 	title: 'Blog',
