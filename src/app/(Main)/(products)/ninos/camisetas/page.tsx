@@ -7,6 +7,7 @@ import type { WPProduct } from '@/types'
 
 // Queries Imports
 import { getProductsByCategories } from '@/lib/queries'
+import Breadcrumbs from '@/components/shared/breadcrumbs'
 
 // Metadata for the page
 export const metadata: Metadata = {
@@ -26,18 +27,18 @@ const NinosCamisetasPage = async (): Promise<JSX.Element> => {
 	)
 
 	return (
-		<section
-			id='ninos camisetas collection'
-			className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'
-		>
-			{products.map((product, index) => (
-				<ProductCard
-					key={product.id}
-					product={product}
-					route='hombre/camisetas'
-					priority={index}
-				/>
-			))}
+		<section id='ninos camisetas collection'>
+			<Breadcrumbs />
+			<div className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10 mt-5'>
+				{products.map((product, index) => (
+					<ProductCard
+						key={product.id}
+						product={product}
+						route='hombre/camisetas'
+						priority={index}
+					/>
+				))}
+			</div>
 		</section>
 	)
 }

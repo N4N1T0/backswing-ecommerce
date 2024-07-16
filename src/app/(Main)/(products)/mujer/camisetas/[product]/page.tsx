@@ -1,5 +1,6 @@
 // Components Imports
 import ProductPageClient from '@/components/products/product-page'
+import Breadcrumbs from '@/components/shared/breadcrumbs'
 
 // Queries Imports
 import { getProductsByCategories, getSingleProductById } from '@/lib/queries'
@@ -66,7 +67,12 @@ const ProductPage = async ({
 }: { params: { product: string } }): Promise<JSX.Element> => {
 	const productInfo = await getSingleProductById(params.product)
 
-	return <ProductPageClient productInfo={productInfo} />
+	return (
+		<>
+			<Breadcrumbs productName={productInfo.name} />
+			<ProductPageClient productInfo={productInfo} />
+		</>
+	)
 }
 
 export default ProductPage

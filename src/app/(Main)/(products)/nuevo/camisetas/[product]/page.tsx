@@ -9,6 +9,7 @@ import { getProductsByFeatured, getSingleProductById } from '@/lib/queries'
 
 // Next.js Imports
 import type { Metadata, ResolvingMetadata } from 'next'
+import Breadcrumbs from '@/components/shared/breadcrumbs'
 
 /**
  * Generates metadata for a product based on the provided parameters.
@@ -49,7 +50,12 @@ const ProductPage = async ({
 }: { params: { product: string } }): Promise<JSX.Element> => {
 	const productInfo = await getSingleProductById(params.product)
 
-	return <ProductPageClient productInfo={productInfo} />
+	return (
+		<>
+			<Breadcrumbs productName={productInfo.name} />
+			<ProductPageClient productInfo={productInfo} />
+		</>
+	)
 }
 
 export default ProductPage
