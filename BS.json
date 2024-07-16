@@ -2188,5 +2188,124 @@
 			]
 		},
 		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>"
+	},
+	{
+		"id": "cHJvZHVjdDo2MDk3",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-29-scaled.webp",
+			"date": "2024-05-19T15:13:42"
+		},
+		"name": "Camiseta Mujer Extreme Model D",
+		"onSale": false,
+		"content": "<p>Camiseta Mujer Cuello Redondo | jersey 190</p>",
+		"price": "20,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Extreme"
+				},
+				{
+					"name": "Mujer"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": [
+						"#F8F8F8",
+						"#000000",
+						"#DDDEE0",
+						"#FFC100",
+						"#FD96A7",
+						"#9F6269",
+						"#501B81",
+						"#75BEE7",
+						"#00C4D3",
+						"#009B52"
+					]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		}
+	},
+	{
+		"id": "cHJvZHVjdDo1ODE2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Rosa-Front-26-scaled.webp",
+			"date": "2024-05-19T11:31:20"
+		},
+		"name": "Camisetas Niños Hard Match Model D",
+		"onSale": false,
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>",
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Extreme"
+				},
+				{
+					"name": "Hard Match"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		}
+	},
+	{
+		"id": "cHJvZHVjdDo1NzY2",
+		"image": {
+			"sourceUrl": "https://backswingpadel.com/wp-content/uploads/2024/05/Azul-Front-15-scaled.webp",
+			"date": "2024-05-19T11:17:31"
+		},
+		"name": "Camisetas Niños Extreme Model D",
+		"onSale": false,
+		"content": "<p>Camiseta de Cuello Redondo de Niño | Jersey 190</p>",
+		"price": "15,00&nbsp;€",
+		"productCategories": {
+			"nodes": [
+				{
+					"name": "Camisetas"
+				},
+				{
+					"name": "Extreme"
+				},
+				{
+					"name": "First Day"
+				},
+				{
+					"name": "Ninos"
+				}
+			]
+		},
+		"attributes": {
+			"nodes": [
+				{
+					"options": ["#FFFFFF", "#000000", "#969590", "#FFBBD8", "#76BFE8"]
+				},
+				{
+					"options": ["Front", "Back"]
+				}
+			]
+		}
 	}
 ]
