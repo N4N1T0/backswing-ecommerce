@@ -2,6 +2,7 @@
 
 // Auth Imports
 import { signIn, signOut } from '@/auth'
+import { AuthError } from 'next-auth'
 
 /**
  * Function to handle the login process.
@@ -25,4 +26,25 @@ export const logout = async (): Promise<void> => {
 	// Call the signOut function from the @/auth module.
 	// This will initiate the logout process and clear the user's session.
 	await signOut()
+}
+
+export const signInWithCredentials = async (
+	currentState: { message: string; status: string } | undefined,
+	formData: FormData,
+) => {
+	try {
+		await signIn('credentials', formData)
+		return {
+			status: 'success',
+			message:
+				'Credenciales correctas, puedes cerrar la ventana y empezar a comprar',
+		}
+	} catch (error) {
+		if (error instanceof AuthError) {
+			return {
+				status: 'error',
+				message: 'Email o contraseña incorrectos',
+			}
+		}
+	}
 }

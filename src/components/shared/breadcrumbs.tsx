@@ -12,14 +12,26 @@ import React from 'react'
 
 /**
  * Renders a breadcrumb navigation component.
+ * @param {string} productName - The name of the product.
  *
  * @return {JSX.Element} The breadcrumb navigation component.
  */
-const Breadcrumbs = (): JSX.Element => {
+const Breadcrumbs = ({
+	productName,
+}: { productName?: string }): JSX.Element => {
 	// Get the current pathname from Next.js's usePathname hook
 	const pathname = usePathname()
 	// Generate the breadcrumbs based on the current pathname
-	const crumbs = pathnameCrumbs(pathname)
+	let crumbs = pathnameCrumbs(pathname)
+
+	if (crumbs.length === 3 && productName) {
+		const newCrumbs = crumbs.slice(0, 2)
+		newCrumbs.push({
+			name: productName,
+			href: '#',
+		})
+		crumbs = newCrumbs
+	}
 
 	return (
 		<nav aria-label='Breadcrumb'>

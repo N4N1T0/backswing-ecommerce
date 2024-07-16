@@ -7,24 +7,7 @@ import FeaturedBlogCard from '@/components/blog/featured-blog-card'
 import SocialShareButton from '@/components/blog/social-links'
 
 // Queries Imports
-import { getAllPosts, getPostById, getRelatedPost } from '@/lib/queries'
-
-// Types Imports
-import type { WPPost } from '@/types'
-
-// Force Static Page
-export const dynamic = 'force-static'
-
-/**
- * Asynchronously generates static parameters for all posts.
- *
- * @return {Promise<{post: string}[]>} An array of objects containing the post ID.
- */
-export async function generateStaticParams(): Promise<{ post: string }[]> {
-	const allPosts: WPPost[] = await getAllPosts()
-
-	return allPosts.map((post) => ({ post: post.id }))
-}
+import { getPostById, getRelatedPost } from '@/lib/queries'
 
 /**
  * Asynchronously generates metadata for a post based on the provided parameters.

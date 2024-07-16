@@ -7,7 +7,7 @@ import ShoppingCartSheet from '@/components/layout/shopping-cart-sheet'
 import MobileMenuSheet from '@/components/layout/mobile-menu-sheet'
 import Search from '@/components/layout/search'
 import Announcement from '@/components/layout/annoucement'
-import ProfilePopup from '@/components/layout/profile-popup'
+import ProfilePopup from '@/components/layout/profile-modal'
 import MobileSearch from '@/components/layout/mobile-search'
 
 // Assets Imports

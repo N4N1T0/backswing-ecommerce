@@ -4,9 +4,9 @@ import type { WPPost, WPProduct, User, Costumer } from '@/types'
 // GraphQL Imports
 import { gql, GraphQLClient } from 'graphql-request'
 
-// biome-ignore lint/style/noNonNullAssertion: <explanation>
-export const graphqlUrl = process.env.WP_GRAPHQL_URL!
-export const graphqlToken = process.env.WORDPRESS_AUTH_REFRESH_TOKEN
+export const graphqlUrl = 'https://backswingpadel.com/graphql'
+export const graphqlToken =
+	'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2JhY2tzd2luZ3BhZGVsLmNvbSIsImlhdCI6MTcxNDY1NzI4OCwibmJmIjoxNzE0NjU3Mjg4LCJleHAiOjE3NDYxOTMyODgsImRhdGEiOnsidXNlciI6eyJpZCI6IjEiLCJ1c2VyX3NlY3JldCI6ImdyYXBocWxfand0XzY2MzM5ODA4MWI3ZWEifX19.muS97vacYU25sxuViMAk7CrsUS3tyBPDJ8Qq7NEUsmk'
 export const graphQLClient = new GraphQLClient(graphqlUrl, {
 	headers: {
 		Authorization: `Bearer ${graphqlToken}`,
@@ -132,23 +132,49 @@ export const getRelatedPost = async (id: string): Promise<WPPost[]> => {
 	}
 }
 
+export const loginCostumer = async (email: string, password: string) => {
+	const loginCostumerQuery = gql`
+ mutation LoginUser($email: String!, $password: String!) {
+  login(
+    input: {password: $password, username: $email}
+  ) {
+    authToken
+    user {
+      id
+      name
+    }
+  }
+}
+  `
+
+	const variables = { email, password }
+
+	try {
+		const response = await graphQLClient.request(loginCostumerQuery, variables)
+		return response
+	} catch (error) {
+		console.error('Error fetching post:', error)
+		throw new Error('Failed to fetch post data.')
+	}
+}
+
 /**
  * A function that creates a new customer.
  *
  * @param {string | null | undefined} email - The email of the customer.
- * @param {string | null | undefined} username - The username of the customer.
+ * @param {string | null | undefined} password - The username of the customer.
  * @return {Promise<any>} A promise that resolves to the created customer or the existing customer if already present.
  */
 export const createCostumer = async (
 	email: string | null | undefined,
-	username: string | null | undefined,
+	password: string | null | undefined,
 ): Promise<Costumer> => {
 	const existingCostumer = await getCostumerByEmail(email)
 
 	const createCostumerQuery = gql`
-  mutation MyMutation($email: String, $username: String,) {
+  mutation MyMutation($email: String, $password: String) {
     registerCustomer(
-      input: {email: $email, username: $username}
+      input: {email: $email, username: $email, password: $password}
     ) {
       customer {
         id
@@ -159,7 +185,7 @@ export const createCostumer = async (
   }
   `
 
-	const variables = { email, username }
+	const variables = { email, password }
 
 	if (existingCostumer.length === 0) {
 		try {
@@ -168,7 +194,7 @@ export const createCostumer = async (
 				createCostumerQuery,
 				variables,
 			)
-			return user.nodes[0] as Costumer
+			return user.registerCustomer.customer
 		} catch (error) {
 			console.error('Error fetching post:', error)
 			throw new Error('Failed to fetch post data.')
@@ -208,7 +234,7 @@ export const getCostumerByEmail = async (
 			CostumerByEMailQuery,
 			variables,
 		)
-		return user.customers.nodes as User['nodes']
+		return user.customers.nodes
 	} catch (error) {
 		console.error('Error fetching post:', error)
 		throw new Error('Failed to fetch post data.')

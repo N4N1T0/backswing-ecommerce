@@ -1,31 +1,12 @@
 // Components Imports
 import ProductPageClient from '@/components/products/product-page'
-
-// Types Imports
-import type { WPProduct } from '@/types'
+import Breadcrumbs from '@/components/shared/breadcrumbs'
 
 // Queries Imports
-import { getProductsByCategories, getSingleProductById } from '@/lib/queries'
+import { getSingleProductById } from '@/lib/queries'
 
 // Next.js Imports
 import type { Metadata, ResolvingMetadata } from 'next'
-
-// Force Static Page
-export const dynamic = 'force-static'
-
-/**
- * Generates static parameters for the given categories.
- *
- * @return {Promise<{ product: string }[]>} An array of objects containing the product IDs.
- */
-export async function generateStaticParams(): Promise<{ product: string }[]> {
-	const products: WPProduct[] = await getProductsByCategories(
-		'sudaderas',
-		'ninos',
-	)
-
-	return products.map((product) => ({ product: product.id }))
-}
 
 /**
  * Asynchronously generates metadata for a product.
@@ -66,7 +47,12 @@ const ProductPage = async ({
 }: { params: { product: string } }): Promise<JSX.Element> => {
 	const productInfo = await getSingleProductById(params.product)
 
-	return <ProductPageClient productInfo={productInfo} />
+	return (
+		<>
+			<Breadcrumbs productName={productInfo.name} />
+			<ProductPageClient productInfo={productInfo} />
+		</>
+	)
 }
 
 export default ProductPage

@@ -8,6 +8,10 @@ import './globals.css'
 // Metadata Imports
 import { BackswingMetatags } from '@/components/layout/metatags-seo'
 
+// NextAuth Imports
+import { SessionProvider } from 'next-auth/react'
+import { auth } from '@/auth'
+
 // Font Performance Optimization
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,16 +28,19 @@ export const viewport: Viewport = {
  *
  * @param {Object} props - The properties for the root layout.
  * @param {React.ReactNode} props.children - The child components to be rendered.
- * @return {JSX.Element} The rendered root layout.
+ * @return {Promise<JSX.Element>} The rendered root layout.
  */
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
-}>): JSX.Element {
+}>): Promise<JSX.Element> {
+	const session = await auth()
 	return (
 		<html lang='es'>
-			<body className={`${inter.className}`}>{children}</body>
+			<body className={`${inter.className}`}>
+				<SessionProvider session={session}>{children}</SessionProvider>
+			</body>
 		</html>
 	)
 }
