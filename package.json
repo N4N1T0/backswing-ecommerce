@@ -1,47 +1,59 @@
 {
-	"name": "padel-ecommerce",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "biome lint ./src"
-	},
-	"dependencies": {
-		"@apollo/client": "^3.10.8",
-		"@builder.io/partytown": "^0.10.2",
-		"@orama/orama": "^2.0.21",
-		"@oramacloud/client": "^1.3.4",
-		"@radix-ui/react-accordion": "1.2.0",
-		"@radix-ui/react-dialog": "1.1.1",
-		"@radix-ui/react-popover": "^1.1.1",
-		"@radix-ui/react-slot": "1.1.0",
-		"class-variance-authority": "0.7.0",
-		"clsx": "2.1.1",
-		"graphql-request": "^7.1.0",
-		"lucide-react": "0.407.0",
-		"next": "15.0.0-rc.0",
-		"next-auth": "5.0.0-beta.17",
-		"react": "19.0.0-rc-6d3110b4d9-20240531",
-		"react-dom": "19.0.0-rc-6d3110b4d9-20240531",
-		"sharp": "^0.33.4",
-		"swr": "^2.2.5",
-		"swr-global-state": "^2.2.0",
-		"tailwind-merge": "2.4.0",
-		"tailwindcss-animate": "1.0.7"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.2",
-		"@tailwindcss/forms": "0.5.7",
-		"@types/node": "^20.14.10",
-		"@types/react": "^18.3.3",
-		"@types/react-dom": "^18.3.0",
-		"autoprefixer": "10.4.19",
-		"husky": "^9.0.11",
-		"postcss": "^8.4.39",
-		"tailwindcss": "3.4.4",
-		"typescript": "5.5.3"
-	},
-	"packageManager": "pnpm@9.5.0"
+  "name": "backswing-ecommerce",
+  "version": "2.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "pnpm lint",
+      "pnpm format"
+    ]
+  },
+  "dependencies": {
+    "@orama/orama": "^2.1.1",
+    "@oramacloud/client": "^1.3.20",
+    "@radix-ui/react-accordion": "1.2.0",
+    "@radix-ui/react-dialog": "1.1.1",
+    "@radix-ui/react-popover": "^1.1.14",
+    "@radix-ui/react-slot": "1.1.0",
+    "@sanity/image-url": "1",
+    "@sanity/vision": "3",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.1.1",
+    "lucide-react": "0.407.0",
+    "next": "15.0.0-rc.0",
+    "next-auth": "5.0.0-beta.17",
+    "next-sanity": "9",
+    "prettier": "^3.5.3",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.12",
+    "react": "19.0.0-rc-6d3110b4d9-20240531",
+    "react-dom": "19.0.0-rc-6d3110b4d9-20240531",
+    "sanity": "3",
+    "sharp": "^0.33.5",
+    "styled-components": "6",
+    "swr": "^2.3.3",
+    "swr-global-state": "^2.2.0",
+    "tailwind-merge": "2.4.0",
+    "tailwindcss-animate": "1.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "0.5.7",
+    "@types/node": "^20.19.0",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "10.4.19",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "3.4.4",
+    "typescript": "5.5.3"
+  },
+  "packageManager": "pnpm@9.5.0"
 }
