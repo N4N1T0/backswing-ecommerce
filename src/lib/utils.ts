@@ -4,16 +4,16 @@ import { twMerge } from 'tailwind-merge'
 
 // Types Imports
 import type {
-	WPProduct,
-	CartItem,
-	StaticWPProducts,
-	ParsedConstent,
-	ParsedStaticProduct,
+  CartItem,
+  ParsedConstent,
+  ParsedStaticProduct,
+  StaticWPProducts,
+  WPProduct
 } from '@/types'
 import type { StaticImageData } from 'next/image'
 
 // Assets Imports
-import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
+import { ModelA, ModelC, ModelD, ModelE } from '@/assets/models/index'
 
 /**
  * Generates a tailwind class string by merging the provided inputs using `clsx` and `twMerge`.
@@ -22,9 +22,9 @@ import { ModelA, ModelE, ModelD, ModelC } from '@/assets/models/index'
  * @return {string} The merged tailwind class string.
  */
 export const cn = (...inputs: ClassValue[]): string => {
-	// Merge the class values using `clsx` and `twMerge`.
-	// This will ensure that the classes are properly spaced and deduplicated.
-	return twMerge(clsx(inputs))
+  // Merge the class values using `clsx` and `twMerge`.
+  // This will ensure that the classes are properly spaced and deduplicated.
+  return twMerge(clsx(inputs))
 }
 
 /**
@@ -35,14 +35,14 @@ export const cn = (...inputs: ClassValue[]): string => {
  * @return {string[]} An array of labels that match the first crumb of the pathname.
  */
 export const accordionPathname = (
-	pathname: string,
-	labels: string[],
+  pathname: string,
+  labels: string[]
 ): string[] => {
-	// Split the pathname by '/' and remove any empty strings
-	const crumbs = pathname.split('/').filter(Boolean)
+  // Split the pathname by '/' and remove any empty strings
+  const crumbs = pathname.split('/').filter(Boolean)
 
-	// Filter the labels array to only include labels that match the first crumb of the pathname
-	return labels.filter((label) => label === useCapitalize(crumbs[0]))
+  // Filter the labels array to only include labels that match the first crumb of the pathname
+  return labels.filter((label) => label === useCapitalize(crumbs[0]))
 }
 
 /**
@@ -52,21 +52,21 @@ export const accordionPathname = (
  * @return {Array} An array of objects with the name and href of each crumb.
  */
 export const pathnameCrumbs = (
-	pathname: string,
+  pathname: string
 ): Array<Record<string, string>> => {
-	// Split the pathname by '/' and remove any empty strings
-	const crumbs = pathname.split('/').filter(Boolean)
+  // Split the pathname by '/' and remove any empty strings
+  const crumbs = pathname.split('/').filter(Boolean)
 
-	// If there are no crumbs, return an empty array
-	if (crumbs.length === 0) return []
+  // If there are no crumbs, return an empty array
+  if (crumbs.length === 0) return []
 
-	// Map each crumb to an object with the name and href
-	return crumbs.map((crumb, index) => ({
-		// The name of the crumb
-		name: crumb,
-		// The href of the crumb, built by joining all the crumbs up to and including this one
-		href: `/${crumbs.slice(0, index + 1).join('/')}`,
-	}))
+  // Map each crumb to an object with the name and href
+  return crumbs.map((crumb, index) => ({
+    // The name of the crumb
+    name: crumb,
+    // The href of the crumb, built by joining all the crumbs up to and including this one
+    href: `/${crumbs.slice(0, index + 1).join('/')}`
+  }))
 }
 
 /**
@@ -76,59 +76,59 @@ export const pathnameCrumbs = (
  * @return {Object} An object with the parsed data.
  */
 export const parseProductContent = (product: WPProduct): ParsedConstent => {
-	const {
-		name,
-		variations,
-		productCategories,
-		price,
-		date,
-		content,
-		attributes,
-		image,
-		id,
-		onSale,
-		upsell: notRelated,
-	} = product
+  const {
+    name,
+    variations,
+    productCategories,
+    price,
+    date,
+    content,
+    attributes,
+    image,
+    id,
+    onSale,
+    upsell: notRelated
+  } = product
 
-	const matches = content.match(/<[^>]+>|[^|]+/g) || []
-	const description = matches[0]?.replace(/<[^>]+>/g, '') || ''
-	const material = matches[1]?.replace(/<[^>]+>/g, '') || ''
+  const matches = content.match(/<[^>]+>|[^|]+/g) || []
+  const description = matches[0]?.replace(/<[^>]+>/g, '') || ''
+  const material = matches[1]?.replace(/<[^>]+>/g, '') || ''
 
-	const parsedName = name.replace(/\bmodel\s\w/gi, '')
+  const parsedName = name.replace(/\bmodel\s\w/gi, '')
 
-	const isNew = date ? checkNew(date) : false
+  const isNew = date ? checkNew(date) : false
 
-	const parsedPrice = price.replace(/&nbsp;/g, ' ')
+  const parsedPrice = price.replace(/&nbsp;/g, ' ')
 
-	const categories = productCategories?.nodes || []
-	const category =
-		categories.find(({ name }) => ['Sudaderas', 'Camisetas'].includes(name))
-			?.name || ''
-	const gender =
-		categories.find(({ name }) => ['Mujer', 'Hombre', 'Ninos'].includes(name))
-			?.name || ''
+  const categories = productCategories?.nodes || []
+  const category =
+    categories.find(({ name }) => ['Sudaderas', 'Camisetas'].includes(name))
+      ?.name || ''
+  const gender =
+    categories.find(({ name }) => ['Mujer', 'Hombre', 'Ninos'].includes(name))
+      ?.name || ''
 
-	const colors = attributes.nodes[0]?.options || []
+  const colors = attributes.nodes[0]?.options || []
 
-	const related = notRelated
-		? { nodes: [...notRelated.nodes, { name, id, variations }] }
-		: null
+  const related = notRelated
+    ? { nodes: [...notRelated.nodes, { name, id, variations }] }
+    : null
 
-	return {
-		description,
-		material,
-		parsedName,
-		variations,
-		isNew,
-		parsedPrice,
-		category,
-		gender,
-		colors,
-		image,
-		id,
-		onSale,
-		related,
-	}
+  return {
+    description,
+    material,
+    parsedName,
+    variations,
+    isNew,
+    parsedPrice,
+    category,
+    gender,
+    colors,
+    image,
+    id,
+    onSale,
+    related
+  }
 }
 
 /**
@@ -138,45 +138,32 @@ export const parseProductContent = (product: WPProduct): ParsedConstent => {
  * @return {Object} An object with the parsed data.
  */
 export const parseStaticProductContent = (
-	product: StaticWPProducts,
+  product: StaticWPProducts
 ): ParsedStaticProduct => {
-	// Destructure the product object
-	const { name, productCategories, price, date, image, id, onSale } = product
+  const { name, productCategories, price, date, image, id, onSale } = product
 
-	// Parse Name
-	// Replace 'model' followed by a whitespace and a word with an empty string
-	const parsedName = name.replace(/\bmodel\s\w/gi, '')
+  const parsedName = name.replace(/\bmodel\s\w/gi, '')
+  const isNew = date === undefined ? false : checkNew(date)
+  const parsedPrice = price.replace(/&nbsp;/g, ' ')
+  const category = productCategories.nodes.find(
+    (node) => node.name === 'Sudaderas' || node.name === 'Camisetas'
+  )?.name
 
-	// Parse New
-	// Check if the date is within the last 7 days
-	const isNew = date === undefined ? false : checkNew(date)
+  const gender = productCategories.nodes.find(
+    (node) =>
+      node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos'
+  )?.name
 
-	// Parse Price
-	// Replace '&nbsp;' with a whitespace
-	const parsedPrice = price.replace(/&nbsp;/g, ' ')
-
-	// Parse Categories
-	// Get the names of the categories
-	const category = productCategories.nodes.find(
-		(node) => node.name === 'Sudaderas' || node.name === 'Camisetas',
-	)?.name
-
-	const gender = productCategories.nodes.find(
-		(node) =>
-			node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos',
-	)?.name
-
-	// Return the parsed data
-	return {
-		parsedName,
-		isNew,
-		parsedPrice,
-		category,
-		gender,
-		image,
-		id,
-		onSale,
-	}
+  return {
+    parsedName,
+    isNew,
+    parsedPrice,
+    category,
+    gender,
+    image,
+    id,
+    onSale
+  }
 }
 
 /**
@@ -186,18 +173,18 @@ export const parseStaticProductContent = (
  * @return {boolean} True if the date is within the last 7 days, false otherwise.
  */
 export const checkNew = (date: string): boolean => {
-	// Parse the given date
-	const today = new Date() // Get the current date
-	const createdDate = new Date(date) // Parse the given date
+  // Parse the given date
+  const today = new Date() // Get the current date
+  const createdDate = new Date(date) // Parse the given date
 
-	// Calculate the difference in time between the two dates
-	const diffTime = Math.abs(today.getTime() - createdDate.getTime())
+  // Calculate the difference in time between the two dates
+  const diffTime = Math.abs(today.getTime() - createdDate.getTime())
 
-	// Calculate the difference in days
-	const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  // Calculate the difference in days
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 
-	// Check if the difference in days is less than 7
-	return diffDays < 7
+  // Check if the difference in days is less than 7
+  return diffDays < 7
 }
 
 /**
@@ -208,18 +195,18 @@ export const checkNew = (date: string): boolean => {
  * @return {number} The index of the color if found, -1 if not found.
  */
 export const findColorIndex = (
-	color: string,
-	variations: WPProduct['variations'],
+  color: string,
+  variations: WPProduct['variations']
 ): number => {
-	// Loop through variations nodes
-	for (let i = 0; i < variations.nodes.length; i++) {
-		// Check if the name contains the color
-		if (variations.nodes[i].name.includes(color)) {
-			return i // Return the index if found
-		}
-	}
-	// Return -1 if color is not found
-	return -1
+  // Loop through variations nodes
+  for (let i = 0; i < variations.nodes.length; i++) {
+    // Check if the name contains the color
+    if (variations.nodes[i].name.includes(color)) {
+      return i // Return the index if found
+    }
+  }
+  // Return -1 if color is not found
+  return -1
 }
 
 /**
@@ -232,24 +219,24 @@ export const findColorIndex = (
  * @return {StaticImageData} The image component for the product if it exists, null otherwise.
  */
 export const getImageForModel = (productName: string): StaticImageData => {
-	const modelName = productName.split(' ').pop()
-	switch (modelName) {
-		case 'A':
-			return ModelA
-		case 'E':
-			return ModelE
-		case 'D':
-			return ModelD
-		case 'C':
-			return ModelC
-		default:
-			return ModelA
-	}
+  const modelName = productName.split(' ').pop()
+  switch (modelName) {
+    case 'A':
+      return ModelA
+    case 'E':
+      return ModelE
+    case 'D':
+      return ModelD
+    case 'C':
+      return ModelC
+    default:
+      return ModelA
+  }
 }
 
 export const useEuros = Intl.NumberFormat('es-ES', {
-	style: 'currency',
-	currency: 'EUR',
+  style: 'currency',
+  currency: 'EUR'
 })
 
 /**
@@ -259,7 +246,7 @@ export const useEuros = Intl.NumberFormat('es-ES', {
  * @return {string} The capitalized word.
  */
 export const useCapitalize = (word: string): string => {
-	return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
 /**
@@ -269,9 +256,9 @@ export const useCapitalize = (word: string): string => {
  * @return {string | null} The model name if found, otherwise null.
  */
 export const extractModelFromName = (productName: string): string | null => {
-	const regex = /Model [A-Za-z]/ // Expresión regular para encontrar "Model" seguido de una letra
-	const match = productName.match(regex)
-	return match != null ? match[0] : null // Devuelve la coincidencia si se encuentra, de lo contrario, null
+  const regex = /Model [A-Za-z]/ // Expresión regular para encontrar "Model" seguido de una letra
+  const match = productName.match(regex)
+  return match != null ? match[0] : null // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
 /**
@@ -281,9 +268,9 @@ export const extractModelFromName = (productName: string): string | null => {
  * @return {string} The hexadecimal color code found in the product name, or '#ffffff' if no match is found.
  */
 export const extractHexColorFromName = (productName: string): string => {
-	const regex = /#[0-9A-Fa-f]{6}\b/ // Expresión regular para encontrar un código de color hexadecimal de 6 dígitos
-	const match = productName.match(regex)
-	return match != null ? match[0] : '#ffffff' // Devuelve la coincidencia si se encuentra, de lo contrario, null
+  const regex = /#[0-9A-Fa-f]{6}\b/ // Expresión regular para encontrar un código de color hexadecimal de 6 dígitos
+  const match = productName.match(regex)
+  return match != null ? match[0] : '#ffffff' // Devuelve la coincidencia si se encuentra, de lo contrario, null
 }
 
 /**
@@ -293,13 +280,13 @@ export const extractHexColorFromName = (productName: string): string => {
  * @return {number} The total price of all cart items.
  */
 export const calculateTotal = (count: CartItem[]) => {
-	return count
-		.map((item) => {
-			const priceWithoutEuro = item.parsedPrice.replace('€', '').trim()
-			const priceWithoutCommas = priceWithoutEuro.replace(/,00/g, '')
-			return Number.parseFloat(priceWithoutCommas) * item.quantity
-		})
-		.reduce((a, b) => a + b, 0)
+  return count
+    .map((item) => {
+      const priceWithoutEuro = item.parsedPrice.replace('€', '').trim()
+      const priceWithoutCommas = priceWithoutEuro.replace(/,00/g, '')
+      return Number.parseFloat(priceWithoutCommas) * item.quantity
+    })
+    .reduce((a, b) => a + b, 0)
 }
 
 /**
@@ -310,10 +297,10 @@ export const calculateTotal = (count: CartItem[]) => {
  * @return {CartItem[] | []} - The updated cart with the item removed, or an empty array if the item was not found.
  */
 export const removeFromCart = (
-	cart: CartItem[],
-	itemToRemove: string,
+  cart: CartItem[],
+  itemToRemove: string
 ): CartItem[] | [] => {
-	return cart.filter((item) => item.id !== itemToRemove)
+  return cart.filter((item) => item.id !== itemToRemove)
 }
 
 /**
@@ -324,8 +311,8 @@ export const removeFromCart = (
  * @return {WPProduct[]} - The updated wishlist with the item removed.
  */
 export const removeFromWishlist = (
-	count: WPProduct[],
-	id: string,
+  count: WPProduct[],
+  id: string
 ): WPProduct[] => {
-	return count.filter((item) => item.id !== id)
+  return count.filter((item) => item.id !== id)
 }
