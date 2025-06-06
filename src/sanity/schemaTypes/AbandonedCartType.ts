@@ -1,5 +1,5 @@
-import { defineType, defineField } from 'sanity'
 import { getIconForCart } from '@/sanity/lib/utils'
+import { defineField, defineType } from 'sanity'
 
 export const abandonedCartType = defineType({
   name: 'abandonedCart',
