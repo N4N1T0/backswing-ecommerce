@@ -78,7 +78,7 @@ const Collection = ({
 								{/* Link to the product page */}
 								<Link
 									href={`/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${id}`}
-									className='group block overflow-hidden bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white'
+									className='group block overflow-hidden bg-linear-to-r from-[#A8A8A8] from-50% to-50% to-white'
 								>
 									{/* Product image */}
 									<Image

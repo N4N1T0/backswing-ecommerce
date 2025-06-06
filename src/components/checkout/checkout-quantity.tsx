@@ -69,7 +69,7 @@ const CheckoutQuantity = ({ product }: { product: CartItem }): JSX.Element => {
 						id='Quantity'
 						min={1}
 						value={quantity}
-						className='h-10 w-16 rounded border-secondary/50 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
+						className='h-10 w-16 rounded-sm border-secondary/50 text-center [-moz-appearance:textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none'
 					/>
 
 					<button

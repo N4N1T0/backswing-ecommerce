@@ -30,7 +30,7 @@ const SubHero = (): JSX.Element => (
 								index === 4
 									? 'lg:col-span-2 lg:row-span-2 lg:row-start-1 lg:col-start-1'
 									: ''
-							} group relative block overflow-hidden bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white`}
+							} group relative block overflow-hidden bg-linear-to-r from-[#A8A8A8] from-50% to-50% to-white`}
 						>
 							<Link
 								href={`/${gender?.toLowerCase()}/${category?.toLowerCase()}/${id}`}

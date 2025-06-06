@@ -41,7 +41,7 @@ const NavbarFilterSheet = (): JSX.Element => {
 	return (
 		<Sheet>
 			{/* Trigger for the sheet */}
-			<SheetTrigger className='w-full backdrop:text-center border-[1px] border-secondary text-secondary bg-white hover:bg-secondary hover:text-white transition-colors duration-200 py-3'>
+			<SheetTrigger className='w-full backdrop:text-center border border-secondary text-secondary bg-white hover:bg-secondary hover:text-white transition-colors duration-200 py-3'>
 				Filtros
 			</SheetTrigger>
 			{/* Content of the sheet */}

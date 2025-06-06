@@ -48,7 +48,7 @@ const BlogCard = ({ post }: { post: WPPost }): JSX.Element => {
 			{/* Card link */}
 			<Link
 				href={`/blog/${id}`}
-				className='focus:outline-none flex items-center justify-between w-full md:w-60 mt-6 transition-colors duration-200 bg-gray-900 p-4 hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700'
+				className='focus:outline-hidden flex items-center justify-between w-full md:w-60 mt-6 transition-colors duration-200 bg-gray-900 p-4 hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700'
 			>
 				{/* Link text */}
 				<p className='text-sm md:text-base font-medium leading-2 md:leading-4 text-white'>

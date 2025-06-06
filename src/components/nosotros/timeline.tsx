@@ -18,7 +18,7 @@ const Timeline = (): JSX.Element => {
 							{' '}
 							Nuestro <span className='text-gray-600'>Proceso</span>{' '}
 						</h1>
-						<div className='flex w-24 mt-1 mb-6 overflow-hidden rounded'>
+						<div className='flex w-24 mt-1 mb-6 overflow-hidden rounded-sm'>
 							<div className='flex-1 h-2 bg-gray-300' />
 							<div className='flex-1 h-2 bg-gray-500' />
 							<div className='flex-1 h-2 bg-gray-700' />

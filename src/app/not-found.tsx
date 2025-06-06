@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const NotFound = (): JSX.Element => {
 	return (
 		<main className='flex items-center h-screen font-poppins overflow-hidden'>
-			<div className=' max-w-screen-2xl px-1 mx-auto lg:px-6 '>
+			<div className=' max-w-(--breakpoint-2xl) px-1 mx-auto lg:px-6 '>
 				<div className='flex flex-wrap items-center '>
 					<div className='w-full px-2 lg:px-4 lg:w-2/4 lg:py-0 py-7'>
 						<div className='text-center lg:text-left'>

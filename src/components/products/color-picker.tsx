@@ -56,7 +56,7 @@ const ColorPicker = ({
 					<label
 						key={color}
 						htmlFor={color}
-						className={`${isProductCard ? 'size-5 border-[1px] cursor-none' : 'size-7 cursor-pointer hover:border-gray-700 has-[:checked]:border-gray-900 border-[2px]'} rounded-full block`}
+						className={`${isProductCard ? 'size-5 border cursor-none' : 'size-7 cursor-pointer hover:border-gray-700 has-checked:border-gray-900 border-2'} rounded-full block`}
 						style={{ backgroundColor: color }}
 						title={color}
 					>

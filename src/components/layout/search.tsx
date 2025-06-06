@@ -43,7 +43,7 @@ const Search = (): JSX.Element => {
 						router.push(`/search/?q=${encodeURIComponent(search)}`)
 					}
 				}}
-				className='w-full rounded-md border-gray-400 py-2.5 shadow-sm sm:text-sm bg-neutral-100 p-10'
+				className='w-full rounded-md border-gray-400 py-2.5 shadow-xs sm:text-sm bg-neutral-100 p-10'
 			/>
 
 			{/* Search button */}

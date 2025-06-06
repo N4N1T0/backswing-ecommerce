@@ -40,7 +40,7 @@ const ModelPicker = React.memo(
 						return (
 							<React.Fragment key={product.id}>
 								{/* Model option component */}
-								<label className='block border hover:border-gray-500 w-1/4 h-auto has-[:checked]:border-gray-900'>
+								<label className='block border hover:border-gray-500 w-1/4 h-auto has-checked:border-gray-900'>
 									{/* Image for the model */}
 									<Image
 										src={image}

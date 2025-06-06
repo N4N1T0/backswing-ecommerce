@@ -56,7 +56,7 @@ const Featured = (): JSX.Element => {
 									<li key={product.id} className='relative group'>
 										<Link
 											href={`/sudaderas/${id}`}
-											className='flex justify-center items-center bg-gradient-to-r from-[#A8A8A8] from-50% to-50% to-white'
+											className='flex justify-center items-center bg-linear-to-r from-[#A8A8A8] from-50% to-50% to-white'
 										>
 											<Image
 												src={image.sourceUrl}

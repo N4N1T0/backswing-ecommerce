@@ -45,7 +45,7 @@ const PromotionDialog = ({
 						encontraras informacion actual sobre el padel y mucho mas!
 					</p>
 					{/* The input for the email and the submit button */}
-					<span className='block shadow-sm '>
+					<span className='block shadow-xs '>
 						<input
 							type='email'
 							className='w-full px-4 py-4 mb-4 border border-gray-400 '
@@ -54,7 +54,7 @@ const PromotionDialog = ({
 							required
 						/>
 						<button
-							className='inline-flex justify-center w-full px-4 py-4 text-white bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 hover:bg-gray-600 transition-colors duration-200'
+							className='inline-flex justify-center w-full px-4 py-4 text-white bg-black focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 hover:bg-gray-600 transition-colors duration-200'
 							type='submit'
 						>
 							Enviar

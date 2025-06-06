@@ -72,7 +72,7 @@ const BlogPost = async ({
 	} = post
 
 	return (
-		<main className='mt-10 max-w-screen-2xl mx-auto p-5 md:p-10'>
+		<main className='mt-10 max-w-(--breakpoint-2xl) mx-auto p-5 md:p-10'>
 			<div className='mb-4 md:mb-0 w-full mx-auto'>
 				<div className='px-4 lg:px-0'>
 					<h2 className='text-4xl font-semibold text-gray-900 leading-tight'>
@@ -89,7 +89,7 @@ const BlogPost = async ({
 					src={mediaItemUrl}
 					alt={altText}
 					title={altText}
-					className='w-full object-cover lg:rounded'
+					className='w-full object-cover lg:rounded-sm'
 					width={1200}
 					height={1000}
 				/>
@@ -102,7 +102,7 @@ const BlogPost = async ({
 					dangerouslySetInnerHTML={{ __html: content }}
 				/>
 
-				<div className='w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm space-y-10 divide-y-2'>
+				<div className='w-full lg:w-1/4 m-auto mt-12 max-w-(--breakpoint-sm) space-y-10 divide-y-2'>
 					{relatedPosts.map((post) => (
 						<FeaturedBlogCard post={post} key={post.title} />
 					))}

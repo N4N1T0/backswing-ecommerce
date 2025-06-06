@@ -29,7 +29,7 @@ const PersonalizationCard = ({
 		<div className='space-y-3'>
 			{/* Render the personalization card label */}
 			<label
-				className={`border hover:border-gray-500 has-[:checked]:border-gray-900 h-auto block ${
+				className={`border hover:border-gray-500 has-checked:border-gray-900 h-auto block ${
 					pending ? 'opacity-50 pointer-events-none' : ''
 				}`}
 			>
@@ -74,7 +74,7 @@ const PersonalizationCard = ({
 					{product.colors?.map((color) => (
 						<span
 							key={color}
-							className='block size-4 pointer-events-none rounded-full border-[2px]'
+							className='block size-4 pointer-events-none rounded-full border-2'
 							style={{ backgroundColor: color }}
 						/>
 					))}
