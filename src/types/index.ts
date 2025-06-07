@@ -1,121 +1,141 @@
-// Types Imports
 import type { StaticImageData } from 'next/image'
 
 export interface WPPost {
-	title: string
-	content: string
-	excerpt: string
-	id: string
-	date: string
-	slug: string
-	featuredImage: {
-		node: {
-			mediaItemUrl: string
-			altText: string
-		}
-	}
+  title: string
+  content: string
+  excerpt: string
+  id: string
+  date: string
+  slug: string
+  featuredImage: {
+    node: {
+      mediaItemUrl: string
+      altText: string
+    }
+  }
 }
 
 export interface WPProduct {
-	id: string
-	image: {
-		sourceUrl: string
-	}
-	name: string
-	price: string
-	date: string
-	onSale: boolean
-	content: string
-	variations: Variations
-	productCategories: Categories
-	attributes: Attributes
-	upsell: Related
+  id: string
+  image: {
+    sourceUrl: string
+  }
+  name: string
+  price: string
+  date: string
+  onSale: boolean
+  content: string
+  variations: Variations
+  productCategories: Categories
+  attributes: Attributes
+  upsell: Related
 }
 
 export interface StaticWPProducts
-	extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {}
+  extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {}
 
 export interface CartItem {
-	id: string
-	talla: string
-	model: Variations['nodes'][0]
-	parsedPrice: string
-	parsedName: string
-	quantity: number
-	description: string
+  id: string
+  talla: string
+  model: Variations['nodes'][0]
+  parsedPrice: string
+  parsedName: string
+  quantity: number
+  description: string
 }
 
 export interface Variations {
-	nodes: Array<{
-		image: {
-			sourceUrl: string
-		}
-		name: string
-	}>
+  nodes: Array<{
+    image: {
+      sourceUrl: string
+    }
+    name: string
+  }>
 }
 
 export interface Categories {
-	nodes: Array<{
-		name: string
-	}>
+  nodes: Array<{
+    name: string
+  }>
 }
 
 export interface Attributes {
-	nodes: Array<{
-		options: string[]
-	}>
+  nodes: Array<{
+    options: string[]
+  }>
 }
 
 export interface Related {
-	nodes: Array<{
-		name: string
-		id: string
-		variations: Variations
-	}>
+  nodes: Array<{
+    name: string
+    id: string
+    variations: Variations
+  }>
 }
 
 export interface User {
-	nodes: Costumer[]
+  nodes: Costumer[]
 }
 
 export interface Costumer {
-	email: string
-	id: string
-	username: string
+  email: string
+  id: string
+  username: string
 }
 
 export interface ParsedConstent {
-	description: string
-	material: string
-	parsedName: string
-	variations: Variations
-	isNew: boolean
-	parsedPrice: string
-	category: string | undefined
-	gender: string | undefined
-	colors: string[]
-	image: {
-		sourceUrl: string
-	}
-	id: string
-	onSale: boolean
-	related: Related | null
+  description: string
+  material: string
+  parsedName: string
+  variations: Variations
+  isNew: boolean
+  parsedPrice: string
+  category: string | undefined
+  gender: string | undefined
+  colors: string[]
+  image: {
+    sourceUrl: string
+  }
+  id: string
+  onSale: boolean
+  related: Related | null
 }
 
 export interface ParsedStaticProduct
-	extends Omit<
-		ParsedConstent,
-		'description' | 'material' | 'variations' | 'colors' | 'related'
-	> {}
+  extends Omit<
+    ParsedConstent,
+    'description' | 'material' | 'variations' | 'colors' | 'related'
+  > {}
 
 export interface PersonalizationProducts {
-	value: string
-	image: StaticImageData
-	colors: string[] | null
+  value: string
+  image: StaticImageData
+  colors: string[] | null
 }
 
 export interface OramaHit {
-	id: string
-	score: number
-	document: WPProduct
+  id: string
+  score: number
+  document: WPProduct
+}
+
+export type SearchParamsProductType = Promise<{
+  type: 'camisetas' | 'sudaderas'
+}>
+
+export type SearchParamsProductIDType = Promise<{
+  product: string
+}>
+
+export type SearchParamsProfileType = Promise<{
+  id: string
+}>
+
+export type SearchParamsSearchType = Promise<{
+  q: string
+}>
+
+export interface Error {
+  digest?: string
+  message: string
 }
