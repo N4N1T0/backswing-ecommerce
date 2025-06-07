@@ -5,6 +5,8 @@
 // 	const blogInfo = await getPostById(params.post)
 // 	const previousImages = (await parent).openGraph?.images || []
 
+import { BlogPost } from '@/types'
+
 // 	return {
 // 		title: blogInfo.title,
 // 		description: blogInfo.excerpt,
@@ -14,7 +16,10 @@
 // 	}
 // }
 
-export default function BlogPost({ params }: { params: { post: string } }) {
+export default async function BlogPostPage({ params }: { params: BlogPost }) {
+  const { post } = await params
+  console.log(post)
+
   // const post = await getPostById(params.post)
   // const relatedPosts = await getRelatedPost(params.post)
   // const {

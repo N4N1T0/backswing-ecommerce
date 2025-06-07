@@ -11,7 +11,9 @@ export default async function SearchPage({
 }: {
   searchParams: SearchParamsSearchType
 }) {
-  // const { q: searchValue } = await searchParams
+  const { q: searchValue } = await searchParams
+  console.log(searchValue)
+
   // const products: Results<WPProduct> | null = await orama.search({
   // 	term: searchValue,
   // 	limit: 50,

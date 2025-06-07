@@ -32,7 +32,9 @@ export interface WPProduct {
 }
 
 export interface StaticWPProducts
-  extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {}
+  extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {
+  title: string
+}
 
 export interface CartItem {
   id: string
@@ -105,7 +107,9 @@ export interface ParsedStaticProduct
   extends Omit<
     ParsedConstent,
     'description' | 'material' | 'variations' | 'colors' | 'related'
-  > {}
+  > {
+  title: string
+}
 
 export interface PersonalizationProducts {
   value: string
@@ -139,3 +143,7 @@ export interface Error {
   digest?: string
   message: string
 }
+
+export type BlogPost = Promise<{
+  post: string
+}>
