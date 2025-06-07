@@ -1,4 +1,4 @@
-const Hero = (): JSX.Element => {
+const Hero = () => {
   return (
     <section id='hero' className='w-full'>
       <div className='w-full px-4 py-8 sm:px-6 lg:px-8'>

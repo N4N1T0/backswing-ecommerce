@@ -3,7 +3,7 @@ import { footerItems } from '@/contants'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
   return (
     <footer className='bg-gray-200'>
       <div className='relative mx-auto max-w-screen-3xl px-4 py-10 sm:px-6 lg:px-8 lg:pt-12 container'>

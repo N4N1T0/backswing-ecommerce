@@ -1,12 +1,12 @@
-import { subHeroStaticProducts as products } from '@/contants/static-products'
-import { parseStaticProductContent } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
+// import { subHeroStaticProducts as products } from '@/contants/static-products'
+// import { parseStaticProductContent } from '@/lib/utils'
+// import Image from 'next/image'
+// import Link from 'next/link'
 
-const SubHero = (): JSX.Element => (
+const SubHero = () => (
   <section id='sub-hero'>
     <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
-      <ul className='mt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      {/* <ul className='mt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {products.map((product, index) => {
           const { category, gender, id, image, parsedName } =
             parseStaticProductContent(product)
@@ -38,7 +38,7 @@ const SubHero = (): JSX.Element => (
             </li>
           )
         })}
-      </ul>
+      </ul> */}
     </div>
   </section>
 )

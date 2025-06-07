@@ -1,9 +1,9 @@
-import { newProducts as products } from '@/contants/static-products'
-import { parseStaticProductContent } from '@/lib/utils'
-import Image from 'next/image'
+// import { newProducts as products } from '@/contants/static-products'
+// import { parseStaticProductContent } from '@/lib/utils'
+// import Image from 'next/image'
 import Link from 'next/link'
 
-const Featured = (): JSX.Element => {
+const Featured = () => {
   return (
     <section id='featured'>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -30,7 +30,7 @@ const Featured = (): JSX.Element => {
             </div>
           </div>
           <div className='lg:col-span-2 xl:col-span-3 lg:py-8'>
-            <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
+            {/* <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
               {products.map((product) => {
                 const { id, image, parsedPrice, parsedName } =
                   parseStaticProductContent(product)
@@ -62,7 +62,7 @@ const Featured = (): JSX.Element => {
                   </li>
                 )
               })}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

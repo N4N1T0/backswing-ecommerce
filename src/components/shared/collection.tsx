@@ -2,9 +2,9 @@ import {
   collectionMenStaticProducts,
   collectionWomenStaticProducts
 } from '@/contants/static-products'
-import { parseStaticProductContent, useCapitalize } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useCapitalize } from '@/lib/utils'
+// import Image from 'next/image'
+// import Link from 'next/link'
 
 const Collection = ({
   direction,
@@ -12,7 +12,7 @@ const Collection = ({
 }: {
   direction: 'right' | 'left'
   collection: 'hombre' | 'mujer' | 'niño'
-}): JSX.Element => {
+}) => {
   const products =
     collection === 'hombre'
       ? collectionMenStaticProducts
@@ -39,7 +39,7 @@ const Collection = ({
         </header>
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          {products.map((product) => {
+          {/* {products.map((product) => {
             const { category, gender, id, image, parsedName, parsedPrice } =
               parseStaticProductContent(product)
 
@@ -75,7 +75,7 @@ const Collection = ({
                 </Link>
               </li>
             )
-          })}
+          })} */}
         </ul>
       </div>
     </section>

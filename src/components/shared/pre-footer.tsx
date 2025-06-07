@@ -1,7 +1,7 @@
 import { medioAmbiente } from '@/contants'
 import Image from 'next/image'
 
-const PreFooter = (): JSX.Element => {
+const PreFooter = () => {
   return (
     <section id='pre-footer'>
       <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 lg:px-8'>

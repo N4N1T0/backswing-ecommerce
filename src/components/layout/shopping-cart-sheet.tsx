@@ -1,6 +1,5 @@
 'use client'
 
-// Ui Imports
 import {
 	Sheet,
 	SheetContent,
@@ -17,23 +16,12 @@ import {
 	calculateTotal,
 	useEuros,
 } from '@/lib/utils'
-
-// Stores Imports
 import useShoppingCart from '@/stores/shopping-cart-store'
-
-// Assets Imports
 import { ShoppingCart } from 'lucide-react'
-
-// Next.js Imports
 import Image from 'next/image'
 import Link from 'next/link'
 
-/**
- * Renders the Shopping Cart Sheet component with dynamic content based on the items in the shopping cart.
- *
- * @return {JSX.Element} The JSX element representing the Shopping Cart Sheet.
- */
-const ShoppingCartSheet = (): JSX.Element => {
+const ShoppingCartSheet = () => {
 	// Use the useShoppingCart hook to get the shopping cart items
 	const [count, setCount] = useShoppingCart()
 

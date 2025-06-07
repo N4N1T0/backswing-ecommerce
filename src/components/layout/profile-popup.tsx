@@ -10,7 +10,7 @@ import {
 import { User } from 'lucide-react'
 import Link from 'next/link'
 
-const ProfilePopup = async (): Promise<JSX.Element> => {
+const ProfilePopup = async () => {
   const session = await auth()
 
   return (
