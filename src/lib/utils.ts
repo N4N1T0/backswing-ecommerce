@@ -162,7 +162,8 @@ export const parseStaticProductContent = (
     gender,
     image,
     id,
-    onSale
+    onSale,
+    title: parsedName
   }
 }
 
