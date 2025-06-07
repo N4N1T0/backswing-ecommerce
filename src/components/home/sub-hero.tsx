@@ -10,7 +10,6 @@ const SubHero = (): JSX.Element => (
         {products.map((product, index) => {
           const { category, gender, id, image, parsedName } =
             parseStaticProductContent(product)
-          console.log('🚀 ~ {products.map ~ image:', image)
 
           return (
             <li
