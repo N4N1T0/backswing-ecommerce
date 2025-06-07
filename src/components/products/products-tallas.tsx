@@ -1,4 +1,5 @@
 import { tallas } from '@/contants'
+import { memo } from 'react'
 
 const ProductsTallas = ({
   setTalla,
@@ -45,4 +46,4 @@ const ProductsTallas = ({
   )
 }
 
-export default React.memo(ProductsTallas)
+export default memo(ProductsTallas)
