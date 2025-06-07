@@ -17,6 +17,7 @@ const Collection = ({
     collection === 'hombre'
       ? collectionMenStaticProducts
       : collectionWomenStaticProducts
+  console.log('🚀 ~ products:', products)
 
   return (
     <section id={`${collection}-collection`}>
