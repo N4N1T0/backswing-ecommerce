@@ -90,13 +90,6 @@ export const postType = defineType({
       to: [{ type: 'author' }]
     }),
     defineField({
-      name: 'categories',
-      type: 'array',
-      title: 'Categorías',
-      description: 'Las categorías de la entrada del blog.',
-      of: [{ type: 'reference', to: [{ type: 'category' }] }]
-    }),
-    defineField({
       name: 'tags',
       type: 'array',
       title: 'Etiquetas',
