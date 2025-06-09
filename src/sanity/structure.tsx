@@ -7,8 +7,6 @@ import {
   BarChart,
   Bell,
   BookOpen,
-  BookOpenText,
-  Building2,
   CircleDollarSign,
   Filter,
   Heart,
@@ -24,7 +22,7 @@ import {
 // https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Termogar CMS')
+    .title('Backswing CMS')
     .items([
       S.listItem()
         .title('Contenido')
@@ -33,18 +31,10 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title('Contenido del Sitio')
             .items([
-              S.documentTypeListItem('page')
-                .title('Paginas WP')
-                .icon(() => <BookOpenText className='h-4 w-4' />),
-              S.divider(),
               S.listItem()
                 .title('Pagina Principal')
                 .icon(() => <BookOpen className='h-4 w-4' />)
                 .child(S.document().schemaType('homePage')),
-              S.listItem()
-                .title('Pagina de Ofertas')
-                .icon(() => <CircleDollarSign className='h-4 w-4' />)
-                .child(S.document().schemaType('offerPage')),
               S.divider(),
               S.documentTypeListItem('post')
                 .title('Entradas')
@@ -55,9 +45,6 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('tag')
                 .title('Etiquetas')
                 .icon(() => <Tag className='h-4 w-4' />),
-              S.documentTypeListItem('category')
-                .title('Categorías')
-                .icon(() => <Filter className='h-4 w-4' />),
               S.documentTypeListItem('subscriberNewsletter')
                 .title('Suscriptores')
                 .icon(() => <UserPen className='h-4 w-4' />)
@@ -76,15 +63,9 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('productCategory')
                 .title('Categorías')
                 .icon(() => <Filter className='h-4 w-4' />),
-              S.documentTypeListItem('productTag')
-                .title('Etiquetas')
-                .icon(() => <Tag className='h-4 w-4' />),
               S.documentTypeListItem('coupon')
                 .title('Cupones')
                 .icon(() => <BadgeEuro className='h-4 w-4' />),
-              S.documentTypeListItem('brand')
-                .title('Marcas')
-                .icon(() => <Building2 className='h-4 w-4' />),
               S.divider(),
               S.documentTypeListItem('costumer')
                 .title('Clientes')
