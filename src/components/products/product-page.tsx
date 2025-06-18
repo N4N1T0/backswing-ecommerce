@@ -1,23 +1,14 @@
 'use client'
 
-// Components Imports
-import AccordionProducts from '@/components/products/acordion-products'
-
-// Types Imports
-import type { WPProduct } from '@/types'
-
-// Next.js Imports
+import { SquarePlaceholder } from '@/assets/placeholder'
+import { eurilize, slugify } from '@/lib/utils'
+import { Colors, type Product, type Sizes } from '@/types'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import Link from 'next/link'
-
-// React Imports
 import React, { useMemo, useState } from 'react'
+import AccordionProducts from './accordion-products'
 
-// Utils Imports
-import { parseProductContent } from '@/lib/utils'
-
-// Dymanic Imports for lazy loading
+// LAZY LOADING
 const ColorPicker = dynamic(
   () => import('@/components/products/color-picker'),
   {
@@ -100,101 +91,86 @@ const Quantity = dynamic(() => import('@/components/products/quantity'), {
   )
 })
 
-const ProductPageClient = ({ productInfo }: { productInfo: WPProduct }) => {
-  const {
-    description,
-    material,
-    parsedName,
-    variations,
-    isNew,
-    parsedPrice,
-    colors,
-    related
-  } = useMemo(() => parseProductContent(productInfo), [productInfo])
+const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
+  // CONST
+  const { format, excerpt, offer, price, sizes, title } = productInfo
+  const hasOffer = !!offer
 
-  // State variables for the product page
-  const [talla, seTalla] = useState('m')
-  const [model, setModel] = useState(variations.nodes)
-  const [index, setIndex] = useState(0)
+  // STATE
+  const [talla, seTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
+  const [designFormat, setDesignFormat] = useState(format[0])
+  const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
 
-  // Create a cart item object
+  // CONST
   const cartItem = useMemo(
     () => ({
       id: productInfo.id,
       talla,
-      model: model[index + 1],
-      parsedPrice,
-      parsedName,
-      description,
+      format: {
+        title: designFormat.title,
+        color: colors
+      },
+      price,
+      offer,
+      title,
+      excerpt,
       quantity: 1
     }),
-    [talla, model, index, parsedPrice, parsedName, description, productInfo.id]
+    [talla, designFormat, colors]
   )
 
   return (
-    <section className='relative' id={parsedName}>
+    <section className='relative' id={slugify(title)}>
       <div className='flex flex-wrap w-full p-2 h-fit'>
-        {/* Left side of the product page */}
         <div className='w-full px-4 md:w-1/2 space-y-5'>
-          {/* Image carousel */}
           <Image
-            src={model[index + 1].image.sourceUrl}
-            alt={model[index + 1].name}
+            src={colors.images[0].url || SquarePlaceholder}
+            alt={`${designFormat.title}-${colors.title}-front`}
+            blurDataURL={colors.images[0].blur || SquarePlaceholder.blurDataURL}
+            placeholder='blur'
             height={700}
             width={700}
             priority
-            placeholder='blur'
-            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-            title={model[index + 1].name}
+            title={`${designFormat.title}-${colors.title}-front`}
             className='object-center aspect-square h-auto w-auto'
           />
           <Image
-            src={model[index].image.sourceUrl}
-            alt={model[index].name}
+            src={colors.images[1].url || SquarePlaceholder}
+            alt={`${designFormat.title}-${colors.title}-back`}
+            blurDataURL={colors.images[1].blur || SquarePlaceholder.blurDataURL}
+            placeholder='blur'
             height={700}
             width={700}
             priority
-            placeholder='blur'
-            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
-            title={model[index].name}
+            title={`${designFormat.title}-${colors.title}-back`}
             className='object-center aspect-square h-auto w-auto'
           />
         </div>
-        {/* Right side of the product page */}
         <div className='w-full px-4 md:w-1/2 sticky top-4 h-fit mt-3 md:mt-0'>
-          {/* Product details */}
           <div className='mb-8 border-b'>
-            <h2 className='flex justify-between items-start w-fullmt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
-              {parsedName}
-              {/* Display 'nuevo' badge if the product is new */}
-              {!isNew && (
-                <Link
-                  href='/nuevo'
-                  className='text-xs tracking-wide bg-gray-900 py-1 px-3 text-gray-100 hover:bg-gray-700 duration-200 transition-colors hidden md:block'
-                >
-                  nuevo
-                </Link>
-              )}
+            <h2 className='flex justify-between items-start w-full mt-1 mb-1 text-2xl font-bold md:text-4xl uppercase'>
+              {title}
             </h2>
-            <h3 className='font-light uppercase'>{description}</h3>
-            <h3 className='font-bold uppercase'>{material}</h3>
-            <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5'>
-              {parsedPrice}
-            </p>
-            {/* Product picker */}
-            <ModelPicker related={related} setModel={setModel} />
-            {/* Color picker */}
-            <ColorPicker
-              colors={colors}
-              setColor={setIndex}
-              variations={variations}
-            />
-            {/* Talla picker */}
+            <h3 className='font-light uppercase'>{excerpt}</h3>
+            {hasOffer ? (
+              <>
+                <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5 line-through text-xm text-gray-500'>
+                  {eurilize(price)}
+                </p>
+                <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5'>
+                  {eurilize(offer)}
+                </p>
+              </>
+            ) : (
+              <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5'>
+                {eurilize(price)}
+              </p>
+            )}
+            <ModelPicker formats={format} setModel={setDesignFormat} />
+            <ColorPicker colors={designFormat.colors} setColor={setColors} />
             <ProductsTallas setTalla={seTalla} selectedTalla={talla} />
-            {/* Quantity picker */}
             <Quantity product={cartItem} />
           </div>
-          {/* Accordion component */}
           <AccordionProducts />
         </div>
       </div>
