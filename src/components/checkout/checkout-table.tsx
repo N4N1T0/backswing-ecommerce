@@ -1,5 +1,6 @@
 'use client'
 
+import { SquarePlaceholder } from '@/assets/placeholder'
 import CheckoutQuantity from '@/components/checkout/checkout-quantity'
 import { calculateTotal, useEuros } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
@@ -35,7 +36,7 @@ const CheckoutTable = () => {
           <div className='w-full flex justify-between items-center'>
             <h3>No hay productos</h3>
             <p>
-              Puedes hechar un vistazo a nuetras{' '}
+              Puedes hechar un vistazo a nuestras{' '}
               <Link
                 href='/ofertas'
                 className='mx-2 inline-block uppercase tracking-wide bg-gray-950 py-2 font-bold px-5 text-gray-100 hover:bg-gray-700 duration-200 transition-colors'
@@ -53,9 +54,8 @@ const CheckoutTable = () => {
             </p>
           </div>
         ) : (
-          // Display product details, quantities, and subtotals
           count.map((item) => {
-            const { id, parsedName, model, description } = item
+            const { id, title, format, excerpt } = item
 
             return (
               <div
@@ -67,9 +67,14 @@ const CheckoutTable = () => {
                     <div className='w-full px-4 mb-3 md:w-1/3'>
                       <div className='w-full h-96 md:h-24 md:w-24'>
                         <Image
-                          src={model.image.sourceUrl}
-                          alt={parsedName}
-                          title={parsedName}
+                          src={format.color.images[0].url || SquarePlaceholder}
+                          placeholder='blur'
+                          blurDataURL={
+                            format.color.images[0].blur ||
+                            SquarePlaceholder.blurDataURL
+                          }
+                          alt={title || 'SquarePlaceholder'}
+                          title={title || 'SquarePlaceholder'}
                           width={100}
                           height={100}
                           className='object-cover w-full h-full'
@@ -78,9 +83,9 @@ const CheckoutTable = () => {
                     </div>
                     <div className='w-2/3 px-4'>
                       <h4 className='mb-2 text-xl text-gray-950 font-bold uppercase'>
-                        {parsedName}
+                        {title}
                       </h4>
-                      <p className='text-gray-500 uppercase'>{description}</p>
+                      <p className='text-gray-500 text-xs'>{excerpt}</p>
                     </div>
                   </div>
                 </div>
