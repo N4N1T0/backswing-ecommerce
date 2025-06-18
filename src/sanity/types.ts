@@ -782,30 +782,96 @@ export type GET_USER_FOR_AUTHResult = {
   } | null
 } | null
 // Variable: GET_PRODUCTS_BY_CATEGORY
-// Query: *[  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2][0] {  "designs": designs[]->{    "id": _id,    title,    "price": ^.price,    "price": ^.price,    "sizes": ^.sizes,    "colors": formats[0]->color[].name,    offer,    "featuredMedia": formats[0]->{      title,      "images": color[0].images[].asset->{        "url": url,        "blur": metadata.lqip,      }    }  }}
+// Query: *[  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2][0] {  "designs": designs[]->{    "id": _id,    "slug": slug.current,    title,    "offer": ^.offer,    "price": ^.price,    "sizes": ^.sizes,    "colors": formats[0]->color[]{      "title": name,      "images": images[0].asset->{        "url": url,        "blur": metadata.lqip,      }    },  }}
 export type GET_PRODUCTS_BY_CATEGORYResult = {
   designs: Array<{
     id: string
+    slug: string | null
     title: string | null
+    offer: null
     price: number | null
     sizes: Array<string> | null
-    colors: Array<string | null> | null
-    offer: null
-    featuredMedia: {
+    colors: Array<{
       title: string | null
       images: Array<{
         url: string | null
         blur: string | null
       }>
-    }
+    }>
+  }>
+}
+// Variable: GET_DESIGNS_BY_SLUG
+// Query: *[  _type == "productDesigns" && _id == $slug][0]{  "id": _id,    content,    excerpt,    "slug": slug.current,    title,    "offer": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,    "price": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,    "sizes": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,    "format": formats[]->{      title,      "colors": color[]{      "title": name,      "images": images[0].asset->{        "url": url,        "blur": metadata.lqip,      }    }  },}
+export type GET_DESIGNS_BY_SLUGResult = {
+  id: string
+  content: Array<
+    | ({
+        _key: string
+      } & ExternalImage)
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?:
+          | 'blockquote'
+          | 'h1'
+          | 'h2'
+          | 'h3'
+          | 'h4'
+          | 'h5'
+          | 'h6'
+          | 'normal'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href?: string
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+        _key: string
+      }
+  > | null
+  excerpt: string | null
+  slug: string | null
+  title: string | null
+  offer: null
+  price: number | null
+  sizes: Array<string> | null
+  format: Array<{
+    title: string | null
+    colors: Array<{
+      title: string | null
+      images: Array<{
+        url: string | null
+        blur: string | null
+      }>
+    }>
   }>
 }
 
 // Query TypeMap
-import '@sanity/client'
+import 'next-sanity'
 declare module 'next-sanity' {
   interface SanityQueries {
     '*[_type ==\'costumer\' && email == $email][0]{\n  "id": _id,\n   userName,\n   firstName,\n  lastName,\n  companyName,\n  isGuest,\n  password,\n    email,\n   "avatar": avatarUrl.asset->{\n    "url": url,\n  },\n}': GET_USER_FOR_AUTHResult
-    '*[\n  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2\n][0] {\n  "designs": designs[]->{\n    "id": _id,\n    title,\n    "price": ^.price,\n    "price": ^.price,\n    "sizes": ^.sizes,\n    "colors": formats[0]->color[].name,\n    offer,\n    "featuredMedia": formats[0]->{\n      title,\n      "images": color[0].images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    }\n  }\n}': GET_PRODUCTS_BY_CATEGORYResult
+    '*[\n  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2\n][0] {\n  "designs": designs[]->{\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": ^.offer,\n    "price": ^.price,\n    "sizes": ^.sizes,\n    "colors": formats[0]->color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    },\n  }\n}': GET_PRODUCTS_BY_CATEGORYResult
+    '*[\n  _type == "productDesigns" && slug.current == $slug\n][0]{\n  "id": _id,\n    content,\n    excerpt,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,\n    "price": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,\n    "sizes": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    }\n  },\n}': GET_DESIGNS_BY_SLUGResult
   }
 }
