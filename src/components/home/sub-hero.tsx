@@ -5,7 +5,7 @@
 
 const SubHero = () => (
   <section id='sub-hero'>
-    <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
+    <div className='mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
       {/* <ul className='mt-8 gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
         {products.map((product, index) => {
           const { category, gender, id, image, parsedName } =

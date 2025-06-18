@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Featured = () => {
   return (
     <section id='featured'>
-      <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
+      <div className='mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
         <div className='grid grid-cols-1 gap-4 lg:grid-cols-3 xl:grid-cols-4 lg:items-stretch'>
           <div className='grid place-content-center bg-gray-300 p-6 sm:p-8'>
             <div className='mx-auto max-w-md text-center lg:text-left'>

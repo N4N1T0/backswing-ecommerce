@@ -12,7 +12,7 @@ import Link from 'next/link'
 const Navbar = () => {
   return (
     <header className='bg-white' id='navbar'>
-      <div className='mx-auto max-w-screen-3xl px-4 sm:px-6 lg:px-8 container'>
+      <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 container'>
         <div className='flex h-16 xl:h-20 items-center justify-between'>
           <div className='flex gap-3'>
             <MobileMenuSheet />

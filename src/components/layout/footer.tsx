@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className='bg-gray-200'>
-      <div className='relative mx-auto max-w-screen-3xl px-4 py-10 sm:px-6 lg:px-8 lg:pt-12 container'>
+      <div className='relative mx-auto max-w-screen-2xl px-4 py-10 sm:px-6 lg:px-8 lg:pt-12 container'>
         <div className='absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8'>
           <Link
             className='inline-block rounded-full bg-gray-900 p-2 text-white hover:bg-gray-700 sm:p-3 lg:p-4 transition-colors ease-out duration-200'

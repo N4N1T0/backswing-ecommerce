@@ -4,7 +4,7 @@ import Image from 'next/image'
 const PreFooter = () => {
   return (
     <section id='pre-footer'>
-      <div className='mx-auto max-w-screen-3xl px-4 py-8 sm:px-6 lg:px-8'>
+      <div className='mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8'>
         <div className='grid gap-4 grid-cols-1 md:grid-cols-4'>
           <div className='bg-gray-950 p-5 space-y-5 flex justify-center items-center flex-col text-center'>
             <h2 className='text-xl font-bold text-white 2xl:text-3xl'>
