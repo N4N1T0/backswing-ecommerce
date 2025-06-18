@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.3.3",
     "@orama/orama": "^3.1.7",
     "@oramacloud/client": "^2.1.4",
     "@radix-ui/react-accordion": "1.2.11",
@@ -27,6 +28,7 @@
     "@sanity/vision": "3.91.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "lucide-react": "0.513.0",
     "next": "15.3.3",
     "next-auth": "5.0.0-beta.17",

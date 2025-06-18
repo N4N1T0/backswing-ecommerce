@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@next/eslint-plugin-next':
+        specifier: ^15.3.3
+        version: 15.3.3
       '@orama/orama':
         specifier: ^3.1.7
         version: 3.1.7
@@ -38,6 +41,9 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
+      eslint-plugin-react-hooks:
+        specifier: ^5.2.0
+        version: 5.2.0(eslint@9.29.0(jiti@2.4.2))
       lucide-react:
         specifier: 0.513.0
         version: 0.513.0(react@19.1.0)
