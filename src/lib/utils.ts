@@ -1,19 +1,15 @@
-// Package Imports
+import { ModelA, ModelC, ModelD, ModelE } from '@/assets/models/index'
+import ProductCard from '@/components/products/product-card'
+import type { CartItem, Product } from '@/types'
 import { type ClassValue, clsx } from 'clsx'
+import { pbkdf2Sync } from 'crypto'
+import type { StaticImageData } from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
-// Types Imports
-import type {
-  CartItem,
-  ParsedConstent,
-  ParsedStaticProduct,
-  StaticWPProducts,
-  WPProduct
-} from '@/types'
-import type { StaticImageData } from 'next/image'
-
-// Assets Imports
-import { ModelA, ModelC, ModelD, ModelE } from '@/assets/models/index'
+const SALT_LENGTH = 16 // Length of the salt
+const ITERATIONS = 100000 // Number of PBKDF2 iterations
+const KEY_LENGTH = 64 // Length of the derived key
+const DIGEST = 'sha512' // Hash algorithm
 
 /**
  * Generates a tailwind class string by merging the provided inputs using `clsx` and `twMerge`.
@@ -25,6 +21,35 @@ export const cn = (...inputs: ClassValue[]): string => {
   // Merge the class values using `clsx` and `twMerge`.
   // This will ensure that the classes are properly spaced and deduplicated.
   return twMerge(clsx(inputs))
+}
+
+/**
+ * A utility function that formats a number as a Euro currency string.
+ *
+ * @param {number} number - The number to be formatted as Euro currency.
+ * @return {string} The formatted Euro currency string.
+ *
+ * @example
+ * eurilize(1000) // "€1,000.00"
+ * eurilize(50.5) // "€50.50"
+ * eurilize(12345.6789) // "€12,345.68"
+ */
+export function eurilize(number: number | null): string {
+  if (number === null) return ''
+  return number.toLocaleString('de-DE', {
+    style: 'currency',
+    currency: 'EUR'
+  })
+}
+
+export function slugify(text: string | null): string {
+  if (!text) return ''
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 /**
@@ -70,104 +95,6 @@ export const pathnameCrumbs = (
 }
 
 /**
- * Parses the content of a WPProduct object and returns an object with the parsed data.
- *
- * @param {WPProduct} product - The WPProduct object to be parsed.
- * @return {Object} An object with the parsed data.
- */
-export const parseProductContent = (product: WPProduct): ParsedConstent => {
-  const {
-    name,
-    variations,
-    productCategories,
-    price,
-    date,
-    content,
-    attributes,
-    image,
-    id,
-    onSale,
-    upsell: notRelated
-  } = product
-
-  const matches = content.match(/<[^>]+>|[^|]+/g) || []
-  const description = matches[0]?.replace(/<[^>]+>/g, '') || ''
-  const material = matches[1]?.replace(/<[^>]+>/g, '') || ''
-
-  const parsedName = name.replace(/\bmodel\s\w/gi, '')
-
-  const isNew = date ? checkNew(date) : false
-
-  const parsedPrice = price.replace(/&nbsp;/g, ' ')
-
-  const categories = productCategories?.nodes || []
-  const category =
-    categories.find(({ name }) => ['Sudaderas', 'Camisetas'].includes(name))
-      ?.name || ''
-  const gender =
-    categories.find(({ name }) => ['Mujer', 'Hombre', 'Ninos'].includes(name))
-      ?.name || ''
-
-  const colors = attributes.nodes[0]?.options || []
-
-  const related = notRelated
-    ? { nodes: [...notRelated.nodes, { name, id, variations }] }
-    : null
-
-  return {
-    description,
-    material,
-    parsedName,
-    variations,
-    isNew,
-    parsedPrice,
-    category,
-    gender,
-    colors,
-    image,
-    id,
-    onSale,
-    related
-  }
-}
-
-/**
- * Parses the content of a StaticWPProducts object and returns an object with the parsed data.
- *
- * @param {StaticWPProducts} product - The StaticWPProducts object to be parsed.
- * @return {Object} An object with the parsed data.
- */
-export const parseStaticProductContent = (
-  product: StaticWPProducts
-): ParsedStaticProduct => {
-  const { name, productCategories, price, date, image, id, onSale } = product
-
-  const parsedName = name.replace(/\bmodel\s\w/gi, '')
-  const isNew = date === undefined ? false : checkNew(date)
-  const parsedPrice = price.replace(/&nbsp;/g, ' ')
-  const category = productCategories.nodes.find(
-    (node) => node.name === 'Sudaderas' || node.name === 'Camisetas'
-  )?.name
-
-  const gender = productCategories.nodes.find(
-    (node) =>
-      node.name === 'Mujer' || node.name === 'Hombre' || node.name === 'Ninos'
-  )?.name
-
-  return {
-    parsedName,
-    isNew,
-    parsedPrice,
-    category,
-    gender,
-    image,
-    id,
-    onSale,
-    title: parsedName
-  }
-}
-
-/**
  * Checks if a given date is within the last 7 days from the current date.
  *
  * @param {string} date - The date to be checked, in a format that can be parsed by the Date constructor.
@@ -186,28 +113,6 @@ export const checkNew = (date: string): boolean => {
 
   // Check if the difference in days is less than 7
   return diffDays < 7
-}
-
-/**
- * Finds the index of a color in the variations array of a WPProduct.
- *
- * @param {string} color - The color to search for.
- * @param {WPProduct['variations']} variations - The variations array of a WPProduct.
- * @return {number} The index of the color if found, -1 if not found.
- */
-export const findColorIndex = (
-  color: string,
-  variations: WPProduct['variations']
-): number => {
-  // Loop through variations nodes
-  for (let i = 0; i < variations.nodes.length; i++) {
-    // Check if the name contains the color
-    if (variations.nodes[i].name.includes(color)) {
-      return i // Return the index if found
-    }
-  }
-  // Return -1 if color is not found
-  return -1
 }
 
 /**
@@ -280,12 +185,12 @@ export const extractHexColorFromName = (productName: string): string => {
  * @param {CartItem[]} count - An array of cart items.
  * @return {number} The total price of all cart items.
  */
-export const calculateTotal = (count: CartItem[]) => {
+export const calculateTotal = (count: CartItem[]): number => {
   return count
     .map((item) => {
-      const priceWithoutEuro = item.parsedPrice.replace('€', '').trim()
-      const priceWithoutCommas = priceWithoutEuro.replace(/,00/g, '')
-      return Number.parseFloat(priceWithoutCommas) * item.quantity
+      const priceWithoutEuro = item.price
+      if (priceWithoutEuro === null) return 0
+      return priceWithoutEuro * item.quantity
     })
     .reduce((a, b) => a + b, 0)
 }
@@ -307,13 +212,34 @@ export const removeFromCart = (
 /**
  * Removes an item from the wishlist based on its ID.
  *
- * @param {WPProduct[]} count - The current wishlist.
+ * @param {Array<Product | ProductCard>} count - The current wishlist.
  * @param {string} id - The ID of the item to remove.
- * @return {WPProduct[]} - The updated wishlist with the item removed.
+ * @return {Array<Product | ProductCard>} The updated wishlist with the item removed.
  */
 export const removeFromWishlist = (
-  count: WPProduct[],
+  count: Array<Product | Product>,
   id: string
-): WPProduct[] => {
+): Array<Product | ProductCard> => {
   return count.filter((item) => item.id !== id)
+}
+
+/**
+ * Verify a plain text password against a hashed password.
+ * @param {string} plainPassword - The plain text password to compare.
+ * @param {string} storedPassword - The hashed password to compare against.
+ * @returns {boolean} - True if the passwords match, false otherwise.
+ */
+export const verifyPassword = (
+  plainPassword: string,
+  storedPassword: string
+): boolean => {
+  const [salt, originalHash] = storedPassword.split(':')
+  const hash = pbkdf2Sync(
+    plainPassword,
+    salt,
+    ITERATIONS,
+    KEY_LENGTH,
+    DIGEST
+  ).toString('hex')
+  return hash === originalHash
 }
