@@ -6,7 +6,6 @@ import { pbkdf2Sync } from 'crypto'
 import type { StaticImageData } from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
-const SALT_LENGTH = 16 // Length of the salt
 const ITERATIONS = 100000 // Number of PBKDF2 iterations
 const KEY_LENGTH = 64 // Length of the derived key
 const DIGEST = 'sha512' // Hash algorithm

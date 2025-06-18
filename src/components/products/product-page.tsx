@@ -116,7 +116,16 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
       excerpt,
       quantity: 1
     }),
-    [talla, designFormat, colors]
+    [
+      productInfo.id,
+      talla,
+      designFormat.title,
+      colors,
+      price,
+      offer,
+      title,
+      excerpt
+    ]
   )
 
   return (

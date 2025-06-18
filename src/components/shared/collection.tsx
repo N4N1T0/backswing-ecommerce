@@ -1,7 +1,3 @@
-import {
-  collectionMenStaticProducts,
-  collectionWomenStaticProducts
-} from '@/contants/static-products'
 import { useCapitalize } from '@/lib/utils'
 // import Image from 'next/image'
 // import Link from 'next/link'
@@ -13,10 +9,10 @@ const Collection = ({
   direction: 'right' | 'left'
   collection: 'hombre' | 'mujer' | 'niño'
 }) => {
-  const products =
-    collection === 'hombre'
-      ? collectionMenStaticProducts
-      : collectionWomenStaticProducts
+  // const products =
+  //   collection === 'hombre'
+  //     ? collectionMenStaticProducts
+  //     : collectionWomenStaticProducts
 
   return (
     <section id={`${collection}-collection`}>
