@@ -2,31 +2,21 @@
 
 import { removeFromWishlist } from '@/lib/utils'
 import useWishlist from '@/stores/wishlist-store'
-import type { WPProduct } from '@/types'
+import type { ProductCard } from '@/types'
 import { Heart } from 'lucide-react'
 
-const WishlistHeart = ({ product }: { product: WPProduct }) => {
-  // State hook to access and update the wishlist items
+const WishlistHeart = ({ product }: { product: ProductCard }) => {
   const [count, setCount] = useWishlist()
-  // Check if the product is already in the wishlist
   const isWishlisted = count.some((obj) => obj.id === product.id)
 
-  /**
-   * Function to handle adding or removing a product from the wishlist
-   * @param {boolean} isWishlisted - Indicates whether the product is already in the wishlist
-   * @param {string} id - The ID of the product
-   * @param {WPProduct} product - The product object
-   */
   const handleWishlist = (
     isWishlisted: boolean,
     id: string,
-    product: WPProduct
+    product: ProductCard
   ) => {
     if (isWishlisted) {
-      // Remove the product from the wishlist
       setCount((prev) => removeFromWishlist(prev, id))
     } else {
-      // Add the product to the wishlist
       setCount((prev) => [...prev, product])
     }
   }
