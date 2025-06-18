@@ -1,57 +1,56 @@
 'use client'
 
-import { getImageForModel } from '@/lib/utils'
-import type { Related, Variations } from '@/types'
+import { getImageForModel, slugify } from '@/lib/utils'
+import type { Formats } from '@/types'
 import Image from 'next/image'
 import React from 'react'
 
 const ModelPicker = React.memo(
   ({
-    related,
+    formats,
     setModel
   }: {
-    related: Related | null
-    setModel: React.Dispatch<React.SetStateAction<Variations['nodes']>>
+    formats: Formats
+    setModel: React.Dispatch<React.SetStateAction<Formats[number]>>
   }) => {
     return (
       <div className='mt-3 mb-5 space-y-5'>
-        {/* Heading for the model picker */}
         <h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
-          4 Modelos
+          {formats.length} {formats.length > 1 ? 'Modelos' : 'Modelo'}
         </h5>
-        {/* Container for the model options */}
         <div className='flex-nowrap flex mt-1 gap-3'>
-          {/* Loop through the first 4 related products */}
-          {related?.nodes.slice(0, 4).map((product) => {
-            const image = getImageForModel(product.name)
+          {formats?.map((format) => {
+            const { title } = format
+            const formatTitle = title ? title : 'Modelo A'
+            const id = slugify(formatTitle)
+            const image = getImageForModel(formatTitle)
             return (
-              <React.Fragment key={product.id}>
-                {/* Model option component */}
-                <label className='block border hover:border-gray-500 w-1/4 h-auto has-checked:border-gray-900'>
-                  {/* Image for the model */}
+              <React.Fragment key={title}>
+                <label
+                  htmlFor={id}
+                  className='block border hover:border-gray-500 w-1/4 h-auto has-checked:border-gray-900'
+                >
                   <Image
                     src={image}
-                    alt={product.name}
-                    title={product.name}
+                    alt={formatTitle}
+                    title={formatTitle}
                     width={200}
                     height={200}
                     className='object-cover w-full h-full'
                     priority
                   />
-                  {/* Hidden radio button for the model */}
                   <input
                     type='radio'
-                    id={product.id}
-                    defaultValue={product.id}
-                    aria-label={product.id}
+                    id={id}
+                    defaultValue={id}
+                    aria-label={formatTitle}
                     name='model-selection'
                     className='sr-only'
                     onClick={() => {
-                      setModel(product.variations.nodes)
+                      setModel(format)
                     }}
                   />
-                  {/* Label for the model */}
-                  <span className='sr-only'>{product.name}</span>
+                  <span className='sr-only'>{formatTitle}</span>
                 </label>
               </React.Fragment>
             )
