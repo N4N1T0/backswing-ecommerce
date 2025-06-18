@@ -8,10 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write",
+    "typecheck": "tsc --noEmit",
     "typegen": "pnpm sanity schema extract && pnpm sanity typegen generate"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
+      "pnpm typecheck",
       "pnpm lint",
       "pnpm format"
     ]
