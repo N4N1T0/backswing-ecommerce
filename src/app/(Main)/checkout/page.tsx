@@ -1,6 +1,5 @@
 import Checkout from '@/components/checkout/checkout'
 import CheckoutTable from '@/components/checkout/checkout-table'
-import LastChance from '@/components/checkout/last-chance'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export default function CheckoutPage() {
         <CheckoutTable />
         <div className='flex flex-wrap justify-between'>
           <div className='w-full pr-4 mb-4 lg:w-1/2 space-y-5 '>
-            {/* Coupon */}
             <div className='flex flex-wrap items-center gap-4'>
               <span className='text-gray-700'>Aplicar Cupón</span>
               <input
@@ -31,9 +29,8 @@ export default function CheckoutPage() {
                 Aplicar
               </button>
             </div>
-            <LastChance />
+            {/* <LastChance /> */}
           </div>
-          {/* Checkout */}
           <Checkout />
         </div>
       </div>

@@ -31,7 +31,7 @@ export default async function SearchPage({
   // })
 
   return (
-    <main className='max-w-screen-3xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10'>
+    <main className='max-w-screen-2xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10'>
       {/* <div>
         <h1 className='text-2xl md:text-4xl font-semibold leading-9 text-gray-800 my-3 text-center md:text-left'>
           Pagina de Busqueda

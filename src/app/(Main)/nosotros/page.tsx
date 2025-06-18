@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NosotrosPage() {
   return (
-    <main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
+    <main className='max-w-screen-2xl mx-auto p-10 space-y-5'>
       <About />
       <Timeline />
       <Contacto />

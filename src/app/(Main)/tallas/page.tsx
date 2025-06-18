@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 export default function TallasPage() {
   return (
-    <main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
+    <main className='max-w-screen-2xl mx-auto p-10 space-y-5'>
       <h1 className='text-3xl text-center uppercase'>Tabla de Tallas</h1>
 
       <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4'>

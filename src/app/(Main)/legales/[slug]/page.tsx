@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <main className='max-w-screen-3xl mx-auto p-10 space-y-5'>
+    <main className='max-w-screen-2xl mx-auto p-10 space-y-5'>
       <h1 className='text-3xl text-center uppercase'>
         Términos y Condiciones de Uso
       </h1>

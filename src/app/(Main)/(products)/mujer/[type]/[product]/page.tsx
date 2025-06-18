@@ -1,3 +1,6 @@
+import ProductPageClient from '@/components/products/product-page'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_DESIGNS_BY_SLUG } from '@/sanity/queries'
 import { SearchParamsProductIDType } from '@/types'
 
 // export async function generateMetadata(
@@ -26,10 +29,11 @@ const ProductPage = async ({
 }) => {
   const { product } = await params
 
-  console.log('🚀 ~ product:', product)
-
-  // const productInfo = await getSingleProductById(params.product)
-  // return <ProductPageClient productInfo={productInfo} />
+  const productInfo = await sanityClientRead.fetch(GET_DESIGNS_BY_SLUG, {
+    slug: product
+  })
+  console.log('🚀 ~ productInfo:', productInfo)
+  return <ProductPageClient productInfo={productInfo} />
 }
 
 export default ProductPage

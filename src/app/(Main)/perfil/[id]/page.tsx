@@ -16,7 +16,7 @@ export default async function ProfilePage({
   console.log('🚀 ~ id:', id)
 
   return (
-    <main className='max-w-screen-3xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10 text-center'>
+    <main className='max-w-screen-2xl mx-auto p-5 md:p-10 space-y-5 md:space-y-10 text-center'>
       <Wishlist />
       <OrdersSummary />
     </main>
