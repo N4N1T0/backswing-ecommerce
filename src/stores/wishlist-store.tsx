@@ -1,5 +1,5 @@
 // Types Imports
-import type { Product } from '@/types'
+import type { ProductCard } from '@/types'
 
 // Package Imports
 import type { StateKey, StatePersistor } from 'swr-global-state'
@@ -11,7 +11,9 @@ import { createStore } from 'swr-global-state'
  * @template T The type of data to be persisted.
  * @returns The persistor.
  */
-const withLocalStoragePersistor = <T = Product[],>(): StatePersistor<T> => ({
+const withLocalStoragePersistor = <
+  T = ProductCard[],
+>(): StatePersistor<T> => ({
   /**
    * Saves the data to local storage.
    *

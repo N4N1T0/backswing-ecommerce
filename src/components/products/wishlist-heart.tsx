@@ -15,7 +15,10 @@ const WishlistHeart = ({ product }: { product: ProductCard }) => {
     product: ProductCard
   ) => {
     if (isWishlisted) {
-      setCount((prev) => removeFromWishlist(prev, id))
+      setCount((prev) => {
+        const filtered = removeFromWishlist(prev, id)
+        return filtered as typeof prev
+      })
     } else {
       setCount((prev) => [...prev, product])
     }

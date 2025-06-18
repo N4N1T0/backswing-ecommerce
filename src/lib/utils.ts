@@ -216,7 +216,7 @@ export const removeFromCart = (
  * @return {Array<Product | ProductCard>} The updated wishlist with the item removed.
  */
 export const removeFromWishlist = (
-  count: Array<Product | Product>,
+  count: Array<Product | ProductCard>,
   id: string
 ): Array<Product | ProductCard> => {
   return count.filter((item) => item.id !== id)
