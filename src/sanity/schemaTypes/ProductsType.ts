@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { tallas } from '@/contants'
 import { defineField, defineType } from 'sanity'
 
 export const productType = defineType({
@@ -49,11 +49,22 @@ export const productType = defineType({
       description: 'La oferta del producto.'
     }),
     defineField({
-      name: 'variants',
+      name: 'designs',
       type: 'array',
-      title: 'Variantes',
-      description: 'Las variantes del producto.',
-      of: [{ type: 'reference', to: [{ type: 'productVariant' }], weak: true }]
+      title: 'Diseños',
+      description: 'Los Diseños del producto.',
+      of: [{ type: 'reference', to: [{ type: 'productDesigns' }] }]
+    }),
+    defineField({
+      name: 'sizes',
+      type: 'array',
+      title: 'Tallas',
+      of: [{ type: 'string' }],
+      description: 'Tallas correspondientes del producto.',
+      options: {
+        layout: 'grid',
+        list: tallas
+      }
     }),
     defineField({
       name: 'content',

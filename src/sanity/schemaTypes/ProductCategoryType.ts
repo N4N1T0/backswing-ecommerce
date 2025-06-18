@@ -30,19 +30,6 @@ export const productCategoryType = defineType({
       }
     }),
     defineField({
-      name: 'link',
-      type: 'slug',
-      title: 'Enlace Principal',
-      description: 'El enlace de la categoría de producto.'
-    }),
-    defineField({
-      name: 'taxonomy',
-      type: 'string',
-      title: 'Taxonomía',
-      description: 'La taxonomía de la categoría de producto.',
-      initialValue: 'product_cat'
-    }),
-    defineField({
       name: 'main',
       type: 'boolean',
       title: 'Principal',
