@@ -1,83 +1,68 @@
 'use client'
 
-// Utils Imports
-import { findColorIndex } from '@/lib/utils'
-
-// Types Imports
-import type { WPProduct } from '@/types'
-
-// React Imports
+import { colorList } from '@/contants'
+import { cn } from '@/lib/utils'
+import type { Colors } from '@/types'
 import type React from 'react'
 
-/**
- * React component for rendering a color picker.
- *
- * @param {string[]} colors - Array of colors to display in the color picker.
- * @param {WPProduct['variations']} props.variations - Variations of the product.
- * @param {React.Dispatch<React.SetStateAction<number>>} props.setColor - Function to set the color.
- * @param {boolean} props.[isProductCard=false] - Flag indicating if the color picker is for a product card.
- */
 const ColorPicker = ({
-	colors,
-	setColor,
-	variations,
-	isProductCard = false,
+  colors,
+  setColor,
+  isProductCard = false
 }: {
-	colors: string[]
-	variations?: WPProduct['variations']
-	setColor?: React.Dispatch<React.SetStateAction<number>>
-	isProductCard?: boolean
+  colors: Colors
+  setColor?: React.Dispatch<React.SetStateAction<Colors[number]>>
+  isProductCard?: boolean
 }) => {
-	// Handles the color selection
-	const handleColorSelect = (color: string) => {
-		if (!variations) return
-		const index = findColorIndex(color, variations)
-		if (index !== -1 && setColor) {
-			setColor(index)
-		}
-	}
+  const handleColorSelect = (color: Colors[number]) => {
+    setColor?.(color)
+  }
 
-	// Returns the color picker component
-	return (
-		<div className='mt-3 mb-5 space-y-5'>
-			{/* Color picker title */}
-			{!isProductCard && (
-				<h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
-					{colors.length} Colores
-				</h5>
-			)}
+  return (
+    <div className='mt-3 mb-5 space-y-5'>
+      {!isProductCard && (
+        <h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
+          {colors.length} Colores
+        </h5>
+      )}
 
-			{/* Color picker fieldset */}
-			<fieldset
-				className={`${isProductCard ? 'gap-2' : 'gap-4'} flex flex-wrap justify-start items-center`}
-			>
-				{/* Renders each color option */}
-				{colors.map((color) => (
-					<label
-						key={color}
-						htmlFor={color}
-						className={`${isProductCard ? 'size-5 border cursor-none' : 'size-7 cursor-pointer hover:border-gray-700 has-checked:border-gray-900 border-2'} rounded-full block`}
-						style={{ backgroundColor: color }}
-						title={color}
-					>
-						<input
-							type='radio'
-							id={color}
-							value={color}
-							aria-label={color}
-							name='color-selection'
-							className='sr-only'
-							// Handles the color select event
-							onChange={() => {
-								handleColorSelect(color)
-							}}
-						/>
-						<span className='sr-only'>{color}</span>
-					</label>
-				))}
-			</fieldset>
-		</div>
-	)
+      <fieldset
+        className={`${isProductCard ? 'gap-2' : 'gap-4'} flex flex-wrap justify-start items-center`}
+      >
+        {colors.map((color) => {
+          const colorName = color.title ? color.title.toLowerCase() : 'color'
+
+          return (
+            <label
+              key={colorName}
+              htmlFor={colorName}
+              className={cn(
+                'size-7 hover:border-gray-700 has-checked:border-gray-900 border-2 rounded-full block',
+                isProductCard && 'size-5'
+              )}
+              style={{
+                backgroundColor: colorList[colorName as keyof typeof colorList]
+              }}
+              title={colorName}
+            >
+              <input
+                type='radio'
+                id={colorName}
+                value={colorName}
+                aria-label={colorName}
+                name='color-selection'
+                className='sr-only'
+                onChange={() => {
+                  handleColorSelect(color)
+                }}
+              />
+              <span className='sr-only'>{colorName}</span>
+            </label>
+          )
+        })}
+      </fieldset>
+    </div>
+  )
 }
 
 export default ColorPicker
