@@ -10,6 +10,7 @@ import {
   CircleDollarSign,
   Filter,
   Heart,
+  Paintbrush,
   ShoppingBasket,
   Sparkle,
   StickyNote,
@@ -79,13 +80,16 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('wishlistType')
                 .title('Listas de Deseos')
                 .icon(() => <Heart className='h-4 w-4' />),
-              S.divider(),
-              S.documentTypeListItem('productVariant')
-                .title('Variantes de Productos')
-                .icon(() => <BarChart className='h-4 w-4' />),
               S.documentTypeListItem('noStockNotifyMe')
                 .title('No Stock Notificarme')
-                .icon(() => <Bell className='h-4 w-4' />)
+                .icon(() => <Bell className='h-4 w-4' />),
+              S.divider(),
+              S.documentTypeListItem('productDesigns')
+                .title('Diseño de Productos')
+                .icon(() => <Paintbrush className='h-4 w-4' />),
+              S.documentTypeListItem('formats')
+                .title('Formatos de Diseños')
+                .icon(() => <BarChart className='h-4 w-4' />)
             ])
         ),
       S.listItem()
