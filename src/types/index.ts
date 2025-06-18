@@ -1,3 +1,8 @@
+import { tallas } from '@/contants'
+import {
+  GET_DESIGNS_BY_SLUGResult,
+  GET_PRODUCTS_BY_CATEGORYResult
+} from '@/sanity/types'
 import type { StaticImageData } from 'next/image'
 
 export interface WPPost {
@@ -15,35 +20,26 @@ export interface WPPost {
   }
 }
 
-export interface WPProduct {
-  id: string
-  image: {
-    sourceUrl: string
-  }
-  name: string
-  price: string
-  date: string
-  onSale: boolean
-  content: string
-  variations: Variations
-  productCategories: Categories
-  attributes: Attributes
-  upsell: Related
-}
+export type Product = GET_DESIGNS_BY_SLUGResult
+export type ProductCard = GET_PRODUCTS_BY_CATEGORYResult['designs'][number]
+export type Colors = ProductCard['colors'] | Product['format'][number]['colors']
+export type Formats = Product['format']
+export type Sizes = (typeof tallas)[number]
 
 export interface StaticWPProducts
-  extends Omit<WPProduct, 'upsell' | 'content' | 'variations' | 'attributes'> {
+  extends Omit<Product, 'upsell' | 'content' | 'variations' | 'attributes'> {
   title: string
 }
 
 export interface CartItem {
   id: string
   talla: string
-  model: Variations['nodes'][0]
-  parsedPrice: string
-  parsedName: string
+  format: Omit<Product['format'][number], 'colors'> & { color: Colors[number] }
+  price: number | null
+  offer: number | null
+  title: string | null
   quantity: number
-  description: string
+  excerpt: string | null
 }
 
 export interface Variations {
@@ -120,7 +116,7 @@ export interface PersonalizationProducts {
 export interface OramaHit {
   id: string
   score: number
-  document: WPProduct
+  document: Product
 }
 
 export type SearchParamsProductType = Promise<{
