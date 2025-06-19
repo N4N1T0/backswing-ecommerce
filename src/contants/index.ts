@@ -59,7 +59,9 @@ export const footerItems = [
 ]
 
 // Tallas for the Product Page
-export const tallas = ['xxs', 'xs', 's', 'm', 'l', 'xl', '2xl', '3xl']
+export const tallasCamisetas = ['xs', 's', 'm', 'l', 'xl', '2xl']
+export const tallasSudaderas = ['5-6', '7-8', '9-11', '12-14']
+export const tallasSudaderasNiños = ['6', '8', '10', '12']
 
 // Items for the PreFooter
 export const medioAmbiente = [
