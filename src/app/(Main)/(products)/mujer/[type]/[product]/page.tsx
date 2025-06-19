@@ -32,7 +32,6 @@ const ProductPage = async ({
   const productInfo = await sanityClientRead.fetch(GET_DESIGNS_BY_SLUG, {
     slug: product
   })
-  console.log('🚀 ~ productInfo:', productInfo)
   return <ProductPageClient productInfo={productInfo} />
 }
 
