@@ -1,4 +1,8 @@
-import { tallas } from '@/contants'
+import {
+  tallasCamisetas,
+  tallasSudaderas,
+  tallasSudaderasNiños
+} from '@/contants'
 import { defineField, defineType } from 'sanity'
 
 export const productType = defineType({
@@ -63,7 +67,7 @@ export const productType = defineType({
       description: 'Tallas correspondientes del producto.',
       options: {
         layout: 'grid',
-        list: tallas
+        list: [...tallasCamisetas, ...tallasSudaderas, ...tallasSudaderasNiños]
       }
     }),
     defineField({
