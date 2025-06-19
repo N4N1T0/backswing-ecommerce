@@ -1,10 +1,12 @@
-import { tallas } from '@/contants'
+import { Sizes } from '@/types'
 import { memo } from 'react'
 
 const ProductsTallas = ({
+  tallas,
   setTalla,
   selectedTalla
 }: {
+  tallas: Sizes[] | null
   setTalla: React.Dispatch<React.SetStateAction<string>>
   selectedTalla: string
 }) => {
@@ -18,30 +20,31 @@ const ProductsTallas = ({
         8 Tallas
       </legend>
       {/* Render a label for each talla */}
-      {tallas.map((talla) => (
-        <label
-          key={talla}
-          htmlFor={talla}
-          className={`cursor-pointer text-lg hover:text-gray-500 transition-colors duration-200 px-1 ${
-            selectedTalla === talla
-              ? 'bg-gray-900 text-gray-100 pointer-events-none'
-              : 'text-gray-900'
-          }`}
-        >
-          <input
-            type='radio'
-            id={talla}
-            value={talla}
-            aria-label={talla}
-            onChange={handleChange}
-            name='size-selection'
-            className='sr-only'
-            checked={selectedTalla === talla}
-          />
-          {/* Display the talla name */}
-          {talla}
-        </label>
-      ))}
+      {tallas &&
+        tallas.map((talla) => (
+          <label
+            key={talla}
+            htmlFor={talla}
+            className={`cursor-pointer text-lg hover:text-gray-500 transition-colors duration-200 px-1 ${
+              selectedTalla === talla
+                ? 'bg-gray-900 text-gray-100 pointer-events-none'
+                : 'text-gray-900'
+            }`}
+          >
+            <input
+              type='radio'
+              id={talla}
+              value={talla}
+              aria-label={talla}
+              onChange={handleChange}
+              name='size-selection'
+              className='sr-only'
+              checked={selectedTalla === talla}
+            />
+            {/* Display the talla name */}
+            {talla}
+          </label>
+        ))}
     </fieldset>
   )
 }
