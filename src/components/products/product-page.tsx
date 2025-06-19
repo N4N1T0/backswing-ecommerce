@@ -97,7 +97,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
   const hasOffer = !!offer
 
   // STATE
-  const [talla, seTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
+  const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
   const [designFormat, setDesignFormat] = useState(format[0])
   const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
 
@@ -177,7 +177,11 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
             )}
             <ModelPicker formats={format} setModel={setDesignFormat} />
             <ColorPicker colors={designFormat.colors} setColor={setColors} />
-            <ProductsTallas setTalla={seTalla} selectedTalla={talla} />
+            <ProductsTallas
+              tallas={sizes}
+              setTalla={setTalla}
+              selectedTalla={talla}
+            />
             <Quantity product={cartItem} />
           </div>
           <AccordionProducts />
