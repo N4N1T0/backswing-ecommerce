@@ -1,23 +1,33 @@
+import ProductPageClient from '@/components/products/product-page'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_DESIGNS_BY_SLUG } from '@/sanity/queries'
 import { SearchParamsProductIDType } from '@/types'
+import { Metadata } from 'next'
 
-// export async function generateMetadata(
-//   { params }: { params: { product: string } },
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   const productInfo = await getSingleProductById(params.product)
-//   const previousImages = (await parent).openGraph?.images || []
+export async function generateMetadata({
+  params
+}: {
+  params: SearchParamsProductIDType
+}): Promise<Metadata> {
+  const { product } = await params
+  const productInfo = await sanityClientRead.fetch(
+    GET_DESIGNS_BY_SLUG,
+    {
+      slug: product
+    },
+    {
+      cache: 'force-cache',
+      next: {
+        revalidate: 3600
+      }
+    }
+  )
 
-//   return {
-//     title: productInfo.name,
-//     description: productInfo.content,
-//     openGraph: {
-//       images: [
-//         productInfo.variations.nodes[0].image.sourceUrl,
-//         ...previousImages
-//       ]
-//     }
-//   }
-// }
+  return {
+    title: productInfo.title,
+    description: productInfo.excerpt
+  }
+}
 
 const ProductPage = async ({
   params
@@ -26,10 +36,20 @@ const ProductPage = async ({
 }) => {
   const { product } = await params
 
-  console.log('🚀 ~ product:', product)
+  const productInfo = await sanityClientRead.fetch(
+    GET_DESIGNS_BY_SLUG,
+    {
+      slug: product
+    },
+    {
+      cache: 'force-cache',
+      next: {
+        revalidate: 3600
+      }
+    }
+  )
 
-  // const productInfo = await getSingleProductById(params.product)
-  // return <ProductPageClient productInfo={productInfo} />
+  return <ProductPageClient productInfo={productInfo} />
 }
 
 export default ProductPage
