@@ -5,7 +5,7 @@ import { eurilize, slugify } from '@/lib/utils'
 import { Colors, type Product, type Sizes } from '@/types'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import AccordionProducts from './accordion-products'
 
 // LAZY LOADING
@@ -100,6 +100,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
   const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
   const [designFormat, setDesignFormat] = useState(format[0])
   const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
+  console.log('🚀 ~ ProductPageClient ~ colors:', colors)
 
   // CONST
   const cartItem = useMemo(
@@ -127,6 +128,13 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
       excerpt
     ]
   )
+
+  useEffect(() => {
+    const colorsIndex = designFormat.colors.findIndex(
+      (c) => c.title === colors.title
+    )
+    setColors(designFormat.colors[colorsIndex])
+  }, [colors.title, designFormat])
 
   return (
     <section className='relative' id={slugify(title)}>
