@@ -34,9 +34,9 @@ const ProductCard = React.memo(
         >
           <div className='relative w-full h-full aspect-square'>
             <Image
-              src={images?.images[0].url || SquarePlaceholder}
+              src={images?.images[1].url || SquarePlaceholder}
               blurDataURL={
-                images?.images[0].blur || SquarePlaceholder.blurDataURL
+                images?.images[1].blur || SquarePlaceholder.blurDataURL
               }
               placeholder='blur'
               fill
