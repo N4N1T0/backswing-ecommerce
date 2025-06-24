@@ -16,8 +16,7 @@ export const GET_USER_FOR_AUTH =
 }`)
 
 export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
-  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2
-][0] {
+  _type == "product" && productCategories[]->slug.current match $type][0] {
   "designs": designs[]->{
     "id": _id,
     "slug": slug.current,
