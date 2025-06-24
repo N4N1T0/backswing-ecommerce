@@ -1,7 +1,7 @@
 'use client'
 
 import { SquarePlaceholder } from '@/assets/placeholder'
-import { cn, eurilize } from '@/lib/utils'
+import { cn, eurilize, getRandomNumber } from '@/lib/utils'
 import type { Colors, ProductCard } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,9 +22,12 @@ const ProductCard = React.memo(
     // CONST
     const { colors, offer, price, title, slug } = product
     const hasOffer = !!offer
+    const pseudoIndex = getRandomNumber()
 
     // STATE
-    const [images, setImages] = useState<Colors[number]>(colors && colors[0])
+    const [images, setImages] = useState<Colors[number]>(
+      colors && colors[pseudoIndex]
+    )
 
     return (
       <div className='block'>
