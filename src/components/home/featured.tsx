@@ -1,9 +1,21 @@
 // import { newProducts as products } from '@/contants/static-products'
 // import { parseStaticProductContent } from '@/lib/utils'
 // import Image from 'next/image'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_PRODUCTS_BY_CATEGORY } from '@/sanity/queries'
 import Link from 'next/link'
+import ProductCard from '../products/product-card'
 
-const Featured = () => {
+const Featured = async () => {
+  const type = ['sudaderas', 'mujer']
+  const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
+    type: type
+  })
+
+  const formattedProducts = products.designs
+    .filter((design) => design.colors)
+    .slice(0, 4)
+
   return (
     <section id='featured'>
       <div className='mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
@@ -30,39 +42,17 @@ const Featured = () => {
             </div>
           </div>
           <div className='lg:col-span-2 xl:col-span-3 lg:py-8'>
-            {/* <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
-              {products.map((product) => {
-                const { id, image, parsedPrice, parsedName } =
-                  parseStaticProductContent(product)
-
-                return (
-                  <li key={product.id} className='relative group'>
-                    <Link
-                      href={`/sudaderas/${id}`}
-                      className='flex justify-center items-center bg-linear-to-r from-[#A8A8A8] from-50% to-50% to-white'
-                    >
-                      <Image
-                        src={image.sourceUrl}
-                        alt={parsedName}
-                        title={parsedName}
-                        width={500}
-                        height={500}
-                        loading='lazy'
-                        className='aspect-square w-full object-scale-down h-auto'
-                      />
-                    </Link>
-                    <div className='mt-3'>
-                      <h3 className='font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4'>
-                        {parsedName}
-                      </h3>
-                      <p className='mt-1 text-sm text-gray-700'>
-                        {parsedPrice}
-                      </p>
-                    </div>
-                  </li>
-                )
-              })}
-            </ul> */}
+            <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
+              {formattedProducts.map((product, index) => (
+                <li key={product.id} className='relative group'>
+                  <ProductCard
+                    product={product}
+                    route='mujer/camisetas'
+                    priority={index}
+                  />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
