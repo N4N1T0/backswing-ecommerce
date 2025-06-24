@@ -100,7 +100,6 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
   const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
   const [designFormat, setDesignFormat] = useState(format[0])
   const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
-  console.log('🚀 ~ ProductPageClient ~ colors:', colors)
 
   // CONST
   const cartItem = useMemo(
