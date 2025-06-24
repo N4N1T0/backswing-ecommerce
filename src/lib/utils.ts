@@ -66,7 +66,7 @@ export const accordionPathname = (
   const crumbs = pathname.split('/').filter(Boolean)
 
   // Filter the labels array to only include labels that match the first crumb of the pathname
-  return labels.filter((label) => label === useCapitalize(crumbs[0]))
+  return labels.filter((label) => label === capitalize(crumbs[0]))
 }
 
 /**
@@ -150,7 +150,7 @@ export const useEuros = Intl.NumberFormat('es-ES', {
  * @param {string} word - The word to be capitalized.
  * @return {string} The capitalized word.
  */
-export const useCapitalize = (word: string): string => {
+export const capitalize = (word: string): string => {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 }
 
@@ -241,4 +241,13 @@ export const verifyPassword = (
     DIGEST
   ).toString('hex')
   return hash === originalHash
+}
+
+/**
+ * Returns either 0 or 1 randomly.
+ *
+ * @return {number} A random integer that is either 0 or 1.
+ */
+export const getRandomNumber = (): number => {
+  return Math.floor(Math.random() * 2)
 }
