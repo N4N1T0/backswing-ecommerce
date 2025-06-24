@@ -1,18 +1,27 @@
-import { useCapitalize } from '@/lib/utils'
-// import Image from 'next/image'
-// import Link from 'next/link'
+import ProductCard from '@/components/products/product-card'
+import { capitalize } from '@/lib/utils'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_PRODUCTS_BY_CATEGORY } from '@/sanity/queries'
 
-const Collection = ({
+const Collection = async ({
   direction,
   collection
 }: {
   direction: 'right' | 'left'
   collection: 'hombre' | 'mujer' | 'niño'
 }) => {
-  // const products =
-  //   collection === 'hombre'
-  //     ? collectionMenStaticProducts
-  //     : collectionWomenStaticProducts
+  const type = ['camisetas', collection]
+  const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
+    type: type
+  })
+
+  if (!products) {
+    return null
+  }
+
+  const formattedProducts = products.designs
+    .filter((design) => design.colors)
+    .slice(0, 4)
 
   return (
     <section id={`${collection}-collection`}>
@@ -23,7 +32,7 @@ const Collection = ({
           }`}
         >
           <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>
-            {useCapitalize(collection)}
+            {capitalize(collection)}
           </h2>
           <p
             className={`${
@@ -35,43 +44,15 @@ const Collection = ({
         </header>
 
         <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-          {/* {products.map((product) => {
-            const { category, gender, id, image, parsedName, parsedPrice } =
-              parseStaticProductContent(product)
-
-            return (
-              <li key={product.id} className='relative'>
-                <Link
-                  href={`/${gender?.toLocaleLowerCase()}/${category?.toLocaleLowerCase()}/${id}`}
-                  className='group block overflow-hidden bg-linear-to-r from-[#A8A8A8] from-50% to-50% to-white'
-                >
-                  <Image
-                    src={image.sourceUrl}
-                    alt={parsedName}
-                    title={parsedName}
-                    width={350}
-                    height={450}
-                    loading='lazy'
-                    className='w-full h-auto object-contain transition-transform ease-out duration-300 group-hover:scale-105 aspect-square'
-                  />
-
-                  <div className='relative bg-white pt-3'>
-                    <h3 className='text-gray-700 group-hover:underline group-hover:underline-offset-4 uppercase font-medium'>
-                      {parsedName}
-                    </h3>
-
-                    <p className='mt-2'>
-                      <span className='sr-only'>Regular Price</span>
-
-                      <span className='tracking-wider text-gray-900'>
-                        {parsedPrice}
-                      </span>
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            )
-          })} */}
+          {formattedProducts.map((product, index) => (
+            <li key={product.id} className='relative'>
+              <ProductCard
+                product={product}
+                route={`${collection}/camisetas`}
+                priority={index}
+              />
+            </li>
+          ))}
         </ul>
       </div>
     </section>
