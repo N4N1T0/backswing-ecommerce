@@ -14,6 +14,8 @@ const ColorPicker = ({
   setColor?: React.Dispatch<React.SetStateAction<Colors[number]>>
   isProductCard?: boolean
 }) => {
+  if (!colors) return null
+
   const handleColorSelect = (color: Colors[number]) => {
     setColor?.(color)
   }
