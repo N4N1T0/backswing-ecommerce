@@ -18,9 +18,9 @@ const Timeline = () => {
             </div>
           </div>
           <p className='mb-16 text-base text-center text-gray-500'>
-            En nuestras tiendas, nos enorgullece ofrecerte camisetas de alta
-            calidad con los mejores diseños. Nuestro proceso comienza contigo,
-            inspirando cada creación.
+            En Backswing trabajamos con una metodología clara y orientada a la
+            experiencia del cliente. Queremos que el proceso sea tan ágil como
+            efectivo:
           </p>
         </div>
       </div>
@@ -32,7 +32,6 @@ const Timeline = () => {
             <li className='relative mb-6 sm:mb-0' key={item.title}>
               <div className='flex items-center'>
                 <div className='z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0'>
-                  {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
                   <div dangerouslySetInnerHTML={{ __html: item.image }} />
                 </div>
                 <div className='hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700' />

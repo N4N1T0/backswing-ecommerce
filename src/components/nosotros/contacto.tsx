@@ -10,10 +10,10 @@ const Contacto = () => {
         {/* Section title */}
         <div className='mb-10 text-left'>
           <h2 className='pb-1 mb-1 text-xl font-bold text-gray-800 md:text-3xl'>
-            Quieres mantener el contacto
+            Contáctenos
           </h2>
           <p className='text-sm'>
-            Nuestro equipo de podrá contestar cualquier pregunta que necesites
+            ¿Quieres colaborar con nosotros o necesitas ayuda con tu compra?
           </p>
         </div>
         {/* Contact info grid */}
@@ -90,7 +90,7 @@ const Contacto = () => {
           </div>
 
           {/* Contact form */}
-          <div className='w-full px-4 lg:w-1/2'>
+          <div className='w-full lg:w-1/2'>
             <ContactForm />
           </div>
         </div>
