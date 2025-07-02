@@ -348,7 +348,7 @@
                       "optional": true
                     }
                   },
-                  "dereferencesTo": "product"
+                  "dereferencesTo": "productDesigns"
                 },
                 "optional": true
               },
@@ -359,7 +359,14 @@
                 },
                 "optional": true
               },
-              "selectedOption": {
+              "format": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "color": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
@@ -1272,13 +1279,6 @@
         "optional": true
       },
       "password": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "userName": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
