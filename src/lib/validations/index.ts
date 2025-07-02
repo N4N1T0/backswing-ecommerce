@@ -12,11 +12,7 @@ export function validateContactInfo(customer: Partial<Costumer> | null) {
   // If creating account, also need username and password
   if (!customer.isGuest) {
     return (
-      hasRequiredFields &&
-      customer.userName &&
-      customer.userName.trim() !== '' &&
-      customer.password &&
-      customer.password.trim() !== ''
+      hasRequiredFields && customer.password && customer.password.trim() !== ''
     )
   }
 
@@ -26,7 +22,7 @@ export function validateContactInfo(customer: Partial<Costumer> | null) {
 export function validateAddress(address: Partial<Address>): boolean {
   if (!address) return false
 
-  const requiredFields = ['street', 'city', 'state', 'zipCode']
+  const requiredFields = ['address1', 'city', 'state', 'postcode']
   return requiredFields.every((field) => {
     const value = address[field as keyof Address]
     return value && String(value).trim() !== ''
