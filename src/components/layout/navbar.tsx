@@ -2,7 +2,6 @@ import Logo from '@/assets/82f78b35-02e0-4783-aa65-b1b40b34ed51.png'
 import Announcement from '@/components/layout/annoucement'
 import MobileMenuSheet from '@/components/layout/mobile-menu-sheet'
 import MobileSearch from '@/components/layout/mobile-search'
-import ProfilePopup from '@/components/layout/profile-popup'
 import Search from '@/components/layout/search'
 import ShoppingCartSheet from '@/components/layout/shopping-cart-sheet'
 import { navItems } from '@/contants'
@@ -58,7 +57,7 @@ const Navbar = () => {
               <Search />
             </div>
             <MobileSearch />
-            <ProfilePopup />
+            {/* <ProfilePopup /> */}
             <ShoppingCartSheet />
           </div>
         </div>
