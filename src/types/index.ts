@@ -4,8 +4,11 @@ import {
   tallasSudaderasNiños
 } from '@/contants'
 import {
+  Address,
+  Costumer,
   GET_DESIGNS_BY_SLUGResult,
-  GET_PRODUCTS_BY_CATEGORYResult
+  GET_PRODUCTS_BY_CATEGORYResult,
+  Order
 } from '@/sanity/types'
 import type { StaticImageData } from 'next/image'
 
@@ -37,6 +40,30 @@ export type Sizes = (
 export interface StaticWPProducts
   extends Omit<Product, 'upsell' | 'content' | 'variations' | 'attributes'> {
   title: string
+}
+
+export interface OrderTotalsProps {
+  orderSummary: Order
+  discountPercentage: number
+}
+
+export interface ContactInformationProps {
+  customer: Partial<Costumer> | null
+  onCustomerChange: (_customer: Partial<Costumer>) => void
+}
+
+export interface BillingAddressProps {
+  address: Partial<Address>
+  onAddressChange: (_address: Partial<Address>) => void
+}
+
+export type OrderSummaryType = {
+  products: CartItem[]
+  subtotal: number
+  shipping: number
+  tax: number
+  discount: number
+  total: number
 }
 
 export interface CartItem {
@@ -77,16 +104,6 @@ export interface Related {
     id: string
     variations: Variations
   }>
-}
-
-export interface User {
-  nodes: Costumer[]
-}
-
-export interface Costumer {
-  email: string
-  id: string
-  username: string
 }
 
 export interface ParsedConstent {
