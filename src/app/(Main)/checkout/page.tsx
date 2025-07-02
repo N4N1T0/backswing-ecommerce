@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: 'Checkout'
 }
 
-export default function CheckoutPage() {
+export default async function CheckoutPage() {
   return <CheckoutPageClient />
 }
