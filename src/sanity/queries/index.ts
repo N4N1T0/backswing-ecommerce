@@ -15,6 +15,33 @@ export const GET_USER_FOR_AUTH =
   },
 }`)
 
+export const GET_COSTUMER_BY_ID =
+  defineQuery(`*[_type == "customer" && _id == $customerId][0]{
+        _id,
+        email,
+        firstName,
+        lastName,
+        userName,
+        IdDocument,
+        companyName,
+        isGuest,
+        isPayingCustomer,
+        billingAddress {
+          street,
+          apartment,
+          city,
+          state,
+          zipCode
+        },
+        shippingAddresses[] {
+          street,
+          apartment,
+          city,
+          state,
+          zipCode
+        }
+      }`)
+
 export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
   _type == "product" && productCategories[]->slug.current match $type][0] {
   "designs": designs[]->{
@@ -48,11 +75,24 @@ export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
     "format": formats[]->{
       title,
       "colors": color[]{
-      "title": name,
-      "images": images[].asset->{
-        "url": url,
-        "blur": metadata.lqip,
+        "title": name,
+        "images": images[].asset->{
+          "url": url,
+          "blur": metadata.lqip,
+        }
       }
-    }
-  },
+    },
+}`)
+
+export const GET_COUPONS_FOR_VALIDATION = defineQuery(`*[
+  _type == "coupon" && code == $code
+][0]{
+  "id": _id,
+  code,
+  discount,
+  discount_type,
+  expires_at,
+  usage_limit,
+  usage_count,
+  active
 }`)
