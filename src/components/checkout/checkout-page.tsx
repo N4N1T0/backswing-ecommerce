@@ -1,5 +1,6 @@
 import { auth } from '@/auth'
 import CheckoutCostumerPart from './costumer-part'
+import CheckoutPaymentPart from './payment-part'
 
 export default async function CheckoutPageClient() {
   const session = await auth()
@@ -11,7 +12,7 @@ export default async function CheckoutPageClient() {
 
         <div className='grid lg:grid-cols-2 gap-8'>
           <CheckoutCostumerPart session={session} />
-          {/* <CheckoutPaymentPart /> */}
+          <CheckoutPaymentPart session={session} />
         </div>
       </div>
     </div>
