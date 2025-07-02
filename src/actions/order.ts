@@ -1,55 +1,113 @@
 'use server'
 
-import { Address } from '@/sanity/types'
+// import { createRedirectForm } from '@/lib/clients/redsys'
+import { sanityClientWrite } from '@/sanity/lib/client'
+import { GET_COSTUMER_BY_ID } from '@/sanity/queries'
+import { Order } from '@/sanity/types'
+import { CartItem } from '@/types'
+import { uuid } from '@sanity/uuid'
 import { revalidatePath } from 'next/cache'
+// import {
+//   CURRENCIES,
+//   LANGUAGES,
+//   TRANSACTION_TYPES,
+//   randomTransactionId
+// } from 'redsys-easy'
 
-export interface CreateOrderData {
-  userEmail: string
-  products: Array<{
-    productId: string
-    quantity: number
-    selectedOption?: string
-  }>
-  totalAmount: number
-  paymentMethod: string
-  shippingAddress?: Address
-  discountCoupon?: string
-}
+// const merchantInfo = {
+//   DS_MERCHANT_MERCHANTCODE: process.env.REDSYS_MERCHANT_CODE!,
+//   DS_MERCHANT_TERMINAL: process.env.REDSYS_TERMINAL!,
+//   DS_MERCHANT_TRANSACTIONTYPE: TRANSACTION_TYPES.AUTHORIZATION
+// }
 
-export async function createOrder(data: CreateOrderData) {
+// const currency = 'EUR'
+
+export async function paymentLogic(
+  paymentType: FormDataEntryValue | null,
+  totalAmount: number,
+  userId: string | null,
+  products: CartItem[],
+  newAddress: string | string[] | undefined,
+  discountCoupon: string | undefined
+  // shipping: number | undefined
+) {
+  const orderId = uuid()
+  const templateRedirectUrl = (page: string, gateway: string = 'RedSys') => {
+    return `${process.env.NEXT_PUBLIC_URL}/${page}?orderId=${orderId}&gateway=${gateway}`
+  }
+
   try {
-    console.log('Creating order:', data)
+    // CREATE PENDING ORDER IN SANITY
+    await orderCreation(
+      orderId,
+      products,
+      userId,
+      newAddress,
+      totalAmount,
+      paymentType,
+      discountCoupon
+    )
 
-    // Simulate API call to Sanity
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    // CREATE REDSYS FORM
+    // if (paymentType === 'tarjeta') {
+    //   const currencyInfo = CURRENCIES[currency]
+    //   const redsysAmount = new Number(totalAmount).toFixed(2)
+    //   const redsysCurrency = currencyInfo.num
 
-    // Mock order creation - replace with actual Sanity integration
-    const order = {
-      _id: `order_${Date.now()}`,
-      userEmail: data.userEmail,
-      products: data.products,
-      totalAmount: data.totalAmount,
-      purchaseDate: new Date().toISOString(),
-      paymentMethod: data.paymentMethod,
-      status: 'pendiente',
-      shippingAddress: data.shippingAddress,
-      discountCoupon: data.discountCoupon
+    //   const form = createRedirectForm({
+    //     ...merchantInfo,
+    //     DS_MERCHANT_ORDER: orderId,
+    //     DS_MERCHANT_AMOUNT: redsysAmount,
+    //     DS_MERCHANT_CURRENCY: redsysCurrency,
+    //     DS_MERCHANT_MERCHANTURL: templateRedirectUrl('api/redsys'),
+    //     DS_MERCHANT_URLOK: templateRedirectUrl('exito'),
+    //     DS_MERCHANT_URLKO: templateRedirectUrl('fallo'),
+    //     DS_MERCHANT_TRANSACTIONDATE: new Date().toISOString(),
+    //     DS_MERCHANT_CONSUMERLANGUAGE: LANGUAGES.es,
+    //     DS_MERCHANT_SHIPPINGADDRESSPYP: 'S',
+    //     DS_MERCHANT_MERCHANTNAME: 'Termogar'
+    //   })
+
+    //   return {
+    //     success: true,
+    //     data: form
+    //   }
+    // }
+
+    // CREATE TRANSFER ORDER
+    if (paymentType === 'transferencia') {
+      return {
+        success: true,
+        data: templateRedirectUrl('exito', 'transferencia')
+      }
     }
 
-    revalidatePath('/orders')
+    // CREATE PAYPAL ORDER
+    // if (paymentType === 'paypal') {
+    //   const redirectUrl = await paypal.createOrder(
+    //     products,
+    //     templateRedirectUrl,
+    //     totalAmount,
+    //     discountCoupon,
+    //     shipping
+    //   )
 
-    return {
-      success: true,
-      data: order,
-      message: 'Orden creada exitosamente',
-      orderId: order._id
-    }
-  } catch (error) {
-    console.error('Error creating order:', error)
+    //   return {
+    //     success: true,
+    //     data: redirectUrl
+    //   }
+    // }
+
+    // INVALID PAYMENT TYPE
     return {
       success: false,
-      error: 'Error al crear la orden',
-      message: 'Hubo un problema al procesar su pedido. Inténtelo de nuevo.'
+      data: null
+    }
+  } catch (error) {
+    console.error('🚀 ~ error:', error)
+    return {
+      success: false,
+      data: null
     }
   }
 }
@@ -118,4 +176,68 @@ export async function validateCoupon(couponCode: string) {
       error: 'Error al validar el cupón'
     }
   }
+}
+
+export const orderCreation = async (
+  orderId: string,
+  products: CartItem[],
+  userId: string | null,
+  newAddress: string | string[] | undefined,
+  total: number,
+  gateway: FormDataEntryValue | null,
+  discountCoupon: string | undefined
+) => {
+  const user = await sanityClientWrite.fetch(GET_COSTUMER_BY_ID, {
+    customerId: userId
+  })
+
+  const address =
+    newAddress === 'true'
+      ? user?.shippingAddresses && user.shippingAddresses.length > 0
+        ? [user.shippingAddresses[0]]
+        : undefined
+      : user?.billingAddress
+        ? [user.billingAddress]
+        : undefined
+
+  const refactoredProducts: Order['products'] = products.map(
+    ({ id, quantity, format: { color, title } }) => ({
+      product: {
+        _ref: id,
+        _type: 'reference' as const
+      },
+      color: color.title || '',
+      format: title || '',
+      quantity,
+      _key: uuid()
+    })
+  )
+
+  const order: Order = {
+    _id: orderId,
+    status: 'procesando',
+    paymentMethod: gateway?.toString() || '',
+    _type: 'order',
+    _createdAt: new Date().toISOString(),
+    _updatedAt: new Date().toISOString(),
+    _rev: orderId,
+    purchaseDate: new Date().toISOString(),
+    totalAmount: Number(total),
+    products: refactoredProducts,
+    userEmail: {
+      _ref: user?._id || '',
+      _type: 'reference' as const
+    },
+    shippingAddress: address,
+    discountCoupon: discountCoupon
+      ? {
+          _ref: discountCoupon || '',
+          _type: 'reference' as const
+        }
+      : undefined
+  }
+
+  await sanityClientWrite.createIfNotExists(order, {
+    autoGenerateArrayKeys: true
+  })
 }
