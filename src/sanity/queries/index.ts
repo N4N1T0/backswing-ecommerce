@@ -16,7 +16,7 @@ export const GET_USER_FOR_AUTH =
 }`)
 
 export const GET_COSTUMER_BY_ID =
-  defineQuery(`*[_type == "customer" && _id == $customerId][0]{
+  defineQuery(`*[_type == "costumer" && _id == $customerId][0]{
         _id,
         email,
         firstName,
@@ -26,21 +26,46 @@ export const GET_COSTUMER_BY_ID =
         companyName,
         isGuest,
         isPayingCustomer,
-        billingAddress {
-          street,
-          apartment,
+        billingAddress[0] {
+          address1,
+          address2,
           city,
           state,
-          zipCode
+          postcode
         },
         shippingAddresses[] {
-          street,
-          apartment,
+          address1,
+          address2,
           city,
           state,
-          zipCode
+          postcode
         }
       }`)
+
+export const GET_ORDER_BY_ID = defineQuery(`*[_type =='order' && _id == $id][0]{
+  "id": _id,
+  purchaseDate,
+  status,
+  paymentMethod,
+  totalAmount,
+  "shippingAddress": shippingAddress[0],
+  "gateway": paymentMethod,
+  discountCoupon->{
+    code,
+    discount,
+    discount_type,
+    "id": _id
+  },
+  "user": userEmail->{
+  _id,
+  firstName,
+  firstName,
+  companyName,
+  IdDocument,
+  email,
+  "billingAddress": billingAddress[0],
+  },
+}`)
 
 export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
   _type == "product" && productCategories[]->slug.current match $type][0] {
