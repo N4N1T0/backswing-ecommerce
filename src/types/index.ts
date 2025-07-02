@@ -10,6 +10,7 @@ import {
   GET_PRODUCTS_BY_CATEGORYResult,
   Order
 } from '@/sanity/types'
+import { SanityDocument } from 'next-sanity'
 import type { StaticImageData } from 'next/image'
 
 export interface WPPost {
@@ -47,6 +48,19 @@ export interface OrderTotalsProps {
   discountPercentage: number
 }
 
+export interface OrderSummaryProps {
+  handleCouponApplied: (_discount: number, _couponCode?: string) => void
+  discountPercentage: number
+  disabled?: boolean
+}
+
+export interface ShippingAddressProps {
+  address: Partial<Address>
+  onAddressChange: (_address: Partial<Address>) => void
+  differentShipping: boolean
+  setDifferentShipping: (_value: boolean) => void
+}
+
 export interface ContactInformationProps {
   customer: Partial<Costumer> | null
   onCustomerChange: (_customer: Partial<Costumer>) => void
@@ -61,7 +75,6 @@ export type OrderSummaryType = {
   products: CartItem[]
   subtotal: number
   shipping: number
-  tax: number
   discount: number
   total: number
 }
@@ -168,3 +181,78 @@ export interface Error {
 export type BlogPost = Promise<{
   post: string
 }>
+
+export interface OrderByWebhook {
+  orderNumber: string
+  totalAmount: string
+  purchaseDate: string
+  products: Array<SanityDocument<Record<string, unknown>>>
+  gateway: string
+  user: {
+    IdDocument: string
+    _id: string
+    billingAddress: {
+      _key?: string
+      address1: string
+      address2: string
+      city: string
+      postcode: string
+      state: string
+      phone: string
+    }
+    companyName: string
+    email: string
+    firstName: string
+    lastName: string
+    password: null
+  }
+  iva: string
+  shippingAddress: Address
+  discountCoupon: {
+    code: string
+    discount: number
+    discount_type: 'percentage' | 'fixed'
+  } | null
+}
+
+export interface GET_ORDER_BY_ID_Result {
+  discountCoupon: {
+    code: string | null
+    discount: number | null
+    discount_type: 'fixed' | 'percentage' | null
+    id: string
+  } | null
+  gateway: string
+  id: string
+  status: string
+  totalAmount: string
+  paymentMethod: string
+  purchaseDate: string
+  shippingAddress: {
+    _key?: string
+    address1: string
+    address2: string
+    city: string
+    postcode: string
+    phone: string
+    state: string
+  }
+  user: {
+    IdDocument: string
+    _id: string
+    billingAddress: {
+      _key?: string
+      address1: string
+      address2: string
+      city: string
+      postcode: string
+      state: string
+      phone: string
+    }
+    companyName: string
+    email: string
+    firstName: string
+    lastName: string
+    password: null
+  }
+}
