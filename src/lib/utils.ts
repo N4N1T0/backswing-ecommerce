@@ -23,6 +23,32 @@ export const cn = (...inputs: ClassValue[]): string => {
 }
 
 /**
+ * Creates a debounced version of a function that delays its execution until after
+ * a specified wait time has elapsed since the last time it was invoked.
+ *
+ * @param func - The function to debounce
+ * @param wait - The number of milliseconds to delay
+ * @returns A debounced version of the input function
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function debounce<T extends (..._args: any[]) => void>(
+  func: T,
+  wait: number
+): (..._args: Parameters<T>) => void {
+  let timeoutId: NodeJS.Timeout | undefined
+
+  return function (...args: Parameters<T>) {
+    const later = () => {
+      clearTimeout(timeoutId)
+      func(...args)
+    }
+
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(later, wait)
+  }
+}
+
+/**
  * A utility function that formats a number as a Euro currency string.
  *
  * @param {number} number - The number to be formatted as Euro currency.
