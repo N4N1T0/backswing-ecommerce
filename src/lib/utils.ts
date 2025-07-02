@@ -1,6 +1,6 @@
 import { ModelA, ModelC, ModelD, ModelE } from '@/assets/models/index'
 import ProductCard from '@/components/products/product-card'
-import type { CartItem, Product } from '@/types'
+import type { CartItem, GET_ORDER_BY_ID_Result, Product } from '@/types'
 import { type ClassValue, clsx } from 'clsx'
 import { pbkdf2Sync } from 'crypto'
 import type { StaticImageData } from 'next/image'
@@ -59,9 +59,12 @@ export function debounce<T extends (..._args: any[]) => void>(
  * eurilize(50.5) // "€50.50"
  * eurilize(12345.6789) // "€12,345.68"
  */
-export function eurilize(number: number | null): string {
+export function eurilize(number: number | null | string): string {
   if (number === null) return ''
-  return number.toLocaleString('de-DE', {
+
+  const formattedNumber = Number(number)
+
+  return formattedNumber.toLocaleString('de-DE', {
     style: 'currency',
     currency: 'EUR'
   })
@@ -150,15 +153,15 @@ export const checkNew = (date: string): boolean => {
  * @return {StaticImageData} The image component for the product if it exists, null otherwise.
  */
 export const getImageForModel = (productName: string): StaticImageData => {
-  const modelName = productName.split(' ').pop()
+  const modelName = productName.split(' ').shift()
   switch (modelName) {
-    case 'A':
+    case 'FA':
       return ModelA
-    case 'E':
+    case 'FE':
       return ModelE
-    case 'D':
+    case 'FD':
       return ModelD
-    case 'C':
+    case 'FC':
       return ModelC
     default:
       return ModelA
@@ -276,4 +279,54 @@ export const verifyPassword = (
  */
 export const getRandomNumber = (): number => {
   return Math.floor(Math.random() * 2)
+}
+
+export const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+}
+
+export const getStatusText = (status: string) => {
+  const statusMap = {
+    pendiente: 'Pendiente',
+    completado: 'Completado',
+    cancelado: 'Cancelado',
+    procesando: 'Procesando'
+  }
+  return statusMap[status as keyof typeof statusMap] || status
+}
+
+export const getStatusColor = (status: string) => {
+  const colorMap = {
+    pendiente: 'text-yellow-600',
+    completado: 'text-green-600',
+    cancelado: 'text-red-600',
+    procesando: 'text-blue-600'
+  }
+  return colorMap[status as keyof typeof colorMap] || 'text-gray-600'
+}
+
+export const calculateSubtotal = (products: CartItem[]) => {
+  return products.reduce(
+    (sum, product) =>
+      sum + (product.offer || product.price || 0) * product.quantity,
+    0
+  )
+}
+
+export const calculateDiscount = (
+  coupon: GET_ORDER_BY_ID_Result['discountCoupon'],
+  subtotal: number
+) => {
+  if (!coupon || !coupon?.discount) return 0
+
+  if (coupon.discount_type === 'percentage') {
+    return (subtotal * (coupon.discount ? coupon.discount : 1)) / 100
+  }
+  return coupon.discount ? coupon.discount : 0
 }
