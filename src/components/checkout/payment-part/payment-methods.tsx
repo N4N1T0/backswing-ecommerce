@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { cn } from '@/lib/utils'
 import { CreditCard, ExternalLink } from 'lucide-react'
 
 interface PaymentMethodsProps {
@@ -18,63 +19,69 @@ export function PaymentMethods({
 }: PaymentMethodsProps) {
   return (
     <Card
-      className={`border-2 border-black ${disabled ? 'opacity-50' : 'bg-white'}`}
+      className={cn(
+        'border border-black pt-0',
+        disabled ? 'opacity-50' : 'bg-white'
+      )}
     >
-      <CardHeader className='border-b-2 border-black bg-gray-300'>
+      <CardHeader className='border-b border-black bg-gray-300 pt-5'>
         <CardTitle className='flex items-center gap-2 text-xl text-black'>
           <CreditCard className='h-5 w-5' />
           Método de Pago
         </CardTitle>
       </CardHeader>
-      <CardContent className='p-6 space-y-4 bg-white'>
+      <CardContent className='px-6 space-y-4 bg-white'>
         <RadioGroup
           value={paymentMethod}
           onValueChange={onPaymentMethodChange}
           disabled={disabled}
         >
           <div
-            className={`flex items-center space-x-2 p-4 border-2 border-gray-400 ${disabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
+            className={cn(
+              'flex items-center space-x-2 p-4 border border-gray-400',
+              'bg-gray-100 select-none pointer-events-none opacity-50'
+            )}
           >
             <RadioGroupItem
               value='tarjeta'
               id='tarjeta'
-              className='border-2 border-black'
-              disabled={disabled}
+              className='border border-black'
+              disabled={true}
             />
-            <Label
-              htmlFor='tarjeta'
-              className='flex-1 text-black font-medium cursor-pointer'
-            >
+            <Label htmlFor='tarjeta' className='flex-1 text-black font-medium'>
               Tarjeta de Crédito/Débito
             </Label>
             <ExternalLink className='h-4 w-4 text-gray-500' />
           </div>
 
           <div
-            className={`flex items-center space-x-2 p-4 border-2 border-gray-400 ${disabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
+            className={cn(
+              'flex items-center space-x-2 p-4 border border-gray-400',
+              'bg-gray-100 select-none pointer-events-none opacity-50'
+            )}
           >
             <RadioGroupItem
               value='paypal'
               id='paypal'
-              className='border-2 border-black'
-              disabled={disabled}
+              className='border border-black'
+              disabled={true}
             />
-            <Label
-              htmlFor='paypal'
-              className='flex-1 text-black font-medium cursor-pointer'
-            >
+            <Label htmlFor='paypal' className='flex-1 text-black font-medium'>
               PayPal
             </Label>
             <ExternalLink className='h-4 w-4 text-gray-500' />
           </div>
 
           <div
-            className={`flex items-center space-x-2 p-4 border-2 border-gray-400 ${disabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'}`}
+            className={cn(
+              'flex items-center space-x-2 p-4 border border-gray-400',
+              disabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'
+            )}
           >
             <RadioGroupItem
               value='transferencia'
               id='transferencia'
-              className='border-2 border-black'
+              className='border border-black'
               disabled={disabled}
             />
             <div className='flex-1'>

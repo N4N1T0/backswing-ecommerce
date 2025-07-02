@@ -29,13 +29,13 @@ export function BillingAddress({
 
   return (
     <Card className='border-black bg-white pt-0'>
-      <CardHeader className='border-b-2 border-black bg-gray-100 pt-5 rounded-t-2xl'>
+      <CardHeader className='border-b border-black bg-gray-200 pt-5'>
         <CardTitle className='flex items-center gap-2 text-xl text-black'>
           <MapPin className='h-5 w-5' />
           Dirección de Facturación
         </CardTitle>
       </CardHeader>
-      <CardContent className='p-6 space-y-4 bg-white'>
+      <CardContent className='px-6 space-y-4 bg-white'>
         <div>
           <Label
             htmlFor='billingStreet'
@@ -96,7 +96,11 @@ export function BillingAddress({
               </SelectTrigger>
               <SelectContent className='bg-white border-black'>
                 {comunidadesAutonomas.map((comunidad) => (
-                  <SelectItem key={comunidad} value={comunidad}>
+                  <SelectItem
+                    key={comunidad}
+                    value={comunidad}
+                    className='hover:gray-200'
+                  >
                     {comunidad}
                   </SelectItem>
                 ))}

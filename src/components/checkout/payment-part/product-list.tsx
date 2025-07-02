@@ -50,9 +50,9 @@ const ProductItem = memo(function ProductItem({
   const formattedPrice = offer ? offer : price
   return (
     <div
-      className={`flex items-center gap-4 p-4 border-2 border-gray-300 ${disabled ? 'bg-gray-200 opacity-50' : 'bg-gray-50'}`}
+      className={`flex items-center gap-4 p-4 border border-gray-300 ${disabled ? 'bg-gray-200 opacity-50' : 'bg-gray-50'}`}
     >
-      <div className='w-16 h-16 bg-gray-300 border-2 border-gray-400'>
+      <div className='w-16 h-16 bg-gray-300 border border-gray-400'>
         <Image
           src={format.color.images[0].url || SquarePlaceholder}
           placeholder='blur'
@@ -76,7 +76,7 @@ const ProductItem = memo(function ProductItem({
           variant='outline'
           onClick={handleDecrease}
           disabled={disabled || quantity <= 1}
-          className='h-8 w-8 p-0 border-2 border-gray-400 hover:bg-gray-100 bg-transparent'
+          className='h-8 w-8 p-0 border border-gray-400 hover:bg-gray-100 bg-transparent'
         >
           <Minus className='h-3 w-3' />
         </Button>
@@ -86,7 +86,7 @@ const ProductItem = memo(function ProductItem({
           variant='outline'
           onClick={handleIncrease}
           disabled={disabled}
-          className='h-8 w-8 p-0 border-2 border-gray-400 hover:bg-gray-100 bg-transparent'
+          className='h-8 w-8 p-0 border border-gray-400 hover:bg-gray-100 bg-transparent'
         >
           <Plus className='h-3 w-3' />
         </Button>
@@ -101,7 +101,7 @@ const ProductItem = memo(function ProductItem({
         variant='outline'
         onClick={handleDelete}
         disabled={disabled}
-        className='h-8 w-8 p-0 border-2 border-red-400 hover:bg-red-50 text-red-600 bg-transparent'
+        className='h-8 w-8 p-0 border border-red-400 hover:bg-red-50 text-red-600 bg-transparent'
       >
         <Trash2 className='h-3 w-3' />
       </Button>

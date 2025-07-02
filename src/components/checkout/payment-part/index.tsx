@@ -1,16 +1,53 @@
+'use client'
+
+import { paymentLogic } from '@/actions/order'
 import { Button } from '@/components/ui/button'
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { useCallback, useState, useTransition } from 'react'
+import { Loader2 } from 'lucide-react'
+import { Session } from 'next-auth'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useCallback, useMemo, useState, useTransition } from 'react'
+import { RedirectForm } from 'redsys-easy'
+import { toast } from 'sonner'
+import { RedsysPaymentForm } from '../redsys-payment-form'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
 
-export default function CheckoutPaymentPart() {
+export default function CheckoutPaymentPart({
+  session
+}: {
+  session: Session | null
+}) {
+  // URL PARAMS
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
   // STATE
-  const [paymentMethod, setPaymentMethod] = useState('tarjeta')
+  const [paymentMethod, setPaymentMethod] = useState('transferencia')
   const [discountPercentage, setDiscountPercentage] = useState(0)
   const [appliedCoupon, setAppliedCoupon] = useState<string>()
+  const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
   const [products] = useShoppingCart()
   const [isPending, startTransition] = useTransition()
+
+  // COMPUTED VALUES
+  const canProceed = useMemo(() => {
+    const customerId = session
+      ? session.user?.id
+      : searchParams.get('customerId')
+    const differentShipping = searchParams.get('differentShipping')
+    return !!(customerId && differentShipping !== null)
+  }, [searchParams, session])
+
+  // CONST
+  const customerId = searchParams.get('customerId')
+  const differentShipping = searchParams.get('differentShipping') === 'true'
+  const totalAmount = products.reduce(
+    (sum, product) =>
+      sum +
+      (product.offer ? product.offer : product.price || 0) * product.quantity,
+    0
+  )
 
   // HANDLERS
   const handleCouponApplied = useCallback(
@@ -26,67 +63,65 @@ export default function CheckoutPaymentPart() {
 
     startTransition(async () => {
       try {
-        // First create or update customer
-        let customerId = urlParams.userId
+        const currentCustomerId = customerId
 
-        if (!customerId) {
-          const customerResult = await createCustomer({
-            email: customer.email!,
-            firstName: customer.firstName!,
-            lastName: customer.lastName!,
-            password: customer.password,
-            userName: customer.userName,
-            IdDocument: customer.IdDocument,
-            companyName: customer.companyName,
-            billingAddress: billingAddress as Address,
-            shippingAddresses: differentShipping
-              ? [shippingAddress as Address]
-              : [],
-            isGuest: customer.isGuest!
-          })
-
-          if (!customerResult.success) {
-            alert(customerResult.message)
-            return
-          }
-
-          customerId = customerResult.data?._id
+        if (!currentCustomerId) {
+          console.log('No customer ID provided, proceeding as guest')
         }
 
-        // Create order
-        const orderResult = await createOrder({
-          userEmail: customer.email!,
-          products: products.map((p) => ({
-            productId: p.id,
-            quantity: p.quantity
-          })),
-          totalAmount: 200,
+        const orderResult = await paymentLogic(
           paymentMethod,
-          shippingAddress: differentShipping
-            ? (shippingAddress as Address)
-            : (billingAddress as Address),
-          discountCoupon: appliedCoupon
-        })
+          totalAmount,
+          currentCustomerId,
+          products,
+          differentShipping ? 'true' : 'false',
+          appliedCoupon
+        )
+        console.log('🚀 ~ startTransition ~ orderResult:', orderResult)
 
-        if (orderResult.success) {
-          // Redirect based on payment method
-          const redirectUrls = {
-            tarjeta: `/payment/card?orderId=${orderResult.orderId}`,
-            paypal: `/payment/paypal?orderId=${orderResult.orderId}`,
-            transferencia: `/payment/transfer?orderId=${orderResult.orderId}`
-          }
+        if (orderResult.data === null) {
+          toast.error('Error al realizar el pago, por favor intente de nuevo')
+          return
+        }
 
-          window.location.href =
-            redirectUrls[paymentMethod as keyof typeof redirectUrls]
-        } else {
-          alert(orderResult.message)
+        if (
+          paymentMethod === 'transferencia' &&
+          orderResult.success &&
+          orderResult.data !== null
+        ) {
+          router.push(orderResult.data as unknown as string)
+        }
+
+        if (
+          paymentMethod === 'tarjeta' &&
+          orderResult.success &&
+          orderResult.data !== null
+        ) {
+          setPaymentForm(orderResult.data as unknown as RedirectForm)
+        }
+
+        if (
+          paymentMethod === 'paypal' &&
+          orderResult.success &&
+          orderResult.data !== null
+        ) {
+          window.location.href = orderResult.data as unknown as string
         }
       } catch (error) {
         console.error('Error placing order:', error)
         alert('Hubo un error al procesar su pedido. Inténtelo de nuevo.')
       }
     })
-  }, [paymentMethod, appliedCoupon, products])
+  }, [
+    canProceed,
+    customerId,
+    paymentMethod,
+    totalAmount,
+    products,
+    differentShipping,
+    appliedCoupon,
+    router
+  ])
 
   return (
     <div className='space-y-6' id='order-summary'>
@@ -121,13 +156,14 @@ export default function CheckoutPaymentPart() {
         ) : products.length === 0 ? (
           'Carrito Vacío'
         ) : (
-          `Realizar Pedido - $${200}`
+          `Realizar Pedido - $${totalAmount}`
         )}
       </Button>
 
       <div className='text-center text-sm text-gray-600 p-4 bg-gray-100 border-2 border-gray-300'>
         <p>Al realizar el pedido, acepta nuestros términos y condiciones</p>
       </div>
+      <RedsysPaymentForm form={paymentForm} />
     </div>
   )
 }

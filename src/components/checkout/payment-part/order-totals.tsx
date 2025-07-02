@@ -13,7 +13,7 @@ export function OrderTotals({
   discountPercentage
 }: OrderTotalsProps) {
   return (
-    <div className='space-y-2 p-4 bg-gray-50 border-2 border-gray-300'>
+    <div className='space-y-2 p-4 bg-gray-50 border border-gray-300'>
       <div className='flex justify-between text-gray-700'>
         <span>Subtotal</span>
         <span>${orderSummary.subtotal.toFixed(2)}</span>
@@ -21,10 +21,6 @@ export function OrderTotals({
       <div className='flex justify-between text-gray-700'>
         <span>Envío</span>
         <span>${orderSummary.shipping.toFixed(2)}</span>
-      </div>
-      <div className='flex justify-between text-gray-700'>
-        <span>Impuestos</span>
-        <span>${orderSummary.tax.toFixed(2)}</span>
       </div>
       {discountPercentage > 0 && (
         <div className='flex justify-between text-green-600'>

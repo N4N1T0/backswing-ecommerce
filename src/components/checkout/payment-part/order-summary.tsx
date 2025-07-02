@@ -2,17 +2,13 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { calculateSubtotal, cn } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
+import { OrderSummaryProps } from '@/types'
 import { useMemo } from 'react'
 import { CouponSection } from './coupon-section'
 import { OrderTotals } from './order-totals'
 import { ProductList } from './product-list'
-
-interface OrderSummaryProps {
-  handleCouponApplied: (_discount: number, _couponCode?: string) => void
-  discountPercentage: number
-  disabled?: boolean
-}
 
 export function OrderSummary({
   handleCouponApplied,
@@ -22,21 +18,15 @@ export function OrderSummary({
   const [products] = useShoppingCart()
 
   const orderSummary = useMemo(() => {
-    const subtotal = products.reduce(
-      (sum, product) =>
-        sum + (product.offer || product.price || 0) * product.quantity,
-      0
-    )
-    const shipping = 15.99
-    const tax = subtotal * 0.16 // IVA México
+    const subtotal = calculateSubtotal(products)
+    const shipping = subtotal < 50 ? 10 : 0
     const discount = subtotal * discountPercentage
-    const total = subtotal + shipping + tax - discount
+    const total = subtotal + shipping - discount
 
     return {
       products,
       subtotal,
       shipping,
-      tax,
       discount,
       total
     }
@@ -44,9 +34,9 @@ export function OrderSummary({
 
   return (
     <Card
-      className={`border-2 border-black ${disabled ? 'opacity-50' : 'bg-white'}`}
+      className={cn('border-black pt-0', disabled ? 'opacity-50' : 'bg-white')}
     >
-      <CardHeader className='border-b-2 border-black bg-gray-400'>
+      <CardHeader className='border-b border-black bg-gray-300 pt-5'>
         <CardTitle className='text-xl text-black'>Resumen del Pedido</CardTitle>
         {disabled && (
           <p className='text-sm text-gray-600'>
@@ -54,7 +44,7 @@ export function OrderSummary({
           </p>
         )}
       </CardHeader>
-      <CardContent className='p-6 space-y-4 bg-white'>
+      <CardContent className='px-6 space-y-4 bg-white'>
         <ProductList disabled={disabled} />
 
         <Separator className='bg-black h-0.5' />

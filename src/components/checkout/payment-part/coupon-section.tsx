@@ -41,7 +41,7 @@ export const CouponSection = memo(function CouponSection({
 
   return (
     <div
-      className={`space-y-3 p-4 border-2 border-gray-300 ${disabled ? 'bg-gray-200' : 'bg-gray-100'}`}
+      className={`space-y-3 p-4 border border-gray-300 ${disabled ? 'bg-gray-200' : 'bg-gray-100'}`}
     >
       <Label htmlFor='coupon' className='text-black font-medium'>
         Código de Cupón
@@ -52,13 +52,13 @@ export const CouponSection = memo(function CouponSection({
           value={couponCode}
           onChange={(e) => setCouponCode(e.target.value)}
           placeholder='Ingresa el código de cupón'
-          className='border-2 border-gray-400 focus:border-black bg-white'
+          className='border border-gray-400 focus:border-black bg-white rounded-none'
           disabled={disabled || isPending}
         />
         <Button
           onClick={handleCouponValidation}
           disabled={disabled || isPending || !couponCode.trim()}
-          className='bg-black text-white hover:bg-gray-800 border-2 border-black disabled:opacity-50'
+          className='bg-black text-white hover:bg-gray-800 border border-black disabled:opacity-50 rounded-none'
         >
           {isPending ? <Loader2 className='h-4 w-4 animate-spin' /> : 'Aplicar'}
         </Button>
