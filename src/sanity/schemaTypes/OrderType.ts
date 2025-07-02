@@ -1,5 +1,5 @@
-import { defineType, defineField } from 'sanity'
 import { getIconForOrder } from '@/sanity/lib/utils'
+import { defineField, defineType } from 'sanity'
 
 export const orderType = defineType({
   name: 'order',
@@ -26,7 +26,7 @@ export const orderType = defineType({
               name: 'product',
               title: 'Producto',
               type: 'reference',
-              to: [{ type: 'product' }],
+              to: [{ type: 'productDesigns' }],
               description: 'El producto comprado.'
             }),
             defineField({
@@ -36,10 +36,16 @@ export const orderType = defineType({
               description: 'Cantidad del producto comprado.'
             }),
             defineField({
-              name: 'selectedOption',
-              title: 'Opción Seleccionada',
+              name: 'format',
+              title: 'Formato',
               type: 'string',
-              description: 'Opción seleccionada del producto.'
+              description: 'Formato del producto.'
+            }),
+            defineField({
+              name: 'color',
+              title: 'Color',
+              type: 'string',
+              description: 'Color del producto.'
             })
           ],
           preview: {

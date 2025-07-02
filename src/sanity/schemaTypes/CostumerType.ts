@@ -1,5 +1,5 @@
 import { UserRoundPlus } from 'lucide-react'
-import { defineType, defineField } from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const costumerType = defineType({
   name: 'costumer',
@@ -27,11 +27,6 @@ export const costumerType = defineType({
       title: 'Contraseña',
       type: 'string',
       readOnly: true
-    }),
-    defineField({
-      name: 'userName',
-      title: 'Nombre de Usuario',
-      type: 'string'
     }),
     defineField({
       name: 'IdDocument',
