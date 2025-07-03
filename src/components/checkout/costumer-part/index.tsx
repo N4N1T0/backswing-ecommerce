@@ -137,6 +137,7 @@ export default function CheckoutCostumerPart({
         isGuest: customer.isGuest || false
       }
 
+      // Use the new processCustomerCheckout action that handles duplicates
       const result = await processCustomerCheckout(customerData, customer._id)
 
       if (result.success && result.data) {
@@ -155,10 +156,7 @@ export default function CheckoutCostumerPart({
             ?.scrollIntoView({ behavior: 'smooth' })
         }, 100)
       } else {
-        toast.error(
-          result.message ||
-            'Error processing customer information. Please try again.'
-        )
+        toast.error(result.message || 'Error processing customer information. Please try again.')
         console.error('Error processing customer:', result.error)
       }
     } catch (error) {
