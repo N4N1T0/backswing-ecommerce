@@ -2,7 +2,6 @@
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 import Google from 'next-auth/providers/google'
-import { loginSchema } from './lib/schemas/login'
 import { verifyPassword } from './lib/utils'
 import { sanityClientWrite } from './sanity/lib/client'
 import { GET_USER_FOR_AUTH } from './sanity/queries'
@@ -27,7 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
       },
       authorize: async (credentials) => {
-        const { email, password } = await loginSchema.parseAsync(credentials)
+        const { email, password } = credentials
 
         const user = await sanityClientWrite.fetch(GET_USER_FOR_AUTH, { email })
 
