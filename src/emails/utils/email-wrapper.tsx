@@ -41,10 +41,13 @@ export function EmailWrapper({
         }}
       >
         <Preview>{previewText}</Preview>
-        <Body className='bg-white font-sans'>
-          <Container className='mx-auto py-5 max-w-[600px]'>
+        <Body className='bg-gray-100 font-sans'>
+          <Container
+            className='mx-auto py-5 max-w-[600px]'
+            style={{ border: '1px solid #e5e7eb' }}
+          >
             <EmailHeader />
-            <div className='px-5'>{children}</div>
+            <div className='px-5 py-2 bg-white'>{children}</div>
             <EmailFooter />
           </Container>
         </Body>
@@ -57,11 +60,11 @@ function EmailHeader() {
   return (
     <Section className='py-5 text-center'>
       <Row>
-        <Column>
+        <Column align='center'>
           <Img
-            src='https://res.cloudinary.com/backswing/image/upload/v1692867886/backswing/logo/logo-black.svg'
+            src='https://backswing-ecommerce.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F82f78b35-02e0-4783-aa65-b1b40b34ed51.902bdb05.png&w=64&q=75&dpl=dpl_6WYhFqtuP9fUKpJ52YbxGBx1j9Kw'
             width='120'
-            height='40'
+            height='60'
             alt='Logo de Backswing'
             className='mx-auto mb-2'
           />
