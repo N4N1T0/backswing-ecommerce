@@ -20,9 +20,10 @@ const ProductCard = React.memo(
     priority: number
   }) => {
     // CONST
-    const { colors, offer, price, title, slug } = product
+    const { colors, offer, price, title, slug, commingSoon } = product
     const hasOffer = !!offer
     const pseudoIndex = getRandomNumber()
+    const isCommingSoon = !!commingSoon
 
     // STATE
     const [images, setImages] = useState<Colors[number]>(
@@ -30,7 +31,20 @@ const ProductCard = React.memo(
     )
 
     return (
-      <div className='block'>
+      <div className='block relative'>
+        {isCommingSoon && (
+          <div className='absolute size-full inset-0 z-50 bg-gray-100 opacity-50 border border-gray-400'></div>
+        )}
+        {hasOffer && !isCommingSoon && (
+          <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
+            Oferta
+          </p>
+        )}
+        {isCommingSoon && (
+          <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
+            Próximamente
+          </p>
+        )}
         <Link
           href={`/${route}/${slug}`}
           className='relative h-[200px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] overflow-hidden block group'
@@ -50,18 +64,13 @@ const ProductCard = React.memo(
               sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
               className={cn(
                 'aspect-square object-center transition-transform duration-500 ease-in-out group-hover:scale-125 h-auto w-auto z-40',
-                hasOffer && 'relative'
+                isCommingSoon && 'cursor-not-allowed'
               )}
             />
           </div>
-          {hasOffer && (
-            <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
-              Oferta
-            </p>
-          )}
         </Link>
 
-        <div className='relative pt-3'>
+        <div className='relative pt-3 px-1.5 pb-1'>
           <div className='w-full flex justify-between items-center'>
             <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
               {title}
