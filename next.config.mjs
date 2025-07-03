@@ -12,7 +12,11 @@ const nextConfig = {
         hostname: 'i.postimg.cc'
       }
     ]
-  }
+  },
+  allowedDevOrigins: [
+    'http://localhost:3000',
+    'https://immune-coyote-rested.ngrok-free.app'
+  ]
 }
 
 export default nextConfig
