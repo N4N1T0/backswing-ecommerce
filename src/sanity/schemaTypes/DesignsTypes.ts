@@ -19,6 +19,13 @@ export const DesignsType = defineType({
       description: 'El código de referencia del producto.'
     }),
     defineField({
+      name: 'commingSoon',
+      type: 'boolean',
+      title: 'Próximamente',
+      description: 'El producto está disponible próximamente.',
+      initialValue: false
+    }),
+    defineField({
       name: 'formats',
       type: 'array',
       title: 'Formatos',
