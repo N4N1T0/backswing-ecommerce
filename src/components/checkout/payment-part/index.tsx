@@ -1,3 +1,5 @@
+'use client'
+
 import { paymentLogic } from '@/actions/order'
 import { Button } from '@/components/ui/button'
 import useShoppingCart from '@/stores/shopping-cart-store'
@@ -5,18 +7,16 @@ import { Loader2 } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useTransition } from 'react'
 import { toast } from 'sonner'
-import { PaymentForm } from '../redsys-payment-form'
+// import { RedsysPaymentForm } from '../redsys-payment-form'
+import { Session } from 'next-auth'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
 
-// Types
-type RedirectForm = {
-  action: string
-  method: string
-  fields: Record<string, string>
-}
-
-export default function CheckoutPaymentPart() {
+export default function CheckoutPaymentPart({
+  session
+}: {
+  session: Session | null
+}) {
   // URL PARAMS
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -28,14 +28,16 @@ export default function CheckoutPaymentPart() {
   const [products] = useShoppingCart()
   const [isPending, startTransition] = useTransition()
   const [loading, setLoading] = useState(false)
-  const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
+  // const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
 
   // COMPUTED VALUES
   const canProceed = useMemo(() => {
-    const customerId = searchParams.get('customerId')
+    const customerId = session
+      ? session.user?.id
+      : searchParams.get('customerId')
     const differentShipping = searchParams.get('differentShipping')
     return !!(customerId && differentShipping !== null)
-  }, [searchParams])
+  }, [searchParams, session])
 
   // CONST
   const customerId = searchParams.get('customerId')
@@ -92,23 +94,23 @@ export default function CheckoutPaymentPart() {
           router.push(orderResult.data as unknown as string)
         }
 
-        if (
-          paymentMethod === 'tarjeta' &&
-          orderResult.success &&
-          orderResult.data !== null
-        ) {
-          setLoading(false)
-          setPaymentForm(orderResult.data as RedirectForm)
-        }
+        // if (
+        //   paymentMethod === 'tarjeta' &&
+        //   orderResult.success &&
+        //   orderResult.data !== null
+        // ) {
+        //   setLoading(false)
+        //   setPaymentForm(orderResult.data as RedirectForm)
+        // }
 
-        if (
-          paymentMethod === 'paypal' &&
-          orderResult.success &&
-          orderResult.data !== null
-        ) {
-          setLoading(false)
-          window.location.href = orderResult.data as unknown as string
-        }
+        // if (
+        //   paymentMethod === 'paypal' &&
+        //   orderResult.success &&
+        //   orderResult.data !== null
+        // ) {
+        //   setLoading(false)
+        //   window.location.href = orderResult.data as unknown as string
+        // }
       } catch (error) {
         console.error('Error placing order:', error)
         setLoading(false)
@@ -122,7 +124,8 @@ export default function CheckoutPaymentPart() {
     totalAmount,
     products,
     differentShipping,
-    appliedCoupon
+    appliedCoupon,
+    router
   ])
 
   return (
@@ -165,7 +168,7 @@ export default function CheckoutPaymentPart() {
       <div className='text-center text-sm text-gray-600 p-4 bg-gray-100 border-2 border-gray-300'>
         <p>Al realizar el pedido, acepta nuestros términos y condiciones</p>
       </div>
-      <PaymentForm form={paymentForm} />
+      {/* <RedsysPaymentForm form={paymentForm} /> */}
     </div>
   )
 }
