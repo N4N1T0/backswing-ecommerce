@@ -70,6 +70,7 @@ export const GET_ORDER_BY_ID = defineQuery(`*[_type =='order' && _id == $id][0]{
 export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
   _type == "product" && productCategories[]->slug.current match $type][0] {
   "designs": designs[]->{
+    commingSoon,
     "id": _id,
     "slug": slug.current,
     title,
