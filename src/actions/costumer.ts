@@ -27,13 +27,6 @@ export async function processCustomerCheckout(
   existingCustomerId?: string
 ) {
   try {
-    console.log(
-      'Processing customer checkout:',
-      data,
-      'existingId:',
-      existingCustomerId
-    )
-
     let result
     let customerId: string
 
@@ -124,7 +117,7 @@ export async function createCustomer(data: CreateCustomerData) {
         ? [{ ...data.billingAddress, _key: uuid() }]
         : [],
       shippingAddresses: data.shippingAddresses
-        ? data.shippingAddresses.map(addr => ({ ...addr, _key: uuid() }))
+        ? data.shippingAddresses.map((addr) => ({ ...addr, _key: uuid() }))
         : [],
       isGuest: data.isGuest,
       isPayingCustomer: false,
@@ -157,8 +150,6 @@ export async function updateCustomer(
   data: Partial<CreateCustomerData>
 ) {
   try {
-    console.log('Updating customer:', customerId, data)
-
     const updateData: any = {}
 
     if (data.email) updateData.email = data.email
