@@ -7,7 +7,7 @@ import ShoppingCartSheet from '@/components/layout/shopping-cart-sheet'
 import { navItems } from '@/contants'
 import Image from 'next/image'
 import Link from 'next/link'
-import ProfilePopup from './profile-popup'
+import { UserPopup } from './auth/user-popup'
 
 const Navbar = () => {
   return (
@@ -58,7 +58,7 @@ const Navbar = () => {
               <Search />
             </div>
             <MobileSearch />
-            <ProfilePopup />
+            <UserPopup />
             <ShoppingCartSheet />
           </div>
         </div>
