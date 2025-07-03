@@ -2,10 +2,11 @@ import { ModelA, ModelC, ModelD, ModelE } from '@/assets/models/index'
 import ProductCard from '@/components/products/product-card'
 import type { CartItem, GET_ORDER_BY_ID_Result, Product } from '@/types'
 import { type ClassValue, clsx } from 'clsx'
-import { pbkdf2Sync } from 'crypto'
+import { pbkdf2Sync, randomBytes } from 'crypto'
 import type { StaticImageData } from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
+const SALT_LENGTH = 16 // Length of the salt
 const ITERATIONS = 100000 // Number of PBKDF2 iterations
 const KEY_LENGTH = 64 // Length of the derived key
 const DIGEST = 'sha512' // Hash algorithm
@@ -168,6 +169,12 @@ export const getImageForModel = (productName: string): StaticImageData => {
   }
 }
 
+/**
+ * Formats a number as a currency string in euros.
+ *
+ * @param {number} number - The number to be formatted as a currency.
+ * @return {string} The formatted currency string.
+ */
 export const useEuros = Intl.NumberFormat('es-ES', {
   style: 'currency',
   currency: 'EUR'
@@ -281,7 +288,13 @@ export const getRandomNumber = (): number => {
   return Math.floor(Math.random() * 2)
 }
 
-export const formatDate = (dateString: string) => {
+/**
+ * Formats a date string into a localized Spanish date and time string.
+ *
+ * @param {string} dateString - The date string to format
+ * @returns {string} The formatted date string in Spanish locale with date and time
+ */
+export const formatDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString('es-ES', {
     year: 'numeric',
     month: 'long',
@@ -291,7 +304,13 @@ export const formatDate = (dateString: string) => {
   })
 }
 
-export const getStatusText = (status: string) => {
+/**
+ * Maps a status code to its display text in Spanish.
+ *
+ * @param {string} status - The status code to convert
+ * @returns {string} The human-readable status text in Spanish
+ */
+export const getStatusText = (status: string): string => {
   const statusMap = {
     pendiente: 'Pendiente',
     completado: 'Completado',
@@ -301,7 +320,13 @@ export const getStatusText = (status: string) => {
   return statusMap[status as keyof typeof statusMap] || status
 }
 
-export const getStatusColor = (status: string) => {
+/**
+ * Gets the appropriate Tailwind CSS color class for a given status.
+ *
+ * @param {string} status - The status to get the color for
+ * @returns {string} The Tailwind CSS color class
+ */
+export const getStatusColor = (status: string): string => {
   const colorMap = {
     pendiente: 'text-yellow-600',
     completado: 'text-green-600',
@@ -311,7 +336,13 @@ export const getStatusColor = (status: string) => {
   return colorMap[status as keyof typeof colorMap] || 'text-gray-600'
 }
 
-export const calculateSubtotal = (products: CartItem[]) => {
+/**
+ * Calculates the subtotal price for an array of cart items.
+ *
+ * @param {CartItem[]} products - Array of cart items with quantity and price/offer
+ * @returns {number} The calculated subtotal
+ */
+export const calculateSubtotal = (products: CartItem[]): number => {
   return products.reduce(
     (sum, product) =>
       sum + (product.offer || product.price || 0) * product.quantity,
@@ -319,14 +350,63 @@ export const calculateSubtotal = (products: CartItem[]) => {
   )
 }
 
+/**
+ * Calculates the discount amount based on a coupon and subtotal.
+ *
+ * @param {GET_ORDER_BY_ID_Result['discountCoupon']} coupon - The discount coupon object
+ * @param {number} subtotal - The subtotal amount to calculate discount from
+ * @returns {number} The calculated discount amount
+ */
 export const calculateDiscount = (
   coupon: GET_ORDER_BY_ID_Result['discountCoupon'],
   subtotal: number
-) => {
+): number => {
   if (!coupon || !coupon?.discount) return 0
 
   if (coupon.discount_type === 'percentage') {
     return (subtotal * (coupon.discount ? coupon.discount : 1)) / 100
   }
   return coupon.discount ? coupon.discount : 0
+}
+
+/**
+ * Wraps a promise to handle errors in a functional way, returning a tuple with either [undefined, data] or [error]
+ * @template T The type of the promise result
+ * @param promise The promise to handle
+ * @returns A tuple containing either [undefined, T] for success or [Error] for failure
+ * @example
+ * const [error, data] = await catchError(fetchData());
+ * if (error) {
+ *   // Handle error
+ * } else {
+ *   // Use data
+ * }
+ */
+export const catchError = async <T>(
+  promise: Promise<T>
+): Promise<[undefined, T] | [Error]> => {
+  return promise
+    .then((data) => {
+      return [undefined, data] as [undefined, T]
+    })
+    .catch((error) => {
+      return [error]
+    })
+}
+
+/**
+ * Hash a plain text password using PBKDF2.
+ * @param {string} plainPassword - The plain text password to hash.
+ * @returns {string} - The salt and hashed password, concatenated as a single string.
+ */
+export const hashPassword = (plainPassword: string): string => {
+  const salt = randomBytes(SALT_LENGTH).toString('hex')
+  const hash = pbkdf2Sync(
+    plainPassword,
+    salt,
+    ITERATIONS,
+    KEY_LENGTH,
+    DIGEST
+  ).toString('hex')
+  return `${salt}:${hash}`
 }
