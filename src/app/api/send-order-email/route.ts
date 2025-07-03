@@ -13,11 +13,13 @@ export const POST = async (req: NextRequest) => {
     const data = await req.json()
 
     await resendClient.emails.send({
-      from: 'compra-realizada@termogar.es',
-      bcc: 'amperez05@gmail.com',
+      from: 'compra-realizada@backswingpadel.com',
+      bcc: 'backswing.es@gmail.com',
       to: data.user?.email as string,
       subject: 'Orden Completada',
-      react: PurchaseConfirmationEmail(data)
+      react: PurchaseConfirmationEmail({
+        order: data
+      })
     })
 
     return NextResponse.json(
