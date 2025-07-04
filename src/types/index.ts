@@ -54,6 +54,20 @@ export interface OrderSummaryProps {
   disabled?: boolean
 }
 
+export interface SignInFormProps {
+  onSuccess?: () => void
+  onSwitchToTab?: (_tab: string) => void
+}
+
+export interface ForgotPasswordFormProps {
+  onSwitchToTab?: (_tab: string) => void
+}
+
+export interface SignUpFormProps {
+  onSuccess?: () => void
+  onSwitchToTab?: (_tab: string) => void
+}
+
 export interface ShippingAddressProps {
   address: Partial<Address>
   onAddressChange: (_address: Partial<Address>) => void
@@ -159,6 +173,10 @@ export interface OramaHit {
 
 export type SearchParamsProductType = Promise<{
   type: 'camisetas' | 'sudaderas'
+}>
+
+export type SearchParamsPostType = Promise<{
+  post: string
 }>
 
 export type SearchParamsProductIDType = Promise<{
