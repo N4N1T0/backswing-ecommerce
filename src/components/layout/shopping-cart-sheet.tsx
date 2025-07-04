@@ -30,8 +30,8 @@ const ShoppingCartSheet = () => {
         <span className='sr-only'>Shopping Cart Sheet</span>
         {count.length !== 0 && (
           <span className='absolute top-0 right-0 flex h-5 w-5'>
-            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-950 opacity-25' />
-            <span className='inline-flex rounded-full h-full w-full bg-gray-950 justify-center items-center text-gray-100'>
+            <span className='animate-ping absolute inline-flex size-full bg-gray-950 opacity-25' />
+            <span className='inline-flex size-full bg-gray-950 justify-center items-center text-gray-100'>
               {count.length}
             </span>
           </span>
