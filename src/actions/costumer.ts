@@ -3,7 +3,7 @@
 
 import { auth } from '@/auth'
 import { sanityClientRead, sanityClientWrite } from '@/sanity/lib/client'
-import { GET_COSTUMER_BY_ID } from '@/sanity/queries'
+import { GET_COSTUMER_BY_EMAIL, GET_COSTUMER_BY_ID } from '@/sanity/queries'
 import { Address, Costumer } from '@/sanity/types'
 import { uuid } from '@sanity/uuid'
 import { Session } from 'next-auth'
@@ -226,22 +226,9 @@ export async function getCustomerById(customerId: string) {
 
 export async function getCustomerByEmail(email: string) {
   try {
-    const customer = await sanityClientRead.fetch(
-      `*[_type == "costumer" && email == $email][0]{
-        _id,
-        email,
-        firstName,
-        lastName,
-        userName,
-        IdDocument,
-        companyName,
-        isGuest,
-        isPayingCustomer,
-        billingAddress,
-        shippingAddresses
-      }`,
-      { email }
-    )
+    const customer = await sanityClientRead.fetch(GET_COSTUMER_BY_EMAIL, {
+      email
+    })
 
     if (!customer) {
       return {
