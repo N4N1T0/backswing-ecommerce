@@ -15,6 +15,63 @@ export const GET_USER_FOR_AUTH =
   },
 }`)
 
+export const GET_BLOG_ARTICLE_BY_SLUG =
+  defineQuery(`*[_type=='post' && status == 'publish' && slug.current == $slug][0]{
+   "id": _id,
+  "featuredMedia": {
+    "url": featuredMedia.asset -> url,
+    "blur": featuredMedia.asset -> metadata.lqip
+  },
+  excerpt,
+  author->{
+    name,
+    "avatar": {
+      "url": avatar.asset -> url,
+    "blur": avatar.asset -> metadata.lqip
+    }
+  },
+  "slug": slug.current,
+  categories[]->{
+    name,
+    "id": _id,
+    "slug": slug.current,
+    "count": count(*[_type == 'post' && status == 'publish' && references(^._id)])
+  },
+    title,
+    date,
+    content,
+    tags[]->{
+    name,
+    "id": _id,
+    "slug": slug.current,
+    "count": count(*[_type == 'post' && status == 'publish' && references(^._id)])
+  },
+}`)
+
+export const GET_ALL_BLOG =
+  defineQuery(`*[_type =='post' && status == 'publish']{
+  "id": _id,
+"featuredMedia": {
+  "url": featuredMedia.asset -> url,
+  "blur": featuredMedia.asset -> metadata.lqip
+},
+excerpt,
+author->{
+  name,
+  "avatar": {
+    "url": avatar.asset -> url,
+  "blur": avatar.asset -> metadata.lqip
+  }
+},
+"slug": slug.current,
+categories[]->{
+  name,
+  "id": _id,
+},
+  title,
+  date
+}`)
+
 export const GET_COSTUMER_BY_ID =
   defineQuery(`*[_type == "costumer" && _id == $customerId][0]{
         _id,
@@ -40,6 +97,21 @@ export const GET_COSTUMER_BY_ID =
           state,
           postcode
         }
+      }`)
+
+export const GET_COSTUMER_BY_EMAIL =
+  defineQuery(`*[_type == "costumer" && email == $email][0]{
+        _id,
+        email,
+        firstName,
+        lastName,
+        userName,
+        IdDocument,
+        companyName,
+        isGuest,
+        isPayingCustomer,
+        billingAddress,
+        shippingAddresses
       }`)
 
 export const GET_ORDER_BY_ID = defineQuery(`*[_type =='order' && _id == $id][0]{
