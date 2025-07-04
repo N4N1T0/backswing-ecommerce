@@ -7,9 +7,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { FormEvent, useCallback, useEffect, useState } from 'react'
+import { FormEvent, Suspense, useCallback, useEffect, useState } from 'react'
 
-export default function ResetPasswordForm() {
+function ResetPasswordFormContent() {
   // STATE
   const [isLoading, setIsLoading] = useState(false)
   const [isVerifying, setIsVerifying] = useState(true)
@@ -272,5 +272,13 @@ export default function ResetPasswordForm() {
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+export default function ResetPasswordForm() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResetPasswordFormContent />
+    </Suspense>
   )
 }
