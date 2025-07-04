@@ -3,7 +3,6 @@
 import { colorList } from '@/contants'
 import { cn } from '@/lib/utils'
 import type { Colors } from '@/types'
-import type React from 'react'
 
 const ColorPicker = ({
   colors,

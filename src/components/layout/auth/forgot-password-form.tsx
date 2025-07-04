@@ -4,43 +4,45 @@ import { forgotPasswordAction } from '@/actions/auth'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useState } from 'react'
-
-interface ForgotPasswordFormProps {
-  onSwitchToTab?: (_tab: string) => void
-}
+import { ForgotPasswordFormProps } from '@/types'
+import { FormEvent, useState } from 'react'
 
 export function ForgotPasswordForm({ onSwitchToTab }: ForgotPasswordFormProps) {
+  // STATE
   const [isLoading, setIsLoading] = useState(false)
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
 
-  const handleSubmit = async (formData: FormData) => {
+  // HANDLERS
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     setIsLoading(true)
     setError('')
     setMessage('')
+
+    const formData = new FormData(e.currentTarget)
+    const password = formData.get('password') as string
+    const confirmPassword = formData.get('confirmPassword') as string
+
+    if (password !== confirmPassword) {
+      setError('Las contraseñas no coinciden')
+      setIsLoading(false)
+      return
+    }
 
     try {
       const result = await forgotPasswordAction(formData)
 
       if (result.success) {
-        setMessage(result.message || 'Reset instructions sent to your email')
-
-        // For demo purposes, generate and log the reset link
-        const email = formData.get('email') as string
-        const { generatePasswordResetToken } = await import('@/actions/auth')
-        const token = await generatePasswordResetToken(email)
-        const resetLink = `${window.location.origin}/reset-password?email=${encodeURIComponent(email)}&token=${token}`
-
-        console.log('🔗 Password Reset Link (for demo):')
-        console.log(resetLink)
-        console.log('📧 In a real app, this would be sent via email')
+        setMessage('Instrucciones enviadas a tu correo')
       } else {
-        setError(result.error || 'Failed to send reset email')
+        setError(
+          result.error || 'Error al enviar el correo de restablecimiento'
+        )
       }
     } catch (error) {
       console.log('🚀 ~ handleSubmit ~ error:', error)
-      setError('An error occurred')
+      setError('Ocurrió un error')
     } finally {
       setIsLoading(false)
     }
@@ -49,27 +51,29 @@ export function ForgotPasswordForm({ onSwitchToTab }: ForgotPasswordFormProps) {
   return (
     <div className='space-y-6'>
       <div className='text-center space-y-2'>
-        <h2 className='text-2xl font-bold text-black'>Reset Password</h2>
+        <h2 className='text-2xl font-bold text-black'>
+          Restablecer Contraseña
+        </h2>
         <p className='text-gray-600 text-sm'>
-          Enter your email address and we&apos;ll send you instructions to reset
-          your password
+          Ingresa tu correo electrónico y te enviaremos instrucciones para
+          restablecer tu contraseña
         </p>
       </div>
 
-      <form action={handleSubmit} className='space-y-4'>
+      <form onSubmit={handleSubmit} className='space-y-4'>
         <div className='space-y-2'>
           <Label
             htmlFor='forgot-email'
             className='text-black font-medium text-sm'
           >
-            Email Address
+            Correo Electrónico
           </Label>
           <Input
             id='forgot-email'
             name='email'
             type='email'
             className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Enter your email address'
+            placeholder='Ingresa tu correo electrónico'
             required
           />
         </div>
@@ -91,19 +95,19 @@ export function ForgotPasswordForm({ onSwitchToTab }: ForgotPasswordFormProps) {
           disabled={isLoading}
           className='w-full bg-black text-white hover:bg-gray-800 rounded-none py-6 text-base font-medium'
         >
-          {isLoading ? 'Sending...' : 'Send Reset Instructions'}
+          {isLoading ? 'Enviando...' : 'Enviar Instrucciones'}
         </Button>
       </form>
 
       <div className='text-center'>
         <p className='text-gray-600 text-sm'>
-          Remember your password?{' '}
+          ¿Recuerdas tu contraseña?{' '}
           <button
             type='button'
             onClick={() => onSwitchToTab?.('signin')}
             className='text-black hover:underline font-medium'
           >
-            Sign in
+            Iniciar sesión
           </button>
         </p>
       </div>

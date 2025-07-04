@@ -5,17 +5,15 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { SignUpFormProps } from '@/types'
 import { FormEvent, useState } from 'react'
 
-interface SignUpFormProps {
-  onSuccess?: () => void
-  onSwitchToTab?: (_tab: string) => void
-}
-
 export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
+  // STATE
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
+  // HANDLERS
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
@@ -122,6 +120,7 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
             className='border-2 border-gray-300 focus:border-black rounded-none h-12'
             placeholder='Ingresa tu nombre completo'
             autoComplete='name'
+            minLength={6}
             required
           />
         </div>
@@ -140,6 +139,7 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
             className='border-2 border-gray-300 focus:border-black rounded-none h-12'
             placeholder='Ingresa tu correo electrónico'
             autoComplete='email'
+            minLength={6}
             required
           />
         </div>

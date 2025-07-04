@@ -11,17 +11,22 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { DialogDescription } from '@radix-ui/react-dialog'
 import { User } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { ForgotPasswordForm } from './forgot-password-form'
 import { SignInForm } from './sign-in-form'
 import { SignUpForm } from './sign-up-form'
 
 export function AuthDialog() {
+  // STATE
   const [open, setOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('signin')
+  const router = useRouter()
 
+  // HANDLERS
   const handleSuccess = () => {
     setOpen(false)
+    router.refresh()
   }
 
   return (
@@ -40,22 +45,22 @@ export function AuthDialog() {
 
       <DialogContent className='sm:max-w-md w-full mx-4 p-0 rounded-none border-2 border-gray-200 bg-primary'>
         <Tabs value={activeTab} onValueChange={setActiveTab} className='w-full'>
-          <TabsList className='grid w-full grid-cols-3 rounded-none bg-gray-100 p-1 h-auto'>
+          <TabsList className='grid w-full grid-cols-3 rounded-none bg-gray-200 p-1 h-auto'>
             <TabsTrigger
               value='signin'
-              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-r border-gray-300 last:border-r-0'
+              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-gray-300 border-r-0'
             >
               Iniciar
             </TabsTrigger>
             <TabsTrigger
               value='signup'
-              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-r border-gray-300 last:border-r-0'
+              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-gray-300 border-r-0'
             >
               Registrar
             </TabsTrigger>
             <TabsTrigger
               value='forgot'
-              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-r border-gray-300 last:border-r-0'
+              className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-r border-gray-300'
             >
               Recuperar
             </TabsTrigger>

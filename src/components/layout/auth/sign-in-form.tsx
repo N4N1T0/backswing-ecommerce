@@ -5,17 +5,15 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { SignInFormProps } from '@/types'
 import { FormEvent, useState } from 'react'
 
-interface SignInFormProps {
-  onSuccess?: () => void
-  onSwitchToTab?: (_tab: string) => void
-}
-
 export function SignInForm({ onSuccess, onSwitchToTab }: SignInFormProps) {
+  // STATE
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
+  // HANDLERS
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
