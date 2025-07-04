@@ -86,14 +86,14 @@ export default function NewClientEmail({
           <Text className='text-gray-600 text-sm mb-4 m-0'>
             • Recibir ofertas exclusivas y novedades
           </Text>
-          <div className='text-center'>
+          <Column className='text-center mt-3'>
             <Link
               href={`${process.env.NEXT_PUBLIC_BASE_URL || 'https://backswing.com'}`}
               className='inline-block bg-black text-white px-6 py-3 text-base font-bold text-decoration-none border-2 border-black hover:bg-white hover:text-black transition-colors'
             >
               Explorar Tienda
             </Link>
-          </div>
+          </Column>
         </div>
       </Section>
 
