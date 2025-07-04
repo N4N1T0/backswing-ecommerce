@@ -781,6 +781,27 @@ export type GET_USER_FOR_AUTHResult = {
     url: string | null
   } | null
 } | null
+// Variable: GET_ALL_BLOG
+// Query: *[_type =='post' && status == 'publish']{ "id": _id, "featuredMedia": { "url": featuredMedia.asset -> url, "blur": featuredMedia.asset -> metadata.lqip }, excerpt, author->{ name, "avatar": { "url": avatar.asset -> url, "blur": avatar.asset -> metadata.lqip } }, "slug": slug.current, categories[]->{ name, "id": _id, }, title, date }
+export type GET_ALL_BLOGResult = Array<{
+  author: {
+    avatar: {
+      blur: null | string
+      url: null | string
+    }
+    name: string
+  } | null
+  categories: null
+  date: Date
+  excerpt: string
+  featuredMedia: {
+    blur: null | string
+    url: null | string
+  }
+  id: string
+  slug: string
+  title: string
+}>
 // Variable: GET_PRODUCTS_BY_CATEGORY
 // Query: *[  _type == "product" && count(productCategories[]->slug.current[@ in $type]) == 2][0] {  "designs": designs[]->{    "id": _id,    "slug": slug.current,    title,    "offer": ^.offer,    "price": ^.price,    "sizes": ^.sizes,    "colors": formats[0]->color[]{      "title": name,      "images": images[0].asset->{        "url": url,        "blur": metadata.lqip,      }    },  }}
 export type GET_PRODUCTS_BY_CATEGORYResult = {
@@ -800,6 +821,76 @@ export type GET_PRODUCTS_BY_CATEGORYResult = {
       }>
     }>
   }>
+}
+// Variable: GET_BLOG_ARTICLE_BY_SLUGResult
+// Query: *[_type=='post' && status == 'publish' && slug.current == $slug][0]{"id": _id,"featuredMedia": {"url": featuredMedia.asset -> url,"blur": featuredMedia.asset -> metadata.lqip},excerpt,author->{name,"avatar": {"url": avatar.asset -> url,"blur": avatar.asset -> metadata.lqip}},"slug": slug.current,categories[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},title,date,content,tags[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},}
+export interface GET_BLOG_ARTICLE_BY_SLUGResult {
+  author: {
+    avatar: {
+      blur: null | string
+      url: null | string
+    }
+    name: string
+  }
+  categories: null
+  content: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>
+          text?: string
+          _type: 'span'
+          _key: string
+        }>
+        style?:
+          | 'normal'
+          | 'h1'
+          | 'h2'
+          | 'h3'
+          | 'h4'
+          | 'h5'
+          | 'h6'
+          | 'blockquote'
+        listItem?: 'bullet' | 'number'
+        markDefs?: Array<{
+          href?: string
+          _type: 'link'
+          _key: string
+        }>
+        level?: number
+        _type: 'block'
+        _key: string
+      }
+    | {
+        asset?: {
+          _ref: string
+          _type: 'reference'
+          _weak?: boolean
+          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+        }
+        media?: unknown
+        hotspot?: SanityImageHotspot
+        crop?: SanityImageCrop
+        _type: 'image'
+        _key: string
+      }
+    | {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        _key: string
+        [internalGroqTypeReferenceTo]?: 'externalImage'
+      }
+  >
+  date: Date
+  excerpt: string
+  featuredMedia: {
+    blur: null | string
+    url: null | string
+  }
+  id: string
+  slug: string
+  tags: null
+  title: string
 }
 // Variable: GET_DESIGNS_BY_SLUG
 // Query: *[  _type == "productDesigns" && _id == $slug][0]{  "id": _id,    content,    excerpt,    "slug": slug.current,    title,    "offer": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,    "price": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,    "sizes": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,    "format": formats[]->{      title,      "colors": color[]{      "title": name,      "images": images[0].asset->{        "url": url,        "blur": metadata.lqip,      }    }  },}
@@ -874,5 +965,7 @@ declare module 'next-sanity' {
     '*[_type ==\'costumer\' && email == $email][0]{\n  "id": _id,\n   userName,\n   firstName,\n  lastName,\n  companyName,\n  isGuest,\n  password,\n    email,\n   "avatar": avatarUrl.asset->{\n    "url": url,\n  },\n}': GET_USER_FOR_AUTHResult
     '*[\n  _type == "product" && productCategories[]->slug.current match $type][0] {\n  "designs": designs[]->{\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": ^.offer,\n    "price": ^.price,\n    "sizes": ^.sizes,\n    "colors": formats[0]->color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    },\n  }\n}': GET_PRODUCTS_BY_CATEGORYResult
     '*[\n  _type == "productDesigns" && slug.current == $slug\n][0]{\n  "id": _id,\n    content,\n    excerpt,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,\n    "price": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,\n    "sizes": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    }\n  },\n}': GET_DESIGNS_BY_SLUGResult
+    '*[_type ==\'post\' && status == \'publish\']{\n  "id": _id,\n"featuredMedia": {\n  "url": featuredMedia.asset -> url,\n  "blur": featuredMedia.asset -> metadata.lqip\n},\nexcerpt,\nauthor->{\n  name,\n  "avatar": {\n    "url": avatar.asset -> url,\n  "blur": avatar.asset -> metadata.lqip\n  }\n},\n"slug": slug.current,\ncategories[]->{\n  name,\n  "id": _id,\n},\n  title,\n  date\n}': GET_ALL_BLOGResult
+    '*[_type==\'post\' && status == \'publish\' && slug.current == $slug][0]{\n   "id": _id,\n  "featuredMedia": {\n    "url": featuredMedia.asset -> url,\n    "blur": featuredMedia.asset -> metadata.lqip\n  },\n  excerpt,\n  author->{\n    name,\n    "avatar": {\n      "url": avatar.asset -> url,\n    "blur": avatar.asset -> metadata.lqip\n    }\n  },\n  "slug": slug.current,\n  categories[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n    title,\n    date,\n    content,\n    tags[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n}': GET_BLOG_ARTICLE_BY_SLUGResult
   }
 }
