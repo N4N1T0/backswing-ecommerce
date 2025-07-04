@@ -33,16 +33,16 @@ const ProductCard = React.memo(
     return (
       <div className='block relative'>
         {isCommingSoon && (
-          <div className='absolute size-full inset-0 z-50 bg-gray-100 opacity-50 border border-gray-400'></div>
+          <>
+            <div className='absolute size-full inset-0 z-50 bg-gray-100 opacity-50 border border-gray-400'></div>
+            <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
+              Próximamente
+            </p>
+          </>
         )}
         {hasOffer && !isCommingSoon && (
           <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
             Oferta
-          </p>
-        )}
-        {isCommingSoon && (
-          <p className='text-xs uppercase tracking-wide bg-gray-900 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
-            Próximamente
           </p>
         )}
         <Link
@@ -77,7 +77,12 @@ const ProductCard = React.memo(
             </h3>
             <WishlistHeart product={product} />
           </div>
-          <ColorPicker colors={colors} setColor={setImages} isProductCard />
+          <ColorPicker
+            colors={colors}
+            setColor={setImages}
+            isProductCard
+            key={title}
+          />
           <div className='mt-1.5 flex items-center justify-between text-gray-900'>
             {hasOffer ? (
               <>
