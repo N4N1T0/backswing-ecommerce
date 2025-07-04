@@ -16,7 +16,7 @@ const SocialShareButton = ({ title }: { title: string }) => {
   const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`
 
   return (
-    <div className='flex space-x-4 mt-4 items-center'>
+    <div className='flex space-x-4 mt-4 items-center w-full'>
       <p className='text-gray-700 inline-block uppercase'>Comparte en:</p>
       <a
         href={twitterShareUrl}
