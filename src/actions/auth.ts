@@ -1,30 +1,19 @@
 'use server'
 
-import { signIn } from '@/auth'
+import { signIn, signOut } from '@/auth'
 import NewClientEmail from '@/emails/new-client'
+import PasswordResetEmail from '@/emails/password-reset'
 import { resendClient } from '@/lib/clients/resend'
 import { catchError, hashPassword } from '@/lib/utils'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_USER_FOR_AUTH } from '@/sanity/queries'
 import { Costumer } from '@/sanity/types'
 import { uuid } from '@sanity/uuid'
-import crypto from 'crypto'
+import { createCipheriv, createDecipheriv, randomBytes } from 'crypto'
 import { AuthError } from 'next-auth'
+import { revalidatePath } from 'next/cache'
 
-// Secret for token generation - in production, use environment variable
-const TOKEN_SECRET =
-  process.env.PASSWORD_RESET_SECRET ||
-  'your-super-secret-key-change-in-production'
-
-// Mock user database - replace with your actual database
-const mockUsers = [
-  {
-    id: '1',
-    name: 'John Doe',
-    email: 'john@example.com',
-    password: 'password123' // In real app, this would be hashed
-  }
-]
+const TOKEN_SECRET = process.env.PASSWORD_RESET_SECRET?.toString()
 
 export async function signInAction(formData: FormData) {
   const email = formData.get('email') as string
@@ -33,7 +22,8 @@ export async function signInAction(formData: FormData) {
   const [error] = await catchError(
     signIn('credentials', {
       email,
-      password
+      password,
+      redirect: false
     })
   )
 
@@ -103,8 +93,8 @@ export async function signUpAction(formData: FormData) {
     }
 
     await resendClient.emails.send({
-      from: 'usario-nuevo@termogar.es',
-      bcc: 'amperez05@gmail.com',
+      from: 'usario-nuevo@backswingpadel.com',
+      // bcc: 'backswing.es@gmail.com',
       to: [email],
       subject: 'Nuevo Usuario',
       react: NewClientEmail({
@@ -119,9 +109,9 @@ export async function signUpAction(formData: FormData) {
       redirect: false
     })
 
+    revalidatePath('/', 'layout')
     return {
-      success: true,
-      message: 'Registro Completo, Redirigiendo a la'
+      success: true
     }
   } catch (error) {
     console.log('🚀 ~ signUpAction ~ error:', error)
@@ -140,33 +130,28 @@ export async function signUpAction(formData: FormData) {
 
 export async function forgotPasswordAction(formData: FormData) {
   const email = formData.get('email') as string
+  const token = await generatePasswordResetToken(email)
 
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  const response = await resendClient.emails.send({
+    from: 'recupera-password@backswingpadel.com',
+    to: [email],
+    subject: 'Recupera tu contraseña',
+    react: PasswordResetEmail({
+      email,
+      token
+    })
+  })
 
-  // Mock password reset logic
-  // In a real app, you would:
-  // 1. Check if user exists in database
-  // 2. Generate a secure reset token
-  // 3. Save token with expiration to database
-  // 4. Send email with reset link
-  // 5. Return success message (don't reveal if email exists)
-
-  const user = mockUsers.find((u) => u.email === email)
-
-  if (!user) {
-    return { success: false, error: 'No account found with this email address' }
+  if (response.error) {
+    return { success: false, error: 'Hubo un problema con el servidor' }
   }
 
-  console.log('Password reset requested for:', email)
-
   return {
-    success: true,
-    message:
-      'If an account with that email exists, we have sent password reset instructions.'
+    success: true
   }
 }
 
+// TODO
 export async function signInWithGoogleAction() {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -192,99 +177,97 @@ export async function signInWithGoogleAction() {
 }
 
 export async function generatePasswordResetToken(email: string) {
-  // Create a payload with email and expiration (1 hour from now)
   const payload = {
     email,
-    expires: Date.now() + 60 * 60 * 1000 // 1 hour
+    expires: Date.now() + 60 * 60 * 1000
   }
 
-  // Convert payload to string and encrypt
-  const payloadString = JSON.stringify(payload)
-  const cipher = crypto.createCipheriv(
-    'aes-256-cbc',
-    TOKEN_SECRET,
-    TOKEN_SECRET
-  )
-  let encrypted = cipher.update(payloadString, 'utf8', 'hex')
-  encrypted += cipher.final('hex')
+  const iv = randomBytes(16)
+  const cipher = createCipheriv('aes-256-cbc', Buffer.from(TOKEN_SECRET!), iv)
 
-  // URL encode the token
-  return encodeURIComponent(encrypted)
+  const encrypted = Buffer.concat([
+    cipher.update(JSON.stringify(payload), 'utf8'),
+    cipher.final()
+  ])
+
+  const token = iv.toString('hex') + ':' + encrypted.toString('hex')
+
+  return encodeURIComponent(token)
 }
 
 export async function verifyPasswordResetToken(token: string, email: string) {
   try {
-    // URL decode the token
     const decodedToken = decodeURIComponent(token)
+    const [ivHex, encryptedHex] = decodedToken.split(':')
 
-    // Decrypt the token
-    const decipher = crypto.createDecipheriv(
-      'aes-256-cbc',
-      TOKEN_SECRET,
-      TOKEN_SECRET
-    )
-    let decrypted = decipher.update(decodedToken, 'hex', 'utf8')
-    decrypted += decipher.final('utf8')
-
-    // Parse the payload
-    const payload = JSON.parse(decrypted)
-
-    // Verify email matches
-    if (payload.email !== email) {
-      return { valid: false, error: 'Invalid token for this email' }
+    if (!ivHex || !encryptedHex) {
+      throw new Error('Formato de token inválido')
     }
 
-    // Check if token has expired
+    const iv = Buffer.from(ivHex, 'hex')
+    const encrypted = Buffer.from(encryptedHex, 'hex')
+
+    const decipher = createDecipheriv(
+      'aes-256-cbc',
+      Buffer.from(TOKEN_SECRET!),
+      iv
+    )
+    const decrypted = Buffer.concat([
+      decipher.update(encrypted),
+      decipher.final()
+    ])
+
+    const payload = JSON.parse(decrypted.toString('utf8'))
+
+    if (payload.email !== email) {
+      return {
+        valid: false,
+        error: 'Token inválido para este correo electrónico'
+      }
+    }
+
     if (Date.now() > payload.expires) {
-      return { valid: false, error: 'Reset link has expired' }
+      return {
+        valid: false,
+        error: 'El enlace de restablecimiento ha expirado'
+      }
     }
 
     return { valid: true }
   } catch (error) {
-    console.log('🚀 ~ verifyPasswordResetToken ~ error:', error)
-    return { valid: false, error: 'Invalid or corrupted token' }
+    console.error('🚀 ~ verifyPasswordResetToken ~ error:', error)
+    return { valid: false, error: 'Token inválido o corrupto' }
   }
 }
 
 export async function resetPasswordAction(formData: FormData) {
   const email = formData.get('email') as string
-  const token = formData.get('token') as string
+  console.log('🚀 ~ resetPasswordAction ~ email:', email)
   const newPassword = formData.get('newPassword') as string
-  const confirmPassword = formData.get('confirmPassword') as string
 
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  const user = await sanityClientWrite.fetch(
+    GET_USER_FOR_AUTH,
+    { email },
+    { cache: 'no-cache' }
+  )
+  console.log('🚀 ~ resetPasswordAction ~ user:', user)
 
-  // Verify token first
-  const tokenVerification = await verifyPasswordResetToken(token, email)
-  if (!tokenVerification.valid) {
-    return { success: false, error: tokenVerification.error }
+  if (!user) {
+    return { success: false, error: 'Usuario no encontrado' }
   }
 
-  // Validate passwords
-  if (newPassword !== confirmPassword) {
-    return { success: false, error: 'Passwords do not match' }
-  }
+  const hashedPassword = hashPassword(newPassword)
 
-  if (newPassword.length < 6) {
-    return { success: false, error: 'Password must be at least 6 characters' }
-  }
-
-  // Find user and update password
-  const userIndex = mockUsers.findIndex((u) => u.email === email)
-  if (userIndex === -1) {
-    return { success: false, error: 'User not found' }
-  }
-
-  // In a real app, you would:
-  // 1. Hash the new password with bcrypt
-  // 2. Update the password in the database
-  // 3. Invalidate all existing sessions
-  // 4. Send confirmation email
-
-  mockUsers[userIndex].password = newPassword // In real app, this would be hashed
-
-  console.log('Password updated for:', email)
+  await sanityClientWrite
+    .patch(user.id)
+    .set({
+      password: hashedPassword
+    })
+    .commit()
 
   return { success: true, message: 'Password has been successfully updated' }
+}
+
+export async function signOutAction() {
+  await signOut()
 }

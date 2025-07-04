@@ -28,7 +28,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         const { email, password } = credentials
 
-        const user = await sanityClientWrite.fetch(GET_USER_FOR_AUTH, { email })
+        let user
+        let retryCount = 0
+        const maxRetries = 2
+
+        while (retryCount <= maxRetries) {
+          try {
+            user = await sanityClientWrite.fetch(
+              GET_USER_FOR_AUTH,
+              { email },
+              { cache: 'no-cache' }
+            )
+            if (user && user.password) break
+          } catch (error) {
+            console.error('Error fetching user:', error)
+          }
+
+          if (retryCount < maxRetries) {
+            await new Promise((resolve) => setTimeout(resolve, 2000)) // 2 second delay
+            retryCount++
+          }
+        }
 
         if (!user || !user?.password) {
           throw new Error('El usuario no se ha encontrado.')
@@ -37,6 +57,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const isVerified = verifyPassword(password as string, user?.password)
 
         if (!isVerified) {
+          console.log('🚀 ~ authorize: ~ isVerified:', isVerified)
           throw new Error('Las credenciales no son correctas.')
         }
 
