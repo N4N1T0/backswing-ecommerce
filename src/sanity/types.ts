@@ -892,6 +892,56 @@ export interface GET_BLOG_ARTICLE_BY_SLUGResult {
   tags: null
   title: string
 }
+// Variable: GET_USER_PROFILE_WITH_ORDERSResult
+// Query: *[_type == "costumer" && _id == $customerId][0]{firstName, lastName, _createdAt, "avatar": avatarUrl.asset->{"url": url,"blur": metadata.lqip},billingAddress[0] {address1,address2,city,state,postcode},shippingAddresses[] {address1,address2,city,state,postcode},"orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {"id": _id,purchaseDate,status,paymentMethod,totalAmount,"shippingAddress": shippingAddress[0],discountCoupon->{code,discount,discount_type,"id": _id},products[] {quantity,format,color,product->{"id": _id,title,"slug": slug.current,"featuredMedia": formats[0]->color[0].images[0].asset->{"url": url,"blur": metadata.lqip}}}}}
+export interface GET_USER_PROFILE_WITH_ORDERSResult {
+  avatar: {
+    blur: string | null
+    url: string | null
+  } | null
+  _createdAt: string
+  billingAddress: {
+    address1: string
+    address2: string
+    city: string
+    postcode: string
+    state: string
+    _key?: string
+  }
+  firstName: string
+  lastName: string
+  orders: Array<{
+    discountCoupon: null
+    id: string
+    paymentMethod: string
+    products: Array<{
+      color: string
+      format: string
+      product: {
+        featuredMedia: {
+          blur: string | null
+          url: string | null
+        } | null
+        id: string
+        slug: string
+        title: string
+      }
+      quantity: number
+    }>
+    purchaseDate: string
+    shippingAddress: {
+      address1: string
+      address2: string
+      city: string
+      postcode: string
+      state: string
+      _key?: string
+    }
+    status: string
+    totalAmount: number
+  }>
+  shippingAddresses: null
+}
 // Variable: GET_DESIGNS_BY_SLUG
 // Query: *[  _type == "productDesigns" && _id == $slug][0]{  "id": _id,    content,    excerpt,    "slug": slug.current,    title,    "offer": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,    "price": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,    "sizes": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,    "format": formats[]->{      title,      "colors": color[]{      "title": name,      "images": images[0].asset->{        "url": url,        "blur": metadata.lqip,      }    }  },}
 export type GET_DESIGNS_BY_SLUGResult = {
@@ -967,5 +1017,6 @@ declare module 'next-sanity' {
     '*[\n  _type == "productDesigns" && slug.current == $slug\n][0]{\n  "id": _id,\n    content,\n    excerpt,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,\n    "price": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,\n    "sizes": *[_type == \'product\' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    }\n  },\n}': GET_DESIGNS_BY_SLUGResult
     '*[_type ==\'post\' && status == \'publish\']{\n  "id": _id,\n"featuredMedia": {\n  "url": featuredMedia.asset -> url,\n  "blur": featuredMedia.asset -> metadata.lqip\n},\nexcerpt,\nauthor->{\n  name,\n  "avatar": {\n    "url": avatar.asset -> url,\n  "blur": avatar.asset -> metadata.lqip\n  }\n},\n"slug": slug.current,\ncategories[]->{\n  name,\n  "id": _id,\n},\n  title,\n  date\n}': GET_ALL_BLOGResult
     '*[_type==\'post\' && status == \'publish\' && slug.current == $slug][0]{\n   "id": _id,\n  "featuredMedia": {\n    "url": featuredMedia.asset -> url,\n    "blur": featuredMedia.asset -> metadata.lqip\n  },\n  excerpt,\n  author->{\n    name,\n    "avatar": {\n      "url": avatar.asset -> url,\n    "blur": avatar.asset -> metadata.lqip\n    }\n  },\n  "slug": slug.current,\n  categories[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n    title,\n    date,\n    content,\n    tags[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n}': GET_BLOG_ARTICLE_BY_SLUGResult
+    '*[_type == "costumer" && _id == $customerId][0]{\n  firstName,\n  lastName,\n  _createdAt,\n  "avatar": avatarUrl.asset->{\n    "url": url,\n    "blur": metadata.lqip\n  },\n  billingAddress[0] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  shippingAddresses[] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  "orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {\n    "id": _id,\n    purchaseDate,\n    status,\n    paymentMethod,\n    totalAmount,\n    "shippingAddress": shippingAddress[0],\n    discountCoupon->{\n      code,\n      discount,\n      discount_type,\n      "id": _id\n    },\n    products[] {\n      quantity,\n      format,\n      color,\n      product->{\n        "id": _id,\n        title,\n        "slug": slug.current,\n        "featuredMedia": formats[0]->color[0].images[0].asset->{\n          "url": url,\n          "blur": metadata.lqip\n        }\n      }\n    }\n  }\n}': GET_USER_PROFILE_WITH_ORDERSResult
   }
 }

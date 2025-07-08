@@ -194,3 +194,65 @@ export const GET_COUPONS_FOR_VALIDATION = defineQuery(`*[
   usage_count,
   active
 }`)
+
+export const GET_USER_PROFILE_WITH_ORDERS =
+  defineQuery(`*[_type == "costumer" && _id == $customerId][0]{
+  firstName,
+  lastName,
+  _createdAt,
+  "avatar": avatarUrl.asset->{
+    "url": url,
+    "blur": metadata.lqip
+  },
+  billingAddress[0] {
+    address1,
+    address2,
+    city,
+    state,
+    postcode
+  },
+  shippingAddresses[] {
+    address1,
+    address2,
+    city,
+    state,
+    postcode
+  },
+  "orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {
+    "id": _id,
+    purchaseDate,
+    status,
+    paymentMethod,
+    totalAmount,
+    "shippingAddress": shippingAddress[0],
+    discountCoupon->{
+      code,
+      discount,
+      discount_type,
+      "id": _id
+    },
+    products[] {
+      quantity,
+      format,
+      color,
+      product->{
+        "id": _id,
+        title,
+        "slug": slug.current,
+        "featuredMedia": formats[0]->color[0].images[0].asset->{
+          "url": url,
+          "blur": metadata.lqip
+        }
+      }
+    }
+  }
+}`)
+
+export const GET_LEGAL_PAGE_BY_SLUG = defineQuery(`*[
+  _type == "legalPages" && slug == $slug
+][0]{
+  "id": _id,
+  slug,
+  content,
+  excerpt
+}`)
