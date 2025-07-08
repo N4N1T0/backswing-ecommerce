@@ -4,6 +4,7 @@ import { signIn, signOut } from '@/auth'
 import NewClientEmail from '@/emails/new-client'
 import PasswordResetEmail from '@/emails/password-reset'
 import { resendClient } from '@/lib/clients/resend'
+import { loginSchema, signUpSchema, type LoginSchema, type SignUpSchema } from '@/lib/schemas/login'
 import { catchError, hashPassword } from '@/lib/utils'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_USER_FOR_AUTH } from '@/sanity/queries'
@@ -15,9 +16,17 @@ import { revalidatePath } from 'next/cache'
 
 const TOKEN_SECRET = process.env.PASSWORD_RESET_SECRET?.toString()
 
-export async function signInAction(formData: FormData) {
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
+export async function signInAction(values: LoginSchema) {
+  const validatedFields = loginSchema.safeParse(values)
+
+  if (!validatedFields.success) {
+    return {
+      success: false,
+      error: 'Datos inválidos'
+    }
+  }
+
+  const { email, password } = validatedFields.data
 
   const [error] = await catchError(
     signIn('credentials', {
@@ -36,10 +45,17 @@ export async function signInAction(formData: FormData) {
   }
 }
 
-export async function signUpAction(formData: FormData) {
-  const name = formData.get('name') as string
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
+export async function signUpAction(values: SignUpSchema) {
+  const { success, error, data } = signUpSchema.safeParse(values)
+
+  if (!success && error) {
+    return {
+      success: false,
+      message: error.errors[0].message
+    }
+  }
+
+  const { name, email, password } = data
 
   try {
     const existingUser = await sanityClientWrite.fetch(GET_USER_FOR_AUTH, {
@@ -94,7 +110,7 @@ export async function signUpAction(formData: FormData) {
 
     await resendClient.emails.send({
       from: 'usario-nuevo@backswingpadel.com',
-      // bcc: 'backswing.es@gmail.com',
+      bcc: 'backswing.es@gmail.com',
       to: [email],
       subject: 'Nuevo Usuario',
       react: NewClientEmail({
@@ -242,7 +258,6 @@ export async function verifyPasswordResetToken(token: string, email: string) {
 
 export async function resetPasswordAction(formData: FormData) {
   const email = formData.get('email') as string
-  console.log('🚀 ~ resetPasswordAction ~ email:', email)
   const newPassword = formData.get('newPassword') as string
 
   const user = await sanityClientWrite.fetch(

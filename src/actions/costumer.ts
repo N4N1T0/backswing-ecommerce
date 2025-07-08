@@ -27,13 +27,6 @@ export async function processCustomerCheckout(
   existingCustomerId?: string
 ) {
   try {
-    console.log(
-      'Processing customer checkout:',
-      data,
-      'existingId:',
-      existingCustomerId
-    )
-
     let result
     let customerId: string
 
@@ -157,8 +150,6 @@ export async function updateCustomer(
   data: Partial<CreateCustomerData>
 ) {
   try {
-    console.log('Updating customer:', customerId, data)
-
     const updateData: any = {}
 
     if (data.email) updateData.email = data.email
