@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@next/eslint-plugin-next": "^15.3.3",
     "@orama/orama": "^3.1.7",
     "@oramacloud/client": "^2.1.4",
@@ -48,6 +49,7 @@
     "prettier": "^3.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.60.0",
     "redsys-easy": "^5.2.11",
     "resend": "^4.6.0",
     "sanity": "3.91.0",
