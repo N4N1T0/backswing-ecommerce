@@ -2,7 +2,7 @@ import { timeline } from '@/contants/assets-const'
 
 const Timeline = () => {
   return (
-    <section className='py-10 bg-gray-100 lg:py-20' id='timeline'>
+    <section className='py-10 px-3 md:px-0 bg-gray-100 lg:py-20' id='timeline'>
       {/* Section heading */}
       <div className='max-w-xl mx-auto'>
         <div className='text-center '>

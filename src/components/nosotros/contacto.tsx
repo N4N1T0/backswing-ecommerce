@@ -5,9 +5,7 @@ import { Contact2, Home, Mail, Phone } from 'lucide-react'
 const Contacto = () => {
   return (
     <section className='flex items-center' id='contact'>
-      {/* Main container */}
       <div className='justify-center flex-1 max-w-8xl px-4 py-4 mx-auto lg:py-11 md:px-6'>
-        {/* Section title */}
         <div className='mb-10 text-left'>
           <h2 className='pb-1 mb-1 text-xl font-bold text-gray-800 md:text-3xl'>
             Contáctenos
@@ -16,12 +14,9 @@ const Contacto = () => {
             ¿Quieres colaborar con nosotros o necesitas ayuda con tu compra?
           </p>
         </div>
-        {/* Contact info grid */}
         <div className='flex flex-wrap '>
           <div className='w-full px-4 lg:w-1/2 mb-11 lg:mb-0 flex flex-wrap'>
-            {/* Map over each contact item */}
             {contactsAssets.map((item) => {
-              // Find icon based on item label
               const findIcon = (iconName: string) => {
                 switch (iconName) {
                   case 'Email':
@@ -35,7 +30,6 @@ const Contacto = () => {
                 }
               }
 
-              // Render contact item or social icons
               if (item.href)
                 return (
                   <div className='w-full px-4 mb-10 sm:w-1/2' key={item.label}>
@@ -65,7 +59,6 @@ const Contacto = () => {
                     <h2 className='mb-4 text-xl font-bold leading-9 text-gray-700 md:text-2xl'>
                       Social
                     </h2>
-                    {/* Map over each social icon */}
                     {typeof item.content !== 'string'
                       ? item.content.map((socialItem) => (
                           <a
@@ -75,7 +68,6 @@ const Contacto = () => {
                           >
                             <span className='sr-only'>{socialItem.label}</span>
                             <div
-                              /* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */
                               dangerouslySetInnerHTML={{
                                 __html: socialItem.svg
                               }}
@@ -89,7 +81,6 @@ const Contacto = () => {
             })}
           </div>
 
-          {/* Contact form */}
           <div className='w-full lg:w-1/2'>
             <ContactForm />
           </div>
