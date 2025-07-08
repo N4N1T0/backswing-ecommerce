@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useTransition } from 'react'
 import { toast } from 'sonner'
 // import { RedsysPaymentForm } from '../redsys-payment-form'
+import { cn } from '@/lib/utils'
 import { Session } from 'next-auth'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
@@ -22,7 +23,7 @@ export default function CheckoutPaymentPart({
   const router = useRouter()
 
   // STATE
-  const [paymentMethod, setPaymentMethod] = useState('tarjeta')
+  const [paymentMethod, setPaymentMethod] = useState('transferencia')
   const [discountPercentage, setDiscountPercentage] = useState(0)
   const [appliedCoupon, setAppliedCoupon] = useState<string>()
   const [products] = useShoppingCart()
@@ -86,7 +87,7 @@ export default function CheckoutPaymentPart({
         }
 
         if (
-          paymentMethod === 'transferencia-bancaria-directa' &&
+          paymentMethod === 'transferencia' &&
           orderResult.success &&
           orderResult.data !== null
         ) {
@@ -147,11 +148,12 @@ export default function CheckoutPaymentPart({
         size='lg'
         onClick={handlePlaceOrder}
         disabled={products.length === 0 || isPending || loading}
-        className={`w-full text-lg py-6 border-2 border-black ${
+        className={cn(
+          'w-full text-lg py-6 border-2 border-black rounded-none',
           canProceed && products.length > 0 && !isPending && !loading
             ? 'bg-black text-white hover:bg-gray-800'
             : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-        }`}
+        )}
       >
         {isPending || loading ? (
           <div className='flex items-center gap-2'>

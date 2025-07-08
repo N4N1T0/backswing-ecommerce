@@ -35,6 +35,7 @@ export function PaymentMethods({
           value={paymentMethod}
           onValueChange={onPaymentMethodChange}
           disabled={disabled}
+          defaultValue='transferencia'
         >
           <div
             className={cn(

@@ -6,6 +6,7 @@ import {
   processCustomerCheckout
 } from '@/actions/costumer'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import {
   validateAddress,
   validateContactInfo,
@@ -156,7 +157,10 @@ export default function CheckoutCostumerPart({
             ?.scrollIntoView({ behavior: 'smooth' })
         }, 100)
       } else {
-        toast.error(result.message || 'Error processing customer information. Please try again.')
+        toast.error(
+          result.message ||
+            'Error processing customer information. Please try again.'
+        )
         console.error('Error processing customer:', result.error)
       }
     } catch (error) {
@@ -228,11 +232,12 @@ export default function CheckoutCostumerPart({
           size='lg'
           onClick={handleContinue}
           disabled={!canProceed || isProcessing}
-          className={`w-full text-lg py-6 border-2 border-black ${
+          className={cn(
+            'w-full text-lg py-6 border-2 border-black rounded-none',
             canProceed && !isProcessing
               ? 'bg-black text-white hover:bg-gray-800'
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-          }`}
+          )}
         >
           {isProcessing ? (
             <div className='flex items-center gap-2'>
