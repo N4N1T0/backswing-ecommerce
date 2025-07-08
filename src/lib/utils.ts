@@ -410,3 +410,91 @@ export const hashPassword = (plainPassword: string): string => {
   ).toString('hex')
   return `${salt}:${hash}`
 }
+
+/**
+ * Calculates the age of an account based on its creation date and returns a formatted string in Spanish.
+ *
+ * @param {string} createdAt - The creation date of the account as a string
+ * @returns {string} A formatted string representing the account age in days, months or years in Spanish
+ *
+ * @example
+ * getAccountAge("2023-01-01") // "1 año"
+ * getAccountAge("2023-12-01") // "2 meses"
+ * getAccountAge("2024-02-01") // "15 días"
+ */
+export const getAccountAge = (createdAt: string): string => {
+  const created = new Date(createdAt)
+  const now = new Date()
+  const diffTime = Math.abs(now.getTime() - created.getTime())
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+  if (diffDays < 30) {
+    return `${diffDays} días`
+  } else if (diffDays < 365) {
+    const months = Math.floor(diffDays / 30)
+    return `${months} ${months === 1 ? 'mes' : 'meses'}`
+  } else {
+    const years = Math.floor(diffDays / 365)
+    return `${years} ${years === 1 ? 'año' : 'años'}`
+  }
+}
+
+/**
+ * Calculates how long ago a date was and returns a formatted string in Spanish.
+ *
+ * @param {string} purchaseDate - The date to calculate time ago from, in any format parseable by Date constructor
+ * @returns {string} A formatted string in Spanish representing how long ago the date was (e.g. "Ayer", "5 días atrás", "2 semanas atrás", "3 meses atrás")
+ *
+ * @example
+ * getTimeAgo("2024-02-14") // "1 día atrás"
+ * getTimeAgo("2024-01-01") // "2 meses atrás"
+ * getTimeAgo("2024-02-13") // "Ayer"
+ */
+export const getTimeAgo = (purchaseDate: string): string => {
+  const orderDate = new Date(purchaseDate)
+  const now = new Date()
+  const diffTime = Math.abs(now.getTime() - orderDate.getTime())
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+  let timeAgo = ''
+  if (diffDays === 1) {
+    timeAgo = 'Ayer'
+  } else if (diffDays < 7) {
+    timeAgo = `${diffDays} días atrás`
+  } else if (diffDays < 30) {
+    const weeks = Math.floor(diffDays / 7)
+    timeAgo = `${weeks} ${weeks === 1 ? 'semana' : 'semanas'} atrás`
+  } else {
+    const months = Math.floor(diffDays / 30)
+    timeAgo = `${months} ${months === 1 ? 'mes' : 'meses'} atrás`
+  }
+
+  return timeAgo
+}
+
+/**
+ * Gets the display title for legal pages based on the URL slug.
+ *
+ * @param {string} slug - The URL slug identifying the legal page
+ * @returns {string} The human-readable title in Spanish for the legal page
+ *
+ * @example
+ * getTitleLegal('politica-de-privacidad') // Returns 'Política de Privacidad'
+ * getTitleLegal('unknown-page') // Returns 'Página Legal'
+ */
+export const getTitleLegal = (slug: string): string => {
+  switch (slug) {
+    case 'politica-de-privacidad':
+      return 'Política de Privacidad'
+    case 'devoluciones-y-cambios':
+      return 'Devoluciones y Cambios'
+    case 'envio-y-entrega':
+      return 'Envío y Entrega'
+    case 'terminos-y-condiciones':
+      return 'Términos y Condiciones'
+    case 'preguntas-frecuentes':
+      return 'Preguntas Frecuentes'
+    default:
+      return 'Página Legal'
+  }
+}
