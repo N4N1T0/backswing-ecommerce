@@ -45,16 +45,20 @@ export const navItems = [
 // Items for the Footer
 export const footerItems = [
   {
-    label: 'Termino & Condiciones',
-    route: '/terminos-condiciones'
+    label: 'Política de Privacidad',
+    route: '/politica-de-privacidad'
   },
   {
-    label: 'Politica de privacidad',
-    route: '/politica-privacidad'
+    label: 'Devoluciones y Cambios',
+    route: '/devoluciones-y-cambios'
   },
   {
-    label: 'Tabla de Tallas',
-    route: '/tallas'
+    label: 'Envío y Entrega',
+    route: '/envio-y-entrega'
+  },
+  {
+    label: 'Términos y Condiciones',
+    route: '/terminos-y-condiciones'
   }
 ]
 
