@@ -1,74 +1,36 @@
 'use client'
 
-import { SquarePlaceholder } from '@/assets/placeholder'
-import WishlistHeart from '@/components/products/wishlist-heart'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger
-} from '@/components/ui/accordion'
+import WishlistCard from '@/components/products/wishlist-card'
 import useWishlist from '@/stores/wishlist-store'
-import Image from 'next/image'
+import { Heart } from 'lucide-react'
 
-const Wishlist = () => {
-  const [count] = useWishlist()
+export default function Wishlist() {
+  const [wishlistItems] = useWishlist()
 
   return (
-    <section id='wishlist' className='space-y-5 md:space-y-10'>
-      <h2 className='text-4xl font-semibold leading-9 text-gray-800 my-5 md:text-left text-center'>
-        Lista de Deseos
-      </h2>
-      <ul className='flex flex-col md:flex-row justify-start items-center gap-5 flex-wrap'>
-        {count.length === 0 ? (
-          <div className='space-y-3'>
-            <p className='text-center uppercase'>
-              No hay productos en tu lista de deseos
-            </p>
-          </div>
-        ) : (
-          count.map((item) => {
-            const { id, colors, title } = item
-            return (
-              <li key={id}>
-                <div className='w-52'>
-                  <div className='relative w-full h-52'>
-                    <Image
-                      src={colors[0].images[0].url || SquarePlaceholder}
-                      blurDataURL={
-                        colors[0].images[0].blur ||
-                        SquarePlaceholder.blurDataURL
-                      }
-                      placeholder='blur'
-                      alt={title || 'Modelo A'}
-                      title={title || 'Model A'}
-                      fill
-                      className='z-0 w-auto h-auto object-cover aspect-square'
-                    />
-                    <WishlistHeart product={item} />
-                  </div>
-                  <Accordion
-                    type='single'
-                    collapsible
-                    className='w-full space-y-3'
-                  >
-                    <AccordionItem value='item-1'>
-                      <AccordionTrigger>Detalles</AccordionTrigger>
-                      <AccordionContent className='w-full'>
-                        <ul className='w-full space-y-2 text-left'>
-                          <li>{title}</li>
-                        </ul>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                </div>
-              </li>
-            )
-          })
-        )}
-      </ul>
-    </section>
+    <div className='space-y-6'>
+      <div className='flex justify-between items-center'>
+        <h2 className='text-xl font-semibold text-black'>Mi Lista de Deseos</h2>
+        <p className='text-gray-600'>{wishlistItems.length} artículos</p>
+      </div>
+
+      {wishlistItems.length === 0 ? (
+        <div className='text-center py-12 border border-gray-200 bg-white'>
+          <Heart className='h-12 w-12 text-gray-400 mx-auto mb-4' />
+          <h3 className='text-lg font-medium text-black mb-2'>
+            Tu lista de deseos está vacía
+          </h3>
+          <p className='text-gray-600'>
+            Guarda artículos que te gusten para comprarlos después
+          </p>
+        </div>
+      ) : (
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {wishlistItems.map((item) => (
+            <WishlistCard key={item.id} product={item} route='products' />
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
-
-export default Wishlist
