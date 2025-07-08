@@ -2,49 +2,55 @@
 
 import { forgotPasswordAction } from '@/actions/auth'
 import { Button } from '@/components/ui/button'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage
+} from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { forgotPasswordSchema, ForgotPasswordSchema } from '@/lib/schemas/login'
 import { ForgotPasswordFormProps } from '@/types'
-import { FormEvent, useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 export function ForgotPasswordForm({ onSwitchToTab }: ForgotPasswordFormProps) {
   // STATE
-  const [isLoading, setIsLoading] = useState(false)
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const form = useForm<ForgotPasswordSchema>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      email: ''
+    }
+  })
+
+  // CONST
+  const {
+    formState: { isSubmitting },
+    handleSubmit
+  } = form
 
   // HANDLERS
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError('')
-    setMessage('')
-
-    const formData = new FormData(e.currentTarget)
-    const password = formData.get('password') as string
-    const confirmPassword = formData.get('confirmPassword') as string
-
-    if (password !== confirmPassword) {
-      setError('Las contraseñas no coinciden')
-      setIsLoading(false)
-      return
-    }
-
+  const onSubmit = async (values: ForgotPasswordSchema) => {
     try {
+      const formData = new FormData()
+      formData.append('email', values.email)
+
       const result = await forgotPasswordAction(formData)
 
       if (result.success) {
-        setMessage('Instrucciones enviadas a tu correo')
+        toast.success('Instrucciones enviadas a tu correo')
+        form.reset()
       } else {
-        setError(
+        toast.error(
           result.error || 'Error al enviar el correo de restablecimiento'
         )
       }
     } catch (error) {
-      console.log('🚀 ~ handleSubmit ~ error:', error)
-      setError('Ocurrió un error')
-    } finally {
-      setIsLoading(false)
+      console.log('🚀 ~ onSubmit ~ error:', error)
+      toast.error('Ocurrió un error')
     }
   }
 
@@ -60,44 +66,43 @@ export function ForgotPasswordForm({ onSwitchToTab }: ForgotPasswordFormProps) {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className='space-y-4'>
-        <div className='space-y-2'>
-          <Label
-            htmlFor='forgot-email'
-            className='text-black font-medium text-sm'
-          >
-            Correo Electrónico
-          </Label>
-          <Input
-            id='forgot-email'
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
+          <FormField
+            control={form.control}
             name='email'
-            type='email'
-            className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Ingresa tu correo electrónico'
-            required
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor='forgot-email'
+                  className='text-black font-medium text-sm'
+                >
+                  Correo Electrónico
+                </Label>
+                <FormControl>
+                  <Input
+                    id='forgot-email'
+                    type='email'
+                    className='border-2 border-gray-300 focus:border-black rounded-none h-12'
+                    placeholder='Ingresa tu correo electrónico'
+                    disabled={isSubmitting}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        {error && (
-          <div className='text-red-600 text-sm bg-red-50 p-3 border border-red-200'>
-            {error}
-          </div>
-        )}
-
-        {message && (
-          <div className='text-green-600 text-sm bg-green-50 p-3 border border-green-200'>
-            {message}
-          </div>
-        )}
-
-        <Button
-          type='submit'
-          disabled={isLoading}
-          className='w-full bg-black text-white hover:bg-gray-800 rounded-none py-6 text-base font-medium'
-        >
-          {isLoading ? 'Enviando...' : 'Enviar Instrucciones'}
-        </Button>
-      </form>
+          <Button
+            type='submit'
+            disabled={isSubmitting}
+            className='w-full bg-black text-white hover:bg-gray-800 rounded-none py-6 text-base font-medium'
+          >
+            {isSubmitting ? 'Enviando...' : 'Enviar Instrucciones'}
+          </Button>
+        </form>
+      </Form>
 
       <div className='text-center'>
         <p className='text-gray-600 text-sm'>

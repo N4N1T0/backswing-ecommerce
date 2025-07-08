@@ -38,7 +38,7 @@ export async function UserPopup() {
 
         <div>
           <Link
-            href='/profile'
+            href={`/perfil/${session.user.id}`}
             className={buttonVariants({
               variant: 'outline',
               className:
@@ -49,7 +49,7 @@ export async function UserPopup() {
             <span className='text-sm'>Perfil</span>
           </Link>
           <Link
-            href='/profile'
+            href={`/perfil/${session.user.id}/tab=wishlist`}
             className={buttonVariants({
               variant: 'outline',
               className:
@@ -60,7 +60,7 @@ export async function UserPopup() {
             <span className='text-sm'>Lista de Deseos</span>
           </Link>
           <Link
-            href='/profile'
+            href={`/perfil/${session.user.id}/tab=orders`}
             className={buttonVariants({
               variant: 'outline',
               className:

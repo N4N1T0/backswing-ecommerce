@@ -2,51 +2,63 @@
 
 import { signInWithGoogleAction, signUpAction } from '@/actions/auth'
 import { Button } from '@/components/ui/button'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage
+} from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
+import { signUpSchema, type SignUpSchema } from '@/lib/schemas/login'
 import { SignUpFormProps } from '@/types'
-import { FormEvent, useState } from 'react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
   // STATE
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const form = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  })
+
+  // CONST
+  const {
+    formState: { isSubmitting },
+    handleSubmit
+  } = form
 
   // HANDLERS
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError('')
-
-    const formData = new FormData(e.currentTarget)
-    const password = formData.get('password') as string
-    const confirmPassword = formData.get('confirmPassword') as string
-
-    if (password !== confirmPassword) {
-      setError('Las contraseñas no coinciden')
-      setIsLoading(false)
-      return
-    }
-
+  const onSubmit = async (values: SignUpSchema) => {
     try {
-      const result = await signUpAction(formData)
+      const result = await signUpAction(values)
 
       if (result.success) {
+        toast.success('Cuenta creada exitosamente')
+        form.reset()
         onSuccess?.()
       } else {
-        setError(result.message || 'Error al registrarse')
+        toast.error(result.message || 'Error al registrarse')
       }
     } catch (error) {
       console.error('Error during sign up:', error)
-      setError('Ocurrió un error')
-    } finally {
-      setIsLoading(false)
+      toast.error('Ocurrió un error')
     }
   }
 
   const handleGoogleSignIn = async () => {
-    setIsLoading(true)
+    setIsGoogleLoading(true)
     try {
       const result = await signInWithGoogleAction()
       if (result.success) {
@@ -54,9 +66,9 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
       }
     } catch (error) {
       console.log('🚀 ~ handleGoogleSignIn ~ error:', error)
-      setError('Error al iniciar sesión con Google')
+      toast.error('Error al iniciar sesión con Google')
     } finally {
-      setIsLoading(false)
+      setIsGoogleLoading(false)
     }
   }
 
@@ -72,9 +84,10 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
       <Button
         onClick={handleGoogleSignIn}
         variant='outline'
-        className='w-full border-2 border-gray-300 hover:bg-gray-50 rounded-none py-6 text-base font-medium bg-transparent'
-        disabled={isLoading}
+        className='w-full border-2 border-gray-300 hover:bg-gray-50 rounded-none py-6 text-base font-medium bg-transparent relative'
+        disabled={true || isGoogleLoading || isSubmitting}
       >
+        {isGoogleLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
         <svg className='w-5 h-5 mr-3' viewBox='0 0 24 24'>
           <path
             fill='currentColor'
@@ -94,6 +107,9 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
           />
         </svg>
         Continuar con Google
+        <span className='absolute -top-2 -right-1 text-xs text-white bg-red-500 rounded-full px-1.5 py-0.5 pointer-events-none'>
+          pronto
+        </span>
       </Button>
 
       <div className='relative'>
@@ -105,95 +121,125 @@ export function SignUpForm({ onSuccess, onSwitchToTab }: SignUpFormProps) {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className='space-y-4'>
-        <div className='space-y-2'>
-          <Label
-            htmlFor='signup-name'
-            className='text-black font-medium text-sm'
-          >
-            Nombre Completo
-          </Label>
-          <Input
-            id='signup-name'
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
+          <FormField
+            control={form.control}
             name='name'
-            type='text'
-            className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Ingresa tu nombre completo'
-            autoComplete='name'
-            minLength={6}
-            required
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor='signup-name'
+                  className='text-black font-medium text-sm'
+                >
+                  Nombre Completo
+                </Label>
+                <FormControl>
+                  <Input
+                    id='signup-name'
+                    type='text'
+                    className='border-2 border-gray-300 focus:border-black rounded-none h-12'
+                    placeholder='Ingresa tu nombre completo'
+                    autoComplete='name'
+                    disabled={isSubmitting || isGoogleLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className='space-y-2'>
-          <Label
-            htmlFor='signup-email'
-            className='text-black font-medium text-sm'
-          >
-            Correo Electrónico
-          </Label>
-          <Input
-            id='signup-email'
+          <FormField
+            control={form.control}
             name='email'
-            type='email'
-            className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Ingresa tu correo electrónico'
-            autoComplete='email'
-            minLength={6}
-            required
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor='signup-email'
+                  className='text-black font-medium text-sm'
+                >
+                  Correo Electrónico
+                </Label>
+                <FormControl>
+                  <Input
+                    id='signup-email'
+                    type='email'
+                    className='border-2 border-gray-300 focus:border-black rounded-none h-12'
+                    placeholder='Ingresa tu correo electrónico'
+                    autoComplete='email'
+                    disabled={isSubmitting || isGoogleLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className='space-y-2'>
-          <Label
-            htmlFor='signup-password'
-            className='text-black font-medium text-sm'
-          >
-            Contraseña
-          </Label>
-          <Input
-            id='signup-password'
+          <FormField
+            control={form.control}
             name='password'
-            type='password'
-            className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Crea una contraseña'
-            autoComplete='new-password'
-            required
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor='signup-password'
+                  className='text-black font-medium text-sm'
+                >
+                  Contraseña
+                </Label>
+                <FormControl>
+                  <Input
+                    id='signup-password'
+                    type='password'
+                    className='border-2 border-gray-300 focus:border-black rounded-none h-12'
+                    placeholder='Crea una contraseña'
+                    autoComplete='new-password'
+                    disabled={isSubmitting || isGoogleLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        <div className='space-y-2'>
-          <Label
-            htmlFor='signup-confirm-password'
-            className='text-black font-medium text-sm'
-          >
-            Confirmar Contraseña
-          </Label>
-          <Input
-            id='signup-confirm-password'
+          <FormField
+            control={form.control}
             name='confirmPassword'
-            type='password'
-            className='border-2 border-gray-300 focus:border-black rounded-none h-12'
-            placeholder='Confirma tu contraseña'
-            autoComplete='new-password'
-            required
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor='signup-confirm-password'
+                  className='text-black font-medium text-sm'
+                >
+                  Confirmar Contraseña
+                </Label>
+                <FormControl>
+                  <Input
+                    id='signup-confirm-password'
+                    type='password'
+                    className='border-2 border-gray-300 focus:border-black rounded-none h-12'
+                    placeholder='Confirma tu contraseña'
+                    autoComplete='new-password'
+                    disabled={isSubmitting || isGoogleLoading}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
 
-        {error && (
-          <div className='text-red-600 text-sm bg-red-50 p-3 border border-red-200'>
-            {error}
-          </div>
-        )}
-
-        <Button
-          type='submit'
-          disabled={isLoading}
-          className='w-full bg-black text-white hover:bg-gray-800 rounded-none py-6 text-base font-medium'
-        >
-          {isLoading ? 'Creando Cuenta...' : 'Crear Cuenta'}
-        </Button>
-      </form>
+          <Button
+            type='submit'
+            disabled={isSubmitting || isGoogleLoading}
+            className='w-full bg-black text-white hover:bg-gray-800 rounded-none py-6 text-base font-medium'
+          >
+            {isSubmitting ? ' Creando Cuenta...' : 'Crear Cuenta'}
+          </Button>
+        </form>
+      </Form>
 
       <div className='text-center'>
         <p className='text-gray-600 text-sm'>
