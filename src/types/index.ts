@@ -191,6 +191,10 @@ export type SearchParamsSearchType = Promise<{
   q: string
 }>
 
+export type SearchParamsLegalType = Promise<{
+  slug: string
+}>
+
 export interface Error {
   digest?: string
   message: string
