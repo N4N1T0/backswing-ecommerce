@@ -10,7 +10,7 @@ import { DesignsType } from './DesignsTypes'
 import { externalImageType } from './ExternalImageType'
 import { featureFlagsType } from './FeatureFlags'
 import { formatTypes } from './FormatTypes'
-import { homePageType } from './HomePageType'
+import { legalPageType } from './LegalPageTypes'
 import { link } from './LinkType'
 import { noStockNotifyMeType } from './NoStockNotifyMeType'
 import { orderType } from './OrderType'
@@ -31,7 +31,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     productCategoryType,
     couponsType,
     subscriberNewsletterType,
-    homePageType,
     costumerType,
     addressType,
     link,
@@ -41,6 +40,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     abandonedCartType,
     orderType,
     wishlistType,
-    formatTypes
+    formatTypes,
+    legalPageType
   ]
 }

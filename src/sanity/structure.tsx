@@ -7,6 +7,7 @@ import {
   BarChart,
   Bell,
   BookOpen,
+  BookOpenText,
   CircleDollarSign,
   Filter,
   Heart,
@@ -32,10 +33,9 @@ export const structure: StructureResolver = (S) =>
           S.list()
             .title('Contenido del Sitio')
             .items([
-              S.listItem()
-                .title('Pagina Principal')
-                .icon(() => <BookOpen className='h-4 w-4' />)
-                .child(S.document().schemaType('homePage')),
+              S.documentTypeListItem('legalPages')
+                .title('Paginas Legales')
+                .icon(() => <BookOpenText className='h-4 w-4' />),
               S.divider(),
               S.documentTypeListItem('post')
                 .title('Entradas')
