@@ -38,27 +38,14 @@ export default async function LegalPage({
 
   return (
     <main className='max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8'>
-      <div className='space-y-8'>
-        <div className='text-center space-y-4'>
-          <h1 className='text-3xl font-bold text-gray-900 sm:text-4xl'>
-            {getTitleLegal(slug)}
-          </h1>
-          {legalPage.excerpt && (
-            <p className='text-lg text-gray-600 max-w-2xl mx-auto'>
-              {legalPage.excerpt}
-            </p>
-          )}
-        </div>
+      <section className='prose prose-lg max-w-none pb-6'>
+        {legalPage.content && <PortableText value={legalPage.content} />}
+      </section>
 
-        <section className='prose prose-lg max-w-none'>
-          {legalPage.content && <PortableText value={legalPage.content} />}
-        </section>
-
-        <div className='border-t border-gray-200 pt-6'>
-          <p className='text-sm text-gray-500 text-center'>
-            Última actualización: {new Date().toLocaleDateString('es-ES')}
-          </p>
-        </div>
+      <div className='border-t border-gray-200 pt-6'>
+        <p className='text-sm text-gray-500 text-center'>
+          Última actualización: {new Date().toLocaleDateString('es-ES')}
+        </p>
       </div>
     </main>
   )

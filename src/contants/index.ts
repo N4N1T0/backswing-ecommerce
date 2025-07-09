@@ -46,19 +46,19 @@ export const navItems = [
 export const footerItems = [
   {
     label: 'Política de Privacidad',
-    route: '/politica-de-privacidad'
+    route: '/legal/politica-de-privacidad'
   },
   {
     label: 'Devoluciones y Cambios',
-    route: '/devoluciones-y-cambios'
+    route: '/legal/devoluciones-y-cambios'
   },
   {
     label: 'Envío y Entrega',
-    route: '/envio-y-entrega'
+    route: '/legal/envio-y-entrega'
   },
   {
     label: 'Términos y Condiciones',
-    route: '/terminos-y-condiciones'
+    route: '/legal/terminos-y-condiciones'
   }
 ]
 
