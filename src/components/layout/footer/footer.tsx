@@ -1,4 +1,5 @@
 import LogoMobile from '@/assets/e9094108-15ea-477b-900e-7ef4183ac717.png'
+import Gateway from '@/assets/payment-getways.png'
 import { footerItems } from '@/contants'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -63,12 +64,23 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className='flex flex-col-reverse gap-1 md:gap-0 md:flex-row justify-between items-center w-full mt-5 text-xs text-gray-700'>
+        <ul className='flex justify-between items-center flex-wrap border-b border-gray-300 py-3 text-sm text-gray-600'>
+          <li>NIF Presentador: X3092435Q</li>
+          <li>Apellidos y Nombre / Razón social: FURIO MARTIN CRUZ</li>
+          <li>Nombre comercial: Backswing</li>
+          <li>Dirección Comercial: Marbella, España</li>
+        </ul>
+        <div className='flex flex-col-reverse gap-1 md:gap-0 md:flex-row justify-between items-center w-full mt-5 text-xs text-gray-500'>
           <p>
             Desarrollado con{' '}
-            <span className='animate-pulse text-red-600 text-base'>
-              &hearts;
-            </span>{' '}
+            <Link
+              href='https://nextjs.org/es'
+              target='_blank'
+              rel='noreferrer noopener nofollow'
+              className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline '
+            >
+              Next.js
+            </Link>{' '}
             y creado por{' '}
             <a
               href='https://www.adrian-alvarez.dev/es/'
@@ -79,7 +91,8 @@ const Footer = () => {
               Adrian Alvarez Alonso
             </a>
           </p>
-          <p>Copyright &copy; 2022. All rights reserved.</p>
+          <Image src={Gateway} alt='métodos de pago' />
+          <p>Copyright &copy; 2025. All rights reserved.</p>
         </div>
       </div>
     </footer>
