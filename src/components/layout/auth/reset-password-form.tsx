@@ -9,6 +9,8 @@ import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { FormEvent, Suspense, useCallback, useEffect, useState } from 'react'
 
+export const runtime = 'nodejs'
+
 function ResetPasswordFormContent() {
   // STATE
   const [isLoading, setIsLoading] = useState(false)

@@ -6,6 +6,8 @@ import { verifyPassword } from './lib/utils'
 import { sanityClientWrite } from './sanity/lib/client'
 import { GET_USER_FOR_AUTH } from './sanity/queries'
 
+export const runtime = 'nodejs'
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
