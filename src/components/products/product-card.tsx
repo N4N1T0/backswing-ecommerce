@@ -49,7 +49,7 @@ const ProductCard = React.memo(
           href={`/${route}/${slug}`}
           className='relative h-[200px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] overflow-hidden block group'
         >
-          <div className='relative w-full h-full aspect-square'>
+          <div className='relative size-full object-cover aspect-[9/10] shadow-md shadow-gray-200 border border-gray-100'>
             <Image
               src={images?.images[1].url || SquarePlaceholder}
               blurDataURL={
@@ -63,7 +63,7 @@ const ProductCard = React.memo(
               loading={priority <= 8 ? 'eager' : 'lazy'}
               sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
               className={cn(
-                'aspect-square object-center transition-transform duration-500 ease-in-out group-hover:scale-125 h-auto w-auto z-40',
+                'object-cover aspect-[9/10] transition-transform duration-500 ease-in-out group-hover:scale-125 size-auto z-4o',
                 isCommingSoon && 'cursor-not-allowed'
               )}
             />

@@ -148,7 +148,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
             width={700}
             priority
             title={`${designFormat.title}-${colors.title}-front`}
-            className='object-center aspect-square h-auto w-auto'
+            className='object-cover aspect-[9/10] size-auto border shadow-md shadow-gray-100'
           />
           <Image
             src={colors.images[1].url || SquarePlaceholder}
@@ -159,7 +159,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
             width={700}
             priority
             title={`${designFormat.title}-${colors.title}-back`}
-            className='object-center aspect-square h-auto w-auto'
+            className='object-cover aspect-[9/10] size-auto border shadow-md shadow-gray-100'
           />
         </div>
         <div className='w-full px-4 md:w-1/2 sticky top-4 h-fit mt-3 md:mt-0'>
