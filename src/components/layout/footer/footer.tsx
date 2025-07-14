@@ -77,19 +77,28 @@ const Footer = () => {
               href='https://nextjs.org/es'
               target='_blank'
               rel='noreferrer noopener nofollow'
-              className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline '
+              className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline'
             >
               Next.js
             </Link>{' '}
             y creado por{' '}
-            <a
+            <Link
+              href='https://www.adrian-alvarez.dev/es/'
+              target='_blank'
+              rel='noreferrer noopener nofollow'
+              className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline'
+            >
+              Adrian Alvarez Alonso
+            </Link>{' '}
+            y{' '}
+            <Link
               href='https://www.adrian-alvarez.dev/es/'
               target='_blank'
               rel='noreferrer noopener nofollow'
               className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline '
             >
-              Adrian Alvarez Alonso
-            </a>
+              Doctec World
+            </Link>
           </p>
           <Image src={Gateway} alt='métodos de pago' />
           <p>Copyright &copy; 2025. All rights reserved.</p>
