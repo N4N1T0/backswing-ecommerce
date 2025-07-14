@@ -159,6 +159,24 @@ export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
   }
 }`)
 
+export const GET_DESIGNS_BY_SEARCH = defineQuery(`*[
+  _type == "productDesigns" && title match $search] {
+    commingSoon,
+    "id": _id,
+    "slug": slug.current,
+    title,
+    "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
+    "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
+    "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
+    "colors": formats[0]->color[]{
+      "title": name,
+      "images": images[].asset->{
+        "url": url,
+        "blur": metadata.lqip,
+      }
+    },
+}`)
+
 export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
   _type == "productDesigns" && slug.current == $slug
 ][0]{
@@ -167,9 +185,9 @@ export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
     excerpt,
     "slug": slug.current,
     title,
-    "offer": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].offer,
-    "price": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].price,
-    "sizes": *[_type == 'product' && count(designs[]->slug.current[@ == $slug]) > 0][0].sizes,
+    "offer": *[_type == 'product' && designs[]->slug.current match [$slug]][0].offer,
+    "price": *[_type == 'product' && designs[]->slug.current match [$slug]][0].price,
+    "sizes": *[_type == 'product' && designs[]->slug.current match [$slug]][0].sizes,
     "format": formats[]->{
       title,
       "colors": color[]{
