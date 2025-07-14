@@ -60,18 +60,18 @@ export const socialMedia = [
 export const contactsAssets = [
   {
     label: 'Email',
-    href: 'mailto:ITcompany@gmail',
-    content: 'ITcompany@gmail'
+    href: 'mailto:info@backswingpadel.com',
+    content: 'info@backswingpadel.com'
   },
   {
     label: 'Phone',
-    href: 'tel:+9876542312',
-    content: '+9876542312'
+    href: 'tel:+34632949476',
+    content: '+34632949476'
   },
   {
     label: 'Office',
-    href: '#/',
-    content: 'Sukedhara, Kathmandu'
+    href: '#',
+    content: 'Marbella - España.'
   },
   {
     label: 'Social',
