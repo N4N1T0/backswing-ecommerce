@@ -822,6 +822,24 @@ export type GET_PRODUCTS_BY_CATEGORYResult = {
     }>
   }>
 }
+// Variable: GET_DESIGNS_BY_SEARCH
+// Query: *[ _type == "productDesigns" && title match $search][0] { commingSoon, "id": _id, "slug": slug.current, title, "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer, "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price, "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes, "colors": formats[0]->color[]{ "title": name, "images": images[].asset->{ "url": url, "blur": metadata.lqip, } }, }
+export type GET_DESIGNS_BY_SEARCHResult = Array<{
+  commingSoon: boolean | null
+  id: string
+  slug: string | null
+  title: string | null
+  offer: null
+  price: number | null
+  sizes: Array<string> | null
+  colors: Array<{
+    title: string | null
+    images: Array<{
+      url: string | null
+      blur: string | null
+    }>
+  }>
+}>
 // Variable: GET_BLOG_ARTICLE_BY_SLUGResult
 // Query: *[_type=='post' && status == 'publish' && slug.current == $slug][0]{"id": _id,"featuredMedia": {"url": featuredMedia.asset -> url,"blur": featuredMedia.asset -> metadata.lqip},excerpt,author->{name,"avatar": {"url": avatar.asset -> url,"blur": avatar.asset -> metadata.lqip}},"slug": slug.current,categories[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},title,date,content,tags[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},}
 export interface GET_BLOG_ARTICLE_BY_SLUGResult {
@@ -1018,5 +1036,6 @@ declare module 'next-sanity' {
     '*[_type ==\'post\' && status == \'publish\']{\n  "id": _id,\n"featuredMedia": {\n  "url": featuredMedia.asset -> url,\n  "blur": featuredMedia.asset -> metadata.lqip\n},\nexcerpt,\nauthor->{\n  name,\n  "avatar": {\n    "url": avatar.asset -> url,\n  "blur": avatar.asset -> metadata.lqip\n  }\n},\n"slug": slug.current,\ncategories[]->{\n  name,\n  "id": _id,\n},\n  title,\n  date\n}': GET_ALL_BLOGResult
     '*[_type==\'post\' && status == \'publish\' && slug.current == $slug][0]{\n   "id": _id,\n  "featuredMedia": {\n    "url": featuredMedia.asset -> url,\n    "blur": featuredMedia.asset -> metadata.lqip\n  },\n  excerpt,\n  author->{\n    name,\n    "avatar": {\n      "url": avatar.asset -> url,\n    "blur": avatar.asset -> metadata.lqip\n    }\n  },\n  "slug": slug.current,\n  categories[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n    title,\n    date,\n    content,\n    tags[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n}': GET_BLOG_ARTICLE_BY_SLUGResult
     '*[_type == "costumer" && _id == $customerId][0]{\n  firstName,\n  lastName,\n  _createdAt,\n  "avatar": avatarUrl.asset->{\n    "url": url,\n    "blur": metadata.lqip\n  },\n  billingAddress[0] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  shippingAddresses[] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  "orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {\n    "id": _id,\n    purchaseDate,\n    status,\n    paymentMethod,\n    totalAmount,\n    "shippingAddress": shippingAddress[0],\n    discountCoupon->{\n      code,\n      discount,\n      discount_type,\n      "id": _id\n    },\n    products[] {\n      quantity,\n      format,\n      color,\n      product->{\n        "id": _id,\n        title,\n        "slug": slug.current,\n        "featuredMedia": formats[0]->color[0].images[0].asset->{\n          "url": url,\n          "blur": metadata.lqip\n        }\n      }\n    }\n  }\n}': GET_USER_PROFILE_WITH_ORDERSResult
+    '*[\n  _type == "productDesigns" && title match $search] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    "colors": formats[0]->color[]{\n      "title": name,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    },\n}': GET_DESIGNS_BY_SEARCHResult
   }
 }
