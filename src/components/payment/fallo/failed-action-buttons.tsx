@@ -1,23 +1,22 @@
 'use client'
 
-import { buttonVariants } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { CreditCard, RefreshCw, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export function FailedActionButtons() {
+  const router = useRouter()
   return (
     <div className='space-y-4'>
-      <Link
-        href='/checkout'
-        className={buttonVariants({
-          variant: 'outline',
-          className:
-            'h-14 bg-red-600 text-white hover:bg-red-700 border-2 border-red-600 font-semibold text-lg w-full rounded-none'
-        })}
+      <Button
+        variant='outline'
+        onClick={() => router.replace('/checkout')}
+        className='h-14 bg-red-600 text-white hover:bg-red-700 border-2 border-red-600 font-semibold text-lg w-full rounded-none'
       >
         <CreditCard className='w-5 h-5 mr-3' />
         Reintentar Pago
-      </Link>
+      </Button>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         <Link
@@ -32,17 +31,14 @@ export function FailedActionButtons() {
           Contactar Soporte
         </Link>
 
-        <Link
-          href='/'
-          className={buttonVariants({
-            variant: 'outline',
-            className:
-              'h-14 border-2 border-black text-black hover:bg-gray-50 font-semibold text-lg bg-transparent rounded-none'
-          })}
+        <Button
+          onClick={() => router.replace('/')}
+          variant='outline'
+          className='h-14 border-2 border-black text-black hover:bg-gray-50 font-semibold text-lg bg-transparent rounded-none'
         >
           <ShoppingBag className='w-5 h-5 mr-3' />
           Seguir Comprando
-        </Link>
+        </Button>
       </div>
     </div>
   )
