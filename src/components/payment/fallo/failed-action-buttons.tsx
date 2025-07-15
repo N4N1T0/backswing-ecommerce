@@ -12,7 +12,7 @@ export function FailedActionButtons() {
       <Button
         variant='outline'
         onClick={() => router.replace('/checkout')}
-        className='h-14 bg-red-600 text-white hover:bg-red-700 border-2 border-red-600 font-semibold text-lg w-full rounded-none'
+        className='h-14 bg-red-600 text-white hover:bg-red-700 border-2 border-red-600 font-semibold w-full rounded-none'
       >
         <CreditCard className='w-5 h-5 mr-3' />
         Reintentar Pago
@@ -24,7 +24,7 @@ export function FailedActionButtons() {
           className={buttonVariants({
             variant: 'outline',
             className:
-              'h-14 border-2 border-black text-black hover:bg-gray-50 font-semibold text-lg bg-transparent rounded-none'
+              'h-14 border-2 border-black text-black font-semibold text-lg bg-transparent rounded-none'
           })}
         >
           <RefreshCw className='w-5 h-5 mr-3' />
@@ -34,7 +34,7 @@ export function FailedActionButtons() {
         <Button
           onClick={() => router.replace('/')}
           variant='outline'
-          className='h-14 border-2 border-black text-black hover:bg-gray-50 font-semibold text-lg bg-transparent rounded-none'
+          className='h-14 border-2 border-black text-black font-semibold bg-transparent rounded-none hover:bg-gray-900'
         >
           <ShoppingBag className='w-5 h-5 mr-3' />
           Seguir Comprando
