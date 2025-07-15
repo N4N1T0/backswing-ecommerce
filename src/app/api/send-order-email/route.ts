@@ -14,7 +14,7 @@ export const POST = async (req: NextRequest) => {
 
     await resendClient.emails.send({
       from: 'compra-realizada@backswingpadel.com',
-      bcc: 'backswing.es@gmail.com',
+      bcc: 'info@backswingpadel.com',
       to: data.user?.email as string,
       subject: 'Orden Completada',
       react: PurchaseConfirmationEmail({

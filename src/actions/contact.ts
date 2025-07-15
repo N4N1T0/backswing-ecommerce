@@ -23,7 +23,7 @@ export async function sendContactEmail(values: ContactFormSchema) {
   try {
     await resendClient.emails.send({
       from: 'contacto@backswingpadel.com',
-      to: 'contacto@backswingpadel.com',
+      to: 'info@backswingpadel.com',
       subject: 'Nuevo mensaje de contacto',
       react: ContactEmail({
         data: data
@@ -56,8 +56,8 @@ export async function subscribeToNewsletter(values: NewsletterSchema) {
   try {
     await resendClient.emails.send({
       from: 'newsletter@backswingpadel.com',
-      to: [data.email],
-      bcc: ['info@backswingpadel.com'],
+      to: data.email,
+      bcc: 'info@backswingpadel.com',
       subject: '¡Bienvenido al Newsletter de Backswing! 🎾',
       react: NewsletterWelcomeEmail({
         data
