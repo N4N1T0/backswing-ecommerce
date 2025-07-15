@@ -500,3 +500,31 @@ export const getTitleLegal = (slug: string): string => {
       return 'Página Legal'
   }
 }
+
+/**
+ * Generates a cryptographically strong random password.
+ *
+ * The generated password will:
+ * - Be 16 characters long
+ * - Include lowercase letters (a-z)
+ * - Include uppercase letters (A-Z)
+ * - Include numbers (0-9)
+ * - Include special characters (!@#$%^&*()_+-=[]{}|;:,.<>?)
+ *
+ * @returns {string} A randomly generated strong password
+ *
+ * @example
+ * const password = generateStrongPassword() // Returns something like "P@5sw0rd!K9#mX$q"
+ */
+export const generateStrongPassword = (): string => {
+  const length = 16
+  const charset =
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?'
+  let password = ''
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length)
+    password += charset[randomIndex]
+  }
+
+  return password
+}
