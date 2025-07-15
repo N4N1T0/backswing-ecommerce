@@ -22,10 +22,10 @@ const ProductCard = React.memo(
     // CONST
     const { colors, offer, price, title, slug, commingSoon } = product
     const hasOffer = !!offer
-    const pseudoIndex = getRandomNumber()
     const isCommingSoon = !!commingSoon
 
     // STATE
+    const [pseudoIndex] = useState(() => getRandomNumber())
     const [images, setImages] = useState<Colors[number]>(
       colors && colors[pseudoIndex]
     )
@@ -56,12 +56,10 @@ const ProductCard = React.memo(
                 images?.images[1].blur || SquarePlaceholder.blurDataURL
               }
               placeholder='blur'
-              fill
               alt={title || 'Diseño de camiseta'}
               title={title || 'Diseño de camiseta'}
               priority={priority <= 8}
-              loading={priority <= 8 ? 'eager' : 'lazy'}
-              sizes='(max-width: 768px) 200px (max-width: 1200px) 400px'
+              fill
               className={cn(
                 'object-cover aspect-[9/10] transition-transform duration-500 ease-in-out group-hover:scale-125 size-auto z-4o',
                 isCommingSoon && 'cursor-not-allowed'
