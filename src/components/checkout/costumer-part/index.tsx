@@ -62,8 +62,8 @@ export default function CheckoutCostumerPart({
               isPayingCustomer: userData.isPayingCustomer
             })
 
-            if (userData.billingAddress && userData.billingAddress.length > 0) {
-              setBillingAddress(userData.billingAddress[0])
+            if (userData.billingAddress) {
+              setBillingAddress(userData.billingAddress)
             }
 
             if (
@@ -197,7 +197,7 @@ export default function CheckoutCostumerPart({
     <div className='space-y-6'>
       {/* USER STATUS */}
       {session?.user && (
-        <div className='bg-green-50 border border-green-200 rounded-lg p-4 my-4'>
+        <div className='bg-green-50 border border-green-200 p-4 my-4'>
           <p className='text-green-800 text-sm'>
             ✓ Sesión iniciada como: {session.user.email}
           </p>
@@ -205,7 +205,7 @@ export default function CheckoutCostumerPart({
       )}
 
       {!session?.user && (
-        <div className='bg-blue-50 border border-blue-200 rounded-lg p-4 my-4'>
+        <div className='bg-blue-50 border border-blue-200 p-4 my-4'>
           <p className='text-blue-800 text-sm'>
             ℹ️ Comprando como invitado. Puedes crear una cuenta durante el
             proceso.

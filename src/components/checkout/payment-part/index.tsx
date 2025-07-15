@@ -143,6 +143,10 @@ export default function CheckoutPaymentPart({
         disabled={!canProceed}
       />
 
+      <div className='text-center text-sm text-gray-800 px-4 py-2 bg-gray-100 border-2 border-gray-300'>
+        <p>Al realizar el pedido, acepta nuestros términos y condiciones</p>
+      </div>
+
       {/* Botón de Finalizar Compra */}
       <Button
         size='lg'
@@ -167,9 +171,6 @@ export default function CheckoutPaymentPart({
         )}
       </Button>
 
-      <div className='text-center text-sm text-gray-600 p-4 bg-gray-100 border-2 border-gray-300'>
-        <p>Al realizar el pedido, acepta nuestros términos y condiciones</p>
-      </div>
       {/* <RedsysPaymentForm form={paymentForm} /> */}
     </div>
   )
