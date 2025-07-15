@@ -4,6 +4,7 @@ import { OrderDetailsCard } from '@/components/payment/order-details-card'
 import { PageHeader } from '@/components/payment/page-header'
 import { SupportInfo } from '@/components/payment/support-info'
 import { GET_ORDER_BY_ID_Result } from '@/types'
+import { FailedPaymentForm } from './failed-form'
 
 interface FailedPageProps {
   order: GET_ORDER_BY_ID_Result
@@ -26,6 +27,8 @@ export default function FailedPage({
           title='Error en el Pago'
           description='Lo sentimos, no pudimos procesar tu pago. Por favor, revisa la información e inténtalo de nuevo.'
         />
+
+        <FailedPaymentForm orderId={order.id} />
 
         <ErrorInfoCard
           errorCode={errorCode}
