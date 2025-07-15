@@ -106,6 +106,13 @@ export const orderType = defineType({
       description: 'El estado actual de la compra.'
     }),
     defineField({
+      name: 'cancelReason',
+      title: 'Motivo de Cancelación',
+      type: 'string',
+      description: 'El motivo por el cual se canceló la compra.',
+      hidden: ({ document }) => document?.status !== 'cancelado'
+    }),
+    defineField({
       name: 'shippingAddress',
       title: 'Dirección de Envío',
       type: 'array',

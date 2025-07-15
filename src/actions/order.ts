@@ -178,6 +178,28 @@ export async function validateCoupon(couponCode: string) {
   }
 }
 
+export async function updateOrderCancelReason(orderId: string, reason: string) {
+  try {
+    await sanityClientWrite
+      .patch(orderId)
+      .set({ cancelReason: reason, status: 'cancelado' })
+      .commit()
+
+    revalidatePath(`/profile/orders`)
+
+    return {
+      success: true,
+      message: 'Motivo de cancelación actualizado correctamente.'
+    }
+  } catch (error) {
+    console.error('Error updating order cancel reason:', error)
+    return {
+      success: false,
+      error: 'Error al actualizar el motivo de la cancelación.'
+    }
+  }
+}
+
 export const orderCreation = async (
   orderId: string,
   products: CartItem[],
