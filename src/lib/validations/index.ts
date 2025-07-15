@@ -12,11 +12,7 @@ export function validateContactInfo(customer: Partial<Costumer> | null) {
   // If creating account, also need username and password
   if (!customer.isGuest && !customer._id) {
     return (
-      hasRequiredFields &&
-      customer.userName &&
-      customer.userName.trim() !== '' &&
-      customer.password &&
-      customer.password.trim() !== ''
+      hasRequiredFields && customer.password && customer.password.trim() !== ''
     )
   }
 
