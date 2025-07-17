@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { GET_USER_PROFILE_WITH_ORDERSResult } from '@/sanity/types'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Dashboard from './dashboard'
-import OrderList from './orders-summary'
+import OrderList from './orders'
 import Wishlist from './wishlist'
 
 export default function ProfileContent({
