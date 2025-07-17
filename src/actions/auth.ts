@@ -4,7 +4,12 @@ import { signIn, signOut } from '@/auth'
 import NewClientEmail from '@/emails/new-client'
 import PasswordResetEmail from '@/emails/password-reset'
 import { resendClient } from '@/lib/clients/resend'
-import { loginSchema, signUpSchema, type LoginSchema, type SignUpSchema } from '@/lib/schemas/login'
+import {
+  loginSchema,
+  signUpSchema,
+  type LoginSchema,
+  type SignUpSchema
+} from '@/lib/schemas/login'
 import { catchError, hashPassword } from '@/lib/utils'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_USER_FOR_AUTH } from '@/sanity/queries'
@@ -285,4 +290,5 @@ export async function resetPasswordAction(formData: FormData) {
 
 export async function signOutAction() {
   await signOut()
+  revalidatePath('/checkout', 'page')
 }
