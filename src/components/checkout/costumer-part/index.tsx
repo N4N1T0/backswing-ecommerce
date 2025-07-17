@@ -194,7 +194,7 @@ export default function CheckoutCostumerPart({
   }
 
   return (
-    <div className='space-y-6'>
+    <div className='space-y-6 w-full'>
       {/* USER STATUS */}
       {session?.user && (
         <div className='bg-green-50 border border-green-200 p-4 my-4'>

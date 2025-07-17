@@ -50,7 +50,7 @@ const ProductItem = memo(function ProductItem({
   const formattedPrice = offer ? offer : price
   return (
     <div
-      className={`flex items-center gap-4 p-4 border border-gray-300 ${disabled ? 'bg-gray-200 opacity-50' : 'bg-gray-50'}`}
+      className={`flex flex-wrap items-center gap-4 p-4 border border-gray-300 ${disabled ? 'bg-gray-200 opacity-50' : 'bg-gray-50'}`}
     >
       <div className='w-16 h-16 bg-gray-300 border border-gray-400'>
         <Image
