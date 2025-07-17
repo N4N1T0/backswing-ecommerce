@@ -3,6 +3,7 @@ import { auth } from '@/auth'
 import { Button, buttonVariants } from '@/components/ui/button'
 import {
   Popover,
+  PopoverClose,
   PopoverContent,
   PopoverTrigger
 } from '@/components/ui/popover'
@@ -37,39 +38,45 @@ export async function UserPopup() {
         <Separator className='my-2 bg-gray-200' />
 
         <div>
-          <Link
-            href={`/perfil/${session.user.id}`}
-            className={buttonVariants({
-              variant: 'outline',
-              className:
-                'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
-            })}
-          >
-            <User className='mr-3 size-5' />
-            <span className='text-sm'>Perfil</span>
-          </Link>
-          <Link
-            href={`/perfil/${session.user.id}/tab=wishlist`}
-            className={buttonVariants({
-              variant: 'outline',
-              className:
-                'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
-            })}
-          >
-            <Heart className='mr-3 size-5' />
-            <span className='text-sm'>Lista de Deseos</span>
-          </Link>
-          <Link
-            href={`/perfil/${session.user.id}/tab=orders`}
-            className={buttonVariants({
-              variant: 'outline',
-              className:
-                'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
-            })}
-          >
-            <CircleDollarSign className='mr-3 size-5' />
-            <span className='text-sm'>Ordenes</span>
-          </Link>
+          <PopoverClose asChild>
+            <Link
+              href={`/perfil/${session.user.id}`}
+              className={buttonVariants({
+                variant: 'outline',
+                className:
+                  'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
+              })}
+            >
+              <User className='mr-3 size-5' />
+              <span className='text-sm'>Perfil</span>
+            </Link>
+          </PopoverClose>
+          <PopoverClose asChild>
+            <Link
+              href={`/perfil/${session.user.id}?tab=wishlist`}
+              className={buttonVariants({
+                variant: 'outline',
+                className:
+                  'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
+              })}
+            >
+              <Heart className='mr-3 size-5' />
+              <span className='text-sm'>Lista de Deseos</span>
+            </Link>
+          </PopoverClose>
+          <PopoverClose asChild>
+            <Link
+              href={`/perfil/${session.user.id}?tab=orders`}
+              className={buttonVariants({
+                variant: 'outline',
+                className:
+                  'w-full justify-start rounded-none hover:bg-gray-100 px-3 py-2 h-auto border-none mb-1'
+              })}
+            >
+              <CircleDollarSign className='mr-3 size-5' />
+              <span className='text-sm'>Ordenes</span>
+            </Link>
+          </PopoverClose>
 
           <Separator className='my-2 bg-gray-200' />
 
