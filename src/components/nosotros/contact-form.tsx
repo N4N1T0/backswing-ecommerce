@@ -121,7 +121,7 @@ const ContactForm = () => {
               </FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder='Describe your problem'
+                  placeholder='Escribe tu mensaje...'
                   rows={5}
                   disabled={isSubmitting}
                   className='bg-white rounded-none shadow-none border border-gray-500'
