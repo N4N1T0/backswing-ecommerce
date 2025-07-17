@@ -11,7 +11,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const SubHero = async () => {
-  const type = ['sudaderas', 'ninos']
+  const type = ['camisetas', 'ninos']
   const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
     type: type
   })
@@ -22,6 +22,7 @@ const SubHero = async () => {
 
   const formattedProducts = products.designs
     .filter((design) => design.colors)
+    .filter((design) => design.commingSoon !== true)
     .slice(0, 5)
 
   return (
@@ -49,7 +50,7 @@ const SubHero = async () => {
                       SquarePlaceholder.blurDataURL
                     }
                     alt={title || 'Sudadera de Niños'}
-                    className='aspect-square object-contain transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
+                    className='aspect-square object-contain shadow-sm transition-transform duration-300 ease-out group-hover:scale-110 w-auto h-auto'
                     width={index === 4 ? 1000 : 400}
                     height={index === 4 ? 1000 : 400}
                     priority
