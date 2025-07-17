@@ -6,7 +6,8 @@ import { PageHeader } from '@/components/payment/page-header'
 import { ShippingInfoCard } from '@/components/payment/shipping-info-card'
 import { SupportInfo } from '@/components/payment/support-info'
 import { GET_ORDER_BY_ID_Result } from '@/types'
-import { BillingInfoCard } from '../billing-info-card copy'
+import { BillingInfoCard } from '../billing-info-card'
+import { TransferInfoCard } from '../transfer-info-card'
 
 export default function SuccessPage({
   order
@@ -52,6 +53,7 @@ export default function SuccessPage({
         <OrderDetailsCard order={order} type='success' />
         <ShippingInfoCard order={order} type='success' />
         <BillingInfoCard order={order} type='success' />
+        {order.paymentMethod === 'transferencia' && <TransferInfoCard />}
       </div>
 
       <div className='container mx-auto px-4 pb-16 max-w-2xl'>
