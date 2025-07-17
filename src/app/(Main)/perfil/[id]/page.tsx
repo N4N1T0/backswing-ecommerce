@@ -1,9 +1,10 @@
+import { auth } from '@/auth'
 import ProfileContent from '@/components/profile'
 import { sanityClientRead } from '@/sanity/lib/client'
 import { GET_USER_PROFILE_WITH_ORDERS } from '@/sanity/queries'
 import { SearchParamsProfileType } from '@/types'
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default async function ProfilePage({
   params: SearchParamsProfileType
 }) {
   const { id } = await params
+  const session = await auth()
 
   const userProfile = await sanityClientRead.fetch(
     GET_USER_PROFILE_WITH_ORDERS,
@@ -24,8 +26,8 @@ export default async function ProfilePage({
     }
   )
 
-  if (!userProfile) {
-    notFound()
+  if (!userProfile || !session || session.user?.id !== id) {
+    redirect('/')
   }
 
   return (
