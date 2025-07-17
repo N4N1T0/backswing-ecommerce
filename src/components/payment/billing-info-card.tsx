@@ -12,7 +12,7 @@ export function BillingInfoCard({
   // CONST
   const shippingAddress = order.user.billingAddress
   const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600'
-  const formattedName = order.user.firstName + ' ' + order.user.lastName
+  const formattedName = order.user.firstName + ' ' + (order.user.lastName || '')
 
   if (!shippingAddress) return null
 
@@ -32,7 +32,9 @@ export function BillingInfoCard({
           <p className='text-gray-600'>
             {shippingAddress.postcode} {shippingAddress.city}, España
           </p>
-          <p className='text-gray-600'>Teléfono: {shippingAddress.phone}</p>
+          {shippingAddress.phone && (
+            <p className='text-gray-600'>Teléfono: {shippingAddress.phone}</p>
+          )}
         </div>
       </CardContent>
     </Card>
