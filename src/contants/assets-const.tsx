@@ -64,17 +64,17 @@ export const contactsAssets = [
     content: 'info@backswingpadel.com'
   },
   {
-    label: 'Phone',
+    label: 'Teléfono',
     href: 'tel:+34632949476',
     content: '+34632949476'
   },
   {
-    label: 'Office',
+    label: 'Ubicación',
     href: '#',
     content: 'Marbella - España.'
   },
   {
-    label: 'Social',
+    label: 'Redes Sociales',
     content: socialMedia
   }
 ]
