@@ -215,6 +215,7 @@ export const GET_COUPONS_FOR_VALIDATION = defineQuery(`*[
 
 export const GET_USER_PROFILE_WITH_ORDERS =
   defineQuery(`*[_type == "costumer" && _id == $customerId][0]{
+  "id": _id,
   firstName,
   lastName,
   _createdAt,
