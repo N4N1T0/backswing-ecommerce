@@ -46,6 +46,18 @@ export const orderType = defineType({
               title: 'Color',
               type: 'string',
               description: 'Color del producto.'
+            }),
+            defineField({
+              name: 'price',
+              title: 'Precio',
+              type: 'number',
+              description: 'Precio del producto.'
+            }),
+            defineField({
+              name: 'size',
+              title: 'Talla',
+              type: 'string',
+              description: 'Talla del producto.'
             })
           ],
           preview: {
