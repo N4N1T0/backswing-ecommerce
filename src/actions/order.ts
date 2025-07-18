@@ -223,7 +223,7 @@ export const orderCreation = async (
         : undefined
 
   const refactoredProducts: Order['products'] = products.map(
-    ({ id, quantity, format: { color, title } }) => ({
+    ({ id, quantity, format: { color, title }, talla, price }) => ({
       product: {
         _ref: id,
         _type: 'reference' as const
@@ -231,6 +231,8 @@ export const orderCreation = async (
       color: color.title || '',
       format: title || '',
       quantity,
+      size: talla,
+      price,
       _key: uuid()
     })
   )
