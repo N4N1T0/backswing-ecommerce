@@ -91,7 +91,10 @@ export default function PurchaseConfirmationEmail({
         </Heading>
         <div className='border-2 border-black p-5 bg-white'>
           {order.products.map(
-            ({ _id, title, price, format, color, quantity, offer }, index) => {
+            (
+              { _id, title, price, format, color, quantity, offer, size },
+              index
+            ) => {
               const formattedPrice = (offer ? offer : price) as number
               return (
                 <div key={_id}>
@@ -109,6 +112,9 @@ export default function PurchaseConfirmationEmail({
                         </Text>
                         <Text className='text-gray-600 text-sm m-0'>
                           Cantidad: {quantity as number}
+                        </Text>
+                        <Text className='text-gray-600 text-sm m-0'>
+                          Talla: {size as number}
                         </Text>
                       </Column>
                       <Column className='w-2/5 text-right'>
@@ -143,6 +149,17 @@ export default function PurchaseConfirmationEmail({
             <Column className='text-right'>
               <Text className='text-black text-sm m-0'>
                 {eurilize(subtotal)}
+              </Text>
+            </Column>
+          </Row>
+
+          <Row className='mb-2'>
+            <Column>
+              <Text className='text-gray-600 text-sm m-0'>IVA:</Text>
+            </Column>
+            <Column className='text-right'>
+              <Text className='text-black text-sm m-0'>
+                {eurilize(Number(order.totalAmount) * 0.21)}
               </Text>
             </Column>
           </Row>
@@ -189,6 +206,9 @@ export default function PurchaseConfirmationEmail({
                 <Text className='text-black text-sm font-bold mb-2 m-0'>
                   {order.user.firstName || order.user.email}
                 </Text>
+                <Text className='text-black text-sm font-bold mb-2 m-0'>
+                  {order.user.IdDocument}
+                </Text>
                 <Text className='text-gray-600 text-sm mb-1 m-0'>
                   {order.shippingAddress.address1}
                 </Text>
@@ -219,6 +239,9 @@ export default function PurchaseConfirmationEmail({
                   {order.user.firstName ||
                     order.user.lastName ||
                     order.user.email}
+                </Text>
+                <Text className='text-black text-sm font-bold mb-2 m-0'>
+                  {order.user.IdDocument}
                 </Text>
                 <Text className='text-gray-600 text-sm mb-1 m-0'>
                   {order.user.billingAddress.address1}
