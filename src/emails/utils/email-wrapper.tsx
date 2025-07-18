@@ -84,10 +84,10 @@ function EmailFooter() {
         ¿Necesitas ayuda? Contacta con nuestro servicio de atención al cliente
       </Text>
       <Text className='text-black text-sm font-bold mb-4 m-0'>
-        soporte@backswing.com | 600 123 456
+        info@backswingpadel.com | +346 32 94 94 76
       </Text>
       <Text className='text-gray-600 text-xs mb-4 m-0'>
-        Visita nuestra tienda: https://backswing.com
+        Visita nuestra tienda: https://backswingpadel.com
       </Text>
       <Hr className='border-gray-300 my-4' />
       <Text className='text-gray-500 text-xs m-0'>
