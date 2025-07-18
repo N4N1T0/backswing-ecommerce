@@ -115,7 +115,7 @@ export async function signUpAction(values: SignUpSchema) {
 
     await resendClient.emails.send({
       from: 'usario-nuevo@backswingpadel.com',
-      bcc: 'backswing.es@gmail.com',
+      bcc: 'info@backswingpadel.com',
       to: [email],
       subject: 'Nuevo Usuario',
       react: NewClientEmail({
