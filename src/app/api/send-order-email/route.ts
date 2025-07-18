@@ -11,10 +11,11 @@ export const POST = async (req: NextRequest) => {
   }
   try {
     const data = await req.json()
+    console.log('🚀 ~ POST ~ data:', data)
 
     await resendClient.emails.send({
       from: 'compra-realizada@backswingpadel.com',
-      bcc: 'info@backswingpadel.com',
+      // bcc: 'info@backswingpadel.com',
       to: data.user?.email as string,
       subject: 'Orden Completada',
       react: PurchaseConfirmationEmail({
