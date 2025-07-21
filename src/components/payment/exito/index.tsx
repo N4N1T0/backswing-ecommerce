@@ -53,7 +53,9 @@ export default function SuccessPage({
         <OrderDetailsCard order={order} type='success' />
         <ShippingInfoCard order={order} type='success' />
         <BillingInfoCard order={order} type='success' />
-        {order.paymentMethod === 'transferencia' && <TransferInfoCard />}
+        {order.paymentMethod === 'transferencia' && (
+          <TransferInfoCard orderId={order.id} />
+        )}
       </div>
 
       <div className='container mx-auto px-4 pb-16 max-w-2xl'>
