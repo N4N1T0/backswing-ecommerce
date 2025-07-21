@@ -213,6 +213,28 @@ export const GET_COUPONS_FOR_VALIDATION = defineQuery(`*[
   active
 }`)
 
+export const GET_DESIGNS_BY_NEW = defineQuery(`*[
+  _type == "productDesigns" && isNew == true] {
+    commingSoon,
+    "id": _id,
+    "slug": slug.current,
+    title,
+    "productCategories":*[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].productCategories[]->{
+      name,
+      "slug": slug.current
+    },
+   "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
+    "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
+    "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
+    "colors": formats[0]->color[]{
+      "title": name,
+      "images": images[].asset->{
+        "url": url,
+        "blur": metadata.lqip,
+      }
+  }
+}`)
+
 export const GET_USER_PROFILE_WITH_ORDERS =
   defineQuery(`*[_type == "costumer" && _id == $customerId][0]{
   "id": _id,

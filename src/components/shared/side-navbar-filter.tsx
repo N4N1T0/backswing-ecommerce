@@ -40,16 +40,18 @@ const SideNavbarFilter = () => {
               pronto
             </span>
           )}
-          <AccordionContent className='space-y-2'>
-            {accordion.products.map((product) => (
-              <li
-                key={product.label}
-                className='list-none ml-5 hover:text-gray-500 duration-200 transition-colors'
-              >
-                <a href={product.route}>{product.label}</a>
-              </li>
-            ))}
-          </AccordionContent>
+          {accordion.products && (
+            <AccordionContent className='space-y-2'>
+              {accordion.products.map((product) => (
+                <li
+                  key={product.label}
+                  className='list-none ml-5 hover:text-gray-500 duration-200 transition-colors'
+                >
+                  <a href={product.route}>{product.label}</a>
+                </li>
+              ))}
+            </AccordionContent>
+          )}
         </AccordionItem>
       ))}
       {/* Render a a to the personalize page with a 'new' badge */}

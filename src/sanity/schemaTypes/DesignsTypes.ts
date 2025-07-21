@@ -13,10 +13,11 @@ export const DesignsType = defineType({
       readOnly: false
     }),
     defineField({
-      name: 'referenceCode',
-      type: 'string',
-      title: 'Código de Referencia',
-      description: 'El código de referencia del producto.'
+      name: 'isNew',
+      type: 'boolean',
+      title: 'Nuevo',
+      description: 'El producto es nuevo.',
+      initialValue: false
     }),
     defineField({
       name: 'commingSoon',
@@ -24,6 +25,12 @@ export const DesignsType = defineType({
       title: 'Próximamente',
       description: 'El producto está disponible próximamente.',
       initialValue: false
+    }),
+    defineField({
+      name: 'referenceCode',
+      type: 'string',
+      title: 'Código de Referencia',
+      description: 'El código de referencia del producto.'
     }),
     defineField({
       name: 'formats',

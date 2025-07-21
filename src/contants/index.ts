@@ -22,12 +22,12 @@ export const navItems = [
   },
   {
     label: 'Nuevo',
-    route: '/nuevo/camisetas',
+    route: '/nuevo',
     commingSoon: false
   },
   {
     label: 'Ofertas',
-    route: '/ofertas/camisetas',
+    route: '/ofertas',
     commingSoon: true
   },
   {
@@ -138,12 +138,8 @@ export const sidebarAccordion = [
     commingSoon: false,
     products: [
       {
-        label: 'Camisetas',
-        route: '/nuevo/camisetas'
-      },
-      {
-        label: 'Sudaderas',
-        route: '/nuevo/sudaderas'
+        label: 'Todos',
+        route: '/nuevo'
       }
     ]
   },
@@ -152,12 +148,8 @@ export const sidebarAccordion = [
     commingSoon: true,
     products: [
       {
-        label: 'Camisetas',
-        route: '/ofertas/camisetas'
-      },
-      {
-        label: 'Sudaderas',
-        route: '/ofertas/sudaderas'
+        label: 'Todos',
+        route: '/ofertas'
       }
     ]
   }
