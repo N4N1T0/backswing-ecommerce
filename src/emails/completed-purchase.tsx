@@ -228,7 +228,7 @@ export default function PurchaseConfirmationEmail({
             </Column>
           )}
 
-          {/* Billing Address */}
+          {/* BILLING ADDRESS */}
           {order.user.billingAddress && (
             <Column className='w-1/2 pl-2'>
               <Heading className='text-black text-base font-bold mb-4 m-0'>
@@ -264,6 +264,59 @@ export default function PurchaseConfirmationEmail({
           )}
         </Row>
       </Section>
+
+      {/* TRANSFER */}
+      {order.gateway === 'transferencia' && (
+        <Section className='mb-8'>
+          <Heading className='text-black text-xl font-bold mb-2 m-0'>
+            Información para la Transferencia
+          </Heading>
+          <div className='border-2 border-black p-5 bg-white'>
+            <Text className='text-gray-600 text-sm mb-4'>
+              Por favor, realiza la transferencia a la siguiente cuenta bancaria
+              y envía el comprobante a nuestro correo electrónico.
+            </Text>
+            <Row className='mb-2'>
+              <Column className='w-1/3'>
+                <Text className='text-black font-bold m-0'>Beneficiario:</Text>
+              </Column>
+              <Column>
+                <Text className='text-gray-600 m-0'>Backswing SL</Text>
+              </Column>
+            </Row>
+            <Row className='mb-2'>
+              <Column className='w-1/3'>
+                <Text className='text-black font-bold m-0'>IBAN:</Text>
+              </Column>
+              <Column>
+                <Text className='text-gray-600 m-0'>
+                  ES96 0049 1482 4621 1196 8577
+                </Text>
+              </Column>
+            </Row>
+            <Row className='mb-2'>
+              <Column className='w-1/3'>
+                <Text className='text-black font-bold m-0'>Concepto:</Text>
+              </Column>
+              <Column>
+                <Text className='text-gray-600 m-0'>
+                  Pedido #{order.orderNumber}
+                </Text>
+              </Column>
+            </Row>
+            <Row>
+              <Column className='w-1/3'>
+                <Text className='text-black font-bold m-0'>Email:</Text>
+              </Column>
+              <Column>
+                <Text className='text-gray-600 m-0'>
+                  info@backswingpadel.com
+                </Text>
+              </Column>
+            </Row>
+          </div>
+        </Section>
+      )}
 
       {/* DELIVERY */}
       <Section className='mb-8'>
