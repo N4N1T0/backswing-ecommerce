@@ -13,6 +13,7 @@ import {
 } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { GET_ORDER_BY_ID_Result } from '@/types'
+import { useEffect, useRef } from 'react'
 
 export function OrderDetailsCard({
   order,
@@ -22,7 +23,16 @@ export function OrderDetailsCard({
   type: 'success' | 'failed'
 }) {
   // STATE
-  const [products] = useShoppingCart()
+  const [products, mutate] = useShoppingCart()
+  const renderedProductsRef = useRef<typeof products>([])
+
+  // EFFECT
+  useEffect(() => {
+    if (products.length > 0) {
+      renderedProductsRef.current = products
+      mutate([])
+    }
+  }, [products, mutate])
 
   // CONST
   const bgColor = type === 'success' ? 'bg-green-600' : 'bg-red-600'
@@ -67,31 +77,33 @@ export function OrderDetailsCard({
           <div className='space-y-3'>
             <h3 className='font-semibold text-black'>Productos:</h3>
             <div className='space-y-3'>
-              {products.map(({ id, title, format, quantity, price, offer }) => {
-                const formattedPrice = offer ? offer : price
-                return (
-                  <div key={id} className='border border-gray-200 p-3'>
-                    <div className='flex justify-between items-start mb-2'>
-                      <div className='flex-1'>
-                        <h4 className='font-medium text-black'>{title}</h4>
-                        <div className='text-sm text-gray-600 space-y-1'>
-                          <p>Formato: {format.title}</p>
-                          <p>Color: {format.color.title}</p>
-                          <p>Cantidad: {quantity}</p>
+              {renderedProductsRef.current.map(
+                ({ id, title, format, quantity, price, offer }) => {
+                  const formattedPrice = offer ? offer : price
+                  return (
+                    <div key={id} className='border border-gray-200 p-3'>
+                      <div className='flex justify-between items-start mb-2'>
+                        <div className='flex-1'>
+                          <h4 className='font-medium text-black'>{title}</h4>
+                          <div className='text-sm text-gray-600 space-y-1'>
+                            <p>Formato: {format.title}</p>
+                            <p>Color: {format.color.title}</p>
+                            <p>Cantidad: {quantity}</p>
+                          </div>
+                        </div>
+                        <div className='text-right'>
+                          <p className='font-semibold text-black'>
+                            {eurilize(formattedPrice || 1 * quantity)}
+                          </p>
+                          <p className='text-sm text-gray-600'>
+                            {eurilize(formattedPrice)} c/u
+                          </p>
                         </div>
                       </div>
-                      <div className='text-right'>
-                        <p className='font-semibold text-black'>
-                          {eurilize(formattedPrice || 1 * quantity)}
-                        </p>
-                        <p className='text-sm text-gray-600'>
-                          {eurilize(formattedPrice)} c/u
-                        </p>
-                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                }
+              )}
             </div>
           </div>
 

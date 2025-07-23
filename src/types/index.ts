@@ -28,6 +28,11 @@ export interface WPPost {
   }
 }
 
+export interface SupportInfoProps {
+  email?: string
+  phone?: string
+}
+
 export type Product = GET_DESIGNS_BY_SLUGResult
 export type ProductCard = GET_PRODUCTS_BY_CATEGORYResult['designs'][number]
 export type Colors = ProductCard['colors'] | Product['format'][number]['colors']

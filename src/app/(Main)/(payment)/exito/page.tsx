@@ -2,7 +2,17 @@ import SuccessPage from '@/components/payment/exito'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_ORDER_BY_ID } from '@/sanity/queries'
 import { GET_ORDER_BY_ID_Result } from '@/types'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+export const metadata: Metadata = {
+  title: 'Pago Exitoso | Backswing',
+  description: 'Gracias por tu compra. Tu pago ha sido procesado exitosamente.',
+  robots: {
+    index: false,
+    follow: false
+  }
+}
 
 export default async function Page({
   searchParams
