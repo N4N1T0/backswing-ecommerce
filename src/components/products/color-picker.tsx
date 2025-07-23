@@ -7,20 +7,22 @@ import type { Colors } from '@/types'
 const ColorPicker = ({
   colors,
   setColor,
-  isProductCard = false
+  isProductCard = false,
+  slug
 }: {
   colors: Colors
   setColor?: React.Dispatch<React.SetStateAction<Colors[number]>>
   isProductCard?: boolean
+  slug?: string | null
 }) => {
-  if (!colors) return null
+  if (!colors || colors.length === 0) return null
 
   const handleColorSelect = (color: Colors[number]) => {
     setColor?.(color)
   }
 
   return (
-    <div className='mt-3 mb-5 space-y-5'>
+    <form className='mt-3 mb-5 space-y-5'>
       {!isProductCard && (
         <h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
           {colors.length} Colores
@@ -28,17 +30,21 @@ const ColorPicker = ({
       )}
 
       <fieldset
-        className={`${isProductCard ? 'gap-2' : 'gap-4'} flex flex-wrap justify-start items-center`}
+        className={cn(
+          'flex flex-wrap justify-start items-center',
+          isProductCard ? 'gap-2' : 'gap-4'
+        )}
       >
-        {colors.map((color) => {
-          const colorName = color.title ? color.title.toLowerCase() : 'color'
+        {colors.map((color, index) => {
+          const colorName = color.title?.toLowerCase() || 'color'
+          const uniqueId = `${slug || 'product'}-color-${index}`
 
           return (
             <label
-              key={colorName}
-              htmlFor={colorName}
+              key={uniqueId}
+              htmlFor={uniqueId}
               className={cn(
-                'size-7 hover:border-gray-700 has-checked:border-gray-900 border-2 rounded-full block',
+                'size-7 hover:border-gray-700 border-2 rounded-full block cursor-pointer',
                 isProductCard && 'size-5'
               )}
               style={{
@@ -48,21 +54,19 @@ const ColorPicker = ({
             >
               <input
                 type='radio'
-                id={colorName}
+                id={uniqueId}
                 value={colorName}
                 aria-label={colorName}
-                name='color-selection'
-                className='sr-only'
-                onChange={() => {
-                  handleColorSelect(color)
-                }}
+                name={`color-${slug || 'product'}`}
+                className='sr-only peer'
+                onChange={() => handleColorSelect(color)}
               />
               <span className='sr-only'>{colorName}</span>
             </label>
           )
         })}
       </fieldset>
-    </div>
+    </form>
   )
 }
 

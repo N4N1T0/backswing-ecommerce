@@ -1,7 +1,7 @@
 'use client'
 
 import { SquarePlaceholder } from '@/assets/placeholder'
-import { cn, eurilize, getRandomNumber } from '@/lib/utils'
+import { cn, eurilize } from '@/lib/utils'
 import type { Colors, ProductCard } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -25,10 +25,7 @@ const ProductCard = React.memo(
     const isCommingSoon = !!commingSoon
 
     // STATE
-    const [pseudoIndex] = useState(() => getRandomNumber())
-    const [images, setImages] = useState<Colors[number]>(
-      colors && colors[pseudoIndex]
-    )
+    const [images, setImages] = useState<Colors[number]>(colors && colors[1])
 
     return (
       <div className='block relative'>
@@ -60,6 +57,7 @@ const ProductCard = React.memo(
               title={title || 'Diseño de camiseta'}
               priority={priority <= 8}
               fill
+              sizes='(max-width: 768px) 100vw, 50vw'
               className={cn(
                 'object-cover aspect-[9/10] transition-transform duration-500 ease-in-out group-hover:scale-125 size-auto z-4o',
                 isCommingSoon && 'cursor-not-allowed'
@@ -70,16 +68,18 @@ const ProductCard = React.memo(
 
         <div className='relative pt-3 px-1.5 pb-1'>
           <div className='w-full flex justify-between items-center'>
-            <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
-              {title}
-            </h3>
+            <Link href={`/${route}/${slug}`}>
+              <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
+                {title}
+              </h3>
+            </Link>
             <WishlistHeart product={product} />
           </div>
           <ColorPicker
             colors={colors}
             setColor={setImages}
             isProductCard
-            key={title}
+            slug={slug}
           />
           <div className='mt-1.5 flex items-center justify-between text-gray-900'>
             {hasOffer ? (
