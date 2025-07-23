@@ -1,8 +1,8 @@
 'use client'
 
-import WishlistCard from '@/components/products/wishlist-card'
 import useWishlist from '@/stores/wishlist-store'
 import { Heart } from 'lucide-react'
+import ProductCard from '../products/product-card'
 
 export default function Wishlist() {
   const [wishlistItems] = useWishlist()
@@ -25,9 +25,14 @@ export default function Wishlist() {
           </p>
         </div>
       ) : (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {wishlistItems.map((item) => (
-            <WishlistCard key={item.id} product={item} route='products' />
+        <div className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'>
+          {wishlistItems.map((item, index) => (
+            <ProductCard
+              key={item.id}
+              product={item}
+              route='products'
+              priority={index}
+            />
           ))}
         </div>
       )}
