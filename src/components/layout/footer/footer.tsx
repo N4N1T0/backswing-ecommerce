@@ -92,7 +92,7 @@ const Footer = () => {
             </Link>{' '}
             y{' '}
             <Link
-              href='https://www.adrian-alvarez.dev/es/'
+              href='https://www.doctortecnologico.com'
               target='_blank'
               rel='noreferrer noopener nofollow'
               className='text-gray-950 hover:text-gray-700 duration-200 transition-colors ease-out underline '
