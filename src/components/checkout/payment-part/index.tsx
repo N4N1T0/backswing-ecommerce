@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useTransition } from 'react'
 import { toast } from 'sonner'
 // import { RedsysPaymentForm } from '../redsys-payment-form'
-import { cn } from '@/lib/utils'
+import { cn, eurilize } from '@/lib/utils'
 import { Session } from 'next-auth'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
@@ -167,7 +167,7 @@ export default function CheckoutPaymentPart({
         ) : products.length === 0 ? (
           'Carrito Vacío'
         ) : (
-          `Realizar Pedido - $${totalAmount}`
+          `Realizar Pedido - ${eurilize(totalAmount)}`
         )}
       </Button>
 
