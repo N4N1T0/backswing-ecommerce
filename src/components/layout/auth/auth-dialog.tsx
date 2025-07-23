@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger
 } from '@/components/ui/dialog'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { DialogDescription } from '@radix-ui/react-dialog'
 import { User } from 'lucide-react'
@@ -43,7 +44,7 @@ export function AuthDialog() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className='sm:max-w-md w-full mx-4 p-0 rounded-none border-2 border-gray-200 bg-primary'>
+      <DialogContent className='sm:max-w-md w-full p-0 mx-1 rounded-none border-2 border-gray-200 bg-primary'>
         <Tabs value={activeTab} onValueChange={setActiveTab} className='w-full'>
           <TabsList className='grid w-full grid-cols-3 rounded-none bg-gray-200 p-1 h-auto'>
             <TabsTrigger
@@ -67,23 +68,25 @@ export function AuthDialog() {
           </TabsList>
 
           <div className='p-8'>
-            <TabsContent value='signin' className='mt-0'>
-              <SignInForm
-                onSuccess={handleSuccess}
-                onSwitchToTab={setActiveTab}
-              />
-            </TabsContent>
+            <ScrollArea className='max-h-[70vh] h-full'>
+              <TabsContent value='signin' className='mt-0'>
+                <SignInForm
+                  onSuccess={handleSuccess}
+                  onSwitchToTab={setActiveTab}
+                />
+              </TabsContent>
 
-            <TabsContent value='signup' className='mt-0'>
-              <SignUpForm
-                onSuccess={handleSuccess}
-                onSwitchToTab={setActiveTab}
-              />
-            </TabsContent>
+              <TabsContent value='signup' className='mt-0'>
+                <SignUpForm
+                  onSuccess={handleSuccess}
+                  onSwitchToTab={setActiveTab}
+                />
+              </TabsContent>
 
-            <TabsContent value='forgot' className='mt-0'>
-              <ForgotPasswordForm onSwitchToTab={setActiveTab} />
-            </TabsContent>
+              <TabsContent value='forgot' className='mt-0'>
+                <ForgotPasswordForm onSwitchToTab={setActiveTab} />
+              </TabsContent>
+            </ScrollArea>
           </div>
         </Tabs>
       </DialogContent>
