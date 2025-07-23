@@ -43,7 +43,7 @@ export default function ProfileContent({
           value='wishlist'
           className='rounded-none py-3 px-4 text-sm font-medium data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none border-r border-gray-300'
         >
-          Lista de Deseos
+          <span className='hidden md:inline'>Lista de</span> Deseos
         </TabsTrigger>
       </TabsList>
 
