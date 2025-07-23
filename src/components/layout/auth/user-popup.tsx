@@ -87,7 +87,7 @@ export async function UserPopup() {
               className='w-full justify-start rounded-none hover:bg-red-50 hover:text-red-600 px-3 py-2 h-auto text-gray-700'
             >
               <LogOut size={16} className='mr-3' />
-              <span className='text-sm'>Sign Out</span>
+              <span className='text-sm'>Cerrar sesión</span>
             </Button>
           </Form>
         </div>
