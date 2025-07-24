@@ -69,7 +69,7 @@ const ProductCard = React.memo(
         <div className='relative pt-3 px-1.5 pb-1'>
           <div className='w-full flex justify-between items-center'>
             <Link href={`/${route}/${slug}`}>
-              <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
+              <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base hover:text-gray-700 transition-colors duration-200'>
                 {title}
               </h3>
             </Link>
