@@ -14,6 +14,8 @@ const BlogCard = ({ post }: { post: GET_ALL_BLOGResult[number] }) => {
           alt={title}
           title={title}
           fill
+          quality={100}
+          decoding='async'
           placeholder='blur'
           blurDataURL={featuredMedia.blur || SquarePlaceholder.blurDataURL}
         />
@@ -36,7 +38,7 @@ const BlogCard = ({ post }: { post: GET_ALL_BLOGResult[number] }) => {
         className='focus:outline-hidden flex items-center justify-between w-full md:w-60 mt-6 transition-colors duration-200 bg-gray-900 p-4 hover:bg-gray-700 focus:ring-2 focus:ring-offset-2 focus:ring-gray-700'
       >
         <p className='text-sm md:text-base font-medium leading-2 md:leading-4 text-white'>
-          Leer Mas
+          Leer más
         </p>
         <svg
           width='20'
