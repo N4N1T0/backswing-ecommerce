@@ -9,7 +9,7 @@ const About = () => {
           <div className='lg:max-w-md space-y-6'>
             <div className='pl-4 border-l-4 border-gray-900'>
               <span className='text-sm text-gray-600 uppercase'>
-                Quienes somos?
+                ¿Quienes somos?
               </span>
               <h1 className='mt-2 text-3xl font-black md:text-5xl'>
                 Backswing
