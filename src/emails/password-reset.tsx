@@ -17,7 +17,7 @@ export default function PasswordResetEmail({
 }) {
   // CONST
   const previewText = 'Restablece tu contraseña de Backswing'
-  const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || 'https://backswing.com'}/reset-password?token=${token}&email=${email}`
+  const resetUrl = `${process.env.NEXT_PUBLIC_URL || 'http://backswingpadel.com'}/reset-password?token=${token}&email=${email}`
 
   return (
     <EmailWrapper previewText={previewText}>
