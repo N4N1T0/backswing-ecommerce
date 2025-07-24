@@ -55,15 +55,17 @@ const SideNavbarFilter = () => {
         </AccordionItem>
       ))}
       {/* Render a a to the personalize page with a 'new' badge */}
-      <a
-        href='/personalizar'
-        className='flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline relative'
-      >
-        Personalizar
-        <span className='absolute top-2 -right-1 text-xs text-white bg-gray-900 rounded-full px-1.5 py-0.5 pointer-events-none'>
-          nuevo
+      <div className='relative flex flex-1 items-center justify-between py-4'>
+        <a
+          href='/personalizar'
+          className='font-medium transition-all hover:underline cursor-not-allowed pointer-events-none opacity-50'
+        >
+          Personalizar
+        </a>
+        <span className='absolute top-2 -right-1 text-xs text-white bg-red-500 rounded-full px-1.5 py-0.5 pointer-events-none'>
+          pronto
         </span>
-      </a>
+      </div>
     </Accordion>
   )
 }
