@@ -83,13 +83,13 @@ export const contactsAssets = [
 export const accordionProductsItems = [
   {
     id: 'descripcion',
-    title: 'descripcion',
+    title: 'Descripción',
     content:
-      'a 1a camiseta del mercado 100% pretratada para facilitar la impresión digital Algodón semipeinado para una excelente relación calidad/precio Ningún residuo de pretratamiento visible'
+      'La primera camiseta del mercado 100% pretratada para facilitar la impresión digital. Confeccionada en algodón semi peinado, ofrece una excelente relación calidad/precio y no presenta residuos visibles del pretratamiento.'
   },
   {
     id: 'composition',
-    title: 'Composicion',
+    title: 'Composición',
     content:
       '100% algodón (85% algodón - 15% algodón biológico) - Enteramente pretratada para una impresión digital completa'
   },
