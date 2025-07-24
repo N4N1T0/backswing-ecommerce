@@ -30,7 +30,7 @@ export default function Wishlist() {
             <ProductCard
               key={item.id}
               product={item}
-              route='products'
+              route='nuevo'
               priority={index}
             />
           ))}
