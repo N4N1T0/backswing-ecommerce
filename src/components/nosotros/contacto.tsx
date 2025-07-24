@@ -21,9 +21,9 @@ const Contacto = () => {
                 switch (iconName) {
                   case 'Email':
                     return <Mail color='#FFFFFF' />
-                  case 'Phone':
+                  case 'Teléfono':
                     return <Phone color='#FFFFFF' />
-                  case 'Office':
+                  case 'Ubicación':
                     return <Home color='#FFFFFF' />
                   case 'Social':
                     return <Contact2 color='#FFFFFF' />
