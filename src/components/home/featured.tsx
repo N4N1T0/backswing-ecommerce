@@ -34,7 +34,7 @@ const Featured = async () => {
                 </p>
               </header>
               <Link
-                href='/nuevo/sudaderas'
+                href='/nuevo'
                 className='mt-8 inline-block bg-gray-950 px-12 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-gray-700'
               >
                 Verlos Todos
@@ -44,13 +44,12 @@ const Featured = async () => {
           <div className='lg:col-span-2 xl:col-span-3 lg:py-8'>
             <ul className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
               {formattedProducts.map((product, index) => (
-                <li key={product.id} className='relative group'>
-                  <ProductCard
-                    product={product}
-                    route='mujer/camisetas'
-                    priority={index}
-                  />
-                </li>
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  route='mujer/camisetas'
+                  priority={index}
+                />
               ))}
             </ul>
           </div>
