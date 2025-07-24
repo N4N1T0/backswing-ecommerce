@@ -9,16 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default async function NuevoCamisetasPage() {
-  const products = await sanityClientRead.fetch(
-    GET_DESIGNS_BY_NEW,
-    {},
-    {
-      next: {
-        revalidate: 60 * 5
-      },
-      cache: 'force-cache'
-    }
-  )
+  const products = await sanityClientRead.fetch(GET_DESIGNS_BY_NEW, {})
 
   if (!products) {
     return (

@@ -3,16 +3,7 @@ import { GET_ALL_BLOG } from '@/sanity/queries'
 import BlogCard from './blog-card'
 
 export default async function BlogFeed() {
-  const blogs = await sanityClientRead.fetch(
-    GET_ALL_BLOG,
-    {},
-    {
-      cache: 'force-cache',
-      next: {
-        revalidate: 3600
-      }
-    }
-  )
+  const blogs = await sanityClientRead.fetch(GET_ALL_BLOG, {})
 
   return (
     <div className='2xl:mx-auto w-full xl:px-12 sm:px-6 px-3 py-10'>

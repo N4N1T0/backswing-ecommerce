@@ -10,18 +10,9 @@ export async function generateMetadata({
   params: SearchParamsProductIDType
 }): Promise<Metadata> {
   const { product } = await params
-  const productInfo = await sanityClientRead.fetch(
-    GET_DESIGNS_BY_SLUG,
-    {
-      slug: product
-    },
-    {
-      cache: 'force-cache',
-      next: {
-        revalidate: 3600
-      }
-    }
-  )
+  const productInfo = await sanityClientRead.fetch(GET_DESIGNS_BY_SLUG, {
+    slug: product
+  })
 
   return {
     title: productInfo.title,
@@ -36,18 +27,9 @@ const ProductPage = async ({
 }) => {
   const { product } = await params
 
-  const productInfo = await sanityClientRead.fetch(
-    GET_DESIGNS_BY_SLUG,
-    {
-      slug: product
-    },
-    {
-      cache: 'force-cache',
-      next: {
-        revalidate: 3600
-      }
-    }
-  )
+  const productInfo = await sanityClientRead.fetch(GET_DESIGNS_BY_SLUG, {
+    slug: product
+  })
 
   return <ProductPageClient productInfo={productInfo} />
 }

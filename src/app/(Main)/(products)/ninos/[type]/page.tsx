@@ -16,18 +16,9 @@ export default async function NinosCamisetasPage({
 }) {
   const { type } = await params
 
-  const products = await sanityClientRead.fetch(
-    GET_PRODUCTS_BY_CATEGORY,
-    {
-      type: [type, 'ninos']
-    },
-    {
-      next: {
-        revalidate: 60 * 5
-      },
-      cache: 'force-cache'
-    }
-  )
+  const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
+    type: [type, 'ninos']
+  })
 
   if (!products || !products.designs) {
     return (

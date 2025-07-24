@@ -18,12 +18,6 @@ export default async function BlogPostPage({
     GET_BLOG_ARTICLE_BY_SLUG,
     {
       slug: postSlug
-    },
-    {
-      cache: 'force-cache',
-      next: {
-        revalidate: 3600
-      }
     }
   )
 
