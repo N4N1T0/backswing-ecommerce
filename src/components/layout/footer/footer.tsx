@@ -101,7 +101,7 @@ const Footer = () => {
             </Link>
           </p>
           <Image src={Gateway} alt='métodos de pago' />
-          <p>Copyright &copy; 2025. All rights reserved.</p>
+          <p>Copyright &copy; 2025. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>
