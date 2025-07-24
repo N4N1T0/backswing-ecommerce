@@ -10,6 +10,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'i.postimg.cc'
+      },
+      {
+        protocol: 'https',
+        hostname: 's7g3.scene7.com'
       }
     ]
   },
