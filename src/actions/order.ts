@@ -1,26 +1,27 @@
 'use server'
 
-// import { createRedirectForm } from '@/lib/clients/redsys'
+import { createRedirectForm } from '@/lib/clients/redsys'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_COSTUMER_BY_ID } from '@/sanity/queries'
 import { Order } from '@/sanity/types'
 import { CartItem } from '@/types'
 import { uuid } from '@sanity/uuid'
+import Decimal from 'decimal.js'
 import { revalidatePath } from 'next/cache'
-// import {
-//   CURRENCIES,
-//   LANGUAGES,
-//   TRANSACTION_TYPES,
-//   randomTransactionId
-// } from 'redsys-easy'
+import {
+  CURRENCIES,
+  LANGUAGES,
+  randomTransactionId,
+  TRANSACTION_TYPES
+} from 'redsys-easy'
 
-// const merchantInfo = {
-//   DS_MERCHANT_MERCHANTCODE: process.env.REDSYS_MERCHANT_CODE!,
-//   DS_MERCHANT_TERMINAL: process.env.REDSYS_TERMINAL!,
-//   DS_MERCHANT_TRANSACTIONTYPE: TRANSACTION_TYPES.AUTHORIZATION
-// }
+const merchantInfo = {
+  DS_MERCHANT_MERCHANTCODE: process.env.REDSYS_MERCHANT_CODE!,
+  DS_MERCHANT_TERMINAL: process.env.REDSYS_TERMINAL!,
+  DS_MERCHANT_TRANSACTIONTYPE: TRANSACTION_TYPES.AUTHORIZATION
+}
 
-// const currency = 'EUR'
+const currency = 'EUR'
 
 export async function paymentLogic(
   paymentType: FormDataEntryValue | null,
@@ -31,7 +32,7 @@ export async function paymentLogic(
   discountCoupon: string | undefined
   // shipping: number | undefined
 ) {
-  const orderId = uuid()
+  const orderId = randomTransactionId()
   const templateRedirectUrl = (page: string, gateway: string = 'RedSys') => {
     return `${process.env.NEXT_PUBLIC_URL}/${page}?orderId=${orderId}&gateway=${gateway}`
   }
@@ -49,30 +50,33 @@ export async function paymentLogic(
     )
 
     // CREATE REDSYS FORM
-    // if (paymentType === 'tarjeta') {
-    //   const currencyInfo = CURRENCIES[currency]
-    //   const redsysAmount = new Number(totalAmount).toFixed(2)
-    //   const redsysCurrency = currencyInfo.num
+    if (paymentType === 'tarjeta') {
+      const currencyInfo = CURRENCIES[currency]
+      const redsysAmount = new Decimal(totalAmount)
+        .mul(10 ** currencyInfo.decimals)
+        .toFixed(0)
+      const redsysCurrency = currencyInfo.num
 
-    //   const form = createRedirectForm({
-    //     ...merchantInfo,
-    //     DS_MERCHANT_ORDER: orderId,
-    //     DS_MERCHANT_AMOUNT: redsysAmount,
-    //     DS_MERCHANT_CURRENCY: redsysCurrency,
-    //     DS_MERCHANT_MERCHANTURL: templateRedirectUrl('api/redsys'),
-    //     DS_MERCHANT_URLOK: templateRedirectUrl('exito'),
-    //     DS_MERCHANT_URLKO: templateRedirectUrl('fallo'),
-    //     DS_MERCHANT_TRANSACTIONDATE: new Date().toISOString(),
-    //     DS_MERCHANT_CONSUMERLANGUAGE: LANGUAGES.es,
-    //     DS_MERCHANT_SHIPPINGADDRESSPYP: 'S',
-    //     DS_MERCHANT_MERCHANTNAME: 'Termogar'
-    //   })
+      const form = createRedirectForm({
+        ...merchantInfo,
+        DS_MERCHANT_ORDER: orderId,
+        DS_MERCHANT_AMOUNT: redsysAmount,
+        DS_MERCHANT_CURRENCY: redsysCurrency,
+        DS_MERCHANT_MERCHANTURL: templateRedirectUrl('api/redsys'),
+        DS_MERCHANT_URLOK: templateRedirectUrl('exito'),
+        DS_MERCHANT_URLKO: templateRedirectUrl('fallo'),
+        DS_MERCHANT_TRANSACTIONDATE: new Date().toISOString(),
+        DS_MERCHANT_CONSUMERLANGUAGE: LANGUAGES.es,
+        DS_MERCHANT_SHIPPINGADDRESSPYP: 'S',
+        DS_MERCHANT_MERCHANTNAME: 'Backswing'
+      })
+      console.log('🚀 ~ paymentLogic ~ form:', form)
 
-    //   return {
-    //     success: true,
-    //     data: form
-    //   }
-    // }
+      return {
+        success: true,
+        data: form
+      }
+    }
 
     // CREATE TRANSFER ORDER
     if (paymentType === 'transferencia') {
