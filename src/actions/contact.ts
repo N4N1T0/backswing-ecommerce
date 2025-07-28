@@ -16,7 +16,7 @@ export async function sendContactEmail(values: ContactFormSchema) {
   if (!success && error) {
     return {
       success: false,
-      error: error.errors[0].message
+      error: error.message
     }
   }
 
@@ -49,7 +49,7 @@ export async function subscribeToNewsletter(values: NewsletterSchema) {
   if (!success && error) {
     return {
       success: false,
-      message: error.errors[0].message
+      message: error.message
     }
   }
 
