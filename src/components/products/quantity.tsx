@@ -1,29 +1,62 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import type { CartItem } from '@/types'
-import { useState } from 'react'
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
-import { Label } from '../ui/label'
+import { memo, useCallback, useState } from 'react'
+import { toast } from 'sonner'
 
-const Quantity = ({ product }: { product: CartItem }) => {
+const Quantity = memo(({ product }: { product: CartItem }) => {
+  // STATE
   const [, setCount] = useShoppingCart()
   const [adding, setAdding] = useState(false)
   const [quantity, setQuantity] = useState(1)
 
-  const addToCart = () => {
+  // HANDLERS
+  const addToCart = useCallback(() => {
     setAdding(true)
     setTimeout(() => {
       setAdding(false)
-      setCount((prev) => [...prev, { ...product, quantity }])
-    }, 1000)
-  }
+      setCount((prev) => {
+        const existingItemIndex = prev.findIndex(
+          (item) => item.id === product.id
+        )
 
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const qty = Number(e.target.value)
-    setQuantity(qty)
-  }
+        if (existingItemIndex !== -1) {
+          // Update existing item quantity
+          const newCart = [...prev]
+          newCart[existingItemIndex] = {
+            ...prev[existingItemIndex],
+            quantity: prev[existingItemIndex].quantity + quantity
+          }
+          toast.success('Cantidad actualizada en el carrito')
+          return newCart
+        } else {
+          // Add new item
+          toast.success('Producto agregado al carrito')
+          return [...prev, { ...product, quantity }]
+        }
+      })
+    }, 1000)
+  }, [product, quantity, setCount])
+
+  const handleQuantityChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const qty = Number(e.target.value)
+      setQuantity(qty)
+    },
+    []
+  )
+
+  const decrementQuantity = useCallback(() => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : prev))
+  }, [])
+
+  const incrementQuantity = useCallback(() => {
+    setQuantity((prev) => prev + 1)
+  }, [])
 
   return (
     <div className='w-full my-8 flex justify-between items-center h-10'>
@@ -37,7 +70,7 @@ const Quantity = ({ product }: { product: CartItem }) => {
             size='icon'
             variant='outline'
             className='text-secondary transition hover:opacity-75 text-3xl'
-            onClick={() => setQuantity((prev) => (prev > 1 ? prev - 1 : prev))}
+            onClick={decrementQuantity}
           >
             -
           </Button>
@@ -56,7 +89,7 @@ const Quantity = ({ product }: { product: CartItem }) => {
             size='icon'
             variant='outline'
             className='text-secondary transition hover:opacity-75 text-3xl'
-            onClick={() => setQuantity((prev) => prev + 1)}
+            onClick={incrementQuantity}
           >
             +
           </Button>
@@ -71,6 +104,8 @@ const Quantity = ({ product }: { product: CartItem }) => {
       </button>
     </div>
   )
-}
+})
+
+Quantity.displayName = 'Quantity'
 
 export default Quantity
