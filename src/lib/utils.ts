@@ -345,11 +345,13 @@ export const getStatusColor = (status: string): string => {
  * @returns {number} The calculated subtotal
  */
 export const calculateSubtotal = (products: CartItem[]): number => {
-  return products.reduce(
+  const total = products.reduce(
     (sum, product) =>
       sum + (product.offer || product.price || 0) * product.quantity,
     0
   )
+
+  return total * 0.79
 }
 
 /**
