@@ -114,7 +114,16 @@ export function OrderDetailsCard({
             <div className='flex justify-between'>
               <span className='text-gray-600'>Subtotal:</span>
               <span className='text-black'>
-                €{calculateSubtotal(products).toFixed(2)}
+                {eurilize(calculateSubtotal(renderedProductsRef.current))}
+              </span>
+            </div>
+
+            <div className='flex justify-between'>
+              <span className='text-gray-600'>IVA:</span>
+              <span className='text-black'>
+                {eurilize(
+                  order.totalAmount && Number(order.totalAmount) * 0.21
+                )}
               </span>
             </div>
 
@@ -122,11 +131,13 @@ export function OrderDetailsCard({
               <div className='flex justify-between text-green-600'>
                 <span>Descuento ({order.discountCoupon.code}):</span>
                 <span>
-                  -€
-                  {calculateDiscount(
-                    order.discountCoupon,
-                    calculateSubtotal(products)
-                  ).toFixed(2)}
+                  -
+                  {eurilize(
+                    calculateDiscount(
+                      order.discountCoupon,
+                      calculateSubtotal(renderedProductsRef.current)
+                    ).toFixed(2)
+                  )}
                 </span>
               </div>
             )}
