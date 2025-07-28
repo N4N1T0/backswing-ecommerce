@@ -2,14 +2,15 @@
 
 import { paymentLogic } from '@/actions/order'
 import { Button } from '@/components/ui/button'
+import { cn, eurilize } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { Loader2 } from 'lucide-react'
+import { Session } from 'next-auth'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useTransition } from 'react'
+import { RedirectForm } from 'redsys-easy'
 import { toast } from 'sonner'
-// import { RedsysPaymentForm } from '../redsys-payment-form'
-import { cn, eurilize } from '@/lib/utils'
-import { Session } from 'next-auth'
+import { RedsysPaymentForm } from '../redsys-payment-form'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
 
@@ -23,13 +24,13 @@ export default function CheckoutPaymentPart({
   const router = useRouter()
 
   // STATE
-  const [paymentMethod, setPaymentMethod] = useState('transferencia')
+  const [paymentMethod, setPaymentMethod] = useState('tarjeta')
   const [discountPercentage, setDiscountPercentage] = useState(0)
   const [appliedCoupon, setAppliedCoupon] = useState<string>()
   const [products] = useShoppingCart()
   const [isPending, startTransition] = useTransition()
   const [loading, setLoading] = useState(false)
-  // const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
+  const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
 
   // COMPUTED VALUES
   const canProceed = useMemo(() => {
@@ -95,14 +96,14 @@ export default function CheckoutPaymentPart({
           router.push(orderResult.data as unknown as string)
         }
 
-        // if (
-        //   paymentMethod === 'tarjeta' &&
-        //   orderResult.success &&
-        //   orderResult.data !== null
-        // ) {
-        //   setLoading(false)
-        //   setPaymentForm(orderResult.data as RedirectForm)
-        // }
+        if (
+          paymentMethod === 'tarjeta' &&
+          orderResult.success &&
+          orderResult.data !== null
+        ) {
+          setLoading(false)
+          setPaymentForm(orderResult.data as unknown as RedirectForm)
+        }
 
         // if (
         //   paymentMethod === 'paypal' &&
@@ -171,7 +172,7 @@ export default function CheckoutPaymentPart({
         )}
       </Button>
 
-      {/* <RedsysPaymentForm form={paymentForm} /> */}
+      <RedsysPaymentForm form={paymentForm} />
     </div>
   )
 }
