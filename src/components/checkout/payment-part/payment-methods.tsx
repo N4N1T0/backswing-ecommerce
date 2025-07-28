@@ -35,26 +35,9 @@ export function PaymentMethods({
           value={paymentMethod}
           onValueChange={onPaymentMethodChange}
           disabled={disabled}
-          defaultValue='transferencia'
+          defaultValue='tarjeta'
         >
-          <div
-            className={cn(
-              'flex items-center space-x-2 p-4 border border-gray-400',
-              'bg-gray-100 select-none pointer-events-none opacity-50'
-            )}
-          >
-            <RadioGroupItem
-              value='tarjeta'
-              id='tarjeta'
-              className='border border-black'
-              disabled={true}
-            />
-            <Label htmlFor='tarjeta' className='flex-1 text-black font-medium'>
-              Tarjeta de Crédito/Débito
-            </Label>
-            <ExternalLink className='h-4 w-4 text-gray-500' />
-          </div>
-
+          {/* TODO: PAYPAL */}
           <div
             className={cn(
               'flex items-center space-x-2 p-4 border border-gray-400',
@@ -70,7 +53,24 @@ export function PaymentMethods({
             <Label htmlFor='paypal' className='flex-1 text-black font-medium'>
               PayPal
             </Label>
-            <ExternalLink className='h-4 w-4 text-gray-500' />
+            <ExternalLink className='size-4 text-gray-500' />
+          </div>
+          <div
+            className={cn(
+              'flex items-center space-x-2 p-4 border border-gray-400',
+              disabled ? 'bg-gray-100' : 'bg-gray-50 hover:bg-gray-100'
+            )}
+          >
+            <RadioGroupItem
+              value='tarjeta'
+              id='tarjeta'
+              className='border border-black'
+              disabled={disabled}
+            />
+            <Label htmlFor='tarjeta' className='flex-1 text-black font-medium'>
+              Tarjeta de Crédito/Débito
+            </Label>
+            <ExternalLink className='size-4 text-gray-500' />
           </div>
 
           <div
@@ -96,7 +96,6 @@ export function PaymentMethods({
                 Tienes 3 días hábiles para realizar la transferencia
               </p>
             </div>
-            <ExternalLink className='h-4 w-4 text-gray-500' />
           </div>
         </RadioGroup>
       </CardContent>
