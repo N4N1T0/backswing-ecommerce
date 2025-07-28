@@ -56,7 +56,7 @@ export async function signUpAction(values: SignUpSchema) {
   if (!success && error) {
     return {
       success: false,
-      message: error.errors[0].message
+      message: error.message
     }
   }
 
