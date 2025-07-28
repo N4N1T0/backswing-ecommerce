@@ -1,4 +1,5 @@
 import SuccessPage from '@/components/payment/exito'
+import { processRestNotification } from '@/lib/clients/redsys'
 import { sanityClientWrite } from '@/sanity/lib/client'
 import { GET_ORDER_BY_ID } from '@/sanity/queries'
 import { GET_ORDER_BY_ID_Result } from '@/types'
@@ -21,11 +22,11 @@ export default async function Page({
 }) {
   let order: GET_ORDER_BY_ID_Result | null = null
   const {
-    orderId
-    // gateway,
-    // Ds_SignatureVersion,
-    // Ds_MerchantParameters,
-    // Ds_Signature
+    orderId,
+    gateway,
+    Ds_SignatureVersion,
+    Ds_MerchantParameters,
+    Ds_Signature
     // token
   } = await searchParams
 
@@ -34,17 +35,17 @@ export default async function Page({
   }
 
   // REDSYS GATEWAY CHECK
-  // if (gateway === 'RedSys') {
-  //   const { Ds_Response } = processRestNotification({
-  //     Ds_SignatureVersion: Ds_SignatureVersion as string,
-  //     Ds_MerchantParameters: Ds_MerchantParameters as string,
-  //     Ds_Signature: Ds_Signature as string
-  //   })
+  if (gateway === 'RedSys') {
+    const { Ds_Response } = processRestNotification({
+      Ds_SignatureVersion: Ds_SignatureVersion as string,
+      Ds_MerchantParameters: Ds_MerchantParameters as string,
+      Ds_Signature: Ds_Signature as string
+    })
 
-  //   if (Ds_Response !== '0000') {
-  //     notFound()
-  //   }
-  // }
+    if (Ds_Response !== '0000') {
+      notFound()
+    }
+  }
 
   // PAYPAL GATEWAY CHECK
   // if (gateway === 'PayPal') {
