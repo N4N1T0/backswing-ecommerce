@@ -59,7 +59,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const isVerified = verifyPassword(password as string, user?.password)
 
         if (!isVerified) {
-          console.log('🚀 ~ authorize: ~ isVerified:', isVerified)
           throw new Error('Las credenciales no son correctas.')
         }
 
