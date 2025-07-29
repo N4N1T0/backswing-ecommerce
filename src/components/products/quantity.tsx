@@ -21,7 +21,10 @@ const Quantity = memo(({ product }: { product: CartItem }) => {
       setAdding(false)
       setCount((prev) => {
         const existingItemIndex = prev.findIndex(
-          (item) => item.id === product.id
+          (item) =>
+            item.id === product.id &&
+            item.talla === product.talla &&
+            item.format.color.title === product.format.color.title
         )
 
         if (existingItemIndex !== -1) {
