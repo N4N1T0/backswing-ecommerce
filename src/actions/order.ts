@@ -70,7 +70,6 @@ export async function paymentLogic(
         DS_MERCHANT_SHIPPINGADDRESSPYP: 'S',
         DS_MERCHANT_MERCHANTNAME: 'Backswing'
       })
-      console.log('🚀 ~ paymentLogic ~ form:', form)
 
       return {
         success: true,
