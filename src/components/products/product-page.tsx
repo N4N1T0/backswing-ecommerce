@@ -100,6 +100,7 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
   const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
   const [designFormat, setDesignFormat] = useState(format[0])
   const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
+  const [mainImage, setMainImage] = useState(Number(colors.mainImage) || 0)
 
   // CONST
   const cartItem = useMemo(
@@ -128,21 +129,25 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
     ]
   )
 
+  // EFFECT
   useEffect(() => {
     const colorsIndex = designFormat.colors.findIndex(
       (c) => c.title === colors.title
     )
     setColors(designFormat.colors[colorsIndex])
-  }, [colors.title, designFormat])
+    setMainImage(Number(colors.mainImage) || 0)
+  }, [colors.mainImage, colors.title, designFormat])
 
   return (
     <section className='relative' id={slugify(title)}>
       <div className='flex flex-wrap w-full p-2 h-fit'>
         <div className='w-full px-4 md:w-1/2 space-y-5'>
           <Image
-            src={colors.images[0].url || SquarePlaceholder}
+            src={colors.images[mainImage].url || SquarePlaceholder}
             alt={`${designFormat.title}-${colors.title}-front`}
-            blurDataURL={colors.images[0].blur || SquarePlaceholder.blurDataURL}
+            blurDataURL={
+              colors.images[mainImage].blur || SquarePlaceholder.blurDataURL
+            }
             placeholder='blur'
             height={700}
             width={700}
@@ -151,9 +156,14 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
             className='object-cover aspect-[9/10] size-auto border shadow-md shadow-gray-100'
           />
           <Image
-            src={colors.images[1].url || SquarePlaceholder}
+            src={
+              colors.images[mainImage === 0 ? 1 : 0].url || SquarePlaceholder
+            }
             alt={`${designFormat.title}-${colors.title}-back`}
-            blurDataURL={colors.images[1].blur || SquarePlaceholder.blurDataURL}
+            blurDataURL={
+              colors.images[mainImage === 0 ? 1 : 0].blur ||
+              SquarePlaceholder.blurDataURL
+            }
             placeholder='blur'
             height={700}
             width={700}
@@ -174,12 +184,18 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
                   {eurilize(price)}
                 </p>
                 <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5'>
-                  {eurilize(offer)}
+                  {eurilize(offer)}{' '}
+                  <span className='text-xs font-normal block md:inline'>
+                    (IVA y gastos de envíos incl.)
+                  </span>
                 </p>
               </>
             ) : (
               <p className='inline-block my-3 text-4xl font-bold text-accent space-x-5'>
-                {eurilize(price)}
+                {eurilize(price)}{' '}
+                <span className='text-xs font-normal block md:inline'>
+                  (IVA y gastos de envíos incl.)
+                </span>
               </p>
             )}
             <ModelPicker formats={format} setModel={setDesignFormat} />
