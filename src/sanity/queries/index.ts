@@ -151,6 +151,7 @@ export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
     "sizes": ^.sizes,
     "colors": formats[0]->color[]{
       "title": name,
+      "mainImage": mainImage,
       "images": images[].asset->{
         "url": url,
         "blur": metadata.lqip,
@@ -170,6 +171,7 @@ export const GET_DESIGNS_BY_SEARCH = defineQuery(`*[
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     "colors": formats[0]->color[]{
       "title": name,
+      mainImage,
       "images": images[].asset->{
         "url": url,
         "blur": metadata.lqip,
@@ -192,6 +194,7 @@ export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
       title,
       "colors": color[]{
         "title": name,
+        mainImage,
         "images": images[].asset->{
           "url": url,
           "blur": metadata.lqip,
