@@ -23,6 +23,7 @@ const ProductCard = React.memo(
     const { colors, offer, price, title, slug, commingSoon } = product
     const hasOffer = !!offer
     const isCommingSoon = !!commingSoon
+    const mainImage = Number(colors[0].mainImage) || 0
 
     // STATE
     const [images, setImages] = useState<Colors[number]>(colors && colors[1])
@@ -48,9 +49,9 @@ const ProductCard = React.memo(
         >
           <div className='relative size-full object-cover aspect-[9/10] shadow-md shadow-gray-200 border border-gray-100'>
             <Image
-              src={images?.images[1].url || SquarePlaceholder}
+              src={images?.images[mainImage].url || SquarePlaceholder}
               blurDataURL={
-                images?.images[1].blur || SquarePlaceholder.blurDataURL
+                images?.images[mainImage].blur || SquarePlaceholder.blurDataURL
               }
               placeholder='blur'
               alt={title || 'Diseño de camiseta'}
