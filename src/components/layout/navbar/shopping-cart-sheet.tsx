@@ -12,7 +12,12 @@ import {
   SheetTrigger
 } from '@/components/ui/sheet'
 import { colorList } from '@/contants'
-import { calculateTotal, removeFromCart, useEuros } from '@/lib/utils'
+import {
+  calculateTotal,
+  productKeyMake,
+  removeFromCart,
+  useEuros
+} from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { ShoppingCart, Trash2 } from 'lucide-react'
 import Image from 'next/image'
@@ -56,19 +61,23 @@ const ShoppingCartSheet = () => {
         ) : (
           <div className='flex-1 overflow-y-auto'>
             <div className='space-y-4'>
-              {count.map((item) => {
-                const { title, format } = item
+              {count.map((product) => {
+                const { title, format, id, quantity, talla } = product
+                const mainImage = Number(format.color.mainImage) || 0
                 return (
                   <div
-                    key={`shopping-cart-${title}`}
+                    key={`shopping-cart-${productKeyMake(product)}`}
                     className='flex gap-4 p-4 bg-gray-100 border border-gray-200 hover:shadow-sm transition-shadow'
                   >
                     <div className='aspect-[9/10] h-auto w-24 flex-shrink-0 overflow-hidden border'>
                       <Image
-                        src={format.color.images[0].url || SquarePlaceholder}
+                        src={
+                          format.color.images[mainImage].url ||
+                          SquarePlaceholder
+                        }
                         placeholder='blur'
                         blurDataURL={
-                          format.color.images[0].blur ||
+                          format.color.images[mainImage].blur ||
                           SquarePlaceholder.blurDataURL
                         }
                         alt={title || 'Product image'}
@@ -88,7 +97,7 @@ const ShoppingCartSheet = () => {
                           size='icon'
                           className='h-8 w-8 text-gray-500 hover:text-red-600'
                           onClick={() =>
-                            setCount((prev) => removeFromCart(prev, item.id))
+                            setCount((prev) => removeFromCart(prev, id))
                           }
                         >
                           <Trash2 className='h-4 w-4' />
@@ -96,7 +105,7 @@ const ShoppingCartSheet = () => {
                       </div>
 
                       <div className='mt-1 flex flex-col gap-1 text-xs text-gray-500'>
-                        <p>Cantidad: {item.quantity}</p>
+                        <p>Cantidad: {quantity}</p>
                         <p>Modelo: {format.title}</p>
                         <div className='flex items-center gap-2'>
                           <span>Color:</span>
@@ -110,7 +119,7 @@ const ShoppingCartSheet = () => {
                             className='inline-block w-4 h-4 rounded-full border border-gray-200'
                           />
                         </div>
-                        <p>Talla: {item.talla}</p>
+                        <p>Talla: {talla}</p>
                       </div>
                     </div>
                   </div>
