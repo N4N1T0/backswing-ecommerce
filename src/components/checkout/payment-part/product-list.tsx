@@ -2,7 +2,7 @@
 
 import { SquarePlaceholder } from '@/assets/placeholder'
 import { Button } from '@/components/ui/button'
-import { eurilize } from '@/lib/utils'
+import { eurilize, productKeyMake } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { CartItem } from '@/types'
 import { Minus, Plus, Trash2 } from 'lucide-react'
@@ -117,7 +117,11 @@ export const ProductList = memo(function ProductList({
   return (
     <div className='space-y-4'>
       {products.map((product) => (
-        <ProductItem key={product.id} product={product} disabled={disabled} />
+        <ProductItem
+          key={productKeyMake(product)}
+          product={product}
+          disabled={disabled}
+        />
       ))}
       {products.length === 0 && (
         <div className='text-center py-8 text-gray-500'>
