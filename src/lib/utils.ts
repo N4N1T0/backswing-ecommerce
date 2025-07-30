@@ -530,3 +530,23 @@ export const generateStrongPassword = (): string => {
 
   return password
 }
+
+/**
+ * Generates a unique key for a cart item by combining its properties.
+ *
+ * @param {CartItem} product - The cart item to generate a key for
+ * @returns {string} A unique string key combining the item's id, format title, color title and size
+ *
+ * @example
+ * const item = {
+ *   id: "123",
+ *   format: { title: "Standard", color: { title: "Red" } },
+ *   talla: "M"
+ * }
+ * productKeyMake(item) // Returns "123-Standard-Red-M"
+ */
+export const productKeyMake = (product: CartItem): string => {
+  const { id, format, talla } = product
+
+  return `${id}-${format.title}-${format.color.title}-${talla}`
+}
