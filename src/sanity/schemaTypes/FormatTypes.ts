@@ -44,6 +44,25 @@ export const formatTypes = defineType({
               description: 'El nombre del color.'
             },
             {
+              name: 'mainImage',
+              type: 'string',
+              title: 'Imagen Principal',
+              description: 'La imagen principal del color. (con el estampado)',
+              options: {
+                list: [
+                  {
+                    title: 'Imagen 1',
+                    value: '0'
+                  },
+                  {
+                    title: 'Imagen 2',
+                    value: '1'
+                  }
+                ],
+                layout: 'radio'
+              }
+            },
+            {
               name: 'images',
               type: 'array',
               title: 'Imágenes',
