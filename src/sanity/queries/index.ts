@@ -231,6 +231,7 @@ export const GET_DESIGNS_BY_NEW = defineQuery(`*[
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     "colors": formats[0]->color[]{
       "title": name,
+      mainImage,
       "images": images[].asset->{
         "url": url,
         "blur": metadata.lqip,
