@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { calculateSubtotal, cn } from '@/lib/utils'
+import { calculateTotal, cn } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { OrderSummaryProps } from '@/types'
 import { useMemo } from 'react'
@@ -18,17 +18,21 @@ export function OrderSummary({
   const [products] = useShoppingCart()
 
   const orderSummary = useMemo(() => {
-    const subtotal = calculateSubtotal(products)
-    const shipping = subtotal < 50 ? 10 : 0
-    const discount = subtotal * discountPercentage
-    const total = subtotal + shipping - discount
+    const orderTotal = calculateTotal(products)
+    // TODO
+    const subtotal = orderTotal * 0.79
+    const shipping = 0
+    const discount = orderTotal * discountPercentage
+    const iva = orderTotal * 0.21
+    const total = subtotal + shipping - discount + iva
 
     return {
       products,
       subtotal,
       shipping,
       discount,
-      total
+      total,
+      iva
     }
   }, [products, discountPercentage])
 
