@@ -48,16 +48,18 @@ const ProductItem = memo(function ProductItem({
   // CONST
   const { price, quantity, format, title, offer } = product
   const formattedPrice = offer ? offer : price
+  const mainImage = Number(product.format.color.mainImage) || 0
+
   return (
     <div
       className={`flex flex-wrap items-center gap-4 p-4 border border-gray-300 ${disabled ? 'bg-gray-200 opacity-50' : 'bg-gray-50'}`}
     >
       <div className='w-16 h-16 bg-gray-300 border border-gray-400'>
         <Image
-          src={format.color.images[0].url || SquarePlaceholder}
+          src={format.color.images[mainImage].url || SquarePlaceholder}
           placeholder='blur'
           blurDataURL={
-            format.color.images[0].blur || SquarePlaceholder.blurDataURL
+            format.color.images[mainImage].blur || SquarePlaceholder.blurDataURL
           }
           alt={title || 'SquarePlaceholder'}
           title={title || 'SquarePlaceholder'}
