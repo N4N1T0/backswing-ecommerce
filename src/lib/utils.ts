@@ -172,17 +172,6 @@ export const getImageForModel = (productName: string): StaticImageData => {
 }
 
 /**
- * Formats a number as a currency string in euros.
- *
- * @param {number} number - The number to be formatted as a currency.
- * @return {string} The formatted currency string.
- */
-export const useEuros = Intl.NumberFormat('es-ES', {
-  style: 'currency',
-  currency: 'EUR'
-})
-
-/**
  * Capitalizes the first letter of a given word and converts the rest of the letters to lowercase.
  *
  * @param {string} word - The word to be capitalized.
@@ -225,7 +214,7 @@ export const extractHexColorFromName = (productName: string): string => {
 export const calculateTotal = (count: CartItem[]): number => {
   return count
     .map((item) => {
-      const priceWithoutEuro = item.price
+      const priceWithoutEuro = item.offer || item.price
       if (priceWithoutEuro === null) return 0
       return priceWithoutEuro * item.quantity
     })

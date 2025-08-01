@@ -96,6 +96,7 @@ export type OrderSummaryType = {
   shipping: number
   discount: number
   total: number
+  iva: number
 }
 
 export interface CartItem {
