@@ -14,9 +14,9 @@ import {
 import { colorList } from '@/contants'
 import {
   calculateTotal,
+  eurilize,
   productKeyMake,
-  removeFromCart,
-  useEuros
+  removeFromCart
 } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { ShoppingCart, Trash2 } from 'lucide-react'
@@ -134,7 +134,7 @@ const ShoppingCartSheet = () => {
             <div className='w-full space-y-4'>
               <div className='flex items-center justify-between text-base font-medium text-gray-900'>
                 <p>Subtotal</p>
-                <p>{useEuros.format(total)}</p>
+                <p>{eurilize(total)}</p>
               </div>
 
               <div className='flex flex-col gap-2 w-full'>
