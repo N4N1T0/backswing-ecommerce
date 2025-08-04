@@ -17,6 +17,7 @@ import { orderType } from './OrderType'
 import { postType } from './PostType'
 import { productCategoryType } from './ProductCategoryType'
 import { productType } from './ProductsType'
+import { shippingType } from './ShippingType'
 import { subscriberNewsletterType } from './SubscriberNewsletterType'
 import { tagType } from './TagType'
 import { wishlistType } from './WishlistType'
@@ -41,6 +42,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     orderType,
     wishlistType,
     formatTypes,
-    legalPageType
+    legalPageType,
+    shippingType
   ]
 }
