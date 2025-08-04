@@ -2,10 +2,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { calculateTotal, cn } from '@/lib/utils'
-import useShoppingCart from '@/stores/shopping-cart-store'
+import { cn } from '@/lib/utils'
 import { OrderSummaryProps } from '@/types'
-import { useMemo } from 'react'
 import { CouponSection } from './coupon-section'
 import { OrderTotals } from './order-totals'
 import { ProductList } from './product-list'
@@ -13,29 +11,9 @@ import { ProductList } from './product-list'
 export function OrderSummary({
   handleCouponApplied,
   discountPercentage,
-  disabled = false
+  disabled = false,
+  summary
 }: OrderSummaryProps) {
-  const [products] = useShoppingCart()
-
-  const orderSummary = useMemo(() => {
-    const orderTotal = calculateTotal(products)
-    // TODO
-    const subtotal = orderTotal * 0.79
-    const shipping = 0
-    const discount = orderTotal * discountPercentage
-    const iva = orderTotal * 0.21
-    const total = subtotal + shipping - discount + iva
-
-    return {
-      products,
-      subtotal,
-      shipping,
-      discount,
-      total,
-      iva
-    }
-  }, [products, discountPercentage])
-
   return (
     <Card
       className={cn('border-black pt-0', disabled ? 'opacity-50' : 'bg-white')}
@@ -61,7 +39,7 @@ export function OrderSummary({
         <Separator className='bg-black h-0.5' />
 
         <OrderTotals
-          orderSummary={orderSummary}
+          orderSummary={summary}
           discountPercentage={discountPercentage}
         />
       </CardContent>
