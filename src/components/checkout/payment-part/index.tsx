@@ -2,7 +2,9 @@
 
 import { paymentLogic } from '@/actions/order'
 import { Button } from '@/components/ui/button'
-import { cn, eurilize } from '@/lib/utils'
+import { calculateTotal, cn, eurilize } from '@/lib/utils'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_SHIPPING_CONFIG } from '@/sanity/queries'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import { Loader2 } from 'lucide-react'
 import { Session } from 'next-auth'
@@ -10,6 +12,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useMemo, useState, useTransition } from 'react'
 import { RedirectForm } from 'redsys-easy'
 import { toast } from 'sonner'
+import useSWR from 'swr'
 import { RedsysPaymentForm } from '../redsys-payment-form'
 import { OrderSummary } from './order-summary'
 import { PaymentMethods } from './payment-methods'
@@ -27,10 +30,43 @@ export default function CheckoutPaymentPart({
   const [paymentMethod, setPaymentMethod] = useState('tarjeta')
   const [discountPercentage, setDiscountPercentage] = useState(0)
   const [appliedCoupon, setAppliedCoupon] = useState<string>()
-  const [products] = useShoppingCart()
   const [isPending, startTransition] = useTransition()
   const [loading, setLoading] = useState(false)
   const [paymentForm, setPaymentForm] = useState<RedirectForm | null>(null)
+  const [products] = useShoppingCart()
+
+  const { data: shippingConfig } = useSWR(
+    'shipping-config',
+    () => sanityClientRead.fetch(GET_SHIPPING_CONFIG),
+    {
+      fallbackData: { amount: 5, freeCartTotal: 50 },
+      revalidateOnFocus: false
+    }
+  )
+
+  const orderSummary = useMemo(() => {
+    const orderTotal = calculateTotal(products)
+    const subtotal = orderTotal * 0.79
+
+    const shipping =
+      orderTotal >= (shippingConfig?.freeCartTotal || 50)
+        ? 0
+        : shippingConfig?.amount || 5
+
+    const discount = orderTotal * discountPercentage
+    const iva = orderTotal * 0.21
+    const total = subtotal + shipping - discount + iva
+
+    return {
+      products,
+      subtotal,
+      shipping,
+      discount,
+      total,
+      iva,
+      shippingConfig
+    }
+  }, [products, discountPercentage, shippingConfig])
 
   // COMPUTED VALUES
   const canProceed = useMemo(() => {
@@ -136,6 +172,7 @@ export default function CheckoutPaymentPart({
         handleCouponApplied={handleCouponApplied}
         discountPercentage={discountPercentage}
         disabled={!canProceed}
+        summary={orderSummary}
       />
 
       <PaymentMethods
@@ -168,7 +205,7 @@ export default function CheckoutPaymentPart({
         ) : products.length === 0 ? (
           'Carrito Vacío'
         ) : (
-          `Realizar Pedido - ${eurilize(totalAmount)}`
+          `Realizar Pedido - ${eurilize(orderSummary.total)}`
         )}
       </Button>
 
