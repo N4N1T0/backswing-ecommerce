@@ -51,7 +51,9 @@ export const signUpSchema = z
   })
 
 export const forgotPasswordSchema = z.object({
-  email: z.string().email('Ingresa un correo electrónico válido')
+  email: z.string().min(2, {
+    message: 'Ingresa un correo electrónico válido'
+  })
 })
 
 export type ForgotPasswordSchema = z.infer<typeof forgotPasswordSchema>
