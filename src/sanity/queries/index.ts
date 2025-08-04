@@ -301,3 +301,13 @@ export const GET_LEGAL_PAGE_BY_SLUG = defineQuery(`*[
   content,
   excerpt
 }`)
+
+export const GET_SHIPPING_CONFIG = defineQuery(`*[
+  _type == "shipping" && isActive == true
+][0]{
+  "id": _id,
+  title,
+  amount,
+  freeCartTotal,
+  isActive
+}`)
