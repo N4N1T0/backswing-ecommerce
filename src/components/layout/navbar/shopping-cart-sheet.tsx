@@ -18,14 +18,35 @@ import {
   productKeyMake,
   removeFromCart
 } from '@/lib/utils'
+import { sanityClientRead } from '@/sanity/lib/client'
+import { GET_SHIPPING_CONFIG } from '@/sanity/queries'
 import useShoppingCart from '@/stores/shopping-cart-store'
-import { ShoppingCart, Trash2 } from 'lucide-react'
+import { ShoppingCart, Trash2, Truck } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import useSWR from 'swr'
 
 const ShoppingCartSheet = () => {
   const [count, setCount] = useShoppingCart()
   const total = calculateTotal(count)
+
+  const { data: shippingConfig } = useSWR(
+    'shipping-config',
+    () => sanityClientRead.fetch(GET_SHIPPING_CONFIG),
+    {
+      fallbackData: { amount: 5, freeCartTotal: 50 },
+      revalidateOnFocus: false
+    }
+  )
+
+  const shipping =
+    total >= (shippingConfig?.freeCartTotal || 50)
+      ? 0
+      : shippingConfig?.amount || 5
+  const remainingForFreeShipping = Math.max(
+    0,
+    (shippingConfig?.freeCartTotal || 50) - total
+  )
 
   return (
     <Sheet>
@@ -132,9 +153,38 @@ const ShoppingCartSheet = () => {
         {count.length > 0 && (
           <SheetFooter className='border-t pt-4'>
             <div className='w-full space-y-4'>
-              <div className='flex items-center justify-between text-base font-medium text-gray-900'>
-                <p>Subtotal</p>
-                <p>{eurilize(total)}</p>
+              <div className='space-y-2'>
+                <div className='flex items-center justify-between text-base font-medium text-gray-900'>
+                  <p>Subtotal</p>
+                  <p>{eurilize(total)}</p>
+                </div>
+
+                <div className='flex items-center justify-between text-sm text-gray-600'>
+                  <div className='flex items-center gap-1'>
+                    <Truck className='h-4 w-4' />
+                    <span>Envío</span>
+                  </div>
+                  <p>{shipping === 0 ? 'Gratis' : eurilize(shipping)}</p>
+                </div>
+
+                {remainingForFreeShipping > 0 && (
+                  <div className='bg-blue-50 border border-blue-200 rounded-lg p-3'>
+                    <p className='text-xs text-blue-800'>
+                      ¡Añade {eurilize(remainingForFreeShipping)} más para envío
+                      gratuito!
+                    </p>
+                  </div>
+                )}
+
+                {shipping === 0 &&
+                  total >= (shippingConfig?.freeCartTotal || 50) && (
+                    <div className='bg-green-50 border border-green-200 rounded-lg p-3'>
+                      <p className='text-xs text-green-800 flex items-center gap-1'>
+                        <Truck className='h-3 w-3' />
+                        ¡Felicidades! Tienes envío gratuito
+                      </p>
+                    </div>
+                  )}
               </div>
 
               <div className='flex flex-col gap-2 w-full'>
