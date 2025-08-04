@@ -537,5 +537,5 @@ export const generateStrongPassword = (): string => {
 export const productKeyMake = (product: CartItem): string => {
   const { id, format, talla } = product
 
-  return `${id}-${format.title}-${format.color.title}-${talla}`
+  return `${id} - ${format.title}-${format.color.title}-${talla}`
 }
