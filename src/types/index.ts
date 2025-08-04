@@ -57,6 +57,7 @@ export interface OrderSummaryProps {
   handleCouponApplied: (_discount: number, _couponCode?: string) => void
   discountPercentage: number
   disabled?: boolean
+  summary: OrderSummaryType
 }
 
 export interface SignInFormProps {
