@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { productKeyMake } from '@/lib/utils'
 import useShoppingCart from '@/stores/shopping-cart-store'
 import type { CartItem } from '@/types'
 import { memo, useCallback, useState } from 'react'
@@ -20,9 +21,10 @@ const Quantity = memo(({ product }: { product: CartItem }) => {
     setTimeout(() => {
       setAdding(false)
       setCount((prev) => {
+        const formattedId = productKeyMake(product)
         const existingItemIndex = prev.findIndex(
           (item) =>
-            item.id === product.id &&
+            item.id === formattedId &&
             item.talla === product.talla &&
             item.format.color.title === product.format.color.title
         )
@@ -39,7 +41,7 @@ const Quantity = memo(({ product }: { product: CartItem }) => {
         } else {
           // Add new item
           toast.success('Producto agregado al carrito')
-          return [...prev, { ...product, quantity }]
+          return [...prev, { ...product, id: formattedId, quantity }]
         }
       })
     }, 1000)
