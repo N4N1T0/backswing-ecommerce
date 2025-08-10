@@ -31,7 +31,7 @@ const Breadcrumbs = () => {
             <BreadcrumbItem>
               <BreadcrumbLink href={crumb.href}>{crumb.name}</BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            {index < crumbs.length - 1 && <BreadcrumbSeparator />}
           </React.Fragment>
         ))}
       </BreadcrumbList>

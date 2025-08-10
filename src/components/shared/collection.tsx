@@ -1,5 +1,5 @@
 import ProductCard from '@/components/products/product-card'
-import { capitalize } from '@/lib/utils'
+import { collectionSubtitle } from '@/contants/ui-data'
 import { sanityClientRead } from '@/sanity/lib/client'
 import { GET_PRODUCTS_BY_CATEGORY } from '@/sanity/queries'
 
@@ -14,13 +14,14 @@ const Collection = async ({
   const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
     type: type
   })
+  console.log('🚀 ~ Collection ~ products:', products)
 
   if (!products) {
     return null
   }
 
   const formattedProducts = products.designs
-    .filter((design) => design.colors)
+    .filter((design) => design.format)
     .slice(0, 4)
 
   return (
@@ -31,15 +32,15 @@ const Collection = async ({
             direction === 'right' ? 'items-end' : 'items-start'
           }`}
         >
-          <h2 className='text-xl font-bold text-gray-900 sm:text-3xl'>
-            {capitalize(collection)}
+          <h2 className='text-gray-900 text-4xl lg:text-5xl font-medium uppercase tracking-wide'>
+            {collection}
           </h2>
           <p
             className={`${
               direction === 'right' ? 'text-right' : 'text-left'
-            } mt-4 max-w-md text-gray-500`}
+            } mt-4 max-w-2xl text-pretty text-gray-500`}
           >
-            Descubre nuestra nueva colección de camisetas para {collection}
+            {collectionSubtitle[collection]}
           </p>
         </header>
 
