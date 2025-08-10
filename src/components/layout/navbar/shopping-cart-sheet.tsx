@@ -50,7 +50,7 @@ const ShoppingCartSheet = () => {
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild className='animate-fade-in-up animate-delay-700'>
         <Button
           size='icon'
           className='relative hover:scale-105 transition-transform duration-200'

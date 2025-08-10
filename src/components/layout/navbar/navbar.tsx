@@ -11,12 +11,15 @@ import NavItems from './nav-items'
 
 const Navbar = () => {
   return (
-    <header className='bg-white' id='navbar'>
+    <header className='bg-white overflow-y-hidden' id='navbar'>
       <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 container'>
         <div className='flex h-16 xl:h-20 items-center justify-between'>
           <div className='flex gap-3'>
             <MobileMenuSheet />
-            <Link className='flex justify-center items-center' href='/'>
+            <Link
+              className='flex justify-center items-center animate-fade-in-up'
+              href='/'
+            >
               <Image
                 src={Logo}
                 alt='Logo'
@@ -31,7 +34,7 @@ const Navbar = () => {
           </div>
 
           <div className='flex items-center gap-3'>
-            <div className='hidden md:block'>
+            <div className='hidden md:block animate-fade-in-up animate-delay-400'>
               <Search />
             </div>
             <MobileSearch />

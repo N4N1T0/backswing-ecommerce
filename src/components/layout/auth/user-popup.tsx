@@ -23,7 +23,7 @@ export async function UserPopup() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button size='icon'>
+        <Button size='icon' className='animate-fade-in-up animate-delay-500'>
           <User className='size-5' />
         </Button>
       </PopoverTrigger>

@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 function NavItems() {
   const pathname = usePathname()
   return (
-    <div className='hidden lg:flex md:items-center md:gap-12 pl-12'>
+    <div className='hidden lg:flex md:items-center md:gap-12 pl-12 animate-fade-in-up animate-delay-200'>
       <nav aria-label='Desktop Navbar'>
         <ul className='flex items-center gap-6'>
           {navItems.map(({ label, route, commingSoon }) => {
