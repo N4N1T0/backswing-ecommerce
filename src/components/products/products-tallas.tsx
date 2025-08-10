@@ -19,7 +19,7 @@ const ProductsTallas = ({
   return (
     <fieldset className='space-y-3'>
       <legend className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
-        8 Tallas
+        {tallas?.length} Tallas
       </legend>
       <div className='flex flex-wrap gap-4'>
         {tallas &&

@@ -22,7 +22,7 @@ const ColorPicker = ({
   }
 
   return (
-    <form className='mt-3 mb-5 space-y-5'>
+    <form className='mt-3 mb-5 space-y-5 w-fit'>
       {!isProductCard && (
         <h5 className='bg-gray-900 text-gray-100 px-3 py-1 text-xs uppercase w-fit'>
           {colors.length} Colores
