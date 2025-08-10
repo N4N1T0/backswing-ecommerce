@@ -13,7 +13,7 @@ import Form from 'next/form'
 import Link from 'next/link'
 import { AuthDialog } from './auth-dialog'
 
-export async function UserPopup() {
+export default async function UserPopup() {
   const session = await auth()
 
   if (!session?.user) {
