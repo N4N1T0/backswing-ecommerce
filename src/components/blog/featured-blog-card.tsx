@@ -1,38 +1,27 @@
-import type { WPPost } from '@/types'
+import { SquarePlaceholder } from '@/assets/placeholder'
+import { GET_ALL_BLOGResult } from '@/sanity/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const FeaturedBlogCard = ({ post }: { post: WPPost }) => {
-  const {
-    title,
-    excerpt,
-    featuredImage: {
-      node: { mediaItemUrl, altText }
-    }
-  } = post
+const FeaturedBlogCard = ({ post }: { post: GET_ALL_BLOGResult[number] }) => {
+  const { title, slug, featuredMedia } = post
+
   return (
     <Link
-      href='/blog/12345'
+      href={`/blog/${slug}`}
       className='relative flex items-center justify-center group overflow-hidden w-full h-[300px]'
     >
       <Image
-        src={mediaItemUrl}
-        alt={altText}
-        title={altText}
+        src={featuredMedia.url || SquarePlaceholder}
+        alt={title}
+        title={title}
         className='group-hover:scale-105 transition-transform duration-200 object-cover'
         fill
+        quality={100}
+        decoding='async'
+        placeholder='blur'
+        blurDataURL={featuredMedia.blur || SquarePlaceholder.blurDataURL}
       />
-      <div className='absolute inset-0 bg-gray-900/50' />
-      <div className='absolute top-0 flex flex-col h-full items-center justify-between py-10 z-50 gap-3'>
-        <div className='flex items-center justify-center flex-col h-full'>
-          <h2 className='md:px-5 text-lg font-bold leading-normal text-center text-gray-100 uppercase'>
-            {title}
-          </h2>
-          <p className='md:px-5 text-sm leading-normal text-center text-gray-100 mt-4 font-medium'>
-            {excerpt.replace(/(<([^>]+)>)/gi, '')}
-          </p>
-        </div>
-      </div>
     </Link>
   )
 }

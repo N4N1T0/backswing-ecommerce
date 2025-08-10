@@ -14,17 +14,14 @@ export default async function BlogPostPage({
   const { post: postSlug } = await params
   console.log(postSlug)
 
-  const post = await sanityClientRead.fetch(
-    GET_BLOG_ARTICLE_BY_SLUG,
-    {
-      slug: postSlug
-    }
-  )
+  const post = await sanityClientRead.fetch(GET_BLOG_ARTICLE_BY_SLUG, {
+    slug: postSlug
+  })
 
   const { title, excerpt, content, featuredMedia } = post
 
   return (
-    <main className='mt-10 p-5 md:p-10 max-w-5xl mx-auto'>
+    <main className='mt-24 p-5 md:px-10 max-w-5xl mx-auto md:pt-20'>
       <div className='mb-4 md:mb-0'>
         <div className='px-4 lg:px-0'>
           <h2 className='text-4xl font-semibold text-gray-900 leading-tight'>
