@@ -1,16 +1,17 @@
 'use client'
 
+import CanvasModel from '@/components/canvas/index'
+import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import CanvasModel from '../canvas'
-import { buttonVariants } from '../ui/button'
 
 const Hero3D = () => {
   return (
-    <section id='hero' className='w-full min-h-screen'>
-      <div className='w-full px-4 pt-8 sm:px-6 lg:px-8'>
+    <section id='hero' className='w-full min-h-[90vh]'>
+      <div className='w-full px-4 pt-24 sm:px-6 lg:px-8'>
         <div className='flex flex-col lg:flex-row items-center justify-between min-h-[80vh]'>
-          <div className='w-full lg:w-1/2 h-[50vh] lg:h-[80vh] order-2 lg:order-1'>
+          {/* 3D MODEL */}
+          <div className='w-full lg:w-1/2 h-[50vh] lg:h-[80vh] hidden lg:block'>
             <Suspense
               fallback={
                 <div className='w-full h-full flex items-center justify-center bg-gray-100'>
@@ -24,23 +25,23 @@ const Hero3D = () => {
 
           <div className='w-full lg:w-1/2 lg:pl-12 order-1 lg:order-2'>
             <header className='text-center lg:text-left py-8 space-y-6'>
-              <h1 className='text-5xl font-bold text-gray-950 sm:text-7xl lg:text-8xl xl:text-9xl animate-fade-in-down delay-100'>
+              <h1 className='text-5xl font-bold text-gray-950 sm:text-7xl lg:text-8xl xl:text-9xl animate-fade-in-down'>
                 Backswing
               </h1>
               <h2 className='text-xl font-bold text-gray-700 sm:text-2xl lg:text-3xl animate-fade-in-down animate-delay-200'>
                 Diseños de camisetas para padel
               </h2>
-              <p className='mx-auto lg:mx-0 mt-4 max-w-md text-gray-500 text-lg animate-fade-in-down animate-delay-500'>
+              <p className='mx-auto lg:mx-0 mt-4 max-w-md text-gray-500 animate-fade-in-down animate-delay-500'>
                 Somos una agencia de diseño y creación de productos para pádel,
                 somos deportistas dedicados a deportistas. Con nuestra
                 experiencia en el juego, entendemos la calidad y visión
                 necesarias para cada producto.
               </p>
-              <div className='pt-6 animate-fade-in-down animate-delay-700 space-x-4'>
+              <div className='pt-6 animate-fade-in-down animate-delay-700 flex gap-4 flex-wrap justify-center md:justify-start'>
                 <Link
                   href='/hombre/camisetas'
                   className={buttonVariants({
-                    size: 'lg'
+                    size: 'xl'
                   })}
                 >
                   Explorar Productos
@@ -48,11 +49,11 @@ const Hero3D = () => {
                 <Link
                   href='/hombre/camisetas'
                   className={buttonVariants({
-                    size: 'lg',
+                    size: 'xl',
                     variant: 'outline'
                   })}
                 >
-                  Personaliza
+                  Personalizar
                 </Link>
               </div>
             </header>
