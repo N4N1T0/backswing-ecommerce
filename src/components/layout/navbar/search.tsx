@@ -38,7 +38,7 @@ const Search = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='relative w-[300px]'
+        className='relative w-[180px] md:w-[300px]'
       >
         <FormField
           control={form.control}

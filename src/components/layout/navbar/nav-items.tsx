@@ -27,7 +27,7 @@ function NavItems() {
                   {label}
                 </Link>
                 {commingSoon && (
-                  <span className='absolute -top-2 -right-1 text-xs text-white bg-red-500 rounded-full px-1.5 py-0.5 pointer-events-none'>
+                  <span className='absolute -top-2 -right-1 text-xs text-white bg-red-500 px-1.5 py-0.5 pointer-events-none'>
                     pronto
                   </span>
                 )}

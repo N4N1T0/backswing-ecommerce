@@ -1,23 +1,24 @@
 import Logo from '@/assets/82f78b35-02e0-4783-aa65-b1b40b34ed51.png'
-import Announcement from '@/components/layout/annoucement'
+import UserPopup from '@/components/layout/auth/user-popup'
 import MobileMenuSheet from '@/components/layout/navbar/mobile-menu-sheet'
-import MobileSearch from '@/components/layout/navbar/mobile-search'
 import Search from '@/components/layout/navbar/search'
 import ShoppingCartSheet from '@/components/layout/navbar/shopping-cart-sheet'
 import Image from 'next/image'
 import Link from 'next/link'
-import { UserPopup } from '../auth/user-popup'
 import NavItems from './nav-items'
 
-const Navbar = () => {
+const MiddleNavbar = () => {
   return (
-    <header className='bg-white overflow-y-hidden' id='navbar'>
+    <header
+      className='bg-white overflow-y-hidden w-full fixed top-0 left-0 right-0 z-50 shadow-xs'
+      id='navbar'
+    >
       <div className='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 container'>
         <div className='flex h-16 xl:h-20 items-center justify-between'>
           <div className='flex gap-3'>
             <MobileMenuSheet />
             <Link
-              className='flex justify-center items-center animate-fade-in-up'
+              className='hidden md:flex justify-center items-center animate-fade-in-up'
               href='/'
             >
               <Image
@@ -34,18 +35,16 @@ const Navbar = () => {
           </div>
 
           <div className='flex items-center gap-3'>
-            <div className='hidden md:block animate-fade-in-up animate-delay-400'>
+            <div className='animate-fade-in-up animate-delay-400'>
               <Search />
             </div>
-            <MobileSearch />
             <UserPopup />
             <ShoppingCartSheet />
           </div>
         </div>
       </div>
-      <Announcement />
     </header>
   )
 }
 
-export default Navbar
+export default MiddleNavbar
