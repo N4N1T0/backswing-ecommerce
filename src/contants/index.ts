@@ -31,6 +31,11 @@ export const navItems = [
     commingSoon: true
   },
   {
+    label: 'Personalizar',
+    route: '/personalizar',
+    commingSoon: true
+  },
+  {
     label: 'Nosotros',
     route: '/nosotros',
     commingSoon: false
