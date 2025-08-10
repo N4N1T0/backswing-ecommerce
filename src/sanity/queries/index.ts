@@ -149,12 +149,16 @@ export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
     "offer": ^.offer,
     "price": ^.price,
     "sizes": ^.sizes,
-    "colors": formats[0]->color[]{
-      "title": name,
-      "mainImage": mainImage,
-      "images": images[].asset->{
-        "url": url,
-        "blur": metadata.lqip,
+    "excerpt": ^.excerpt,
+    "format": formats[]->{
+      title,
+      "colors": color[]{
+        "title": name,
+        mainImage,
+        "images": images[].asset->{
+          "url": url,
+          "blur": metadata.lqip,
+        }
       }
     },
   }

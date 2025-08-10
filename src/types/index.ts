@@ -35,7 +35,7 @@ export interface SupportInfoProps {
 
 export type Product = GET_DESIGNS_BY_SLUGResult
 export type ProductCard = GET_PRODUCTS_BY_CATEGORYResult['designs'][number]
-export type Colors = ProductCard['colors'] | Product['format'][number]['colors']
+export type Colors = ProductCard['format'][number]['colors']
 export type Formats = Product['format']
 export type Sizes = (
   | typeof tallasCamisetas
