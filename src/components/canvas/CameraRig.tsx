@@ -22,13 +22,8 @@ const CameraRig = ({ children }: CameraRigProps) => {
     easing.damp3(frameState.camera.position, targetPosition, 0.25, delta)
 
     if (group.current) {
-      easing.dampE(
-        // @ts-expect-error Maath Type script errors
-        group.current.rotation,
-        [frameState.pointer.y / 10, -frameState.pointer.x / 5, 0],
-        0.25,
-        delta
-      )
+      // @ts-expect-error Maath Type script errors
+      group.current.rotation.y += delta * 0.6
     }
   })
 

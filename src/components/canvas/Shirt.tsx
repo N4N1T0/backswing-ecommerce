@@ -20,7 +20,7 @@ const Shirt = () => {
     <group position={[0, 0, 0]}>
       <mesh
         castShadow
-        // @ts-expect-error Fiber Type script errors
+        // @ts-expect-error Maath Type script errors
         geometry={nodes.T_Shirt_male?.geometry}
         material={materials.lambert1}
         material-roughness={1}
@@ -29,6 +29,13 @@ const Shirt = () => {
         <Decal
           position={[0, 0.04, 0.15]}
           rotation={[0, 0, 0]}
+          scale={0.15}
+          map={logoTexture}
+          depthTest={false}
+        />
+        <Decal
+          position={[0, 0.15, -0.15]}
+          rotation={[0, Math.PI, 0]}
           scale={0.15}
           map={logoTexture}
           depthTest={false}
