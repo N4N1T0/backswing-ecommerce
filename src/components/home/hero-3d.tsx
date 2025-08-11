@@ -47,7 +47,7 @@ const Hero3D = () => {
                   Explorar Productos
                 </Link>
                 <Link
-                  href='/hombre/camisetas'
+                  href='/personalizar'
                   className={buttonVariants({
                     size: 'xl',
                     variant: 'outline'
