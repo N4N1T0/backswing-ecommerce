@@ -22,7 +22,7 @@ export default async function NuevoCamisetasPage() {
   return (
     <section
       id='nuevo collection'
-      className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10'
+      className='grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 md:gap-8 md:gap-y-10 bg-gray-50 p-3'
     >
       {products.map((product, index) => (
         <ProductCard
