@@ -23,7 +23,7 @@ export default async function BlogPostPage({
   return (
     <main className='mt-24 p-5 md:px-10 max-w-5xl mx-auto md:pt-20'>
       <div className='mb-4 md:mb-0'>
-        <div className='px-4 lg:px-0'>
+        <div className='px-4 lg:px-0 animate-fade-in-up animate-delay-500'>
           <h2 className='text-4xl font-semibold text-gray-900 leading-tight'>
             {title}
           </h2>
@@ -36,7 +36,7 @@ export default async function BlogPostPage({
           src={featuredMedia.url || SquarePlaceholder}
           alt={title}
           title={title}
-          className='w-full object-cover lg:rounded-sm'
+          className='w-full object-cover lg:rounded-sm animate-fade-in-up animate-delay-700'
           width={1200}
           height={1000}
           placeholder='blur'
@@ -44,7 +44,7 @@ export default async function BlogPostPage({
         />
       </div>
 
-      <div className='prose max-w-none mt-6'>
+      <div className='prose max-w-none mt-6 animate-fade-in-up animate-delay-900'>
         <PortableText value={content} />
         <div className='w-full lg:w-1/4 m-auto mt-12 max-w-(--breakpoint-sm) space-y-10 divide-y-2'>
           <SocialShareButton title={title} />
