@@ -9,7 +9,7 @@ export default function ProductsLayout({
 }>) {
   return (
     <main className='max-w-screen-2xl mx-auto p-3 md:px-10 grid grid-cols-5 gap-4 relative md:pt-20 pt-10 mt-20'>
-      <aside className='col-span-1 space-y-10 hidden md:block top-4 h-fit md:sticky'>
+      <aside className='col-span-1 space-y-10 hidden md:block top-4 h-fit md:sticky animate-fade-in-right animate-delay-500'>
         <Breadcrumbs />
         <SideNavbarFilter />
       </aside>
@@ -18,7 +18,7 @@ export default function ProductsLayout({
           <Breadcrumbs />
           <NavbarFilterSheet />
         </div>
-        {children}
+        <div className='animate-fade-in-left animate-delay-500'>{children}</div>
       </article>
     </main>
   )
