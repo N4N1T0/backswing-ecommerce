@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section className='max-w-8xl py-4 mx-auto lg:py-6 md:px-6' id='about'>
       <div className='flex flex-wrap '>
-        <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 '>
+        <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 animate-fade-in-right animate-delay-500'>
           <div className='lg:max-w-md space-y-6'>
             <div className='pl-4 border-l-4 border-gray-900'>
               <span className='text-sm text-gray-600 uppercase'>
@@ -51,7 +51,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 relative aspect-square'>
+        <div className='w-full px-4 mb-10 lg:w-1/2 lg:mb-0 relative aspect-square animate-fade-in-left animate-delay-500'>
           <Image
             src={AboutPic}
             alt='Una reunion del equipo de backswing'

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function NosotrosPage() {
   return (
-    <main className='max-w-screen-2xl mx-auto p-5 space-y-1 md:space-y-5'>
+    <main className='max-w-screen-2xl mx-auto p-5 space-y-1 md:space-y-5 mt-20 pt-10 md:pt-20'>
       <About />
       <Quote />
       <MissionAndVision />
