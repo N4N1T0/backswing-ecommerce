@@ -18,7 +18,12 @@ const SideNavbarFilter = () => {
   )
 
   return (
-    <Accordion type='multiple' className='pr-5' defaultValue={accordionPath}>
+    <Accordion
+      type='multiple'
+      className='pr-5'
+      defaultValue={accordionPath}
+      key={pathname}
+    >
       {sidebarAccordion.map((accordion) => (
         <AccordionItem
           value={accordion.label}
