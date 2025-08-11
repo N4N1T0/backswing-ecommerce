@@ -173,12 +173,16 @@ export const GET_DESIGNS_BY_SEARCH = defineQuery(`*[
     "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
     "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
-    "colors": formats[0]->color[]{
-      "title": name,
-      mainImage,
-      "images": images[].asset->{
-        "url": url,
-        "blur": metadata.lqip,
+    excerpt,
+    "format": formats[]->{
+      title,
+      "colors": color[]{
+        "title": name,
+        mainImage,
+        "images": images[].asset->{
+          "url": url,
+          "blur": metadata.lqip,
+        }
       }
     },
 }`)
@@ -233,14 +237,18 @@ export const GET_DESIGNS_BY_NEW = defineQuery(`*[
    "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
     "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
-    "colors": formats[0]->color[]{
-      "title": name,
-      mainImage,
-      "images": images[].asset->{
-        "url": url,
-        "blur": metadata.lqip,
+    "excerpt": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].excerpt,
+    "format": formats[]->{
+      title,
+      "colors": color[]{
+        "title": name,
+        mainImage,
+        "images": images[].asset->{
+          "url": url,
+          "blur": metadata.lqip,
+        }
       }
-  }
+    },
 }`)
 
 export const GET_USER_PROFILE_WITH_ORDERS =
