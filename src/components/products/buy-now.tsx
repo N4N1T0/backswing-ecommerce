@@ -26,8 +26,7 @@ interface BuyNowProps {
 }
 
 const BuyNow: React.FC<BuyNowProps> = ({ product }) => {
-  const { format, offer, price, title, slug, commingSoon, sizes, excerpt } =
-    product
+  const { format, offer, price, title, commingSoon, sizes, excerpt } = product
   const hasOffer = !!offer
   const isCommingSoon = !!commingSoon
 
@@ -36,7 +35,6 @@ const BuyNow: React.FC<BuyNowProps> = ({ product }) => {
   const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
   const [designFormat, setDesignFormat] = useState(format[0])
   const [colors, setColors] = useState<Colors[number]>(format[0].colors[0])
-  const [mainImage, setMainImage] = useState(Number(colors.mainImage) || 0)
 
   // CONST
   const cartItem = useMemo(
@@ -53,7 +51,16 @@ const BuyNow: React.FC<BuyNowProps> = ({ product }) => {
       excerpt,
       quantity: 1
     }),
-    [colors, price, offer, title, excerpt]
+    [
+      product.id,
+      talla,
+      designFormat.title,
+      colors,
+      price,
+      offer,
+      title,
+      excerpt
+    ]
   )
 
   if (isCommingSoon) {
