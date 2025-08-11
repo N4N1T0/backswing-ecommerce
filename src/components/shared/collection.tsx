@@ -14,7 +14,6 @@ const Collection = async ({
   const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
     type: type
   })
-  console.log('🚀 ~ Collection ~ products:', products)
 
   if (!products) {
     return null
