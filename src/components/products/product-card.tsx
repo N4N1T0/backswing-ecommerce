@@ -36,8 +36,8 @@ const ProductCard = React.memo(
         {/* BADGES */}
         {isCommingSoon && (
           <>
-            <div className='absolute size-full inset-0 z-50 bg-gray-100 opacity-50 border border-gray-400'></div>
-            <p className='text-xs uppercase tracking-wide bg-red-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
+            <div className='absolute size-full inset-0 z-40 bg-gray-100 opacity-50 border border-gray-400'></div>
+            <p className='text-xs uppercase tracking-wide bg-red-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-40'>
               Próximamente
             </p>
           </>
