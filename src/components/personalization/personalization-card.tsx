@@ -1,76 +1,91 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import type { PersonalizationProducts } from '@/types'
+import { Check } from 'lucide-react'
 import Image from 'next/image'
 import { useFormStatus } from 'react-dom'
+
+interface PersonalizationCardProps {
+  product: PersonalizationProducts
+  isDesign?: boolean
+}
 
 const PersonalizationCard = ({
   product,
   isDesign = false
-}: {
-  product: PersonalizationProducts
-  isDesign?: boolean
-}) => {
-  // Retrieve the form status
+}: PersonalizationCardProps) => {
+  // STATUS
   const { pending } = useFormStatus()
 
-  // Render the personalization card
   return (
-    <div className='space-y-3'>
-      {/* Render the personalization card label */}
-      <label
-        className={`border hover:border-gray-500 has-checked:border-gray-900 h-auto block ${
-          pending ? 'opacity-50 pointer-events-none' : ''
-        }`}
+    <label className='group cursor-pointer block relative'>
+      <input
+        type='radio'
+        id={product.value}
+        defaultValue={
+          isDesign
+            ? product.value
+            : product.value === 'Sudaderas | Unisex'
+              ? 'Sudaderas | Hombre'
+              : product.value
+        }
+        aria-label={product.value}
+        name={isDesign ? 'design-selection' : 'model-selection'}
+        className='sr-only peer'
+        required
+        disabled={pending}
+      />
+      {/* INDICATOR */}
+      <div className='absolute top-3 right-3 z-10 w-6 h-6 bg-white border border-gray-200 flex items-center justify-center opacity-0 peer-checked:opacity-100 transition-opacity duration-200'>
+        <Check className='size-4 text-gray-900' />
+      </div>
+
+      <div
+        className={cn(
+          'relative bg-white border border-gray-200 hover:border-gray-400 transition-colors duration-200 peer-checked:border-gray-900 peer-checked:bg-gray-50 overflow-hidden',
+          pending && 'opacity-50 pointer-events-none'
+        )}
       >
-        <Image
-          src={product.image}
-          alt={product.value}
-          title={product.value}
-          width={500}
-          height={500}
-          className={
-            isDesign
-              ? 'object-center w-full h-full aspect-square'
-              : 'object-cover w-full h-full'
-          }
-          priority
-        />
-        {/* Render the personalization card radio input */}
-        <input
-          type='radio'
-          id={product.value}
-          defaultValue={
-            isDesign
-              ? product.value
-              : product.value === 'Sudaderas | Unisex'
-                ? 'Sudaderas | Hombre'
-                : product.value
-          }
-          aria-label={product.value}
-          name={isDesign ? 'design-selection' : 'model-selection'}
-          className='sr-only'
-          required
-          disabled={pending}
-        />
-      </label>
-      {/* Render the personalization card title */}
-      <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base'>
-        {product.value}
-      </h3>
-      {/* Render the personalization card colors */}
-      {isDesign || (
-        <div className='flex gap-1'>
-          {product.colors?.map((color) => (
-            <span
-              key={color}
-              className='block size-4 pointer-events-none rounded-full border-2'
-              style={{ backgroundColor: color }}
-            />
-          ))}
+        {/* IMAGE */}
+        <div className='relative aspect-square overflow-hidden'>
+          <Image
+            src={product.image}
+            alt={product.value}
+            title={product.value}
+            fill
+            className='object-fit border-b'
+            priority
+          />
         </div>
-      )}
-    </div>
+
+        {/* CONTENT */}
+        <div className='p-4'>
+          <h3 className='text-lg font-bold text-gray-900 mb-3 uppercase'>
+            {product.value}
+          </h3>
+
+          {/* COLOR */}
+          {!isDesign && product.colors && (
+            <div className='space-y-2'>
+              <p className='text-sm font-medium text-gray-600'>
+                Colores disponibles:
+              </p>
+              <div className='flex flex-wrap gap-2'>
+                {product.colors.map((color) => (
+                  <div
+                    key={color}
+                    className='relative size-4 rounded-full border border-gray-200'
+                    style={{ backgroundColor: color }}
+                    title={`Color ${color}`}
+                  ></div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </label>
   )
 }
 
