@@ -32,7 +32,7 @@ const ProductCard = React.memo(
     const [mainImage, _setMainImage] = useState(Number(colors.mainImage) || 0)
 
     return (
-      <div className='block relative border shadow-xs'>
+      <div className='relative border shadow-xs h-full flex flex-col'>
         {/* BADGES */}
         {isCommingSoon && (
           <>
@@ -72,7 +72,7 @@ const ProductCard = React.memo(
           </div>
         </Link>
 
-        <div className='relative p-3'>
+        <div className='relative p-3 flex flex-col justify-between items-start flex-1'>
           <div className='w-full flex justify-between items-center'>
             <Link href={`/${route}/${slug}`}>
               <h3 className='text-gray-950 font-medium uppercase text-sm md:text-base hover:text-gray-700 transition-colors duration-200'>
@@ -81,14 +81,14 @@ const ProductCard = React.memo(
             </Link>
             <WishlistHeart product={product} />
           </div>
-          <div className='flex justify-between items-center mt-1'>
+          <div className='flex justify-between items-center mt-1 flex-wrap w-full'>
             <ColorPicker
               colors={designFormat.colors}
               setColor={setColors}
               isProductCard
               slug={slug}
             />
-            <div className='flex items-center justify-between text-gray-900 text-lg mb-3'>
+            <div className='flex items-center justify-between text-gray-900 md:text-lg mb-3 -mt-3 sm:mt-0'>
               {hasOffer ? (
                 <>
                   <p className='tracking-wide font-regular line-through text-gray-500'>
