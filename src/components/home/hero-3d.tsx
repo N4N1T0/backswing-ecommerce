@@ -7,7 +7,7 @@ import { Suspense } from 'react'
 
 const Hero3D = () => {
   return (
-    <section id='hero' className='w-full min-h-[90vh]'>
+    <section id='hero' className='w-full min-h-[85vh] pt-10'>
       <div className='w-full px-4 pt-24 sm:px-6 lg:px-8'>
         <div className='flex flex-col lg:flex-row items-center justify-between min-h-[80vh]'>
           {/* 3D MODEL */}
@@ -24,7 +24,7 @@ const Hero3D = () => {
           </div>
 
           <div className='w-full lg:w-1/2 lg:pl-12 order-1 lg:order-2'>
-            <header className='text-center lg:text-left py-8 space-y-6'>
+            <header className='text-center lg:text-left pb-6 pt-8 space-y-4 md:space-y-6'>
               <h1 className='text-5xl font-bold text-gray-950 sm:text-7xl lg:text-8xl xl:text-9xl animate-fade-in-down'>
                 Backswing
               </h1>
