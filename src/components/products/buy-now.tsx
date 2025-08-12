@@ -71,7 +71,7 @@ const BuyNow: React.FC<BuyNowProps> = ({ product }) => {
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
         <Button className='w-full'>
-          <ShoppingCart className='size-4 mr-2' />
+          <ShoppingCart className='size-4 mr-2 shrink-0' />
           Comprar ahora
         </Button>
       </DialogTrigger>
