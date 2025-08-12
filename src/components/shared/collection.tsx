@@ -25,7 +25,7 @@ const Collection = async ({
 
   return (
     <section id={`${collection}-collection`}>
-      <div className='mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8'>
+      <div className='mx-auto max-w-screen-2xl py-8 sm:px-6 sm:py-12 lg:px-8'>
         <header
           className={`w-full flex flex-col ${
             direction === 'right' ? 'items-end' : 'items-start'
@@ -43,7 +43,7 @@ const Collection = async ({
           </p>
         </header>
 
-        <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+        <ul className='mt-8 grid gap-4 grid-cols-2 lg:grid-cols-4'>
           {formattedProducts.map((product, index) => (
             <li key={product.id} className='relative'>
               <ProductCard
