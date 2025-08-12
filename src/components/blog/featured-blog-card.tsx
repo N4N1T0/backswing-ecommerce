@@ -15,7 +15,7 @@ const FeaturedBlogCard = ({ post }: { post: GET_ALL_BLOGResult[number] }) => {
         src={featuredMedia.url || SquarePlaceholder}
         alt={title}
         title={title}
-        className='group-hover:scale-105 transition-transform duration-200 object-cover'
+        className='group-hover:scale-105 transition-transform duration-200 object-cover object-left md:object-center'
         fill
         quality={100}
         decoding='async'
