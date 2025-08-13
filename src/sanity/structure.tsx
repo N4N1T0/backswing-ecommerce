@@ -49,7 +49,11 @@ export const structure: StructureResolver = (S) =>
                 .icon(() => <Tag className='size-4' />),
               S.documentTypeListItem('subscriberNewsletter')
                 .title('Suscriptores')
-                .icon(() => <UserPen className='size-4' />)
+                .icon(() => <UserPen className='size-4' />),
+              S.divider(),
+              S.documentTypeListItem('homePage')
+                .title('Página de Inicio')
+                .icon(() => <BookOpen className='size-4' />)
             ])
         ),
       S.listItem()
