@@ -10,6 +10,7 @@ import { DesignsType } from './DesignsTypes'
 import { externalImageType } from './ExternalImageType'
 import { featureFlagsType } from './FeatureFlags'
 import { formatTypes } from './FormatTypes'
+import { homePageType } from './HomePageType'
 import { legalPageType } from './LegalPageTypes'
 import { link } from './LinkType'
 import { noStockNotifyMeType } from './NoStockNotifyMeType'
@@ -43,6 +44,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     wishlistType,
     formatTypes,
     legalPageType,
-    shippingType
+    shippingType,
+    homePageType
   ]
 }
