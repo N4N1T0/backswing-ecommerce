@@ -323,3 +323,13 @@ export const GET_SHIPPING_CONFIG = defineQuery(`*[
   freeCartTotal,
   isActive
 }`)
+
+export const GET_HOME_PAGE_DATA = defineQuery(`*[
+  _type == "homePage"
+][0]{
+  "id": _id,
+  title,
+  heroSubtitle,
+  heroDescription,
+  collectionDescriptions
+}`)
