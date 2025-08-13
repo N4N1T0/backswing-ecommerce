@@ -5,10 +5,12 @@ import { GET_PRODUCTS_BY_CATEGORY } from '@/sanity/queries'
 
 const Collection = async ({
   direction,
-  collection
+  collection,
+  description
 }: {
   direction: 'right' | 'left'
   collection: 'hombre' | 'mujer' | 'niño'
+  description?: string
 }) => {
   const type = ['camisetas', collection]
   const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
@@ -21,7 +23,7 @@ const Collection = async ({
 
   const formattedProducts = products.designs
     .filter((design) => design.format)
-    .slice(0, 4)
+    .slice(0, 6)
 
   return (
     <section id={`${collection}-collection`}>
@@ -39,7 +41,7 @@ const Collection = async ({
               direction === 'right' ? 'text-right' : 'text-left'
             } mt-4 max-w-2xl text-pretty text-gray-500`}
           >
-            {collectionSubtitle[collection]}
+            {description || collectionSubtitle[collection]}
           </p>
         </header>
 

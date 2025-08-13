@@ -5,7 +5,12 @@ import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
-const Hero3D = () => {
+interface Hero3DProps {
+  heroSubtitle?: string
+  heroDescription?: string
+}
+
+const Hero3D = ({ heroSubtitle, heroDescription }: Hero3DProps) => {
   return (
     <section id='hero' className='w-full min-h-[85vh] pt-10'>
       <div className='w-full px-4 pt-24 sm:px-6 lg:px-8'>
@@ -29,13 +34,11 @@ const Hero3D = () => {
                 Backswing
               </h1>
               <h2 className='text-xl font-bold text-gray-700 sm:text-2xl lg:text-3xl animate-fade-in-down animate-delay-200'>
-                Diseños de camisetas para padel
+                {heroSubtitle || 'Diseños de camisetas para padel'}
               </h2>
               <p className='mx-auto lg:mx-0 mt-4 max-w-md text-gray-500 animate-fade-in-down animate-delay-500'>
-                Somos una agencia de diseño y creación de productos para pádel,
-                somos deportistas dedicados a deportistas. Con nuestra
-                experiencia en el juego, entendemos la calidad y visión
-                necesarias para cada producto.
+                {heroDescription ||
+                  'Somos una agencia de diseño y creación de productos para pádel, somos deportistas dedicados a deportistas. Con nuestra experiencia en el juego, entendemos la calidad y visión necesarias para cada producto.'}
               </p>
               <div className='pt-6 animate-fade-in-down animate-delay-700 flex gap-4 flex-wrap justify-center md:justify-start'>
                 <Link
