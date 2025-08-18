@@ -6,7 +6,7 @@ export default async function CheckoutPageClient() {
   const session = await auth()
 
   return (
-    <div className='min-h-screen bg-gray-200'>
+    <div className='min-h-screen bg-gray-200 md:pt-20 pt-10 mt-20'>
       <div className='max-w-7xl mx-auto px-4 py-8'>
         <h1 className='text-3xl font-bold text-black'>Finalizar Compra</h1>
 
