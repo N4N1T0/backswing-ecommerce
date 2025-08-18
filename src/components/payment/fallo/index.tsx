@@ -20,7 +20,7 @@ export default function FailedPage({
   transactionId
 }: FailedPageProps) {
   return (
-    <div className='min-h-screen bg-white'>
+    <div className='min-h-screen bg-white md:pt-20 pt-10 mt-20'>
       <div className='container mx-auto px-4 py-16 max-w-2xl'>
         <PageHeader
           type='failed'
