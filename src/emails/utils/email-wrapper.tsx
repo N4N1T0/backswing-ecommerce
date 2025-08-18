@@ -62,7 +62,7 @@ function EmailHeader() {
       <Row>
         <Column align='center'>
           <Img
-            src='https://backswing-ecommerce.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F82f78b35-02e0-4783-aa65-b1b40b34ed51.902bdb05.png&w=64&q=75&dpl=dpl_6WYhFqtuP9fUKpJ52YbxGBx1j9Kw'
+            src='https://backswingpadel.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2F82f78b35-02e0-4783-aa65-b1b40b34ed51.902bdb05.png&w=64&q=75'
             width='120'
             height='60'
             alt='Logo de Backswing'
