@@ -47,7 +47,7 @@ const Hero3D = ({ heroSubtitle, heroDescription }: Hero3DProps) => {
                     size: 'xl'
                   })}
                 >
-                  Explorar Productos
+                  Explorar Colección
                 </Link>
                 <Link
                   href='/personalizar'
@@ -56,7 +56,7 @@ const Hero3D = ({ heroSubtitle, heroDescription }: Hero3DProps) => {
                     variant: 'outline'
                   })}
                 >
-                  Personalizar
+                  Crea tu diseño ahora
                 </Link>
               </div>
             </header>
