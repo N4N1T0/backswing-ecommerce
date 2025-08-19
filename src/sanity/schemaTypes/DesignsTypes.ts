@@ -62,6 +62,13 @@ export const DesignsType = defineType({
       title: 'Extracto',
       description: 'El extracto del producto.',
       rows: 3
+    }),
+    defineField({
+      name: 'reviews',
+      type: 'array',
+      title: 'Reseñas',
+      description: 'Reseñas de este diseño de producto.',
+      of: [{ type: 'reference', to: [{ type: 'review' }] }]
     })
   ],
   preview: {
