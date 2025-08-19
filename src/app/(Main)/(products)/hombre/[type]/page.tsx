@@ -16,9 +16,18 @@ export default async function HombreCamisetasPage({
 }) {
   const { type } = await params
 
-  const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
-    type: [type, 'hombre']
-  })
+  const products = await sanityClientRead
+    .fetch(GET_PRODUCTS_BY_CATEGORY, {
+      type: [type, 'hombre']
+    })
+    .then((data) => {
+      return {
+        designs: data.designs.sort((a, b) => {
+          if (a.commingSoon === b.commingSoon) return 0
+          return a.commingSoon ? 1 : -1
+        })
+      }
+    })
 
   if (!products || !products.designs) {
     return (
