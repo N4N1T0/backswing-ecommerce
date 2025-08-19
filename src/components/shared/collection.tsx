@@ -13,9 +13,18 @@ const Collection = async ({
   description?: string
 }) => {
   const type = ['camisetas', collection]
-  const products = await sanityClientRead.fetch(GET_PRODUCTS_BY_CATEGORY, {
-    type: type
-  })
+  const products = await sanityClientRead
+    .fetch(GET_PRODUCTS_BY_CATEGORY, {
+      type: type
+    })
+    .then((data) => {
+      return {
+        designs: data.designs.sort((a, b) => {
+          if (a.commingSoon === b.commingSoon) return 0
+          return a.commingSoon ? 1 : -1
+        })
+      }
+    })
 
   if (!products) {
     return null
