@@ -333,3 +333,12 @@ export const GET_HOME_PAGE_DATA = defineQuery(`*[
   heroDescription,
   collectionDescriptions
 }`)
+
+export const GET_REVIEWS_BY_PRODUCT_DESIGN = defineQuery(`*[
+  _type == "review" && productDesign._ref == $productDesignId && isApproved == true
+] | order(createdAt desc) {
+  "id": _id,
+  rating,
+  title,
+  comment,
+}`)
