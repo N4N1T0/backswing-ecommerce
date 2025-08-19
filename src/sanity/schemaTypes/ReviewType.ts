@@ -28,20 +28,6 @@ export const ReviewType = defineType({
       rows: 4
     }),
     defineField({
-      name: 'userName',
-      type: 'string',
-      title: 'Nombre del Usuario',
-      description: 'Nombre del usuario que escribió la reseña.',
-      validation: (Rule) => Rule.required()
-    }),
-    defineField({
-      name: 'userEmail',
-      type: 'string',
-      title: 'Email del Usuario',
-      description: 'Email del usuario (no se mostrará públicamente).',
-      validation: (Rule) => Rule.required().email()
-    }),
-    defineField({
       name: 'productDesign',
       type: 'reference',
       title: 'Diseño de Producto',
