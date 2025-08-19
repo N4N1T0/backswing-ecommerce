@@ -14,6 +14,7 @@ import {
   Paintbrush,
   ShoppingBasket,
   Sparkle,
+  Star,
   StickyNote,
   Tag,
   Truck,
@@ -95,6 +96,9 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem('formats')
                 .title('Formatos de Diseños')
                 .icon(() => <BarChart className='size-4' />),
+              S.documentTypeListItem('review')
+                .title('Reseñas')
+                .icon(() => <Star className='size-4' />),
               S.divider(),
               S.listItem()
                 .title('Configuración de Envío')
