@@ -2,16 +2,13 @@ import ProductCard from '@/components/products/product-card'
 import { collectionSubtitle } from '@/contants/ui-data'
 import { sanityClientRead } from '@/sanity/lib/client'
 import { GET_PRODUCTS_BY_CATEGORY } from '@/sanity/queries'
+import { CollectionProps } from '@/types'
 
 const Collection = async ({
   direction,
   collection,
   description
-}: {
-  direction: 'right' | 'left'
-  collection: 'hombre' | 'mujer' | 'niño'
-  description?: string
-}) => {
+}: CollectionProps) => {
   const type = ['camisetas', collection]
   const products = await sanityClientRead
     .fetch(GET_PRODUCTS_BY_CATEGORY, {
