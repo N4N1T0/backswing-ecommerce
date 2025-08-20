@@ -814,6 +814,8 @@ export type GET_PRODUCTS_BY_CATEGORYResult = {
     price: number | null
     excerpt: string | null
     sizes: Array<string> | null
+    averageRating: number | null
+    reviewCount: number | null
     format: Array<{
       title: string | null
       colors: Array<{
@@ -838,6 +840,8 @@ export type GET_DESIGNS_BY_SEARCHResult = Array<{
   excerpt: string | null
   price: number | null
   sizes: Array<string> | null
+  averageRating: number | null
+  reviewCount: number | null
   format: Array<{
     title: string | null
     colors: Array<{
@@ -876,6 +880,8 @@ export type GET_DESIGNS_BY_NEWResult = Array<{
   sizes: Array<string> | null
   slug: string | null
   title: string | null
+  averageRating: number | null
+  reviewCount: number | null
 }>
 // Variable: GET_BLOG_ARTICLE_BY_SLUGResult
 // Query: *[_type=='post' && status == 'publish' && slug.current == $slug][0]{"id": _id,"featuredMedia": {"url": featuredMedia.asset -> url,"blur": featuredMedia.asset -> metadata.lqip},excerpt,author->{name,"avatar": {"url": avatar.asset -> url,"blur": avatar.asset -> metadata.lqip}},"slug": slug.current,categories[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},title,date,content,tags[]->{name,"id": _id,"slug": slug.current,"count": count(*[_type == 'post' && status == 'publish' && references(^._id)])},}

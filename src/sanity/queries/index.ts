@@ -150,6 +150,8 @@ export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
     "price": ^.price,
     "sizes": ^.sizes,
     "excerpt": ^.excerpt,
+    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
+    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),
     "format": formats[]->{
       title,
       "colors": color[]{
@@ -174,6 +176,8 @@ export const GET_DESIGNS_BY_SEARCH = defineQuery(`*[
     "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     excerpt,
+    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
+    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),
     "format": formats[]->{
       title,
       "colors": color[]{
@@ -198,6 +202,10 @@ export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
     "offer": *[_type == 'product' && designs[]->slug.current match [$slug]][0].offer,
     "price": *[_type == 'product' && designs[]->slug.current match [$slug]][0].price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [$slug]][0].sizes,
+    "category": *[_type == 'product' && designs[]->slug.current match [$slug]][0].productCategories[]->{
+      name,
+      "slug": slug.current
+    },
     "format": formats[]->{
       title,
       "colors": color[]{
@@ -238,6 +246,8 @@ export const GET_DESIGNS_BY_NEW = defineQuery(`*[
     "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     "excerpt": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].excerpt,
+    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
+    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),
     "format": formats[]->{
       title,
       "colors": color[]{
