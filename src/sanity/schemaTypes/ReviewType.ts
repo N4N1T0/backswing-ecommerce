@@ -6,6 +6,13 @@ export const ReviewType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'isApproved',
+      type: 'boolean',
+      title: 'Aprobado',
+      description: 'Indica si la reseña ha sido aprobada por el administrador.',
+      initialValue: false
+    }),
+    defineField({
       name: 'rating',
       type: 'number',
       title: 'Calificación',
