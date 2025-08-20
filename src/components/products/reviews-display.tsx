@@ -115,7 +115,7 @@ export default function ReviewsDisplay({
         <div className='space-y-6'>
           {reviews.map((review) => (
             <div
-              key={review._id}
+              key={review.id}
               className='border-b border-gray-100 pb-6 last:border-b-0'
             >
               <div className='space-y-3'>
