@@ -285,3 +285,10 @@ export interface GET_ORDER_BY_ID_Result {
     password: null
   }
 }
+
+export interface CollectionProps {
+  direction: 'right' | 'left'
+  collection: 'hombre' | 'mujer' | 'niño'
+  isRelated?: boolean
+  description?: string
+}
