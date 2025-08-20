@@ -1,6 +1,10 @@
 'use client'
 
 import { SquarePlaceholder } from '@/assets/placeholder'
+import {
+  generateSocialUrgencyBadge,
+  getBadgeVariantClasses
+} from '@/lib/social-urgency'
 import { cn, eurilize } from '@/lib/utils'
 import type { Colors, ProductCard } from '@/types'
 import Image from 'next/image'
@@ -21,10 +25,21 @@ const ProductCard = React.memo(
     priority: number
   }) => {
     // CONST
-    const { format, offer, price, title, slug, commingSoon } = product
+    const {
+      format,
+      offer,
+      price,
+      title,
+      slug,
+      commingSoon,
+      averageRating,
+      reviewCount
+    } = product
 
     const hasOffer = !!offer
     const isCommingSoon = !!commingSoon
+    const hasRating = averageRating && averageRating > 0
+    const socialUrgencyBadge = generateSocialUrgencyBadge(product.id)
 
     // STATE
     const [designFormat, _setDesignFormat] = useState(format[0])
@@ -32,22 +47,7 @@ const ProductCard = React.memo(
     const [mainImage, _setMainImage] = useState(Number(colors.mainImage) || 0)
 
     return (
-      <div className='relative border shadow-xs h-full flex flex-col'>
-        {/* BADGES */}
-        {isCommingSoon && (
-          <>
-            <div className='absolute size-full inset-0 z-40 bg-gray-100 opacity-50 border border-gray-400'></div>
-            <p className='text-xs uppercase tracking-wide bg-red-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-40'>
-              Próximamente
-            </p>
-          </>
-        )}
-        {hasOffer && !isCommingSoon && (
-          <p className='text-xs uppercase tracking-wide bg-green-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
-            Oferta
-          </p>
-        )}
-
+      <div className='border shadow-xs h-full flex flex-col'>
         <Link
           href={`/${route}/${slug}`}
           className='relative h-[200px] sm:h-[200px] md:h-[250px] lg:h-[300px] xl:h-[350px] overflow-hidden block group'
@@ -69,6 +69,43 @@ const ProductCard = React.memo(
                 isCommingSoon && 'cursor-not-allowed'
               )}
             />
+            {/* RATING */}
+            {hasRating && (
+              <div className='absolute bottom-2 left-2 z-50 bg-white px-2 py-1 text-xs font-medium flex items-center gap-1'>
+                <span>⭐</span>
+                <span>{averageRating.toFixed(1)}</span>
+                <span className='text-gray-500'>({reviewCount})</span>
+              </div>
+            )}
+
+            {/* SOCIAL URGENCY */}
+            {socialUrgencyBadge && !isCommingSoon && (
+              <div
+                className={cn(
+                  'absolute bottom-2 right-2 z-50 px-3 py-1 text-xs font-medium',
+                  getBadgeVariantClasses(socialUrgencyBadge.variant)
+                )}
+              >
+                {socialUrgencyBadge.message}
+              </div>
+            )}
+
+            {/* COMING SOON */}
+            {isCommingSoon && (
+              <>
+                <div className='absolute size-full inset-0 z-40 bg-gray-100 opacity-50 border border-gray-400'></div>
+                <p className='text-xs uppercase tracking-wide bg-red-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-40'>
+                  Próximamente
+                </p>
+              </>
+            )}
+
+            {/* OFFER */}
+            {hasOffer && !isCommingSoon && (
+              <p className='text-xs uppercase tracking-wide bg-green-500 py-1 px-3 text-gray-100 absolute right-3 top-3 z-50'>
+                Oferta
+              </p>
+            )}
           </div>
         </Link>
 
