@@ -166,3 +166,22 @@ export const colorList = {
   'negro': 'black',
   'gris': 'gray'
 }
+
+// Social Urgency Data
+export const socialUrgencyMessages = [
+  { type: 'popular', message: 'Popular' },
+  { type: 'cart', message: 'personas lo tienen en el carrito' },
+  { type: 'wishlist', message: 'personas lo tienen en favoritos' },
+  { type: 'views', message: 'personas lo vieron hoy' },
+  { type: 'trending', message: 'Tendencia' },
+  { type: 'bestseller', message: 'Más vendido' }
+]
+
+export const socialUrgencyTypes = {
+  POPULAR: 'popular',
+  CART: 'cart',
+  WISHLIST: 'wishlist',
+  VIEWS: 'views',
+  TRENDING: 'trending',
+  BESTSELLER: 'bestseller'
+} as const
