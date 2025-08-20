@@ -341,4 +341,5 @@ export const GET_REVIEWS_BY_PRODUCT_DESIGN = defineQuery(`*[
   rating,
   title,
   comment,
+  _createdAt
 }`)

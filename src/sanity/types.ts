@@ -947,6 +947,15 @@ export interface GET_BLOG_ARTICLE_BY_SLUGResult {
   tags: null
   title: string
 }
+// Variable: GET_REVIEWS_BY_PRODUCT_DESIGNResult
+// Query: *[ _type == "review" && productDesign._ref == $productDesignId && isApproved == true] | order(createdAt desc) {"id": _id,  rating,title,  comment, _createdAt }
+export type GET_REVIEWS_BY_PRODUCT_DESIGNResult = Array<{
+  _id: string
+  rating: number
+  title: string
+  comment: string
+  _createdAt: string
+}>
 // Variable: GET_USER_PROFILE_WITH_ORDERSResult
 // Query: *[_type == "costumer" && _id == $customerId][0]{firstName, lastName, _createdAt, "avatar": avatarUrl.asset->{"url": url,"blur": metadata.lqip},billingAddress[0] {address1,address2,city,state,postcode},shippingAddresses[] {address1,address2,city,state,postcode},"orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {"id": _id,purchaseDate,status,paymentMethod,totalAmount,"shippingAddress": shippingAddress[0],discountCoupon->{code,discount,discount_type,"id": _id},products[] {quantity,format,color,product->{"id": _id,title,"slug": slug.current,"featuredMedia": formats[0]->color[0].images[0].asset->{"url": url,"blur": metadata.lqip}}}}}
 export interface GET_USER_PROFILE_WITH_ORDERSResult {
@@ -1077,5 +1086,6 @@ declare module 'next-sanity' {
     '*[_type == "costumer" && _id == $customerId][0]{\n  "id": _id\n  firstName,\n  lastName,\n  _createdAt,\n  "avatar": avatarUrl.asset->{\n    "url": url,\n    "blur": metadata.lqip\n  },\n  billingAddress[0] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  shippingAddresses[] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  "orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {\n    "id": _id,\n    purchaseDate,\n    status,\n    paymentMethod,\n    totalAmount,\n    "shippingAddress": shippingAddress[0],\n    discountCoupon->{\n      code,\n      discount,\n      discount_type,\n      "id": _id\n    },\n    products[] {\n      quantity,\n      format,\n      color,\n      product->{\n        "id": _id,\n        title,\n        "slug": slug.current,\n        "featuredMedia": formats[0]->color[0].images[0].asset->{\n          "url": url,\n          "blur": metadata.lqip\n        }\n      }\n    }\n  }\n}': GET_USER_PROFILE_WITH_ORDERSResult
     '*[\n  _type == "productDesigns" && title match $search] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    excerpt,\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_SEARCHResult
     '*[\n  _type == "productDesigns" && isNew == true] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "productCategories":*[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].productCategories[]->{\n      name,\n      "slug": slug.current\n    },\n   "offer": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    "excerpt": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].excerpt,\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_NEWResult
+    '*[\n  _type == "review" && productDesign._ref == $productDesignId && isApproved == true\n] | order(createdAt desc) {\n  "id": _id,\n  rating,\n  title,\n  comment,\n  _createdAt\n}': GET_REVIEWS_BY_PRODUCT_DESIGNResult
   }
 }
