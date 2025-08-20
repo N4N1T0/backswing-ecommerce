@@ -37,7 +37,6 @@
     "@react-email/components": "^0.0.36",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
-    "@sanity/image-url": "1.1.0",
     "@sanity/uuid": "^3.0.2",
     "@sanity/vision": "4.2.0",
     "class-variance-authority": "0.7.1",
@@ -64,7 +63,6 @@
     "swr-global-state": "^2.3.2",
     "tailwind-merge": "3.3.1",
     "three": "^0.179.1",
-    "valtio": "^2.1.5",
     "zod": "^4.0.10"
   },
   "devDependencies": {
