@@ -1,6 +1,8 @@
 'use client'
 
 import { SquarePlaceholder } from '@/assets/placeholder'
+import CollectionClient from '@/components/products/collection-client'
+import { Separator } from '@/components/ui/separator'
 import { eurilize, slugify } from '@/lib/utils'
 import { Colors, type Product, type Sizes } from '@/types'
 import dynamic from 'next/dynamic'
@@ -90,11 +92,32 @@ const Quantity = dynamic(() => import('@/components/products/quantity'), {
     </div>
   )
 })
+const ReviewForm = dynamic(() => import('@/components/products/review-form'), {
+  ssr: false,
+  loading: () => (
+    <div className='mt-8 p-6 bg-white border-2 border-gray-300 animate-pulse'>
+      <div className='space-y-4'>
+        <div className='h-8 bg-gray-200 rounded w-1/3 mx-auto' />
+        <div className='h-4 bg-gray-200 rounded w-2/3 mx-auto' />
+        <div className='h-32 bg-gray-200 rounded' />
+      </div>
+    </div>
+  )
+})
+const ReviewsDisplay = dynamic(() => import('./reviews-display'), {
+  loading: () => <div className='animate-pulse h-64 bg-gray-200 rounded' />
+})
 
 const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
   // CONST
   const { format, excerpt, offer, price, sizes, title } = productInfo
   const hasOffer = !!offer
+  const collection = productInfo.category.find(
+    (c) =>
+      c.name.toLowerCase() === 'hombre' ||
+      c.name.toLowerCase() === 'mujer' ||
+      c.name.toLowerCase() === 'niño'
+  )
 
   // STATE
   const [talla, setTalla] = useState<Sizes>(sizes ? sizes[0] : 'm')
@@ -209,6 +232,24 @@ const ProductPageClient = ({ productInfo }: { productInfo: Product }) => {
           </div>
           <AccordionProducts />
         </div>
+      </div>
+
+      {collection && (
+        <>
+          <Separator className='my-8 bg-gray-400' />
+          <div className='w-full mt-8 space-y-4'>
+            <CollectionClient
+              collection={collection?.slug as 'hombre' | 'mujer' | 'niño'}
+            />
+          </div>
+        </>
+      )}
+
+      <Separator className='my-8 bg-gray-400' />
+
+      <div className='w-full mt-8 space-y-4'>
+        <ReviewsDisplay productDesignId={productInfo.id} />
+        <ReviewForm productDesignId={productInfo.id} />
       </div>
     </section>
   )
