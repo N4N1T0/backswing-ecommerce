@@ -10,7 +10,8 @@
     "format": "prettier --write",
     "typecheck": "tsc --noEmit",
     "email": "email dev --port 4001 --dir ./src/emails",
-    "typegen": "pnpm sanity schema extract && pnpm sanity typegen generate"
+    "typegen": "pnpm sanity schema extract && pnpm sanity typegen generate",
+    "prepare": "husky"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
