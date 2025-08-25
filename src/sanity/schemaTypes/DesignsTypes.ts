@@ -27,6 +27,19 @@ export const DesignsType = defineType({
       initialValue: false
     }),
     defineField({
+      name: 'price',
+      type: 'number',
+      title: 'Precio',
+      description: 'El precio del producto.',
+      initialValue: 39.9
+    }),
+    defineField({
+      name: 'sale',
+      type: 'number',
+      title: 'Oferta',
+      description: 'La oferta del producto.'
+    }),
+    defineField({
       name: 'referenceCode',
       type: 'string',
       title: 'Código de Referencia',
