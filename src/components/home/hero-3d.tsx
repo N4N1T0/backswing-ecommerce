@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 interface Hero3DProps {
-  heroSubtitle?: string
-  heroDescription?: string
+  heroSubtitle?: string | null
+  heroDescription?: string | null
 }
 
 const Hero3D = ({ heroSubtitle, heroDescription }: Hero3DProps) => {

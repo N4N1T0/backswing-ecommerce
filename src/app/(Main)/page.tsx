@@ -22,21 +22,15 @@ export default async function Home() {
         heroDescription={homePageData?.heroDescription}
       />
       <SubHero />
-      <Collection
-        direction='right'
-        collection='mujer'
-        description={homePageData?.collectionDescriptions?.mujer}
-      />
-      <Collection
-        direction='left'
-        collection='hombre'
-        description={homePageData?.collectionDescriptions?.hombre}
-      />
-      <Collection
-        direction='right'
-        collection='niño'
-        description={homePageData?.collectionDescriptions?.niño}
-      />
+      {homePageData?.collections?.map((collection, index) => (
+        <Collection
+          key={collection.title}
+          direction={index % 2 === 0 ? 'left' : 'right'}
+          title={collection.title}
+          subtitle={collection.subtitle}
+          designIds={collection.designs?.map((design) => design._id) || []}
+        />
+      ))}
       <PreFooter />
       <FeaturedBlogs />
     </main>
