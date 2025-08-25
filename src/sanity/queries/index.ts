@@ -146,8 +146,8 @@ export const GET_PRODUCTS_BY_CATEGORY = defineQuery(`*[
     "id": _id,
     "slug": slug.current,
     title,
-    "offer": ^.offer,
-    "price": ^.price,
+    "offer": sale,
+    price,
     "sizes": ^.sizes,
     "excerpt": ^.excerpt,
     "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
@@ -172,8 +172,8 @@ export const GET_DESIGNS_BY_SEARCH = defineQuery(`*[
     "id": _id,
     "slug": slug.current,
     title,
-    "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
-    "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
+    "offer": sale,
+    price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     excerpt,
     "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
@@ -199,8 +199,8 @@ export const GET_DESIGNS_BY_SLUG = defineQuery(`*[
     excerpt,
     "slug": slug.current,
     title,
-    "offer": *[_type == 'product' && designs[]->slug.current match [$slug]][0].offer,
-    "price": *[_type == 'product' && designs[]->slug.current match [$slug]][0].price,
+    "offer": sale,
+    price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [$slug]][0].sizes,
     "category": *[_type == 'product' && designs[]->slug.current match [$slug]][0].productCategories[]->{
       name,
@@ -242,8 +242,8 @@ export const GET_DESIGNS_BY_NEW = defineQuery(`*[
       name,
       "slug": slug.current
     },
-   "offer": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].offer,
-    "price": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].price,
+   "offer": sale,
+    price,
     "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
     "excerpt": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].excerpt,
     "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
@@ -341,7 +341,11 @@ export const GET_HOME_PAGE_DATA = defineQuery(`*[
   title,
   heroSubtitle,
   heroDescription,
-  collectionDescriptions
+  collections[]{
+    title,
+    subtitle,
+    designs[]->{_id}
+  }
 }`)
 
 export const GET_REVIEWS_BY_PRODUCT_DESIGN = defineQuery(`*[
@@ -352,4 +356,30 @@ export const GET_REVIEWS_BY_PRODUCT_DESIGN = defineQuery(`*[
   title,
   comment,
   _createdAt
+}`)
+
+export const GET_DESIGNS_BY_IDS = defineQuery(`*[
+  _type == "productDesigns" && _id in $designIds
+] {
+  commingSoon,
+  "id": _id,
+  "slug": slug.current,
+  title,
+  "offer": sale,
+  price,
+  "sizes": *[_type == 'product' && designs[]->slug.current match [^.slug.current]][0].sizes,
+  excerpt,
+  "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),
+  "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),
+  "format": formats[]->{
+    title,
+    "colors": color[]{
+      "title": name,
+      mainImage,
+      "images": images[].asset->{
+        "url": url,
+        "blur": metadata.lqip,
+      }
+    }
+  },
 }`)

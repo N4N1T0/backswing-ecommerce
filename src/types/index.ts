@@ -287,8 +287,8 @@ export interface GET_ORDER_BY_ID_Result {
 }
 
 export interface CollectionProps {
-  direction: 'right' | 'left'
-  collection: 'hombre' | 'mujer' | 'niño'
-  isRelated?: boolean
-  description?: string
+  title: string
+  subtitle?: string
+  designIds: string[]
+  direction?: 'right' | 'left'
 }

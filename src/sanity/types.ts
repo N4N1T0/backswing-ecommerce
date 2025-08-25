@@ -962,6 +962,30 @@ export type GET_REVIEWS_BY_PRODUCT_DESIGNResult = Array<{
   comment: string
   _createdAt: string
 }>
+
+export type GET_DESIGNS_BY_IDSResult = Array<{
+  commingSoon: boolean | null
+  id: string
+  slug: string | null
+  title: string | null
+  offer: null
+  price: number | null
+  excerpt: string | null
+  sizes: Array<string> | null
+  averageRating: number | null
+  reviewCount: number | null
+  format: Array<{
+    title: string | null
+    colors: Array<{
+      title: string | null
+      mainImage: string | null
+      images: Array<{
+        url: string | null
+        blur: string | null
+      }>
+    }>
+  }>
+}>
 // Variable: GET_USER_PROFILE_WITH_ORDERSResult
 // Query: *[_type == "costumer" && _id == $customerId][0]{firstName, lastName, _createdAt, "avatar": avatarUrl.asset->{"url": url,"blur": metadata.lqip},billingAddress[0] {address1,address2,city,state,postcode},shippingAddresses[] {address1,address2,city,state,postcode},"orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {"id": _id,purchaseDate,status,paymentMethod,totalAmount,"shippingAddress": shippingAddress[0],discountCoupon->{code,discount,discount_type,"id": _id},products[] {quantity,format,color,product->{"id": _id,title,"slug": slug.current,"featuredMedia": formats[0]->color[0].images[0].asset->{"url": url,"blur": metadata.lqip}}}}}
 export interface GET_USER_PROFILE_WITH_ORDERSResult {
@@ -1084,18 +1108,33 @@ export type GET_DESIGNS_BY_SLUGResult = {
   }>
 }
 
+export type GET_HOME_PAGE_DATAResult = {
+  title: string | null
+  heroSubtitle: string | null
+  heroDescription: string | null
+  collections: Array<{
+    title: string | null
+    subtitle: string | null
+    designs: Array<{
+      _id: string
+    }>
+  }> | null
+}
+
 // Query TypeMap
 import 'next-sanity'
 declare module 'next-sanity' {
   interface SanityQueries {
     '*[_type ==\'costumer\' && email == $email][0]{\n  "id": _id,\n   userName,\n   firstName,\n  lastName,\n  companyName,\n  isGuest,\n  password,\n    email,\n   "avatar": avatarUrl.asset->{\n    "url": url,\n  },\n}': GET_USER_FOR_AUTHResult
-    '*[\n  _type == "product" && productCategories[]->slug.current match $type][0] {\n  "designs": designs[]->{\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": ^.offer,\n    "price": ^.price,\n    "sizes": ^.sizes,\n    "excerpt": ^.excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n  }\n}': GET_PRODUCTS_BY_CATEGORYResult
+    '*[\n  _type == "product" && productCategories[]->slug.current match $type][0] {\n  "designs": designs[]->{\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": sale,\n    price,\n    "sizes": ^.sizes,\n    "excerpt": ^.excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n  }\n}': GET_PRODUCTS_BY_CATEGORYResult
     '*[\n  _type == "productDesigns" && slug.current == $slug\n][0]{\n  "id": _id,\n    content,\n    excerpt,\n    "slug": slug.current,\n    c\n    title,\n    "offer": *[_type == \'product\' && designs[]->slug.current match [$slug]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [$slug]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [$slug]][0].sizes,\n    "category": *[_type == \'product\' && designs[]->slug.current match [$slug]][0].productCategories[]->{\n      name,\n      "slug": slug.current\n    },\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_SLUGResult
     '*[_type ==\'post\' && status == \'publish\']{\n  "id": _id,\n"featuredMedia": {\n  "url": featuredMedia.asset -> url,\n  "blur": featuredMedia.asset -> metadata.lqip\n},\nexcerpt,\nauthor->{\n  name,\n  "avatar": {\n    "url": avatar.asset -> url,\n  "blur": avatar.asset -> metadata.lqip\n  }\n},\n"slug": slug.current,\ncategories[]->{\n  name,\n  "id": _id,\n},\n  title,\n  date\n}': GET_ALL_BLOGResult
     '*[_type==\'post\' && status == \'publish\' && slug.current == $slug][0]{\n   "id": _id,\n  "featuredMedia": {\n    "url": featuredMedia.asset -> url,\n    "blur": featuredMedia.asset -> metadata.lqip\n  },\n  excerpt,\n  author->{\n    name,\n    "avatar": {\n      "url": avatar.asset -> url,\n    "blur": avatar.asset -> metadata.lqip\n    }\n  },\n  "slug": slug.current,\n  categories[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n    title,\n    date,\n    content,\n    tags[]->{\n    name,\n    "id": _id,\n    "slug": slug.current,\n    "count": count(*[_type == \'post\' && status == \'publish\' && references(^._id)])\n  },\n}': GET_BLOG_ARTICLE_BY_SLUGResult
     '*[_type == "costumer" && _id == $customerId][0]{\n  "id": _id\n  firstName,\n  lastName,\n  _createdAt,\n  "avatar": avatarUrl.asset->{\n    "url": url,\n    "blur": metadata.lqip\n  },\n  billingAddress[0] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  shippingAddresses[] {\n    address1,\n    address2,\n    city,\n    state,\n    postcode\n  },\n  "orders": *[_type == "order" && userEmail._ref == ^._id] | order(purchaseDate desc) {\n    "id": _id,\n    purchaseDate,\n    status,\n    paymentMethod,\n    totalAmount,\n    "shippingAddress": shippingAddress[0],\n    discountCoupon->{\n      code,\n      discount,\n      discount_type,\n      "id": _id\n    },\n    products[] {\n      quantity,\n      format,\n      color,\n      product->{\n        "id": _id,\n        title,\n        "slug": slug.current,\n        "featuredMedia": formats[0]->color[0].images[0].asset->{\n          "url": url,\n          "blur": metadata.lqip\n        }\n      }\n    }\n  }\n}': GET_USER_PROFILE_WITH_ORDERSResult
-    '*[\n  _type == "productDesigns" && title match $search] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_SEARCHResult
-    '*[\n  _type == "productDesigns" && isNew == true] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "productCategories":*[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].productCategories[]->{\n      name,\n      "slug": slug.current\n    },\n   "offer": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].offer,\n    "price": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    "excerpt": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_NEWResult
+    '*[\n  _type == "productDesigns" && title match $search] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "offer": sale,\n    price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_SEARCHResult
+    '*[\n  _type == "productDesigns" && isNew == true] {\n    commingSoon,\n    "id": _id,\n    "slug": slug.current,\n    title,\n    "productCategories":*[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].productCategories[]->{\n      name,\n      "slug": slug.current\n    },\n   "offer": sale,\n    price,\n    "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n    "excerpt": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].excerpt,\n    "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n    "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n    "format": formats[]->{\n      title,\n      "colors": color[]{\n        "title": name,\n        mainImage,\n        "images": images[].asset->{\n          "url": url,\n          "blur": metadata.lqip,\n        }\n      }\n    },\n}': GET_DESIGNS_BY_NEWResult
     '*[\n  _type == "review" && productDesign._ref == $productDesignId && isApproved == true\n] | order(createdAt desc) {\n  "id": _id,\n  rating,\n  title,\n  comment,\n  _createdAt\n}': GET_REVIEWS_BY_PRODUCT_DESIGNResult
+    '*[\n  _type == "homePage"\n][0]{\n  "id": _id,\n  title,\n  heroSubtitle,\n  heroDescription,\n  collections[]{\n    title,\n    subtitle,\n    designs[]->{_id}\n  }\n}': GET_HOME_PAGE_DATAResult
+    '*[\n  _type == "productDesigns" && _id in $designIds\n] {\n  commingSoon,\n  "id": _id,\n  "slug": slug.current,\n  title,\n  "offer": sale,\n  price,\n  "sizes": *[_type == \'product\' && designs[]->slug.current match [^.slug.current]][0].sizes,\n  excerpt,\n  "averageRating": math::avg(*[_type == "review" && productDesign._ref == ^._id && isApproved == true].rating),\n  "reviewCount": count(*[_type == "review" && productDesign._ref == ^._id && isApproved == true]),\n  "format": formats[]->{\n    title,\n    "colors": color[]{\n      "title": name,\n      mainImage,\n      "images": images[].asset->{\n        "url": url,\n        "blur": metadata.lqip,\n      }\n    }\n  },\n}': GET_DESIGNS_BY_IDSResult
   }
 }
